@@ -1,0 +1,10 @@
+# Build directories
+.next
+.vscode
+node_modules
+public
+
+# Package managers
+package.json
+package-lock.json
+yarn.lock
