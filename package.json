@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-template",
+  "name": "nextjs-chakraui-template",
   "version": "0.1.0",
-  "description": "NextJS website template",
+  "description": "NextJS + Chakra-UI website template",
   "author": "Paul Wackerow <54227730+wackerow@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
@@ -13,12 +13,17 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.6",
+    "framer-motion": "^8.5.4",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
