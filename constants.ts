@@ -7,41 +7,34 @@ export const SITE_NAME = 'Solidity Programming Language'
 export const SITE_URL = 'https://soliditylang.org/'
 export const TWITTER_HANDLE = '@solidity_lang'
 
+// Page paths
+export const BLOG_URL = 'https://blog.soliditylang.org/'
+export const DOCS_URL = 'https://docs.soliditylang.org/'
+export const FORUM_URL = 'https://forum.soliditylang.org/'
+export const GITHUB_URL = 'https://github.com/ethereum/solidity-portal'
+export const GITTER_URL = 'https://gitter.im/ethereum/solidity'
+export const USE_CASES_PATH = '/use-cases/'
+export const CONTRIBUTE_PATH = '/contribute/'
+export const ABOUT_PATH = '/about/'
+export const TWITTER_URL = `https://twitter.com/${TWITTER_HANDLE.split('@')[1]}`
+export const MASTODON_URL = '#' // TODO: add mastodon link
+export const MATRIX_URL = '#' // TODO: add matrix link
+
 export const NAV_LINKS: NavLink[] = [
   { name: 'Home', href: '/' },
-  { name: 'Blog', href: 'https://blog.soliditylang.org/' },
-  { name: 'Documentation', href: 'https://docs.soliditylang.org/' },
-  { name: 'Use cases', href: '/use-cases/' },
-  { name: 'Contribute', href: '/contribute/' },
-  { name: 'Forum', href: 'https://forum.soliditylang.org/' },
-  { name: 'Chat', href: 'https://gitter.im/ethereum/solidity' },
-  { name: 'About', href: '/about/' },
+  { name: 'Blog', href: BLOG_URL },
+  { name: 'Documentation', href: DOCS_URL },
+  { name: 'Use cases', href: USE_CASES_PATH },
+  { name: 'Contribute', href: CONTRIBUTE_PATH },
+  { name: 'Forum', href: FORUM_URL },
+  { name: 'Chat', href: GITTER_URL },
+  { name: 'About', href: ABOUT_PATH },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    name: 'GitHub',
-    href: 'https://github.com/ethereum/solidity-portal',
-    Icon: FaGithub,
-  },
-  {
-    name: 'Twitter',
-    href: `https://twitter.com/${TWITTER_HANDLE.split('@').at(-1)}`,
-    Icon: FaTwitter,
-  },
-  {
-    name: 'Mastodon',
-    href: '#', // TODO: add mastodon link
-    Icon: FaMastodon,
-  },
-  {
-    name: 'Matrix',
-    href: '#', // TODO: add matrix link
-    Icon: SiMatrix,
-  },
-  {
-    name: 'Gitter',
-    href: 'https://gitter.im/ethereum/solidity',
-    Icon: FaGitter,
-  },
+  { name: 'GitHub', href: GITHUB_URL, Icon: FaGithub },
+  { name: 'Twitter', href: TWITTER_URL, Icon: FaTwitter },
+  { name: 'Mastodon', href: MASTODON_URL, Icon: FaMastodon },
+  { name: 'Matrix', href: MATRIX_URL, Icon: SiMatrix },
+  { name: 'Gitter', href: GITTER_URL, Icon: FaGitter },
 ]

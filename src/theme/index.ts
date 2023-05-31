@@ -17,6 +17,7 @@ const overrides = {
     mono: "'Overpass Mono', monospace",
   },
   fontSizes: {
+    '3xl': '2rem',
     '4xl': '2.75rem',
     '5xl': '3.25rem',
     '6xl': '4rem',
@@ -64,7 +65,7 @@ const overrides = {
   },
   semanticTokens: {
     colors: {
-      primary: 'gray.600',
+      primary: 'gray.700',
       fg: 'black',
       bg: 'white',
     },

@@ -13,7 +13,7 @@ export const Footer: React.FC = () => (
     gap={12}
     color="white"
   >
-    <Text fontFamily="mono" fontSize="2xl">
+    <Text fontFamily="mono" fontSize="2xl" mb={-6}>
       Get involved
     </Text>
     <Flex gap={8}>
