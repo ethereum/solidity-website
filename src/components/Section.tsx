@@ -10,5 +10,6 @@ export const Section: React.FC<FlexProps> = ({ ...props }) => (
         mx: 'auto',
       },
     }}
-    {...props} />
+    {...props}
+  />
 )
