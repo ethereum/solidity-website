@@ -10,3 +10,10 @@ export interface SocialLink {
   href: string
   Icon: IconType
 }
+
+export interface UseCase {
+  imageSrc: string
+  title: string
+  description: string | React.ReactNode
+  href?: string
+}

@@ -9,7 +9,13 @@ export const Header: React.FC = () => (
     </Link>
     <Flex as="nav">
       {NAV_LINKS.map(({ name, href }) => (
-        <Link key={name} href={href} mx={2}>
+        <Link
+          key={name}
+          href={href}
+          mx={2}
+          fontFamily="mono"
+          letterSpacing="-0.02em"
+        >
           {name}
         </Link>
       ))}
