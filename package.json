@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-chakraui-template",
+  "name": "solidity-programming-language",
   "version": "0.1.0",
-  "description": "NextJS + Chakra-UI website template",
+  "description": "Solidity Programming Language: a statically-typed curly-braces programming language designed for developing smart contracts that run on Ethereum.",
   "author": "Paul Wackerow <54227730+wackerow@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
