@@ -4,6 +4,7 @@ import { NAV_LINKS, SOCIAL_LINKS } from '../../constants'
 
 export const Footer: React.FC = () => (
   <Flex
+    as="footer"
     direction="column"
     alignItems="center"
     bg="gray.800"

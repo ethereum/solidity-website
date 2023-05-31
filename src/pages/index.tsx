@@ -1,4 +1,4 @@
-import { Text }  from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import { Hero, Link, PageMetadata, Section } from '@/components'
 import { DOCS_URL } from '../../constants'
 
@@ -12,13 +12,14 @@ export default function Home() {
       <main>
         <Hero
           header="Solidity"
-          description={(
+          description={
             <Text>
-              A statically-typed curly-braces programming language designed for developing smart contracts that run on{' '}
+              A statically-typed curly-braces programming language designed for
+              developing smart contracts that run on{' '}
               <Link href="https://ethereum.org">Ethereum</Link>.
             </Text>
-          )}
-          cta={[ {  name: 'Get to the docs', href: DOCS_URL } ]}
+          }
+          cta={[{ name: 'Get to the docs', href: DOCS_URL }]}
         />
         <Section>Main section</Section>
       </main>

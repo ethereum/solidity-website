@@ -8,7 +8,12 @@ interface HeroProps extends FlexProps {
   description: string | React.ReactNode
   cta?: NavLink[]
 }
-export const Hero: React.FC<HeroProps> = ({header, description, cta, ...props}) => (
+export const Hero: React.FC<HeroProps> = ({
+  header,
+  description,
+  cta,
+  ...props
+}) => (
   <Section
     px={[8, 12, 16, 20]}
     pt={[16, 20, 24, 28]}
@@ -22,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({header, description, cta, ...props}) 
       textStyle="h1"
       position="relative"
       textTransform="lowercase"
-      w='fit-content'
+      w="fit-content"
       _after={{
         content: '""',
         position: 'absolute',
@@ -33,13 +38,9 @@ export const Hero: React.FC<HeroProps> = ({header, description, cta, ...props}) 
         bg: 'fg',
       }}
     >
-      {`{${header}}`}
+      {`{${header.replaceAll(' ', '_')}}`}
     </Text>
-    <Text
-      color="bg"
-      fontSize="2xl"
-      maxW="container.md"
-    >
+    <Text color="bg" fontSize="2xl" maxW="container.md">
       {description}
     </Text>
     {cta?.length && (

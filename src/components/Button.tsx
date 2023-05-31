@@ -1,6 +1,5 @@
 import { Button as ChakraButton } from '@chakra-ui/react'
 import type { ButtonProps } from '@chakra-ui/react'
-import NextLink from 'next/link'
 
 export const Button: React.FC<ButtonProps> = ({ ...props }) => (
   <ChakraButton
@@ -10,7 +9,7 @@ export const Button: React.FC<ButtonProps> = ({ ...props }) => (
     px={7}
     py={3}
     _hover={{
-      bg: 'gray.700',
+      bg: 'gray.800',
     }}
     {...props}
   />
