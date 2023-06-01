@@ -185,9 +185,9 @@ export default function Home() {
               height="auto"
               src="https://www.youtube.com/embed/6m5EDuCjxgk?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk"
               title="Solidity Summit 2022 - 01 Opening &amp; Welcome - Franziska Heintel"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             />
           </Flex>
           <Text textStyle="h4">Past events</Text>
