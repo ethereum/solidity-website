@@ -52,7 +52,7 @@ export default function UseCases() {
           <Grid
             templateColumns={['1fr', null, 'repeat(2, 1fr)']}
             gap={24}
-            p={20}
+            py={20}
           >
             {useCases.map((useCase) => (
               <UseCaseCard useCase={useCase} key={useCase.title} />

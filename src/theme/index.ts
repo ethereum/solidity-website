@@ -5,6 +5,8 @@ const overrides = {
   config,
   colors: {
     gray: {
+      100: '#f2f2f2',
+      200: '#EBEBEB',
       500: '#777777',
       700: '#464646',
       800: '#383838',
@@ -23,7 +25,11 @@ const overrides = {
     '6xl': '4rem',
   },
   shadows: {},
-  sizes: {},
+  sizes: {
+    container: {
+      xs: '480px',
+    },
+  },
   styles: {
     global: () => ({
       '*': {
@@ -54,6 +60,12 @@ const overrides = {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: '4xl',
+      color: 'fg',
+    },
+    h4: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      fontSize: 'lg',
       color: 'fg',
     },
     body: {

@@ -11,8 +11,10 @@ export const Link: React.FC<LinkComponentProps> = ({
   ...props
 }) => {
   if (!href) throw new Error('Link component requires href prop')
-  const isExternal =
-    href?.startsWith('http') && !href?.includes('soliditylang.org')
+  const linkStyes = {
+    textDecoration: 'underline',
+  }
+  const isExternal = href?.startsWith('http')
   if (isExternal)
     return (
       <ChakraLink
@@ -27,12 +29,13 @@ export const Link: React.FC<LinkComponentProps> = ({
                 whiteSpace: 'nowrap',
               }
         }
+        {...linkStyes}
         {...props}
       />
     )
   return (
     <NextLink href={href} passHref legacyBehavior>
-      <ChakraLink {...props} />
+      <ChakraLink {...linkStyes} {...props} />
     </NextLink>
   )
 }

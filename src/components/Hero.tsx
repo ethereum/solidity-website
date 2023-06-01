@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
-import { Button, Link, Section } from '@/components'
+import { ButtonLink, Section } from '@/components'
 import type { NavLink } from '../../types'
 
 interface HeroProps extends FlexProps {
@@ -15,7 +15,6 @@ export const Hero: React.FC<HeroProps> = ({
   ...props
 }) => (
   <Section
-    px={[8, 12, 16, 20]}
     pt={[16, 20, 24, 28]}
     pb={[10, null, null, 12]}
     gap={8}
@@ -46,9 +45,9 @@ export const Hero: React.FC<HeroProps> = ({
     {cta?.length && (
       <Flex direction={['column', null, null, 'row']} gap={5} justify="start">
         {cta.map(({ name, href }) => (
-          <Link href={href} key={name}>
-            <Button>{name}</Button>
-          </Link>
+          <ButtonLink href={href} key={name}>
+            {name}
+          </ButtonLink>
         ))}
       </Flex>
     )}

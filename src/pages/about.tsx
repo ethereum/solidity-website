@@ -26,7 +26,6 @@ export default function About() {
             maxW="container.md"
             pt={28}
             pb={64}
-            px={20}
             fontSize="md"
           >
             <Text>
