@@ -1,6 +1,6 @@
 import { Box, Divider, Flex, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
-import { NAV_LINKS, SOCIAL_LINKS } from '../../constants'
+import { NAV_LINKS, SOCIAL_LINKS } from '@/constants'
 
 export const Footer: React.FC = () => (
   <Flex

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Grid, Spinner, Text } from '@chakra-ui/react'
 import { BlogCard } from '@/components'
-import type { BlogPost } from '../../types'
+import type { BlogPost } from '@/types'
 
 export const BlogPreview: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true)

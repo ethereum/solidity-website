@@ -1,7 +1,7 @@
 import { Grid } from '@chakra-ui/react'
 import { Hero, UseCaseCard, PageMetadata, Section } from '@/components'
-import { DOCS_URL } from '../../constants'
-import type { UseCase } from '../../types'
+import { DOCS_URL } from '@/constants'
+import type { UseCase } from '@/types'
 
 const useCases: UseCase[] = [
   {

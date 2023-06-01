@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { ButtonLink, Section } from '@/components'
-import type { NavLink } from '../../types'
+import type { NavLink } from '@/types'
 
 interface HeroProps extends FlexProps {
   header: string

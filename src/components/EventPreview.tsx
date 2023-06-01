@@ -1,5 +1,5 @@
 import { Grid } from '@chakra-ui/react'
-import type { Event } from '../../types'
+import type { Event } from '@/types'
 import { EventCard } from '@/components'
 
 const events: Event[] = [

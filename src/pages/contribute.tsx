@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react'
 import { Hero, PageMetadata, Section } from '@/components'
-import { DOCS_URL } from '../../constants'
+import { DOCS_URL } from '@/constants'
 
 export default function Contribute() {
   return (

@@ -8,7 +8,7 @@ import {
   PageMetadata,
   Section,
 } from '@/components'
-import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '../../constants'
+import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
 
 const VERSION = 'v0.8.20' // TODO: Fetch latest version from GitHub
 

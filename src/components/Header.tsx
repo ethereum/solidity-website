@@ -1,6 +1,6 @@
 import { Flex, Image } from '@chakra-ui/react'
 import { Link } from '@/components'
-import { NAV_LINKS } from '../../constants'
+import { NAV_LINKS } from '@/constants'
 
 export const Header: React.FC = () => (
   <Flex as="header" px={8} py={4} alignItems="center" justify="space-between">
