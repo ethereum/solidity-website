@@ -21,7 +21,6 @@ export const MASTODON_URL = '#' // TODO: add mastodon link
 export const MATRIX_URL = '#' // TODO: add matrix link
 
 export const NAV_LINKS: NavLink[] = [
-  { name: 'Home', href: '/' },
   { name: 'Blog', href: BLOG_URL },
   { name: 'Documentation', href: DOCS_URL },
   { name: 'Use cases', href: USE_CASES_PATH },

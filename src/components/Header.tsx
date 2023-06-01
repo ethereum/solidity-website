@@ -1,5 +1,5 @@
 import { Flex, Image } from '@chakra-ui/react'
-import { Link } from '@/components'
+import { Link, MobileMenu } from '@/components'
 import { NAV_LINKS } from '@/constants'
 
 export const Header: React.FC = () => (
@@ -20,5 +20,6 @@ export const Header: React.FC = () => (
         </Link>
       ))}
     </Flex>
+    <MobileMenu display={['block', null, 'none']} />
   </Flex>
 )
