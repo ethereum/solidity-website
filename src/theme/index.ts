@@ -5,11 +5,12 @@ const overrides = {
   config,
   colors: {
     gray: {
-      100: '#f2f2f2',
+      100: '#F2F2F2',
       200: '#EBEBEB',
       500: '#777777',
       700: '#464646',
       800: '#383838',
+      900: '#2D2D2D',
     },
   },
   components: {},
@@ -55,18 +56,28 @@ const overrides = {
       fontWeight: 'bold',
       fontSize: '6xl',
       color: 'fg',
+      lineHeight: '1.4',
     },
     h2: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: '4xl',
       color: 'fg',
+      lineHeight: '1.27',
+    },
+    h3: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      fontSize: '2xl',
+      color: 'fg',
+      lineHeight: '1.2',
     },
     h4: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: 'lg',
       color: 'fg',
+      lineHeight: '1.1',
     },
     body: {
       fontFamily: 'body',

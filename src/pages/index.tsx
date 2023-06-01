@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import {
   BlogPreview,
   ButtonLink,
@@ -7,7 +7,7 @@ import {
   PageMetadata,
   Section,
 } from '@/components'
-import { DOCS_URL } from '../../constants'
+import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '../../constants'
 
 const VERSION = 'v0.8.20'
 
@@ -71,6 +71,7 @@ export default function Home() {
                 blockchain, smart contracts and the Ethereum Virtual Machine
                 (EVM) in the Solidity docs.
               </Text>
+              <ButtonLink href={DOCS_URL}>Get started</ButtonLink>
             </Flex>
             <Grid
               flex={1}
@@ -104,7 +105,41 @@ export default function Home() {
             participating in the language design.
           </Text>
           <Text />
+          <Text textStyle="h4" textTransform="lowercase">
+            Latest from the blog
+          </Text>
           <BlogPreview />
+          <ButtonLink href={BLOG_URL}>View all blog posts</ButtonLink>
+        </Section>
+        <Section bg="gray.100" py={[24, null, null, 32]} /* gap={6} */>
+          <Flex direction={['column', null, null, 'row']} gap={12}>
+            <Flex direction="column" gap={8} maxW="container.xs">
+              <Text as="h2" textStyle="h2">
+                Contribute to Solidity
+              </Text>
+              <Text>
+                Contribute towards enhancing Solidity by sharing your opinion in the language design discussions!
+              </Text>
+              <Text>
+                We welcome Solidity power users, auditors, security experts and tooling developers to get involved and actively contribute to the Solidity language design process.
+              </Text>
+              <ButtonLink href={CONTRIBUTE_PATH}>How to contribute</ButtonLink>
+            </Flex>
+            <Grid
+              flex={1}
+              placeItems="center"
+              borderRadius="base"
+              bg="gray.900"
+            >
+              <Image
+                src="/assets/use-case-glyph-1.svg"
+                alt="Solidity art"
+                width={200}
+                height={100}
+                objectFit="contain"
+              />
+            </Grid>
+          </Flex>
         </Section>
       </main>
     </>

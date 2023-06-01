@@ -36,21 +36,16 @@ export const BlogPreview: React.FC = () => {
     })()
   }, [])
   return (
-    <>
-      <Text textStyle="h4" textTransform="lowercase">
-        Latest from the blog
-      </Text>
-      <Grid templateColumns="repeat(3, 1fr)" gap={4}>
-        {loading ? (
-          <Spinner />
-        ) : !blogPosts ? (
-          <Text>Oops, had a hard time getting our latest posts!</Text>
-        ) : (
-          blogPosts.map((blogPost: BlogPost) => (
-            <BlogCard blogPost={blogPost} key={blogPost.href} />
-          ))
-        )}
-      </Grid>
-    </>
+    <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+      {loading ? (
+        <Spinner />
+      ) : !blogPosts ? (
+        <Text>Oops, had a hard time getting our latest posts!</Text>
+      ) : (
+        blogPosts.map((blogPost: BlogPost) => (
+          <BlogCard blogPost={blogPost} key={blogPost.href} />
+        ))
+      )}
+    </Grid>
   )
 }
