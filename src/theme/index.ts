@@ -44,6 +44,7 @@ const overrides = {
       },
       body: {
         transition: 'background 200ms linear !important',
+        bg: 'bg',
       },
     }),
   },
