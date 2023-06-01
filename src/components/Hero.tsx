@@ -35,6 +35,13 @@ export const Hero: React.FC<HeroProps> = ({
         width: 16,
         height: 2,
         bg: 'fg',
+        sx: {
+          '@keyframes blink-cursor': {
+            "from, to": { opacity: 0},
+            '50%': { opacity: 1 },
+          },
+        },
+        animation: 'blink-cursor 1.5s step-end infinite',
       }}
     >
       {`{${header.replaceAll(' ', '_')}}`}
