@@ -12,7 +12,7 @@ export default function About() {
       <main>
         <Hero
           header="About"
-          description="The Solidity language evolved rapidly, we’re still out here, still learning, still trying to push Solidity to the next, better stages."
+          description="The Solidity language evolved rapidly, we&apos;re still out here, still learning, still trying to push Solidity to the next, better stages."
           cta={[
             { name: 'Get started', href: DOCS_URL },
             { name: 'Contribute', href: CONTRIBUTE_PATH },
@@ -75,7 +75,7 @@ export default function About() {
             <Text>
               Solidity was publicly previewed for the first time in November
               2014 at Devcon0. Solidity v0.1.0 turned 5 years old on July 8th
-              2020. You can read more about Solidity's history here.
+              2020. You can read more about Solidity&apos;s history here.
             </Text>
             <Text>
               The Solidity programming language is an open-source, community
