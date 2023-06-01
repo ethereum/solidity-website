@@ -45,9 +45,12 @@ export default function UseCases() {
       <main>
         <Hero
           header="Use cases"
-          description="The flexibility, security features, and integration with the Ethereum blockchain make it a powerful tool for developing decentralized applications across various industries."
           cta={[{ name: 'Get to the docs', href: DOCS_URL }]}
-        />
+        >
+          The flexibility, security features, and integration with the Ethereum
+          blockchain make it a powerful tool for developing decentralized
+          applications across various industries.
+        </Hero>
         <Section>
           <Grid
             templateColumns={['1fr', null, 'repeat(2, 1fr)']}

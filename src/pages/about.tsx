@@ -12,12 +12,15 @@ export default function About() {
       <main>
         <Hero
           header="About"
-          description="The Solidity language evolved rapidly, we're still out here, still learning, still trying to push Solidity to the next, better stages."
           cta={[
             { name: 'Get started', href: DOCS_URL },
             { name: 'Contribute', href: CONTRIBUTE_PATH },
           ]}
-        />
+        >
+          The Solidity language evolved rapidly, we&apos;re still out here,
+          still learning, still trying to push Solidity to the next, better
+          stages.
+        </Hero>
         <Section>
           <Flex
             as="article"

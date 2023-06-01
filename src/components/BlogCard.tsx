@@ -14,9 +14,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...props }) => {
     year: 'numeric',
   })
   return (
-    <Flex
-      direction="column"
-      py={8}
     <Flex direction="column" px={6} py={8} gap={8} bg="gray.200" {...props}>
       <Text fontSize="xl">{title}</Text>
       <Text>

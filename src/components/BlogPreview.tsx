@@ -3,6 +3,7 @@ import { Grid, Spinner, Text } from '@chakra-ui/react'
 import { BlogCard } from '@/components'
 import type { BlogPost } from '@/types'
 
+const MAX_POSTS_TO_SHOW = 3
 export const BlogPreview: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
@@ -18,7 +19,8 @@ export const BlogPreview: React.FC = () => {
         const data = new window.DOMParser().parseFromString(feed, 'text/xml')
         const items = data.querySelectorAll('item')
         const posts: BlogPost[] = []
-        items.forEach((e) => {
+        items.forEach((e, i) => {
+          if (i >= MAX_POSTS_TO_SHOW) return
           const title = e.querySelector('title')?.innerHTML as string
           const content = e.querySelector('description')?.innerHTML as string
           const date = e.querySelector('pubDate')?.innerHTML as string
@@ -26,7 +28,7 @@ export const BlogPreview: React.FC = () => {
           if (!title || !content || !date || !href) return
           posts.push({ title, content, date, href })
         })
-        setBlogPosts(posts.splice(0, 3))
+        setBlogPosts(posts)
       } catch (error) {
         console.warn(error)
         setBlogPosts([])
@@ -36,7 +38,7 @@ export const BlogPreview: React.FC = () => {
     })()
   }, [])
   return (
-    <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+    <Grid templateColumns={['1fr', null, 'repeat(3, 1fr)']} gap={4}>
       {loading ? (
         <Spinner />
       ) : !blogPosts ? (

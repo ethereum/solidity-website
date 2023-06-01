@@ -2,6 +2,7 @@ import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import {
   BlogPreview,
   ButtonLink,
+  // CompilerPlayground,
   EventPreview,
   Hero,
   Link,
@@ -22,24 +23,25 @@ export default function Home() {
       <main>
         <Hero
           header="Solidity"
-          description={
-            <Text>
-              A statically-typed curly-braces programming language designed for
-              developing smart contracts that run on{' '}
-              <Link href="https://ethereum.org">Ethereum</Link>.
-            </Text>
-          }
           cta={[{ name: 'Get to the docs', href: DOCS_URL }]}
-        />
+        >
+          A statically-typed curly-braces programming language designed for
+          developing smart contracts that run on{' '}
+          <Link href="https://ethereum.org">Ethereum</Link>.
+        </Hero>
         <Section py={8}>
-          <Flex as="aside" gap={16}>
+          <Flex
+            as="aside"
+            direction={['column', null, 'row']}
+            gap={[8, null, 16]}
+          >
             <Box fontSize="3xl" maxW="8ch">
               <Text fontWeight="bold" fontSize="md" fontFamily="body">
                 latest version
               </Text>
               <Text fontFamily="mono">Solidity {VERSION}</Text>
             </Box>
-            <Flex direction="column" justify="space-between">
+            <Flex direction="column" justify="space-between" gap={6}>
               <Box>
                 <Text maxW="container.sm">
                   Solidity 0.8.20 includes a range of improvements in the via-IR
@@ -58,7 +60,7 @@ export default function Home() {
 
         <Section bg="gray.100" py={16}>
           <Flex direction={['column', null, null, 'row']} gap={12}>
-            <Flex direction="column" gap={8} maxW="container.xs">
+            <Flex direction="column" gap={8} maxW="container.sm">
               <Text as="h2" textStyle="h2">
                 New to Solidity
               </Text>
@@ -77,15 +79,7 @@ export default function Home() {
               </Text>
               <ButtonLink href={DOCS_URL}>Get started</ButtonLink>
             </Flex>
-            <Grid
-              flex={1}
-              placeItems="center"
-              borderRadius="base"
-              bg="bg"
-              color="fg"
-            >
-              [Interactive compiler]
-            </Grid>
+            {/* <CompilerPlayground /> */}
           </Flex>
         </Section>
 
@@ -154,7 +148,7 @@ export default function Home() {
             Events
           </Text>
           <Flex direction={['column', null, null, 'row']} gap={8}>
-            <Box maxW="container.sm" sx={{ p: { mb: 2 } }}>
+            <Box maxW="container.sm" sx={{ p: { mb: 2 } }} flex={3}>
               <Text>
                 The Solidity Summit is a free interactive forum for people
                 involved and interested in the Solidity language and the
@@ -180,15 +174,16 @@ export default function Home() {
                 Identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </Box>
-            <iframe
-              width="480"
-              height="auto"
-              src="https://www.youtube.com/embed/6m5EDuCjxgk?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk"
-              title="Solidity Summit 2022 - 01 Opening &amp; Welcome - Franziska Heintel"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+            <Box flex={2} sx={{ 'aspect-ratio': '16/9' }}>
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/6m5EDuCjxgk?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk"
+                title="Solidity Summit 2022 - 01 Opening &amp; Welcome - Franziska Heintel"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </Box>
           </Flex>
           <Text textStyle="h4">Past events</Text>
           <EventPreview />

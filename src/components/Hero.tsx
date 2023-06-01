@@ -5,12 +5,11 @@ import type { NavLink } from '@/types'
 
 interface HeroProps extends FlexProps {
   header: string
-  description: string | React.ReactNode
   cta?: NavLink[]
 }
 export const Hero: React.FC<HeroProps> = ({
   header,
-  description,
+  children,
   cta,
   ...props
 }) => (
@@ -31,13 +30,13 @@ export const Hero: React.FC<HeroProps> = ({
         content: '""',
         position: 'absolute',
         left: '100%',
-        bottom: 3,
-        width: 16,
-        height: 2,
+        bottom: 0,
+        width: 'min(4rem, 6vw)',
+        height: 'min(4px, 2vw)',
         bg: 'fg',
         sx: {
           '@keyframes blink-cursor': {
-            "from, to": { opacity: 0},
+            'from, to': { opacity: 0 },
             '50%': { opacity: 1 },
           },
         },
@@ -46,13 +45,13 @@ export const Hero: React.FC<HeroProps> = ({
     >
       {`{${header.replaceAll(' ', '_')}}`}
     </Text>
-    <Text color="bg" fontSize="2xl" maxW="container.md">
-      {description}
+    <Text maxW="container.md" fontSize={['xl', null, '2xl']} color="bg">
+      {children}
     </Text>
     {cta?.length && (
-      <Flex direction={['column', null, null, 'row']} gap={5} justify="start">
+      <Flex direction={['column', 'row']} gap={5} justify="start">
         {cta.map(({ name, href }) => (
-          <ButtonLink href={href} key={name}>
+          <ButtonLink href={href} key={name} w={['100%', 'fit-content']}>
             {name}
           </ButtonLink>
         ))}

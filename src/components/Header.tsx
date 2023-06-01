@@ -7,7 +7,7 @@ export const Header: React.FC = () => (
     <Link href="/" aria-label="Go home">
       <Image src="/assets/solidity-logo.svg" alt="Solidity logo" h="50px" />
     </Link>
-    <Flex as="nav">
+    <Flex as="nav" display={['none', null, 'block']}>
       {NAV_LINKS.map(({ name, href }) => (
         <Link
           key={name}

@@ -44,7 +44,7 @@ const events: Event[] = [
 ]
 
 export const EventPreview: React.FC = () => (
-  <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+  <Grid templateColumns={['1fr', null, 'repeat(2, 1fr)']} gap={4}>
     {events.map((event: Event) => (
       <EventCard event={event} key={event.title} />
     ))}

@@ -17,7 +17,7 @@ export const Footer: React.FC = () => (
     <Text fontFamily="mono" fontSize="2xl" mb={-6}>
       Get involved
     </Text>
-    <Flex gap={8}>
+    <Flex gap={8} flexWrap="wrap" justify="center">
       {SOCIAL_LINKS.map(({ name, href, Icon }) => (
         <Link href={href} key={name} hideArrow>
           <Flex direction="column" alignItems="center" gap={2}>
@@ -30,9 +30,9 @@ export const Footer: React.FC = () => (
       ))}
     </Flex>
     <Divider />
-    <Flex>
+    <Flex gap={4} flexWrap="wrap" justify="center">
       {NAV_LINKS.map(({ name, href }) => (
-        <Link key={name} href={href} mx={2}>
+        <Link key={name} href={href}>
           {name}
         </Link>
       ))}

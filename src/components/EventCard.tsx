@@ -28,10 +28,10 @@ export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
             {typeof content === 'string' ? <Text>{content}</Text> : content}
           </Flex>
         )}
-        <Flex direction={['column', null, 'row']} gap={6} mt={4}>
+        <Flex direction={['column', null, null, 'row']} gap={4} mt={6}>
           {links &&
             links.map(({ href, label }) => (
-              <ButtonLink href={href} key={href} w="fit-content">
+              <ButtonLink href={href} key={href} fullWidthBelowBreakpoint="lg">
                 {label}
               </ButtonLink>
             ))}

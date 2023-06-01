@@ -12,9 +12,12 @@ export default function Contribute() {
       <main>
         <Hero
           header="Contribute"
-          description="The Solidity community is vibrant and continuously evolving. Many talented developers contribute to the language's growth, improvements, and wider adoption."
           cta={[{ name: 'Get started', href: DOCS_URL }]}
-        />
+        >
+          The Solidity community is vibrant and continuously evolving. Many
+          talented developers contribute to the language&apos;s growth,
+          improvements, and wider adoption.
+        </Hero>
         <Section>
           <Flex
             as="article"
