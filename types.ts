@@ -17,3 +17,11 @@ export interface UseCase {
   description: string | React.ReactNode
   href?: string
 }
+
+export interface BlogPost {
+  title: string
+  author?: string
+  date: string
+  content: string | React.ReactNode
+  href: string
+}
