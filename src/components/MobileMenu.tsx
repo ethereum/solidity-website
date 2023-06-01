@@ -26,13 +26,14 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
           variant="ghost"
           size="lg"
           onClick={onOpen}
+          color="fg"
         />
       </Flex>
 
       <Drawer isOpen={isOpen} placement="start" size="xs" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
+          <DrawerCloseButton color="fg" />
           <DrawerBody bg="gray.200" color="gray.900" textAlign="center">
             <Flex direction="column" mt={16} gap={6}>
               <Link href="/" aria-label="Solidity home" mx="auto" onClick={onClose}>
