@@ -2,6 +2,7 @@ import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import {
   BlogPreview,
   ButtonLink,
+  EventPreview,
   Hero,
   Link,
   PageMetadata,
@@ -9,7 +10,7 @@ import {
 } from '@/components'
 import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '../../constants'
 
-const VERSION = 'v0.8.20'
+const VERSION = 'v0.8.20' // TODO: Fetch latest version from GitHub
 
 export default function Home() {
   return (
@@ -52,6 +53,7 @@ export default function Home() {
             </Flex>
           </Flex>
         </Section>
+
         <Section bg="gray.100" py={16}>
           <Flex direction={['column', null, null, 'row']} gap={12}>
             <Flex direction="column" gap={8} maxW="container.xs">
@@ -84,6 +86,7 @@ export default function Home() {
             </Grid>
           </Flex>
         </Section>
+
         <Section py={16} gap={6}>
           <Text as="h2" textStyle="h2">
             Stay Updated
@@ -105,12 +108,13 @@ export default function Home() {
             participating in the language design.
           </Text>
           <Text />
-          <Text textStyle="h4" textTransform="lowercase">
+          <Text textStyle="h4">
             Latest from the blog
           </Text>
           <BlogPreview />
           <ButtonLink href={BLOG_URL}>View all blog posts</ButtonLink>
         </Section>
+
         <Section bg="gray.100" py={[24, null, null, 32]} /* gap={6} */>
           <Flex direction={['column', null, null, 'row']} gap={12}>
             <Flex direction="column" gap={8} maxW="container.xs">
@@ -118,10 +122,13 @@ export default function Home() {
                 Contribute to Solidity
               </Text>
               <Text>
-                Contribute towards enhancing Solidity by sharing your opinion in the language design discussions!
+                Contribute towards enhancing Solidity by sharing your opinion in
+                the language design discussions!
               </Text>
               <Text>
-                We welcome Solidity power users, auditors, security experts and tooling developers to get involved and actively contribute to the Solidity language design process.
+                We welcome Solidity power users, auditors, security experts and
+                tooling developers to get involved and actively contribute to
+                the Solidity language design process.
               </Text>
               <ButtonLink href={CONTRIBUTE_PATH}>How to contribute</ButtonLink>
             </Flex>
@@ -140,6 +147,53 @@ export default function Home() {
               />
             </Grid>
           </Flex>
+        </Section>
+
+        <Section py={16} gap={6}>
+          <Text as="h2" textStyle="h2">
+            Events
+          </Text>
+          <Flex direction={['column', null, null, 'row']} gap={8}>
+            <Box maxW="container.sm" sx={{ p: { mb: 2 } }}>
+              <Text>
+                The Solidity Summit is a free interactive forum for people
+                involved and interested in the Solidity language and the
+                ecosystem around it.
+              </Text>
+              <Text>
+                After a first virtual Solidity Summit in 2020, we met in person
+                for the second Solidity Summit in 2022 in Amsterdam.
+              </Text>
+              <Text>
+                Solidity Summits usually feature talks & discussions on
+                Solidity, Yul, language design and tooling. The event series
+                aims to...
+              </Text>
+              <Text>
+                Enable useful (language-design related) discussions which result
+                in improvement proposals and actual implementations.
+              </Text>
+              <Text>
+                Foster communication between teams working on similar topics.
+              </Text>
+              <Text>
+                Identify needs for the smart contract ecosystem for Ethereum.
+              </Text>
+            </Box>
+            <iframe
+              width="480"
+              height="auto"
+              src="https://www.youtube.com/embed/6m5EDuCjxgk?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk"
+              title="Solidity Summit 2022 - 01 Opening &amp; Welcome - Franziska Heintel"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            />
+          </Flex>
+          <Text textStyle="h4">
+            Past events
+          </Text>
+          <EventPreview />
         </Section>
       </main>
     </>

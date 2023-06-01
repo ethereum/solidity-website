@@ -25,3 +25,17 @@ export interface BlogPost {
   content: string | React.ReactNode
   href: string
 }
+
+export interface EventLink {
+  label: string
+  href: string
+}
+
+export interface Event {
+  title: string
+  location: string
+  date: string
+  imageSrc?: string
+  content?: string | React.ReactNode
+  links: EventLink[]
+}

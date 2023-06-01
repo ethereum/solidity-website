@@ -7,6 +7,7 @@ const overrides = {
     gray: {
       100: '#F2F2F2',
       200: '#EBEBEB',
+      400: '#848484',
       500: '#777777',
       700: '#464646',
       800: '#383838',
@@ -20,6 +21,7 @@ const overrides = {
     mono: "'Overpass Mono', monospace",
   },
   fontSizes: {
+    '2xl': '1.75rem',
     '3xl': '2rem',
     '4xl': '2.75rem',
     '5xl': '3.25rem',
