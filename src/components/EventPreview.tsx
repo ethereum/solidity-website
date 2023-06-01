@@ -19,7 +19,7 @@ const events: Event[] = [
       {
         label: 'Talks',
         href: 'https://www.youtube.com/watch?v=lhjo2FuU4v0&list=PLaM7G4Llrb7xlGxwlYGTy1T-GHpytE3RC',
-      }
+      },
     ],
   },
   {
@@ -38,13 +38,15 @@ const events: Event[] = [
       {
         label: 'Talks',
         href: 'https://www.youtube.com/watch?v=6m5EDuCjxgk&list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk',
-      }
+      },
     ],
   },
 ]
 
 export const EventPreview: React.FC = () => (
   <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-    {events.map((event: Event) => <EventCard event={event} key={event.title} />)}
+    {events.map((event: Event) => (
+      <EventCard event={event} key={event.title} />
+    ))}
   </Grid>
 )

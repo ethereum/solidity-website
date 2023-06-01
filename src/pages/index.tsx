@@ -49,7 +49,9 @@ export default function Home() {
                 </Text>
                 <Text>We have also included 3 bugfixes in this release!</Text>
               </Box>
-              <ButtonLink href="#">Release announcement</ButtonLink>
+              <ButtonLink href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/">
+                Release announcement
+              </ButtonLink>
             </Flex>
           </Flex>
         </Section>
@@ -108,9 +110,7 @@ export default function Home() {
             participating in the language design.
           </Text>
           <Text />
-          <Text textStyle="h4">
-            Latest from the blog
-          </Text>
+          <Text textStyle="h4">Latest from the blog</Text>
           <BlogPreview />
           <ButtonLink href={BLOG_URL}>View all blog posts</ButtonLink>
         </Section>
@@ -190,9 +190,7 @@ export default function Home() {
               allowfullscreen
             />
           </Flex>
-          <Text textStyle="h4">
-            Past events
-          </Text>
+          <Text textStyle="h4">Past events</Text>
           <EventPreview />
         </Section>
       </main>
