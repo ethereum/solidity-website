@@ -2,7 +2,7 @@ import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import {
   BlogPreview,
   ButtonLink,
-  // CompilerPlayground,
+  CompilerPlayground,
   EventPreview,
   Hero,
   Link,
@@ -59,8 +59,8 @@ export default function Home() {
         </Section>
 
         <Section bg="gray.100" py={16}>
-          <Flex direction={['column', null, null, 'row']} gap={12}>
-            <Flex direction="column" gap={8} maxW="container.sm">
+          <Flex direction={['column', null, null, null, 'row']} gap={12}>
+            <Flex direction="column" gap={8} maxW="container.sm" flex={1}>
               <Text as="h2" textStyle="h2">
                 New to Solidity
               </Text>
@@ -79,7 +79,8 @@ export default function Home() {
               </Text>
               <ButtonLink href={DOCS_URL}>Get started</ButtonLink>
             </Flex>
-            {/* <CompilerPlayground /> */}
+
+            <CompilerPlayground flex={2} />
           </Flex>
         </Section>
 
@@ -131,6 +132,7 @@ export default function Home() {
               placeItems="center"
               borderRadius="base"
               bg="gray.900"
+              sx={{ aspectRatio: '16/9' }}
             >
               <Image
                 src="/assets/use-case-glyph-1.svg"
@@ -174,7 +176,7 @@ export default function Home() {
                 Identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </Box>
-            <Box flex={2} sx={{ 'aspect-ratio': '16/9' }}>
+            <Box flex={2} sx={{ aspectRatio: '16/9' }}>
               <iframe
                 width="100%"
                 height="100%"
