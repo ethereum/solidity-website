@@ -17,8 +17,8 @@ export const USE_CASES_PATH = '/use-cases/'
 export const CONTRIBUTE_PATH = '/contribute/'
 export const ABOUT_PATH = '/about/'
 export const TWITTER_URL = `https://twitter.com/${TWITTER_HANDLE.split('@')[1]}`
-export const MASTODON_URL = '#' // TODO: add mastodon link
-export const MATRIX_URL = '#' // TODO: add matrix link
+export const MASTODON_URL = 'https://fosstodon.org/@solidity'
+export const MATRIX_URL = 'https://matrix.to/#/#ethereum_solidity:gitter.im'
 
 export const NAV_LINKS: NavLink[] = [
   { name: 'Blog', href: BLOG_URL },

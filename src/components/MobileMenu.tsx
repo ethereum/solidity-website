@@ -31,25 +31,26 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
         />
       </Flex>
 
-      <Drawer isOpen={isOpen} placement="start" size="xs" onClose={onClose}>
+      <Drawer isOpen={isOpen} placement="end" size="xs" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton color="fg" />
+        <DrawerContent bg="transparent">
+          <DrawerCloseButton top={6} insetEnd="6" color="fg" transform="scale(1.5)" zIndex="9999" />
           <DrawerBody
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
-            bg="gray.200"
-            color="gray.900"
+            color="fg"
             textAlign="center"
             pb={8}
+            bg="whiteAlpha.800"
+            backdropFilter="blur(3px)"
           >
-            <Flex direction="column" my={16} gap={6}>
+            <Flex direction="column" my={6} gap={6} alignItems="center">
               <Link
                 href="/"
                 aria-label="Solidity home"
-                mx="auto"
                 onClick={onClose}
+                my={6}
               >
                 <Image
                   src="/assets/solidity-logo.svg"
@@ -75,7 +76,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
                   <Grid
                     placeItems="center"
                     borderRadius="base"
-                    bg="bg"
+                    bg="whiteAlpha.800"
                     color="fg"
                     px={5}
                     py={2}
