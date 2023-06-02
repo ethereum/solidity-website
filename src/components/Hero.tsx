@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({
         content: '""',
         position: 'absolute',
         left: '100%',
-        bottom: 0,
+        bottom: 4,
         width: 'min(4rem, 6vw)',
         height: 'min(4px, 2vw)',
         bg: 'fg',
@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({
             '50%': { opacity: 1 },
           },
         },
-        animation: 'blink-cursor 1.5s step-end infinite',
+        animation: 'blink-cursor 1.25s step-end infinite',
       }}
     >
       {`{${header.replaceAll(' ', '_')}}`}

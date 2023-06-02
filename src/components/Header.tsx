@@ -12,16 +12,9 @@ export const Header: React.FC = () => (
     position="sticky"
     top={0}
     zIndex="sticky"
+    bg="whiteAlpha.800"
+    backdropFilter="blur(3px)"
     boxShadow="md"
-    isolation="isolate"
-    _after={{
-      content: '""',
-      position: 'absolute',
-      inset: 0,
-      bg: 'whiteAlpha.800',
-      zIndex: "-1",
-      backdropFilter: 'blur(3px)',
-    }}
   >
     <Link href="/" aria-label="Go home">
       <Image src="/assets/solidity-logo.svg" alt="Solidity logo" h="50px" />

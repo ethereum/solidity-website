@@ -25,8 +25,9 @@ export const BlogPreview: React.FC = () => {
           const content = e.querySelector('description')?.innerHTML as string
           const date = e.querySelector('pubDate')?.innerHTML as string
           const href = e.querySelector('link')?.innerHTML as string
+          const author = e.querySelector('author')?.innerHTML as string
           if (!title || !content || !date || !href) return
-          posts.push({ title, content, date, href })
+          posts.push({ title, content, date, href, author })
         })
         setBlogPosts(posts)
       } catch (error) {
