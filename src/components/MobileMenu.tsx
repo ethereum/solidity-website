@@ -35,13 +35,35 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton color="fg" />
-          <DrawerBody display="flex" flexDirection="column" justifyContent="space-between" bg="gray.200" color="gray.900" textAlign="center" pb={8}>
+          <DrawerBody
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            bg="gray.200"
+            color="gray.900"
+            textAlign="center"
+            pb={8}
+          >
             <Flex direction="column" my={16} gap={6}>
-              <Link href="/" aria-label="Solidity home" mx="auto" onClick={onClose}>
-                <Image src="/assets/solidity-logo.svg" alt="Solidity logo" h="50px" />
+              <Link
+                href="/"
+                aria-label="Solidity home"
+                mx="auto"
+                onClick={onClose}
+              >
+                <Image
+                  src="/assets/solidity-logo.svg"
+                  alt="Solidity logo"
+                  h="50px"
+                />
               </Link>
               {NAV_LINKS.map(({ name, href }) => (
-                <Link href={href} key={name} fontFamily="mono" onClick={onClose}>
+                <Link
+                  href={href}
+                  key={name}
+                  fontFamily="mono"
+                  onClick={onClose}
+                >
                   {name}
                 </Link>
               ))}
@@ -50,7 +72,15 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
             <Flex gap={2} flexWrap="wrap" justify="center">
               {SOCIAL_LINKS.map(({ href, Icon }) => (
                 <Link href={href} key={href} hideArrow textDecoration="none">
-                  <Grid placeItems="center" borderRadius="base" bg="bg" color="fg" px={5} py={2} gap={4}>
+                  <Grid
+                    placeItems="center"
+                    borderRadius="base"
+                    bg="bg"
+                    color="fg"
+                    px={5}
+                    py={2}
+                    gap={4}
+                  >
                     <Icon size={24} />
                   </Grid>
                 </Link>

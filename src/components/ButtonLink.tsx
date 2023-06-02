@@ -16,6 +16,10 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       boxSizing="border-box"
       data-group
       textDecoration="none"
+      w={{
+        base: 'full',
+        [fullWidthBelowBreakpoint]: 'fit-content',
+      }}
       {...props}
     >
       <Box
