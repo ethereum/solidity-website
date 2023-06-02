@@ -40,11 +40,7 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
         </Select>
 
         <Grid templateColumns={['1fr', null, 'repeat(2, 1fr)']} sx={sx}>
-          <Flex
-            id="compilerInput"
-            h={['15rem', '20rem', '30rem']}
-            flex={1}
-          />
+          <Flex id="compilerInput" h={['15rem', '20rem', '30rem']} flex={1} />
 
           <Flex
             direction="column"
