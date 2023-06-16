@@ -27,19 +27,25 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
           variant="ghost"
           size="lg"
           onClick={onOpen}
-          color="fg"
+          color="text"
         />
       </Flex>
 
       <Drawer isOpen={isOpen} placement="end" size="xs" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent bg="transparent">
-          <DrawerCloseButton top={6} insetEnd="6" color="fg" transform="scale(1.5)" zIndex="9999" />
+          <DrawerCloseButton
+            top={6}
+            insetEnd="6"
+            color="text"
+            transform="scale(1.5)"
+            zIndex="9999"
+          />
           <DrawerBody
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
-            color="fg"
+            color="text"
             textAlign="center"
             pb={8}
             bg="whiteAlpha.800"
@@ -77,7 +83,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
                     placeItems="center"
                     borderRadius="base"
                     bg="whiteAlpha.800"
-                    color="fg"
+                    color="text"
                     px={5}
                     py={2}
                     gap={4}

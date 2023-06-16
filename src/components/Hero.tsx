@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({
         bottom: 4,
         width: 'min(4rem, 6vw)',
         height: 'min(4px, 2vw)',
-        bg: 'fg',
+        bg: 'text',
         sx: {
           '@keyframes blink-cursor': {
             'from, to': { opacity: 0 },

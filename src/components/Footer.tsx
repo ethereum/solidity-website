@@ -21,7 +21,7 @@ export const Footer: React.FC = () => (
       {SOCIAL_LINKS.map(({ name, href, Icon }) => (
         <Link href={href} key={name} hideArrow>
           <Flex direction="column" alignItems="center" gap={2}>
-            <Box borderRadius="base" bg="bg" color="fg" px={5} py={2}>
+            <Box borderRadius="base" background="bg" color="text" px={5} py={2}>
               <Icon size={24} />
             </Box>
             <Text textTransform="lowercase">{name}</Text>

@@ -12,9 +12,16 @@ export const Header: React.FC = () => (
     position="sticky"
     top={0}
     zIndex="sticky"
-    bg="whiteAlpha.800"
+    _before={{
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      bg: 'bg',
+      opacity: 0.95,
+      zIndex: -1,
+    }}
     backdropFilter="blur(3px)"
-    boxShadow="md"
+    // boxShadow="md" // TODO: Animate in on scroll
   >
     <Link href="/" aria-label="Go home">
       <Image src="/assets/solidity-logo.svg" alt="Solidity logo" h="50px" />

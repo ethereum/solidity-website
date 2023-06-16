@@ -13,7 +13,7 @@ export const Link: React.FC<LinkComponentProps> = ({
   if (!href) throw new Error('Link component requires href prop')
   const linkStyes = {
     textDecoration: 'underline',
-    w: "fit-content",
+    w: 'fit-content',
   }
   const isExternal = href?.startsWith('http')
   if (isExternal)

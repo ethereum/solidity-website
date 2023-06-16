@@ -4,12 +4,24 @@ import { Link } from '@/components'
 
 interface ButtonLinkProps extends LinkProps {
   fullWidthBelowBreakpoint?: string
+  variant?: 'solid' | 'outline'
 }
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
   fullWidthBelowBreakpoint = 'sm',
+  variant = 'solid',
   children,
   ...props
 }) => {
+  const solid = {
+    color: "bg",
+    bg: "text",
+    _groupHover: { bg: 'b' },
+  }
+  const outline = {
+    color: 'text',
+    bg: "transparent",
+    _groupHover: { bg: 'b', color: 'bg' },
+  }
   return (
     <Link
       hideArrow
@@ -23,11 +35,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       {...props}
     >
       <Box
-        color="white"
-        bg="primary"
-        _groupHover={{
-          bg: 'gray.800',
-        }}
+        {...variant === 'outline' ? outline : solid}
         borderRadius="none"
         px={6}
         py={2}

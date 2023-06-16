@@ -4,14 +4,17 @@ import { config } from './foundations'
 const overrides = {
   config,
   colors: {
+    purple: {
+      300: '#9F94E8',
+      500: '#5554D9',
+      600: '#672AC8',
+      900: '#2B247C',
+    },
+    blue: {
+      200: '#AEC0F1',
+    },
     gray: {
-      100: '#F2F2F2',
-      200: '#EBEBEB',
-      400: '#848484',
-      500: '#777777',
-      700: '#464646',
-      800: '#383838',
-      900: '#2D2D2D',
+      200: '#E6E3EC',
     },
   },
   components: {},
@@ -52,48 +55,56 @@ const overrides = {
     heading: {
       fontFamily: 'heading',
       fontWeight: 'bold',
-      color: 'fg',
+      color: 'header',
     },
     h1: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: ['3xl', '3xl', '4xl', '5xl'],
-      color: 'fg',
+      color: 'text',
       lineHeight: '1.4',
     },
     h2: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: ['2xl', '3xl', '4xl'],
-      color: 'fg',
+      color: 'header',
       lineHeight: '1.27',
     },
     h3: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: ['lg', 'xl', '2xl'],
-      color: 'fg',
+      color: 'header',
       lineHeight: '1.2',
     },
     h4: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       fontSize: 'lg',
-      color: 'fg',
+      color: 'header',
       lineHeight: '1.1',
     },
     body: {
       fontFamily: 'body',
       fontWeight: 'regular',
       fontSize: 'sm',
-      color: 'fg',
+      color: 'text',
     },
   },
   semanticTokens: {
     colors: {
-      primary: 'gray.700',
-      fg: 'black',
-      bg: 'white',
+      a: { _light: 'purple.900', _dark: 'gray.200' }, // text
+      b: { _light: 'purple.600', _dark: 'blue.200' },
+      c: { _light: 'purple.500', _dark: 'purple.300' },
+      d: { _light: 'purple.300', _dark: 'purple.500' },
+      e: { _light: 'blue.200', _dark: 'purple.600' },
+      f: { _light: 'gray.200', _dark: 'purple.900' }, // background
+
+      text: 'a',
+      bg: 'f',
+      header: 'b',
+      border: 'a',
     },
   },
 }
