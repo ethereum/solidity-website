@@ -13,10 +13,15 @@ export const Footer: React.FC = () => (
     gap={10}
   >
     <Flex direction="column" alignItems="center" gap={1}>
-      <Text fontFamily="mono" fontSize="lg" /* mb={-6} */ color="header" fontWeight="bold">
+      <Text
+        fontFamily="mono"
+        fontSize="lg"
+        /* mb={-6} */ color="header"
+        fontWeight="bold"
+      >
         Get involved
       </Text>
-      <Flex gap={4} flexWrap="wrap" justify="center" >
+      <Flex gap={4} flexWrap="wrap" justify="center">
         {SOCIAL_LINKS.map(({ name, href, Icon }) => (
           <Link href={href} key={name} hideArrow textDecoration="none" px={2}>
             <Flex alignItems="center" gap={2}>

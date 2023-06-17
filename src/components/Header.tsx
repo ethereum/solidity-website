@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
           transition: 'background 200ms linear !important',
           backdropFilter: 'blur(3px)',
           height: `min(${NAV_HEIGHT}, 100%)`,
-          boxShadow: 'var(--chakra-shadows-md)', 
+          boxShadow: 'var(--chakra-shadows-md)',
           opacity: motionStyles.backdrop.opacity,
         }}
       />
