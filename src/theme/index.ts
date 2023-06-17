@@ -48,6 +48,7 @@ const overrides = {
       body: {
         transition: 'background 200ms linear !important',
         bg: 'bg',
+        color: 'text',
       },
     }),
   },
@@ -60,7 +61,7 @@ const overrides = {
     h1: {
       fontFamily: 'heading',
       fontWeight: 'bold',
-      fontSize: ['3xl', '3xl', '4xl', '5xl'],
+      fontSize: ['3xl', '4xl', '5xl', '6xl'],
       color: 'text',
       lineHeight: '1.4',
     },
@@ -105,6 +106,7 @@ const overrides = {
       bg: 'f',
       header: 'b',
       border: 'a',
+      primary: 'c',
     },
   },
 }

@@ -20,14 +20,14 @@ export const TWITTER_URL = `https://twitter.com/${TWITTER_HANDLE.split('@')[1]}`
 export const MASTODON_URL = 'https://fosstodon.org/@solidity'
 export const MATRIX_URL = 'https://matrix.to/#/#ethereum_solidity:gitter.im'
 
+export const NAV_HEIGHT = '4.5rem'
 export const NAV_LINKS: NavLink[] = [
   { name: 'Blog', href: BLOG_URL },
   { name: 'Documentation', href: DOCS_URL },
   { name: 'Use cases', href: USE_CASES_PATH },
   { name: 'Contribute', href: CONTRIBUTE_PATH },
-  { name: 'Forum', href: FORUM_URL },
-  { name: 'Chat', href: GITTER_URL },
   { name: 'About', href: ABOUT_PATH },
+  { name: 'Forum', href: FORUM_URL },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [

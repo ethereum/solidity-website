@@ -13,13 +13,13 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   ...props
 }) => {
   const solid = {
-    color: "bg",
-    bg: "text",
+    color: 'bg',
+    bg: 'text',
     _groupHover: { bg: 'b' },
   }
   const outline = {
     color: 'text',
-    bg: "transparent",
+    bg: 'transparent',
     _groupHover: { bg: 'b', color: 'bg' },
   }
   return (
@@ -35,7 +35,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       {...props}
     >
       <Box
-        {...variant === 'outline' ? outline : solid}
+        {...(variant === 'outline' ? outline : solid)}
         borderRadius="none"
         px={6}
         py={2}
