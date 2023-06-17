@@ -7,35 +7,40 @@ export const Footer: React.FC = () => (
     as="footer"
     direction="column"
     alignItems="center"
-    bg="gray.800"
     pb={24}
     pt={12}
     px={10}
-    gap={12}
-    color="white"
+    gap={10}
   >
-    <Text fontFamily="mono" fontSize="2xl" mb={-6}>
-      Get involved
-    </Text>
-    <Flex gap={8} flexWrap="wrap" justify="center">
-      {SOCIAL_LINKS.map(({ name, href, Icon }) => (
-        <Link href={href} key={name} hideArrow>
-          <Flex direction="column" alignItems="center" gap={2}>
-            <Box borderRadius="base" background="bg" color="text" px={5} py={2}>
-              <Icon size={24} />
-            </Box>
-            <Text textTransform="lowercase">{name}</Text>
-          </Flex>
-        </Link>
-      ))}
+    <Flex direction="column" alignItems="center" gap={1}>
+      <Text fontFamily="mono" fontSize="lg" /* mb={-6} */ color="header" fontWeight="bold">
+        Get involved
+      </Text>
+      <Flex gap={4} flexWrap="wrap" justify="center" >
+        {SOCIAL_LINKS.map(({ name, href, Icon }) => (
+          <Link href={href} key={name} hideArrow textDecoration="none" px={2}>
+            <Flex alignItems="center" gap={2}>
+              <Box borderRadius="base" background="bg" py={2}>
+                <Icon size={18} />
+              </Box>
+              <Text textTransform="lowercase">{name}</Text>
+            </Flex>
+          </Link>
+        ))}
+      </Flex>
     </Flex>
     <Divider />
-    <Flex gap={4} flexWrap="wrap" justify="center">
-      {NAV_LINKS.map(({ name, href }) => (
-        <Link key={name} href={href}>
-          {name}
-        </Link>
-      ))}
+    <Flex direction="column" alignItems="center" gap={1}>
+      <Text fontFamily="mono" fontSize="lg" color="header" fontWeight="bold">
+        Discover more
+      </Text>
+      <Flex gap={0} flexWrap="wrap" justify="center">
+        {NAV_LINKS.map(({ name, href }) => (
+          <Link key={name} href={href} textDecoration="none" py={1} px={2}>
+            {name}
+          </Link>
+        ))}
+      </Flex>
     </Flex>
     <Text fontSize="md" textAlign="center">
       2022 Solidity Team •{' '}
