@@ -14,10 +14,10 @@ export const Hero: React.FC<HeroProps> = ({
   ...props
 }) => (
   <Section
-    pt={[16, 20, 24, 28]}
-    pb={[10, null, null, 12]}
+    py={[10, null, null, 12]}
     gap={8}
-    bg="gray.500"
+    alignItems="center"
+    textAlign="center"
     {...props}
   >
     <Text
@@ -30,10 +30,11 @@ export const Hero: React.FC<HeroProps> = ({
         content: '""',
         position: 'absolute',
         left: '100%',
-        bottom: 4,
-        width: 'min(4rem, 6vw)',
-        height: 'min(4px, 2vw)',
-        bg: 'text',
+        bottom: 0,
+        transform: 'translateY(-100%)',
+        width: 'min(3.75rem, 7.5vw)',
+        height: 'min(0.5rem, 1vw)',
+        bg: 'primary',
         sx: {
           '@keyframes blink-cursor': {
             'from, to': { opacity: 0 },
@@ -45,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({
     >
       {`{${header.replaceAll(' ', '_')}}`}
     </Text>
-    <Text maxW="container.md" fontSize={['xl', null, '2xl']} color="bg">
+    <Text maxW="container.md" fontSize={['xl', null, '2xl']}>
       {children}
     </Text>
     {cta?.length && (
