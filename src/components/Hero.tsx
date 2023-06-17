@@ -1,16 +1,22 @@
 import { Flex, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
+import { FaGithub } from 'react-icons/fa'
+import { IoStarSharp } from 'react-icons/io5'
 import { ButtonLink, Section } from '@/components'
+import { GITHUB_URL } from '@/constants'
 import type { NavLink } from '@/types'
+import { formatBigNumber } from '@/utils'
 
 interface HeroProps extends FlexProps {
   header: string
   cta?: NavLink[]
+  stargazerCount?: number
 }
 export const Hero: React.FC<HeroProps> = ({
   header,
   children,
   cta,
+  stargazerCount,
   ...props
 }) => (
   <Section
@@ -56,6 +62,32 @@ export const Hero: React.FC<HeroProps> = ({
             {name}
           </ButtonLink>
         ))}
+        {stargazerCount && (
+          <ButtonLink
+            href={GITHUB_URL}
+            variant="outline"
+            sx={{
+              '&>div': { p: 0, display: 'flex' },
+              '&>*': { textDecoration: 'none' },
+            }}
+          >
+            <Flex
+              borderEnd="1px"
+              borderColor="border"
+              alignItems="center"
+              gap={2}
+              px={3}
+              py={1.5}
+            >
+              <FaGithub />
+              Repository
+            </Flex>
+            <Flex alignItems="center" gap={2} px={3}>
+              <IoStarSharp />
+              {formatBigNumber(stargazerCount)}
+            </Flex>
+          </ButtonLink>
+        )}
       </Flex>
     )}
   </Section>

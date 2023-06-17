@@ -11,7 +11,7 @@ export const TWITTER_HANDLE = '@solidity_lang'
 export const BLOG_URL = 'https://blog.soliditylang.org/'
 export const DOCS_URL = 'https://docs.soliditylang.org/'
 export const FORUM_URL = 'https://forum.soliditylang.org/'
-export const GITHUB_URL = 'https://github.com/ethereum/solidity-portal'
+export const GITHUB_URL = 'https://github.com/ethereum/solidity'
 export const GITTER_URL = 'https://gitter.im/ethereum/solidity'
 export const USE_CASES_PATH = '/use-cases/'
 export const CONTRIBUTE_PATH = '/contribute/'
@@ -40,3 +40,5 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const LATEST_SOLIDITY_RELEASE_URL =
   'https://api.github.com/repos/ethereum/solidity/releases/latest'
+export const SOLIDITY_REPO_STARGAZERS_URL =
+  'https://api.github.com/repos/ethereum/solidity'

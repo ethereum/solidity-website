@@ -15,19 +15,21 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   const solid = {
     color: 'bg',
     bg: 'text',
-    _groupHover: { bg: 'b' },
+    _groupHover: { bg: 'primary' },
   }
   const outline = {
     color: 'text',
     bg: 'transparent',
-    _groupHover: { bg: 'b', color: 'bg' },
+    border: '2px',
+    borderColor: 'border',
+    _groupHover: { bg: 'primary', color: 'bg', textDecoration: 'none', },
   }
   return (
     <Link
       hideArrow
       boxSizing="border-box"
       data-group
-      textDecoration="none"
+      textDecoration="none !important"
       w={{
         base: 'full',
         [fullWidthBelowBreakpoint]: 'fit-content',

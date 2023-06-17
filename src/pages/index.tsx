@@ -11,17 +11,19 @@ import {
   Section,
 } from '@/components'
 import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
-import { fetchLatestVersion } from '@/utils/fetchLatestVersion'
+import { fetchLatestVersion, fetchStargazersCount } from '@/utils'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { versionNumber } = await fetchLatestVersion();
-  return { props: { versionNumber } }
+  const { versionNumber } = await fetchLatestVersion()
+  const { stargazersCount } = await fetchStargazersCount()
+  return { props: { versionNumber, stargazersCount } }
 }
 
 interface HomeProps {
   versionNumber: string
+  stargazersCount: number
 }
-export default function Home({ versionNumber }: HomeProps) {
+export default function Home({ versionNumber, stargazersCount }: HomeProps) {
   return (
     <>
       <PageMetadata
@@ -31,7 +33,8 @@ export default function Home({ versionNumber }: HomeProps) {
       <main>
         <Hero
           header="Solidity"
-          cta={[{ name: 'Get to the docs', href: DOCS_URL }]}
+          cta={[{ name: 'Get into the docs', href: DOCS_URL }]}
+          stargazerCount={stargazersCount}
         >
           A statically-typed curly-braces programming language designed for
           developing smart contracts that run on{' '}
