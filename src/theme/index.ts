@@ -64,6 +64,7 @@ const overrides = {
       fontSize: ['3xl', '4xl', '5xl', '6xl'],
       color: 'text',
       lineHeight: '1.4',
+      textWrap: 'balance',
     },
     h2: {
       fontFamily: 'heading',
@@ -71,6 +72,7 @@ const overrides = {
       fontSize: ['2xl', '3xl', '4xl'],
       color: 'header',
       lineHeight: '1.27',
+      textWrap: 'balance',
     },
     h3: {
       fontFamily: 'heading',
@@ -78,6 +80,7 @@ const overrides = {
       fontSize: ['lg', 'xl', '2xl'],
       color: 'header',
       lineHeight: '1.2',
+      textWrap: 'balance',
     },
     h4: {
       fontFamily: 'heading',
@@ -85,6 +88,7 @@ const overrides = {
       fontSize: 'lg',
       color: 'header',
       lineHeight: '1.1',
+      textWrap: 'balance',
     },
     body: {
       fontFamily: 'body',
