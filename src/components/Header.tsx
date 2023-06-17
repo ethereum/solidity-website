@@ -1,11 +1,14 @@
 import { chakra, Flex, shouldForwardProp, useColorMode } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
 import { NAV_LINKS, NAV_HEIGHT } from '@/constants'
-import { motion, useScroll, useTransform, isValidMotionProp } from 'framer-motion'
+import {
+  motion,
+  useScroll,
+  useTransform,
+  isValidMotionProp,
+} from 'framer-motion'
 
 export const Header: React.FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
-  const isDarkMode = colorMode === 'dark'
   const { scrollY } = useScroll()
   const motionStyles = {
     backdrop: {
@@ -18,7 +21,8 @@ export const Header: React.FC = () => {
   }
   const STARTING_NAV_HEIGHT = 272 as const // Including logo
   const MotionDiv = chakra(motion.div, {
-    shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop)
+    shouldForwardProp: (prop) =>
+      isValidMotionProp(prop) || shouldForwardProp(prop),
   })
   return (
     <Flex
@@ -28,17 +32,17 @@ export const Header: React.FC = () => {
       position="sticky"
       top={0}
       zIndex="sticky"
-      height={STARTING_NAV_HEIGHT}
+      h={STARTING_NAV_HEIGHT}
     >
       <MotionDiv
-        position='fixed'
+        position="fixed"
         inset={0}
-        bg='bg'
+        bg="bg"
         zIndex={-1}
-        transition='background 200ms linear !important'
-        backdropFilter='blur(3px)'
+        transition="background 200ms linear !important"
+        backdropFilter="blur(3px)"
         h={`min(${NAV_HEIGHT}, 100%)`}
-        boxShadow='md'
+        boxShadow="md"
         style={{ opacity: motionStyles.backdrop.opacity }}
       />
       <MotionDiv
@@ -54,11 +58,7 @@ export const Header: React.FC = () => {
           h="100%"
           w="fit-content"
         >
-          <SolidityLogo
-            height="100%"
-            width="fit-content"
-            color="text"
-          />
+          <SolidityLogo height="100%" width="fit-content" color="text" />
         </Link>
       </MotionDiv>
       <Flex
