@@ -1,8 +1,7 @@
-import { Flex, IconButton, useColorMode } from '@chakra-ui/react'
-import { Link, MobileMenu, SolidityLogo } from '@/components'
+import { chakra, Flex, shouldForwardProp, useColorMode } from '@chakra-ui/react'
+import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
 import { NAV_LINKS, NAV_HEIGHT } from '@/constants'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { motion, useScroll, useTransform, isValidMotionProp } from 'framer-motion'
 
 export const Header: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -18,6 +17,9 @@ export const Header: React.FC = () => {
     },
   }
   const STARTING_NAV_HEIGHT = 272 as const // Including logo
+  const MotionDiv = chakra(motion.div, {
+    shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop)
+  })
   return (
     <Flex
       px={8}
@@ -28,20 +30,18 @@ export const Header: React.FC = () => {
       zIndex="sticky"
       height={STARTING_NAV_HEIGHT}
     >
-      <motion.div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          background: 'var(--chakra-colors-bg)',
-          zIndex: -1,
-          transition: 'background 200ms linear !important',
-          backdropFilter: 'blur(3px)',
-          height: `min(${NAV_HEIGHT}, 100%)`,
-          boxShadow: 'var(--chakra-shadows-md)',
-          opacity: motionStyles.backdrop.opacity,
-        }}
+      <MotionDiv
+        position='fixed'
+        inset={0}
+        bg='bg'
+        zIndex={-1}
+        transition='background 200ms linear !important'
+        backdropFilter='blur(3px)'
+        h={`min(${NAV_HEIGHT}, 100%)`}
+        boxShadow='md'
+        style={{ opacity: motionStyles.backdrop.opacity }}
       />
-      <motion.div
+      <MotionDiv
         style={{
           height: motionStyles.logo.h,
           marginTop: motionStyles.logo.mt,
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
             color="text"
           />
         </Link>
-      </motion.div>
+      </MotionDiv>
       <Flex
         as="nav"
         display={['none', null, 'flex']}
@@ -80,13 +80,7 @@ export const Header: React.FC = () => {
             {name}
           </Link>
         ))}
-        <IconButton
-          aria-label="Toggle light/dark"
-          icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
-          onClick={toggleColorMode}
-          variant="ghost"
-          size="md"
-        />
+        <ColorModeToggle />
       </Flex>
       {/* Toggle light/dark */}
       <MobileMenu display={['block', null, 'none']} />

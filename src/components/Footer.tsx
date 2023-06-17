@@ -1,6 +1,6 @@
-import { Box, Divider, Flex, Text } from '@chakra-ui/react'
-import { Link } from '@/components'
-import { NAV_LINKS, SOCIAL_LINKS } from '@/constants'
+import { Spacer, Flex, Text } from '@chakra-ui/react'
+import { Link, SocialLinks } from '@/components'
+import { NAV_LINKS } from '@/constants'
 
 export const Footer: React.FC = () => (
   <Flex
@@ -16,25 +16,14 @@ export const Footer: React.FC = () => (
       <Text
         fontFamily="mono"
         fontSize="lg"
-        /* mb={-6} */ color="header"
+        color="header"
         fontWeight="bold"
       >
         Get involved
       </Text>
-      <Flex gap={4} flexWrap="wrap" justify="center">
-        {SOCIAL_LINKS.map(({ name, href, Icon }) => (
-          <Link href={href} key={name} hideArrow textDecoration="none" px={2}>
-            <Flex alignItems="center" gap={2}>
-              <Box borderRadius="base" background="bg" py={2}>
-                <Icon size={18} />
-              </Box>
-              <Text textTransform="lowercase">{name}</Text>
-            </Flex>
-          </Link>
-        ))}
-      </Flex>
+      <SocialLinks />
     </Flex>
-    <Divider />
+    <Spacer />
     <Flex direction="column" alignItems="center" gap={1}>
       <Text fontFamily="mono" fontSize="lg" color="header" fontWeight="bold">
         Discover more

@@ -185,7 +185,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
                 Identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </Box>
-            <Grid placeItems="center" flex={2} sx={{ aspectRatio: '16/9' }} bg="d">
+            <Grid placeItems="center" flex={2} sx={{ aspectRatio: '16/9' }} bg="e">
               [Upcoming event card placeholder]
             </Grid>
           </Flex>

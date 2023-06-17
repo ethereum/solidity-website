@@ -1,20 +1,18 @@
 import {
+  Box,
   Drawer,
   DrawerBody,
-  DrawerOverlay,
-  DrawerContent,
   DrawerCloseButton,
+  DrawerContent,
+  DrawerOverlay,
   Flex,
-  Grid,
   IconButton,
-  Image,
   useDisclosure,
-  Box,
 } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
-import { HamburgerIcon, SunIcon, MoonIcon } from '@chakra-ui/icons'
-import { ColorModeToggle, Link, SolidityLogo } from '@/components'
-import { NAV_LINKS, SOCIAL_LINKS } from '@/constants'
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { ColorModeToggle, Link, SocialLinks, SolidityLogo } from '@/components'
+import { NAV_LINKS } from '@/constants'
 
 export const MobileMenu: React.FC<FlexProps> = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -81,23 +79,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
               ))}
             </Flex>
 
-            <Flex gap={2} flexWrap="wrap" justify="center">
-              {SOCIAL_LINKS.map(({ href, Icon }) => (
-                <Link href={href} key={href} hideArrow textDecoration="none">
-                  <Grid
-                    placeItems="center"
-                    borderRadius="base"
-                    bg="whiteAlpha.800"
-                    color="text"
-                    px={5}
-                    py={2}
-                    gap={4}
-                  >
-                    <Icon size={24} />
-                  </Grid>
-                </Link>
-              ))}
-            </Flex>
+            <SocialLinks gap={2} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

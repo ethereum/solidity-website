@@ -12,7 +12,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
   const end = new Date(endDate)
   const date = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
   return (
-    <Flex direction="column" maxW="container.sm" bg="gray.200" {...props}>
+    <Flex direction="column" maxW="container.sm" {...props}>
       <Image
         src={imageSrc ? imageSrc : '/assets/default-event-image.png'}
         h="200"
