@@ -40,31 +40,33 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           developing smart contracts that run on{' '}
           <Link href="https://ethereum.org">Ethereum</Link>.
         </Hero>
-        <Section py={8}>
+        <Section py={8} alignItems="center">
           <Flex
             as="aside"
             direction={['column', null, 'row']}
-            gap={[8, null, 16]}
+            gap={8}
+            p={8}
+            border="1px"
+            borderColor="border"
+            alignItems="start"
+            maxW="container.lg"
           >
-            <Box fontSize="3xl" maxW="8ch">
-              <Text fontWeight="bold" fontSize="md" fontFamily="body">
-                latest version
-              </Text>
-              <Text fontFamily="mono">Solidity {versionNumber}</Text>
+            <Box fontSize="xl" maxW="8ch">
+              <Text fontFamily="mono" color="header" lineHeight="130%">Solidity {versionNumber}</Text>
             </Box>
             <Flex direction="column" justify="space-between" gap={6}>
               <Box>
-                <Text maxW="container.sm">
-                  Solidity 0.8.20 includes a range of improvements in the via-IR
+                <Text lineHeight="180%" fontSize="md">
+                  <Link href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/" fontWeight="bold">
+                    Solidity 0.8.20
+                  </Link>{" "}
+                  includes a range of improvements in the via-IR
                   pipeline and improves the list of events exposed in the
                   contract ABI, and, most importantly, introduces support for
                   the Shanghai hard fork!
                 </Text>
                 <Text>We have also included 3 bugfixes in this release!</Text>
-              </Box>
-              <ButtonLink href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/">
-                Release announcement
-              </ButtonLink>
+              </Box>              
             </Flex>
           </Flex>
         </Section>
