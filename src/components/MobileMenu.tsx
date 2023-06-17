@@ -9,11 +9,11 @@ import {
   IconButton,
   Image,
   useDisclosure,
+  Box,
 } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
-
-import { Link } from '@/components'
+import { HamburgerIcon, SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { ColorModeToggle, Link, SolidityLogo } from '@/components'
 import { NAV_LINKS, SOCIAL_LINKS } from '@/constants'
 
 export const MobileMenu: React.FC<FlexProps> = (props) => {
@@ -21,6 +21,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
   return (
     <>
       <Flex as="nav" {...props}>
+        <ColorModeToggle />
         <IconButton
           aria-label="Open menu"
           icon={<HamburgerIcon transform="scale(1.5)" />}
@@ -48,9 +49,17 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
             color="text"
             textAlign="center"
             pb={8}
-            bg="whiteAlpha.800"
+            bg="transparent"
+            position="relative"
             backdropFilter="blur(3px)"
           >
+            <Box
+              position="absolute"
+              inset={0}
+              bg="bg"
+              opacity="0.9"
+              zIndex={-1}
+            />
             <Flex direction="column" my={6} gap={6} alignItems="center">
               <Link
                 href="/"
@@ -58,11 +67,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
                 onClick={onClose}
                 my={6}
               >
-                <Image
-                  src="/assets/solidity-logo.svg"
-                  alt="Solidity logo"
-                  h="50px"
-                />
+                <SolidityLogo h="50px" />
               </Link>
               {NAV_LINKS.map(({ name, href }) => (
                 <Link

@@ -18,7 +18,7 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
       display: 'block',
       p: 2,
       borderRadius: 'base',
-      bg: 'gray.100',
+      bg: 'transparent',
       w: 'full',
       fontSize: 'xs',
       h: ['4rem', '6rem', '8rem'],

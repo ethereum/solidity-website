@@ -1,6 +1,7 @@
 export * from './BlogCard'
 export * from './BlogPreview'
 export * from './ButtonLink'
+export * from './ColorModeToggle'
 export * from './CompilerPlayground'
 export * from './EventCard'
 export * from './EventPreview'
