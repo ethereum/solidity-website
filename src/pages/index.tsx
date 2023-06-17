@@ -1,4 +1,5 @@
 import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
+import type { GetStaticProps } from 'next'
 import {
   BlogPreview,
   ButtonLink,
@@ -10,10 +11,17 @@ import {
   Section,
 } from '@/components'
 import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
+import { fetchLatestVersion } from '@/utils/fetchLatestVersion'
 
-const VERSION = 'v0.8.20' // TODO: Fetch latest version from GitHub
+export const getStaticProps: GetStaticProps = async () => {
+  const { versionNumber } = await fetchLatestVersion();
+  return { props: { versionNumber } }
+}
 
-export default function Home() {
+interface HomeProps {
+  versionNumber: string
+}
+export default function Home({ versionNumber }: HomeProps) {
   return (
     <>
       <PageMetadata
@@ -39,7 +47,7 @@ export default function Home() {
               <Text fontWeight="bold" fontSize="md" fontFamily="body">
                 latest version
               </Text>
-              <Text fontFamily="mono">Solidity {VERSION}</Text>
+              <Text fontFamily="mono">Solidity {versionNumber}</Text>
             </Box>
             <Flex direction="column" justify="space-between" gap={6}>
               <Box>

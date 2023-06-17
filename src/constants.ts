@@ -37,3 +37,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'Matrix', href: MATRIX_URL, Icon: SiMatrix },
   { name: 'Gitter', href: GITTER_URL, Icon: FaGitter },
 ]
+
+export const LATEST_SOLIDITY_RELEASE_URL =
+  'https://api.github.com/repos/ethereum/solidity/releases/latest'
