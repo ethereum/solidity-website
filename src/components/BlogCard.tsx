@@ -14,7 +14,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...props }) => {
     year: 'numeric',
   })
   return (
-    <Flex direction="column" px={6} py={8} gap={4} bg="gray.200" {...props}>
+    <Flex direction="column" px={6} py={8} gap={4} {...props}>
       <Text fontSize="xl">{title}</Text>
       <Text>
         Posted {author ? `by ${author}` : ``} on {dateString}

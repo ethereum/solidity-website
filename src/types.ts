@@ -34,7 +34,8 @@ export interface EventLink {
 export interface Event {
   title: string
   location: string
-  date: string
+  startDate: string
+  endDate: string
   imageSrc?: string
   content?: string | React.ReactNode
   links: EventLink[]

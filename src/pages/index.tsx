@@ -71,7 +71,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </Flex>
         </Section>
 
-        <Section bg="gray.100" py={16}>
+        <Section py={16}>
           <Flex direction={['column', null, null, null, 'row']} gap={12}>
             <Flex direction="column" gap={8} maxW="container.sm" flex={1}>
               <Text as="h2" textStyle="h2">
@@ -99,13 +99,10 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
 
         <Section py={16} gap={6}>
           <Text as="h2" textStyle="h2">
-            Stay Updated
+            Solidity is evolving rapidly
           </Text>
           <Text maxW="container.sm">
-            As a relatively young language, Solidity is advancing at a rapid
-            speed. We aim for a regular (non-breaking) release every month, with
-            approximately one breaking release per year. You can follow the
-            implementation status of new features in the{' '}
+            We aim for a regular (non-breaking) release every month, with approximately one breaking release per year. You can follow the implementation status of new features in the{' '}
             <Link href="https://github.com/ethereum/solidity/projects/43">
               Solidity Github project
             </Link>
@@ -123,7 +120,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           <ButtonLink href={BLOG_URL}>View all blog posts</ButtonLink>
         </Section>
 
-        <Section bg="gray.100" py={[24, null, null, 32]} /* gap={6} */>
+        <Section py={[24, null, null, 32]}>
           <Flex direction={['column', null, null, 'row']} gap={12}>
             <Flex direction="column" gap={8} maxW="container.xs">
               <Text as="h2" textStyle="h2">
@@ -144,7 +141,6 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
               flex={1}
               placeItems="center"
               borderRadius="base"
-              bg="gray.900"
               sx={{ aspectRatio: '16/9' }}
             >
               <Image
@@ -160,7 +156,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
 
         <Section py={16} gap={6}>
           <Text as="h2" textStyle="h2">
-            Events
+            Solidity Events
           </Text>
           <Flex direction={['column', null, null, 'row']} gap={8}>
             <Box maxW="container.sm" sx={{ p: { mb: 2 } }} flex={3}>
@@ -189,16 +185,9 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
                 Identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </Box>
-            <Box flex={2} sx={{ aspectRatio: '16/9' }}>
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/6m5EDuCjxgk?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk"
-                title="Solidity Summit 2022 - 01 Opening &amp; Welcome - Franziska Heintel"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </Box>
+            <Grid placeItems="center" flex={2} sx={{ aspectRatio: '16/9' }} bg="d">
+              [Upcoming event card placeholder]
+            </Grid>
           </Flex>
           <Text textStyle="h4">Past events</Text>
           <EventPreview />

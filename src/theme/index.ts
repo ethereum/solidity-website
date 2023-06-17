@@ -19,7 +19,7 @@ const overrides = {
   },
   components: {},
   fonts: {
-    heading: "'Overpass Mono', monospace",
+    heading: "'Overpass', sans-serif",
     body: "'Overpass', sans-serif",
     mono: "'Overpass Mono', monospace",
   },
@@ -68,7 +68,7 @@ const overrides = {
     },
     h2: {
       fontFamily: 'heading',
-      fontWeight: 'bold',
+      // fontWeight: 'bold',
       fontSize: ['2xl', '3xl', '4xl'],
       color: 'header',
       lineHeight: '1.27',
