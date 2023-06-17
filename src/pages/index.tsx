@@ -8,6 +8,7 @@ import {
   Hero,
   Link,
   PageMetadata,
+  PragmaWatermark,
   Section,
 } from '@/components'
 import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
@@ -31,6 +32,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
         description="Solidity is a statically-typed curly-braces programming language designed for developing smart contracts that run on Ethereum."
       />
       <main>
+        <PragmaWatermark />
         <Hero
           header="Solidity"
           cta={[{ name: 'Get into the docs', href: DOCS_URL }]}
