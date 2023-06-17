@@ -17,6 +17,7 @@ export const Header: React.FC = () => {
       h: useTransform(scrollY, [64, 200], [175, 40]),
     },
   }
+  const STARTING_NAV_HEIGHT = 272 as const // Including logo
   return (
     <Flex
       px={8}
@@ -25,11 +26,11 @@ export const Header: React.FC = () => {
       position="sticky"
       top={0}
       zIndex="sticky"
-      height="272px" // Full starting height of Nav + Logo
+      height={STARTING_NAV_HEIGHT}
     >
       <motion.div
         style={{
-          position: 'absolute',
+          position: 'fixed',
           inset: 0,
           background: 'var(--chakra-colors-bg)',
           zIndex: -1,
@@ -55,8 +56,8 @@ export const Header: React.FC = () => {
         >
           <SolidityLogo
             height="100%"
+            width="fit-content"
             color="text"
-            preserveAspectRatio="176/113"
           />
         </Link>
       </motion.div>
