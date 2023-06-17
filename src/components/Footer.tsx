@@ -13,12 +13,7 @@ export const Footer: React.FC = () => (
     gap={10}
   >
     <Flex direction="column" alignItems="center" gap={1}>
-      <Text
-        fontFamily="mono"
-        fontSize="lg"
-        color="header"
-        fontWeight="bold"
-      >
+      <Text fontFamily="mono" fontSize="lg" color="header" fontWeight="bold">
         Get involved
       </Text>
       <SocialLinks />

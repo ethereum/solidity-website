@@ -42,6 +42,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           developing smart contracts that run on{' '}
           <Link href="https://ethereum.org">Ethereum</Link>.
         </Hero>
+
         <Section py={8} alignItems="center">
           <Flex
             as="aside"
@@ -54,21 +55,26 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             maxW="container.lg"
           >
             <Box fontSize="xl" maxW="8ch">
-              <Text fontFamily="mono" color="header" lineHeight="130%">Solidity {versionNumber}</Text>
+              <Text fontFamily="mono" color="header" lineHeight="130%">
+                Solidity {versionNumber}
+              </Text>
             </Box>
             <Flex direction="column" justify="space-between" gap={6}>
               <Box>
                 <Text lineHeight="180%" fontSize="md">
-                  <Link href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/" fontWeight="bold">
+                  <Link
+                    href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/"
+                    fontWeight="bold"
+                  >
                     Solidity 0.8.20
-                  </Link>{" "}
-                  includes a range of improvements in the via-IR
-                  pipeline and improves the list of events exposed in the
-                  contract ABI, and, most importantly, introduces support for
-                  the Shanghai hard fork!
+                  </Link>{' '}
+                  includes a range of improvements in the via-IR pipeline and
+                  improves the list of events exposed in the contract ABI, and,
+                  most importantly, introduces support for the Shanghai hard
+                  fork!
                 </Text>
                 <Text>We have also included 3 bugfixes in this release!</Text>
-              </Box>              
+              </Box>
             </Flex>
           </Flex>
         </Section>
@@ -104,7 +110,9 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             Solidity is evolving rapidly
           </Text>
           <Text maxW="container.sm">
-            We aim for a regular (non-breaking) release every month, with approximately one breaking release per year. You can follow the implementation status of new features in the{' '}
+            We aim for a regular (non-breaking) release every month, with
+            approximately one breaking release per year. You can follow the
+            implementation status of new features in the{' '}
             <Link href="https://github.com/ethereum/solidity/projects/43">
               Solidity Github project
             </Link>
@@ -187,7 +195,12 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
                 Identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </Box>
-            <Grid placeItems="center" flex={2} sx={{ aspectRatio: '16/9' }} bg="e">
+            <Grid
+              placeItems="center"
+              flex={2}
+              sx={{ aspectRatio: '16/9' }}
+              bg="e"
+            >
               [Upcoming event card placeholder]
             </Grid>
           </Flex>

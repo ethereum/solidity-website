@@ -7,7 +7,8 @@ interface EventCardProps extends FlexProps {
   event: Event
 }
 export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
-  const { title, location, startDate, endDate, content, links, imageSrc } = event
+  const { title, location, startDate, endDate, content, links, imageSrc } =
+    event
   const start = new Date(startDate)
   const end = new Date(endDate)
   const date = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
@@ -26,7 +27,9 @@ export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
           fontWeight="bold"
           lineHeight="125%"
           fontFamily="mono"
-        >{title}</Text>
+        >
+          {title}
+        </Text>
         <Box fontWeight="medium" fontSize="md">
           <Text>{location}</Text>
           <Text>{date}</Text>
@@ -36,7 +39,12 @@ export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
             {typeof content === 'string' ? <Text>{content}</Text> : content}
           </Flex>
         )}
-        <Flex direction={['column', null, null, 'row']} gap={4} mt={6} alignItems="end">
+        <Flex
+          direction={['column', null, null, 'row']}
+          gap={4}
+          mt={6}
+          alignItems="end"
+        >
           {links &&
             links.map(({ href, label }) => (
               <ButtonLink href={href} key={href} fullWidthBelowBreakpoint="lg">

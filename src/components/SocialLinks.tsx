@@ -1,7 +1,7 @@
-import { SOCIAL_LINKS } from "@/constants";
-import { Box, Flex, Text } from "@chakra-ui/react";
-import type { FlexProps } from "@chakra-ui/react";
-import { Link } from "@/components";
+import { SOCIAL_LINKS } from '@/constants'
+import { Box, Flex, Text } from '@chakra-ui/react'
+import type { FlexProps } from '@chakra-ui/react'
+import { Link } from '@/components'
 
 export const SocialLinks: React.FC<FlexProps> = (props) => (
   <Flex gap={4} flexWrap="wrap" justify="center" {...props}>

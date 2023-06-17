@@ -22,7 +22,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     bg: 'transparent',
     border: '2px',
     borderColor: 'border',
-    _groupHover: { bg: 'primary', color: 'bg', textDecoration: 'none', },
+    _groupHover: { bg: 'primary', color: 'bg', textDecoration: 'none' },
   }
   return (
     <Link
