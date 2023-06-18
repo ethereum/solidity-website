@@ -1,12 +1,15 @@
 import { createIcon } from '@chakra-ui/react'
 
+const WIDTH: number = 100 as const
+const HEIGHT: number = WIDTH * Math.sqrt(3) / 2
+
 export const Triangle = createIcon({
   displayName: 'Triangle',
-  viewBox: '0 0 100 87',
+  viewBox: `0 0 ${WIDTH} ${HEIGHT}`,
   defaultProps: {
-    width: '100px',
-    height: '86.6px',
+    width: `${WIDTH}px`,
+    height: `${HEIGHT}px`,
     fill: 'currentColor',
   },
-  d: 'M50 0L0 87L100 89L50 0Z',
+  d: `M${WIDTH/2} 0L0 ${HEIGHT}L${WIDTH} ${HEIGHT}L${WIDTH/2} 0Z`,
 })
