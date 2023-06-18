@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 import type { BoxProps } from '@chakra-ui/react'
 
 const labels = [
@@ -26,6 +26,7 @@ export const PragmaWatermark: React.FC<BoxProps> = (props) => (
     px={8}
     py={16}
     gap={2}
+    zIndex={-1}
     {...props}
   >
     {labels.map((label) => (

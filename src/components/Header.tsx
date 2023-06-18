@@ -6,33 +6,40 @@ import {
   useScroll,
   useTransform,
   isValidMotionProp,
+  useMotionValue,
 } from 'framer-motion'
+
+const STARTING_NAV_HEIGHT = 272 as const // Including logo
 
 export const Header: React.FC = () => {
   const { scrollY } = useScroll()
+
   const motionStyles = {
     backdrop: {
-      opacity: useTransform(scrollY, [250, 300], [0, 0.95]),
+      opacity: useTransform(scrollY, [130, 160], [0, 0.95]),
     },
     logo: {
       mt: useTransform(scrollY, [0, 64], [50, 0]),
       h: useTransform(scrollY, [64, 200], [175, 40]),
     },
+    wrapper: {
+      h: useTransform(scrollY, [0, 200], [272, 72]),
+    },
   }
-  const STARTING_NAV_HEIGHT = 272 as const // Including logo
   const MotionDiv = chakra(motion.div, {
     shouldForwardProp: (prop) =>
       isValidMotionProp(prop) || shouldForwardProp(prop),
   })
   return (
-    <Flex
+    <MotionDiv
+      display="flex"
       px={8}
       py={4}
-      justify="space-between"
+      justifyContent="space-between"
       position="sticky"
       top={0}
+      style={{ height: motionStyles.wrapper.h }}
       zIndex="sticky"
-      h={STARTING_NAV_HEIGHT}
     >
       <MotionDiv
         position="fixed"
@@ -84,6 +91,6 @@ export const Header: React.FC = () => {
       </Flex>
       {/* Toggle light/dark */}
       <MobileMenu display={['block', null, 'none']} />
-    </Flex>
+    </MotionDiv>
   )
 }
