@@ -10,7 +10,7 @@ export const ColorModeToggle: React.FC = () => {
       icon={isDarkMode ? <SunIcon /> : <MoonIcon />}
       onClick={toggleColorMode}
       variant="ghost"
-      size="md"
+      size="lg"
       color="text"
     />
   )

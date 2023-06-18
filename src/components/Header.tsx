@@ -6,10 +6,7 @@ import {
   useScroll,
   useTransform,
   isValidMotionProp,
-  useMotionValue,
 } from 'framer-motion'
-
-const STARTING_NAV_HEIGHT = 272 as const // Including logo
 
 export const Header: React.FC = () => {
   const { scrollY } = useScroll()
@@ -20,7 +17,8 @@ export const Header: React.FC = () => {
     },
     logo: {
       mt: useTransform(scrollY, [0, 64], [50, 0]),
-      h: useTransform(scrollY, [64, 200], [175, 40]),
+      h: useTransform(scrollY, [64, 125], [176, 40]),
+      w: useTransform(scrollY, [0, 200], [113, 25.7])
     },
     wrapper: {
       h: useTransform(scrollY, [0, 200], [272, 72]),
@@ -65,7 +63,7 @@ export const Header: React.FC = () => {
           h="100%"
           w="fit-content"
         >
-          <SolidityLogo height="100%" width="fit-content" color="text" />
+          <SolidityLogo h="100%" />
         </Link>
       </MotionDiv>
       <Flex
@@ -90,7 +88,7 @@ export const Header: React.FC = () => {
         <ColorModeToggle />
       </Flex>
       {/* Toggle light/dark */}
-      <MobileMenu display={['block', null, 'none']} />
+      <MobileMenu display={['flex', null, 'none']} />
     </MotionDiv>
   )
 }
