@@ -24,6 +24,7 @@ const overrides = {
     mono: "'Overpass Mono', monospace",
   },
   fontSizes: {
+    xl: '1.375rem',
     '2xl': '1.75rem',
     '3xl': '2.375rem',
     '4xl': '2.75rem',
