@@ -1,18 +1,24 @@
-import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
   BlogPreview,
   ButtonLink,
   CompilerPlayground,
+  EventCard,
   EventPreview,
   Hero,
   Link,
   PageMetadata,
   PragmaWatermark,
   Section,
+  ShowcaseContent,
+  ShowcaseSection,
+  ShowcaseVisual,
+  Triangles,
 } from '@/components'
 import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
 import { fetchLatestVersion, fetchStargazersCount } from '@/utils'
+import { events } from '@/data'
 
 export const getStaticProps: GetStaticProps = async () => {
   const { versionNumber } = await fetchLatestVersion()
@@ -25,6 +31,10 @@ interface HomeProps {
   stargazersCount: number
 }
 export default function Home({ versionNumber, stargazersCount }: HomeProps) {
+  const futureEvents = events.filter(
+    (event) => new Date(event.endDate) >= new Date()
+  )
+  const nextEvent = !!futureEvents ? futureEvents[0] : null
   return (
     <>
       <PageMetadata
@@ -79,134 +89,121 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </Flex>
         </Section>
 
-        <Section py={16}>
-          <Flex direction={['column', null, null, null, 'row']} gap={12}>
-            <Flex direction="column" gap={8} maxW="container.sm" flex={1}>
-              <Text as="h2" textStyle="h2">
-                New to Solidity
-              </Text>
-              <Text>
-                As a beginner, you find great tutorials, resources and tools
-                that help you get started building with Solidity on the{' '}
-                <Link href="https://ethereum.org/developers/">
-                  ethereum.org developer portal
-                </Link>
-                .
-              </Text>
-              <Text>
-                Alternatively, you can start by learning the basics about
-                blockchain, smart contracts and the Ethereum Virtual Machine
-                (EVM) in the Solidity docs.
-              </Text>
-              <ButtonLink href={DOCS_URL}>Get started</ButtonLink>
-            </Flex>
+        <ShowcaseSection>
+          <ShowcaseContent title="Solidity is evolving rapidly" gap={8}>
+            <Text>
+              We aim for a regular (non-breaking) release every month, with
+              approximately one breaking release per year. You can follow the
+              implementation status of new features in the{' '}
+              <Link
+                href="https://github.com/ethereum/solidity/projects/43"
+                fontWeight="bold"
+              >
+                Solidity Github project
+              </Link>
+              .
+            </Text>
+            <ButtonLink href={DOCS_URL} variant="outline">
+              Get started
+            </ButtonLink>
+          </ShowcaseContent>
+          <ShowcaseVisual>
+            <Triangles variantIndex={0} />
+          </ShowcaseVisual>
+        </ShowcaseSection>
 
-            <CompilerPlayground flex={2} />
-          </Flex>
-        </Section>
+        <ShowcaseSection startWithVisual>
+          <ShowcaseContent title="Contribute to Solidity">
+            <Text>
+              You can see the upcoming changes for the next breaking release by
+              switching from the default branch (`develop`) to the `breaking
+              branch`. Shape Solidity by providing your input and participating
+              in the language design.
+            </Text>
+          </ShowcaseContent>
+          <ShowcaseVisual>
+            <Triangles variantIndex={1} />
+          </ShowcaseVisual>
+        </ShowcaseSection>
+
+        {/* TODO: Start contributing cards with "Start contributing" CTA button */}
+
+        <ShowcaseSection>
+          <ShowcaseContent title="Stay Updated">
+            <Text>
+              We aim for a regular (non-breaking) release every month, with
+              approximately one breaking release per year. You can follow the
+              implementation status of new features in the{' '}
+              <Link
+                href="https://github.com/ethereum/solidity/projects/43"
+                fontWeight="bold"
+              >
+                Solidity Github project
+              </Link>
+              .
+            </Text>
+          </ShowcaseContent>
+          <ShowcaseVisual>
+            <Triangles variantIndex={2} />
+          </ShowcaseVisual>
+        </ShowcaseSection>
 
         <Section py={16} gap={6}>
-          <Text as="h2" textStyle="h2">
-            Solidity is evolving rapidly
-          </Text>
-          <Text maxW="container.sm">
-            We aim for a regular (non-breaking) release every month, with
-            approximately one breaking release per year. You can follow the
-            implementation status of new features in the{' '}
-            <Link href="https://github.com/ethereum/solidity/projects/43">
-              Solidity Github project
-            </Link>
-            .
-          </Text>
-          <Text maxW="container.sm">
-            You can see the upcoming changes for the next breaking release by
-            switching from the default branch (`develop`) to the `breaking
-            branch`. You can actively shape Solidity by providing your input and
-            participating in the language design.
-          </Text>
-          <Text />
-          <Text textStyle="h4">Latest from the blog</Text>
+          <Text textStyle="h3">Latest from the blog</Text>
           <BlogPreview />
-          <ButtonLink href={BLOG_URL}>View all blog posts</ButtonLink>
-        </Section>
-
-        <Section py={[24, null, null, 32]}>
-          <Flex direction={['column', null, null, 'row']} gap={12}>
-            <Flex direction="column" gap={8} maxW="container.xs">
-              <Text as="h2" textStyle="h2">
-                Contribute to Solidity
-              </Text>
-              <Text>
-                Contribute towards enhancing Solidity by sharing your opinion in
-                the language design discussions!
-              </Text>
-              <Text>
-                We welcome Solidity power users, auditors, security experts and
-                tooling developers to get involved and actively contribute to
-                the Solidity language design process.
-              </Text>
-              <ButtonLink href={CONTRIBUTE_PATH}>How to contribute</ButtonLink>
-            </Flex>
-            <Grid
-              flex={1}
-              placeItems="center"
-              borderRadius="base"
-              sx={{ aspectRatio: '16/9' }}
-            >
-              <Image
-                src="/assets/use-case-glyph-1.svg"
-                alt="Solidity art"
-                width={200}
-                height={100}
-                objectFit="contain"
-              />
-            </Grid>
+          <Flex justify="center">
+            <ButtonLink href={BLOG_URL} variant="outline">
+              All blog updates
+            </ButtonLink>
           </Flex>
         </Section>
 
-        <Section py={16} gap={6}>
-          <Text as="h2" textStyle="h2">
-            Solidity Events
-          </Text>
-          <Flex direction={['column', null, null, 'row']} gap={8}>
-            <Box maxW="container.sm" sx={{ p: { mb: 2 } }} flex={3}>
-              <Text>
-                The Solidity Summit is a free interactive forum for people
-                involved and interested in the Solidity language and the
-                ecosystem around it.
-              </Text>
-              <Text>
-                After a first virtual Solidity Summit in 2020, we met in person
-                for the second Solidity Summit in 2022 in Amsterdam.
-              </Text>
-              <Text>
-                Solidity Summits usually feature talks & discussions on
-                Solidity, Yul, language design and tooling. The event series
-                aims to...
-              </Text>
-              <Text>
-                Enable useful (language-design related) discussions which result
-                in improvement proposals and actual implementations.
-              </Text>
-              <Text>
-                Foster communication between teams working on similar topics.
-              </Text>
-              <Text>
-                Identify needs for the smart contract ecosystem for Ethereum.
-              </Text>
-            </Box>
-            <Grid
-              placeItems="center"
-              flex={2}
-              sx={{ aspectRatio: '16/9' }}
-              bg="e"
-            >
-              [Upcoming event card placeholder]
-            </Grid>
-          </Flex>
-          <Text textStyle="h4">Past events</Text>
+        <ShowcaseSection startWithVisual>
+          <ShowcaseContent title="Playground">
+            <Text>
+              Try solidity yourself in this simple compiler. for a more fully
+              featured browser based IDE, try using{' '}
+              <Link href="https://remix.ethereum.org">Remix</Link>
+            </Text>
+          </ShowcaseContent>
+          <ShowcaseVisual>
+            <Triangles variantIndex={3} />
+          </ShowcaseVisual>
+        </ShowcaseSection>
+
+        <Section py={8}>
+          <CompilerPlayground />
+        </Section>
+
+        <ShowcaseSection>
+          <ShowcaseContent title="Solidity Events">
+            <Text>
+              The Solidity Summit is a free interactive forum for people
+              involved and interested in the Solidity language and the ecosystem
+              around it.
+            </Text>
+            <Text>
+              Enable useful (language-design related) discussions which result
+              in improvement proposals and actual implementations, foster
+              communication between teams working on similar topics and Identify
+              needs for the smart contract ecosystem for Ethereum.
+            </Text>
+          </ShowcaseContent>
+          <ShowcaseVisual direction="column">
+            <Text color="primary" fontSize="lg">Upcoming event</Text>
+            {nextEvent ? (
+              <EventCard event={nextEvent} />
+            ) : (
+              <Text>No upcoming events</Text>
+            )}
+          </ShowcaseVisual>
+        </ShowcaseSection>
+
+        <Section gap={6}>
+          <Text fontSize="lg" color="primary">Past events</Text>
           <EventPreview />
         </Section>
+
       </main>
     </>
   )
