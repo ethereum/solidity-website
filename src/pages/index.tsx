@@ -42,7 +42,6 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
         description="Solidity is a statically-typed curly-braces programming language designed for developing smart contracts that run on Ethereum."
       />
       <main>
-        <PragmaWatermark />
         <Hero
           header="Solidity"
           cta={[{ name: 'Get into the docs', href: DOCS_URL }]}
@@ -51,6 +50,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           A statically-typed curly-braces programming language designed for
           developing smart contracts that run on{' '}
           <Link href="https://ethereum.org">Ethereum</Link>.
+          <PragmaWatermark />
         </Hero>
 
         <Section py={8} alignItems="center">

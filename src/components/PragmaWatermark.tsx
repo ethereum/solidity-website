@@ -1,5 +1,11 @@
-import { Flex, Text } from '@chakra-ui/react'
-import type { BoxProps } from '@chakra-ui/react'
+import { useRef } from 'react'
+import { Box, chakra, Flex, shouldForwardProp, Text } from '@chakra-ui/react'
+import {
+  motion,
+  useTransform,
+  useScroll,
+  isValidMotionProp,
+} from 'framer-motion'
 
 const labels = [
   'pragma',
@@ -13,34 +19,38 @@ const labels = [
   'address',
 ]
 
-export const PragmaWatermark: React.FC<BoxProps> = (props) => (
-  <Flex
-    as="aside"
-    direction="column"
-    display={{ base: 'none', md: 'flex' }}
-    alignItems="end"
-    position="absolute"
-    maxW="container.xl"
-    mx="auto"
-    inset={0}
-    px={8}
-    py={16}
-    gap={2}
-    zIndex={-1}
-    {...props}
-  >
-    {labels.map((label) => (
-      <Text
-        key={label}
-        fontFamily="mono"
-        fontSize={{ base: '4xl', lg: '5xl' }}
-        opacity="5%"
-        display="block"
-        textAlign="end"
-        lineHeight="125%"
-      >
-        {label}
-      </Text>
-    ))}
-  </Flex>
-)
+const MotionDiv = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+})
+
+export const PragmaWatermark: React.FC = () => {
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 200, 300], [0, 200, 250], {
+    clamp: false,
+  })
+  const lineHeight = useTransform(scrollY, [200, 2000], [1.4, 2])
+  return (
+    <Box
+      display={{ base: 'none', md: 'flex' }}
+      position="absolute"
+      top={0}
+      insetEnd={8}
+      zIndex={-2}
+    >
+      <motion.aside style={{ y }}>
+        {labels.map((label, i) => (
+          <Box
+            key={label}
+            fontFamily="mono"
+            fontSize={{ base: '4xl', lg: '5xl' }}
+            opacity="5%"
+            textAlign="end"
+          >
+            <motion.p style={{ lineHeight }}>{label}</motion.p>
+          </Box>
+        ))}
+      </motion.aside>
+    </Box>
+  )
+}

@@ -20,7 +20,8 @@ export const TWITTER_URL = `https://twitter.com/${TWITTER_HANDLE.split('@')[1]}`
 export const MASTODON_URL = 'https://fosstodon.org/@solidity'
 export const MATRIX_URL = 'https://matrix.to/#/#ethereum_solidity:gitter.im'
 
-export const NAV_HEIGHT = '4.5rem'
+export const NAV_HEIGHT = 72
+export const FULL_LOGO_HEIGHT = 176
 export const NAV_LINKS: NavLink[] = [
   { name: 'Blog', href: BLOG_URL },
   { name: 'Documentation', href: DOCS_URL },

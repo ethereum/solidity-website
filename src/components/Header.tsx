@@ -8,44 +8,40 @@ import {
   isValidMotionProp,
 } from 'framer-motion'
 
+const NAV_PADDING = 2 * 16
+const Y_OFFSET = 64
+const STARTING_LOGO_HEIGHT = 176
+const ASPECT_RATIO = 113 / STARTING_LOGO_HEIGHT
+const ENDING_LOGO_HEIGHT = 40
+const ENDING_LOGO_WIDTH = ENDING_LOGO_HEIGHT * ASPECT_RATIO
+const STARTING_NAV_HEIGHT = STARTING_LOGO_HEIGHT + NAV_PADDING + Y_OFFSET
+const FINAL_SCROLL_DISTANCE = STARTING_LOGO_HEIGHT - ENDING_LOGO_HEIGHT + Y_OFFSET
+
+const MotionDiv = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+})
+
 export const Header: React.FC = () => {
-  const { scrollY } = useScroll({ offset: ['end end', 'start end'] })
-  const MotionDiv = chakra(motion.div, {
-    shouldForwardProp: (prop) =>
-      isValidMotionProp(prop) || shouldForwardProp(prop),
-  })
+  const { scrollY } = useScroll(/* { offset: ['end end', 'start end'] } */)
+  
 
-  const NAV_PADDING = 2 * 16
-  const Y_OFFSET = 64
-  const STARTING_LOGO_HEIGHT = 176
-  const ENDING_LOGO_HEIGHT = 40
-  const ASPECT_RATIO = 113 / 176
-  const STARTING_NAV_HEIGHT = STARTING_LOGO_HEIGHT + NAV_PADDING + Y_OFFSET
-  const FINAL_SCROLL_DISTANCE =
-    STARTING_LOGO_HEIGHT - ENDING_LOGO_HEIGHT + Y_OFFSET
-  const C = 0.35 // Adjustment coefficient
+  const y = useTransform(scrollY, [0, NAV_PADDING], [NAV_PADDING, 0])
+  const scale = useTransform(
+    scrollY,
+    [NAV_PADDING, FINAL_SCROLL_DISTANCE],
+    [5, 1]
+  )
+  const opacity = useTransform(scrollY, [STARTING_NAV_HEIGHT - 50, STARTING_NAV_HEIGHT], [0, 0.95])
 
-  const opacity = useTransform(scrollY, [80, 100], [0, 0.95])
-  const height = useTransform(
-    scrollY,
-    [0, C * FINAL_SCROLL_DISTANCE],
-    [STARTING_NAV_HEIGHT, ENDING_LOGO_HEIGHT + NAV_PADDING]
-  )
-  const width = useTransform(
-    scrollY,
-    [C * Y_OFFSET, C * (STARTING_LOGO_HEIGHT - ENDING_LOGO_HEIGHT + Y_OFFSET)],
-    [STARTING_LOGO_HEIGHT * ASPECT_RATIO, ENDING_LOGO_HEIGHT * ASPECT_RATIO]
-  )
   return (
-    <MotionDiv
-      display="flex"
+    <Flex
       position="sticky"
       zIndex="sticky"
-      justifyContent="space-between"
+      justifyContent="end"
       top={0}
       px={8}
       py={4}
-      style={{ height }}
       bg="transparent"
       backdropFilter="blur(3px)"
     >
@@ -55,14 +51,22 @@ export const Header: React.FC = () => {
         bg="bg"
         zIndex={-1}
         transition="background 200ms linear !important"
-        h={NAV_HEIGHT}
         boxShadow="md"
         style={{ opacity }}
       />
-      {/* Soidity Logo: Link w/ SVG */}
-      <MotionDiv style={{ width }} display="flex" alignItems="end">
-        <Link href="/" aria-label="Go home" display="block">
-          <SolidityLogo h="100%" w="100%" />
+      {/* Soidity Logo: Positioned absolutely */}
+      <MotionDiv
+        display="flex"
+        position="absolute"
+        top={4}
+        insetStart={8}
+        alignItems="end"
+        style={{ scale, y }}
+        transformOrigin="top left"
+      >
+        
+        <Link href="/" aria-label="Go home" display="block" w={`${ENDING_LOGO_WIDTH}px`}>
+          <SolidityLogo h={`${ENDING_LOGO_HEIGHT}px`} w={`${ENDING_LOGO_WIDTH}px`} />
         </Link>
       </MotionDiv>
       {/* Nav bar / mobile menu with color mode toggle */}
@@ -89,6 +93,6 @@ export const Header: React.FC = () => {
       </Flex>
       {/* Toggle light/dark */}
       <MobileMenu display={['flex', null, 'none']} />
-    </MotionDiv>
+    </Flex>
   )
 }

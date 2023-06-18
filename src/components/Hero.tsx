@@ -20,10 +20,12 @@ export const Hero: React.FC<HeroProps> = ({
   ...props
 }) => (
   <Section
-    py={[10, null, null, 12]}
+    pt={56}
+    pb={[10, null, null, 12]}
     gap={8}
     alignItems="center"
     textAlign="center"
+    position="relative"
     {...props}
   >
     <Text
