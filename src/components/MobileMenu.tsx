@@ -18,13 +18,13 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Flex as="nav" {...props}>
+      <Flex as="nav" {...props} gap={2}>
         <ColorModeToggle />
         <IconButton
           aria-label="Open menu"
-          icon={<HamburgerIcon transform="scale(1.5)" />}
+          icon={<HamburgerIcon />}
           variant="ghost"
-          size="lg"
+          size="md"
           onClick={onOpen}
           color="text"
         />
@@ -37,7 +37,6 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
             top={6}
             insetEnd="6"
             color="text"
-            transform="scale(1.5)"
             zIndex="9999"
           />
           <DrawerBody

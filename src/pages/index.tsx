@@ -190,7 +190,9 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             </Text>
           </ShowcaseContent>
           <ShowcaseVisual direction="column">
-            <Text color="primary" fontSize="lg">Upcoming event</Text>
+            <Text color="primary" fontSize="lg">
+              Upcoming event
+            </Text>
             {nextEvent ? (
               <EventCard event={nextEvent} />
             ) : (
@@ -200,10 +202,11 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
         </ShowcaseSection>
 
         <Section gap={6}>
-          <Text fontSize="lg" color="primary">Past events</Text>
+          <Text fontSize="lg" color="primary">
+            Past events
+          </Text>
           <EventPreview />
         </Section>
-
       </main>
     </>
   )
