@@ -34,7 +34,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
   const futureEvents = events.filter(
     (event) => new Date(event.endDate) >= new Date()
   )
-  const nextEvent = !!futureEvents ? futureEvents[0] : null
+  const nextEvent = futureEvents.length ? futureEvents[0] : null
   return (
     <>
       <PageMetadata
