@@ -58,11 +58,10 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
       <AnimatePresence>
         {triangleVariants[index].map(({ x, y, r }, i) => (
           <motion.div
+            key={i + x + y + r}
             drag
             dragConstraints={targetRef}
             dragElastic={0.1}
-            whileDrag={{ rotateY: 180 }}
-            key={i + x + y + r}
             style={{
               position: "absolute",
               display: "block",
@@ -70,7 +69,7 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
               left: '50%',
               x,
               y,
-              rotateZ: r,
+              rotate: r,
               scale,
               transformStyle: 'preserve-3d'
             }}
