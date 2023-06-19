@@ -2,37 +2,38 @@ import { createIcon } from '@chakra-ui/react'
 
 const paths = [
   {
-    opacity: 0.45,
-    d: 'M84.5352 0L56.3437 50.1051H0L28.1721 0H84.5352Z',
-  },
-  {
-    opacity: 0.6,
-    d: 'M56.3435 50.1051H112.707L84.535 0H28.1719L56.3435 50.1051Z',
-  },
-  {
     opacity: 0.8,
-    d: 'M28.1721 100.191L56.3437 50.1051L28.1721 0L0 50.1051L28.1721 100.191Z',
+    d: 'M50 44.3013L25 1L0 44.3013L25 87.6025L50 44.3013Z',
   },
   {
     opacity: 0.45,
-    d: 'M28.4453 175.349L56.6368 125.243H113L84.8087 175.349H28.4453Z',
+    d: 'M50 44.3091L75 1.00781L25 1.00781L0 44.3091H50Z',
   },
   {
     opacity: 0.6,
-    d: 'M56.6368 125.244H0.273438L28.4453 175.349H84.8087L56.6368 125.244Z',
+    d: 'M75 1.00781L25 1.00781L50 44.3091H100L75 1.00781Z',
   },
   {
     opacity: 0.8,
-    d: 'M84.8049 75.1577L56.6328 125.243L84.8049 175.349L112.996 125.243L84.8049 75.1577Z',
+    d: 'M50 115.699L75 159L100 115.699L75 72.3975L50 115.699Z',
+  },
+  {
+    opacity: 0.45,
+    d: 'M50 115.691L25 158.993H75L100 115.691L50 115.691Z',
+  },
+  {
+    opacity: 0.6,
+    d: 'M25 158.993H75L50 115.691L0 115.691L25 158.993Z',
   },
 ]
 
+const [WIDTH, HEIGHT] = [100, 160]
 export const SolidityLogo = createIcon({
   displayName: 'Solidity Logo',
-  viewBox: '0 0 113 176',
+  viewBox: `0 0 ${WIDTH} ${HEIGHT}`,
   defaultProps: {
-    width: '113px',
-    height: '176px',
+    width: `${WIDTH}px`,
+    height: `${HEIGHT}px`,
     fill: 'currentColor',
   },
   path: paths.map((path) => <path key={path.d} {...path} />),
