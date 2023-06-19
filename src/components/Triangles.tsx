@@ -54,35 +54,31 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
 
   let index = variantIndex % triangleVariants.length
   return (
-    <Flex position="relative" minH="calc(86.6px * 2 + 64px)" w="100%" bg="blackAlpha.100" p={8} ref={targetRef}>
-      {triangleVariants[index].map(({ x, y, r }, i) => {
-        const colorMap = ['a', 'c', 'd', 'e']
-        return (
-          <AnimatePresence key={i + x + y + r}>
-            <motion.div
-              style={{
-                position: "absolute",
-                width: 'fit-content',
-                height: 'fit-content',
-                top: '50%',
-                left: '50%',
-                x,
-                y,
-                rotate: r,
-                scale,
-              }}
-              initial={{
-                rotate: `-${r}`,
-              }}
-              animate={{
-                rotate: r,
-              }}
-            >
-              <Triangle color={colorMap[i]} />
-            </motion.div>
-          </AnimatePresence>
-        )
-      })}
+    <Flex position="relative" minH="calc(86.6px * 2 + 64px)" w="100%" bg="blackAlpha.100" p={8} ref={targetRef} borderRadius="lg" >
+      <AnimatePresence>
+        {triangleVariants[index].map(({ x, y, r }, i) => (
+          <motion.div
+            drag
+            dragConstraints={targetRef}
+            dragElastic={0.1}
+            whileDrag={{ rotateY: 180 }}
+            key={i + x + y + r}
+            style={{
+              position: "absolute",
+              display: "block",
+              top: '50%',
+              left: '50%',
+              x,
+              y,
+              rotateZ: r,
+              scale,
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            <Triangle color={['a', 'c', 'd', 'e'][i]} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </Flex>
   )
 }
