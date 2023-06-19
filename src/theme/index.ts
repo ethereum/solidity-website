@@ -69,6 +69,7 @@ const overrides = {
     },
     h2: {
       fontFamily: 'heading',
+      fontWeight: 'regular',
       fontSize: '3xl',
       color: 'header',
       lineHeight: '1.27',
@@ -95,6 +96,12 @@ const overrides = {
       fontWeight: 'regular',
       fontSize: 'sm',
       color: 'text',
+    },
+    link: {
+      fontFamily: 'body',
+      fontWeight: 'regular',
+      fontSize: 'inherit',
+      color: 'inherit',
     },
   },
   semanticTokens: {

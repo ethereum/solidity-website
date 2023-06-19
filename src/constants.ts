@@ -1,6 +1,7 @@
 import type { NavLink, SocialLink } from './types'
 import { FaGithub, FaGitter, FaMastodon, FaTwitter } from 'react-icons/fa'
 import { SiMatrix } from 'react-icons/si'
+import yaml from 'js-yaml'
 
 export const DEFAULT_IMAGE_PATH = '/assets/siteicon.png'
 export const SITE_NAME = 'Solidity Programming Language'
@@ -43,3 +44,11 @@ export const LATEST_SOLIDITY_RELEASE_URL =
   'https://api.github.com/repos/ethereum/solidity/releases/latest'
 export const SOLIDITY_REPO_STARGAZERS_URL =
   'https://api.github.com/repos/ethereum/solidity'
+
+export const EVENTS_DIR = 'src/events'
+
+export const MATTER_OPTIONS = {
+  engines: {
+    yaml: (s: any) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
+  },
+}
