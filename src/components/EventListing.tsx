@@ -14,7 +14,7 @@ export const EventListing: React.FC<EventListingProps> = ({ frontmatter, content
   const isMultiDay = new Date(startDate).toLocaleDateString() !== new Date(endDate).toLocaleDateString()
   return (
     <>
-      <Box as="article">
+      <Box as="article" px={6} maxW="container.sm" mx="auto">
         <Box as="aside" fontSize="xl" textAlign="center">
           {isMultiDay ? (
             <Text>
