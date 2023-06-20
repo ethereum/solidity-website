@@ -1,7 +1,7 @@
 export const formatBigNumber = (num: number): string => {
   return new Intl.NumberFormat('en', {
     notation: 'compact',
-    minimumSignificantDigits: 2,
-    maximumSignificantDigits: 2,
+    minimumSignificantDigits: 3,
+    maximumSignificantDigits: 3,
   }).format(num)
 }
