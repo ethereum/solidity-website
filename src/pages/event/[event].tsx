@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { EVENTS_DIR, MATTER_OPTIONS } from '@/constants'
 import { ParsedUrlQuery } from 'querystring'
-import type { EventPost } from '@/types'
+import type { EventPost } from '@/interfaces'
 import { EventListing, Hero, PageMetadata } from '@/components'
 
 // Generate the paths for each event

@@ -1,4 +1,4 @@
-import type { BlogParams } from '@/types'
+import type { BlogParams } from '@/interfaces'
 
 export const getPostParamsFromFilename = (filename: string): BlogParams => {
   if (!filename.endsWith('.md'))

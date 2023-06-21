@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next/types'
 import { Hero, PageMetadata, BlogPostListSection } from '@/components'
 import { BLOG_DIR } from '@/constants'
 import { getAllPostsData, getTotalPages } from '@/utils'
-import type { BlogProps } from '@/types'
+import type { BlogProps } from '@/interfaces'
 
 export const getStaticProps: GetStaticProps = async () => {
   // get list of all files from our posts directory

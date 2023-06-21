@@ -2,7 +2,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { getPostParamsFromFilename, getSlicedContent } from '@/utils'
 import { BLOG_DIR, MATTER_OPTIONS, BLOG_PATH } from '@/constants'
-import type { BlogPostProps } from '@/types'
+import type { BlogPostProps } from '@/interfaces'
 
 export const getAllPostsData = (files: string[], fs: any): BlogPostProps[] => {
   return files.map((file) => {

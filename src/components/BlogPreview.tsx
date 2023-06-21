@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Grid, Spinner, Text } from '@chakra-ui/react'
 import { BlogCard } from '@/components'
-import type { BlogCardInfo } from '@/types'
+import type { BlogCardInfo } from '@/interfaces'
 
 const MAX_POSTS_TO_SHOW = 3
 export const BlogPreview: React.FC = () => {

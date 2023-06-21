@@ -1,5 +1,5 @@
 import { BlogPostPreview, ButtonLink, Section } from '@/components'
-import type { BlogProps } from '@/types'
+import type { BlogProps } from '@/interfaces'
 import { BLOG_PATH, BLOG_PAGE_PATH, MAX_POSTS_PER_PAGE } from '@/constants'
 import { Flex, Icon, Text } from '@chakra-ui/react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'

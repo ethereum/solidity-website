@@ -1,4 +1,4 @@
-import type { EventFrontmatter } from '@/types'
+import type { EventFrontmatter } from '@/interfaces'
 
 export const events: EventFrontmatter[] = [
   {

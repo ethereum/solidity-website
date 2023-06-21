@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
 import { CATEGORIES_COLOR_MAP } from '@/constants'
-import { BlogPostProps } from '@/types'
+import { BlogPostProps } from '@/interfaces'
 
 export const BlogPostPreview: React.FC<BlogPostProps> = ({
   frontmatter,

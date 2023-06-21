@@ -3,7 +3,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { Hero, PageMetadata, BlogPostListSection } from '@/components'
 import { BLOG_DIR, MAX_POSTS_PER_PAGE, PAGE_PATH } from '@/constants'
 import { getAllPostsData, getTotalPages } from '@/utils'
-import type { BlogProps, PageParams } from '@/types'
+import type { BlogProps, PageParams } from '@/interfaces'
 import { ParsedUrlQuery } from 'querystring'
 
 // Generate the paths for each page

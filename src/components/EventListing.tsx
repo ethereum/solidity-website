@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
-import type { EventFrontmatter } from '@/types'
+import type { EventFrontmatter } from '@/interfaces'
 import { MDXStyles } from '../styles/MDXStyles'
 
 interface EventListingProps {

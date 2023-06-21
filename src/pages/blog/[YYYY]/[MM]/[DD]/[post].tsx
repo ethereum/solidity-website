@@ -12,7 +12,7 @@ import {
 } from '@/components'
 import { BLOG_DIR, CATEGORIES_URL_MAP, MATTER_OPTIONS } from '@/constants'
 import { getPostParamsFromFilename, getPostURL } from '@/utils'
-import type { PostPath, BlogPostProps } from '@/types'
+import type { PostPath, BlogPostProps } from '@/interfaces'
 
 // Generate the paths for each event
 export const getStaticPaths: GetStaticPaths = () => {
