@@ -1,6 +1,6 @@
 import { Flex, Grid, Image, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
-import type { UseCase } from '@/types'
+import type { UseCase } from '@/interfaces'
 
 interface UseCaseCardProps extends FlexProps {
   useCase: UseCase

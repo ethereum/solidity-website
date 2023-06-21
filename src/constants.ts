@@ -1,4 +1,4 @@
-import type { NavLink, SocialLink } from './types'
+import type { NavLink, SocialLink } from './interfaces'
 import { FaGithub, FaGitter, FaMastodon, FaTwitter } from 'react-icons/fa'
 import { SiMatrix } from 'react-icons/si'
 

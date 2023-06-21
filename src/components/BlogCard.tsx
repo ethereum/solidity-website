@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { Link } from '@/components'
-import type { BlogPost } from '@/types'
+import type { BlogPost } from '@/interfaces'
 
 interface BlogCardProps extends FlexProps {
   blogPost: BlogPost

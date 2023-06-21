@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa'
 import { IoStarSharp } from 'react-icons/io5'
 import { ButtonLink, Section } from '@/components'
 import { GITHUB_URL } from '@/constants'
-import type { NavLink } from '@/types'
+import type { NavLink } from '@/interfaces'
 import { formatBigNumber } from '@/utils'
 
 interface HeroProps extends FlexProps {
