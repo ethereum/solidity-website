@@ -3,7 +3,6 @@ import {
   Flex,
   Heading,
   Image,
-  List,
   Stack,
   Table,
   Text,
@@ -11,7 +10,7 @@ import {
 
 import { Link } from '@/components'
 
-export const EventTheme = {
+export const MDXStyles = {
   p: ({ children }: any) => (
     <Text
       fontSize="lg"
@@ -51,16 +50,6 @@ export const EventTheme = {
       {children}
     </Heading>
   ),
-  // ul: ({ children }: any) => (
-  //   <List as="ul" ms={10} mb={5}>
-  //     {children}
-  //   </List>
-  // ),
-  // ol: ({ children }: any) => (
-  //   <List as="ol" ms={10} mb={5}>
-  //     {children}
-  //   </List>
-  // ),
   pre: ({ children }: any) => (
     <Stack mb={5}>
       <pre>{children}</pre>
