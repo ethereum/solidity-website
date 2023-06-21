@@ -16,7 +16,7 @@ import {
   ShowcaseVisual,
   Triangles,
 } from '@/components'
-import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
+import { BLOG_PATH, DOCS_URL } from '@/constants'
 import { fetchLatestVersion, fetchStargazersCount } from '@/utils'
 import { events } from '@/data'
 
@@ -152,7 +152,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           <Text textStyle="h3">Latest from the blog</Text>
           <BlogPreview />
           <Flex justify="center">
-            <ButtonLink href={BLOG_URL} variant="outline">
+            <ButtonLink href={BLOG_PATH} variant="outline">
               All blog updates
             </ButtonLink>
           </Flex>

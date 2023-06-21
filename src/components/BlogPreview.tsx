@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Grid, Spinner, Text } from '@chakra-ui/react'
 import { BlogCard } from '@/components'
-import type { BlogPost } from '@/types'
+import type { BlogCardInfo } from '@/types'
 
 const MAX_POSTS_TO_SHOW = 3
 export const BlogPreview: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true)
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [blogPosts, setBlogPosts] = useState<BlogCardInfo[]>([])
 
   useEffect(() => {
     ;(async () => {
@@ -18,7 +18,7 @@ export const BlogPreview: React.FC = () => {
         const feed = await response.text()
         const data = new window.DOMParser().parseFromString(feed, 'text/xml')
         const items = data.querySelectorAll('item')
-        const posts: BlogPost[] = []
+        const posts: BlogCardInfo[] = []
         items.forEach((e, i) => {
           if (i >= MAX_POSTS_TO_SHOW) return
           const title = e.querySelector('title')?.innerHTML as string
@@ -45,7 +45,7 @@ export const BlogPreview: React.FC = () => {
       ) : !blogPosts ? (
         <Text>Oops, had a hard time getting our latest posts!</Text>
       ) : (
-        blogPosts.map((blogPost: BlogPost) => (
+        blogPosts.map((blogPost: BlogCardInfo) => (
           <BlogCard blogPost={blogPost} key={blogPost.href} />
         ))
       )}

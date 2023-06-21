@@ -1,4 +1,4 @@
-import type { NavLink, SocialLink } from './types'
+import type { NavLink, SocialLink } from '@/types'
 import { FaGithub, FaGitter, FaMastodon, FaTwitter } from 'react-icons/fa'
 import { SiMatrix } from 'react-icons/si'
 import yaml from 'js-yaml'
@@ -9,7 +9,12 @@ export const SITE_URL = 'https://soliditylang.org/'
 export const TWITTER_HANDLE = '@solidity_lang'
 
 // Page paths
-export const BLOG_URL = 'https://blog.soliditylang.org/'
+// export const BLOG_URL = 'https://blog.soliditylang.org/'
+export const BLOG_PATH = '/blog'
+export const PAGE_PATH = '/page'
+export const CATEGORY_PATH = '/category'
+export const BLOG_CATEGORY_PATH = `${BLOG_PATH}${CATEGORY_PATH}`
+export const BLOG_PAGE_PATH = `${BLOG_PATH}${PAGE_PATH}`
 export const DOCS_URL = 'https://docs.soliditylang.org/'
 export const FORUM_URL = 'https://forum.soliditylang.org/'
 export const GITHUB_URL = 'https://github.com/ethereum/solidity'
@@ -24,7 +29,7 @@ export const MATRIX_URL = 'https://matrix.to/#/#ethereum_solidity:gitter.im'
 export const NAV_HEIGHT = 72
 export const FULL_LOGO_HEIGHT = 176
 export const NAV_LINKS: NavLink[] = [
-  { name: 'Blog', href: BLOG_URL },
+  { name: 'Blog', href: BLOG_PATH },
   { name: 'Documentation', href: DOCS_URL },
   { name: 'Use cases', href: USE_CASES_PATH },
   { name: 'Contribute', href: CONTRIBUTE_PATH },
@@ -46,9 +51,45 @@ export const SOLIDITY_REPO_STARGAZERS_URL =
   'https://api.github.com/repos/ethereum/solidity'
 
 export const EVENTS_DIR = 'src/events'
+export const BLOG_DIR = 'src/posts'
 
 export const MATTER_OPTIONS = {
   engines: {
     yaml: (s: any) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
   },
 }
+
+const RELEASES = 'Releases' as const
+const SECURITY_ALERTS = 'Security Alerts' as const
+const ANNOUNCEMENTS = 'Announcements' as const
+const EXPLAINERS = 'Explainers' as const
+
+export const CATEGORIES_URL_MAP = {
+  [RELEASES]: `${BLOG_CATEGORY_PATH}/releases`,
+  [SECURITY_ALERTS]: `${BLOG_CATEGORY_PATH}/security-alerts`,
+  [ANNOUNCEMENTS]: `${BLOG_CATEGORY_PATH}/announcements`,
+  [EXPLAINERS]: `${BLOG_CATEGORY_PATH}/explainers`,
+}
+
+export const CATEGORY_URLS = [
+  'releases',
+  'security-alerts',
+  'announcements',
+  'explainers',
+]
+
+export const URL_CATEGORIES_MAP = {
+  releases: RELEASES,
+  'security-alerts': SECURITY_ALERTS,
+  announcements: ANNOUNCEMENTS,
+  explainers: EXPLAINERS,
+}
+
+export const CATEGORIES_COLOR_MAP = {
+  [RELEASES]: '#f664',
+  [SECURITY_ALERTS]: '#6f64',
+  [ANNOUNCEMENTS]: '#66f4',
+  [EXPLAINERS]: '#f6f4',
+}
+
+export const MAX_POSTS_PER_PAGE = 10

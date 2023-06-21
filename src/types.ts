@@ -1,4 +1,5 @@
 import type { IconType } from 'react-icons'
+import { CATEGORIES_URL_MAP } from '@/constants'
 
 export interface NavLink {
   name: string
@@ -18,7 +19,7 @@ export interface UseCase {
   href?: string
 }
 
-export interface BlogPost {
+export interface BlogCardInfo {
   title: string
   author?: string
   date: string
@@ -31,7 +32,7 @@ export interface EventLink {
   href: string
 }
 
-export interface Event {
+export interface EventFrontmatter {
   title: string
   location: string
   startDate: string
@@ -42,6 +43,49 @@ export interface Event {
 }
 
 export interface EventPost {
-  frontmatter: Event
+  frontmatter: EventFrontmatter
   content: string
+}
+
+export type Category = keyof typeof CATEGORIES_URL_MAP
+
+export interface BlogPostFrontmatter {
+  layout: string
+  published: string
+  title: string
+  date: string
+  author: string
+  category: Category
+}
+
+export interface BlogPostProps {
+  frontmatter: BlogPostFrontmatter
+  content: string
+  availableURLs?: string[]
+  url?: string
+}
+
+export interface BlogParams {
+  YYYY: string
+  MM: string
+  DD: string
+  post: string
+}
+
+export interface CategoryPath {
+  params: { category: string }
+}
+
+export interface PostPath {
+  params: { YYYY: string; MM: string; DD: string; post: string }
+}
+
+export interface PageParams {
+  params: { page: string }
+}
+
+export interface BlogProps {
+  allPostsData: BlogPostProps[]
+  page: number
+  totalPages: number
 }
