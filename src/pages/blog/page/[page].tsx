@@ -39,25 +39,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { allPostsData, page: pageNumber, totalPages } }
 }
 
-const Blog: React.FC<BlogProps> = ({ allPostsData, page, totalPages }) => {
-  console.log('In blog/page/[page].tsx')
-  console.log({ totalPages })
-  return (
-    <>
-      <PageMetadata
-        title="Blog"
-        description="Solidity Lang blog: latest news & announcements"
-      />
-      <main>
-        <Hero header="Blog">Latest News & Announcements</Hero>
-        <BlogPostListSection
-          allPostsData={allPostsData}
-          page={page}
-          totalPages={totalPages}
-        />
-      </main>
-    </>
-  )
-}
+const Blog: React.FC<BlogProps> = ({ allPostsData, page, totalPages }) => (
+  <>
+    <PageMetadata
+      title="Blog"
+      description="Solidity Lang blog: latest news & announcements" />
+    <main>
+      <Hero header="Blog">Latest News & Announcements</Hero>
+      <BlogPostListSection
+        allPostsData={allPostsData}
+        page={page}
+        totalPages={totalPages} />
+    </main>
+  </>
+)
 
 export default Blog

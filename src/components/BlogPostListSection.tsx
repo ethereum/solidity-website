@@ -13,7 +13,6 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
     (page - 1) * MAX_POSTS_PER_PAGE,
     page * MAX_POSTS_PER_PAGE
   )
-  console.log({ totalPages })
   return (
     <Section
       direction="column"
