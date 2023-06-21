@@ -1,10 +1,10 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { ButtonLink } from '@/components'
-import type { Event } from '@/types'
+import type { EventFrontmatter } from '@/types'
 
 interface EventCardProps extends FlexProps {
-  event: Event
+  event: EventFrontmatter
 }
 export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
   const { title, location, startDate, endDate, content, links, imageSrc } =
