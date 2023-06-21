@@ -1,8 +1,8 @@
 ---
 layout: post
 published: true
-title:  "Solidity Optimizer Keccak Caching Bug"
-date:   2021-03-23
+title: 'Solidity Optimizer Keccak Caching Bug'
+date: 2021-03-23
 author: Solidity Team
 category: Security Alerts
 ---
@@ -36,7 +36,7 @@ contract C {
       // The optimizer incorrectly uses the cached value
       // and transforms the next line to
       // b := 0x290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563
-      // instead of 
+      // instead of
       // b := 0xe2b9f9f9430b05bfa9a3abd3bac9a181434d23a707ef1cde8bd25d30203538d8
       b := keccak256(0, 23)
     }
@@ -98,12 +98,13 @@ You are unaffected if your code:
   regions whose lengths and offsets are multiples of 32,
 - contains pairs of `keccak256` hashes that are separated by certain instructions such as:
   - an instruction that breaks the control flow, e.g., `jumpi`, `jump` etc. In high level code, this
-     would be function calls, if statements, loops, etc,
+    would be function calls, if statements, loops, etc,
   - an instruction that writes to memory other than a very simple `mstore`, e.g., `call`,
     `returndatacopy`, etc.
 
 Note that, apart from the builtin function `keccak256`, the compiler internally generates code that
 makes use of the Keccak-256 hash. For example,
+
 - in certain indexed event arguments,
 - in the function `abi.encodeWithSignature`,
 - when using `string` or `bytes` as keys in mappings,

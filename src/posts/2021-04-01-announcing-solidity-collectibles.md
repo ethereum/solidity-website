@@ -7,7 +7,7 @@ author: Franziska Heintel
 category: Announcements
 ---
 
-> **⚠️ Attention: This post is an April Fools' Day joke. Please consume it at your own risk. We will not distribute any Solidity  NFTs in the foreseeable future. Stay safe.**
+> **⚠️ Attention: This post is an April Fools' Day joke. Please consume it at your own risk. We will not distribute any Solidity NFTs in the foreseeable future. Stay safe.**
 
 Today, we are excited to announce a little surprise we’ve been working on silently for the last couple of weeks. We heard that you really like crypto-related collectibles and we listened.
 
@@ -19,7 +19,7 @@ If you’re as excited about this initiative as we are and curious to learn more
 
 ### How can I get Solidity collectibles of previous versions?
 
-We are first going to mint all previous versions of Solidity. Since we shipped quite a lot of releases throughout the last 6 years, the auctioning process will be conducted in several tranches. 
+We are first going to mint all previous versions of Solidity. Since we shipped quite a lot of releases throughout the last 6 years, the auctioning process will be conducted in several tranches.
 
 Each week, another tranche of NFTs will be released for bidding. Auctions will run for one week.
 
@@ -35,7 +35,7 @@ In total, there are 88 previous Solidity versions, which will be minted as an NF
 
 ### Will upcoming versions be tokenized?
 
-Yes, upcoming Solidity versions will be tokenized as well! For upcoming versions of Solidity we will include the NFT minting and selling process into the release process and will share the respective auction link alongside the release announcement on Twitter. 
+Yes, upcoming Solidity versions will be tokenized as well! For upcoming versions of Solidity we will include the NFT minting and selling process into the release process and will share the respective auction link alongside the release announcement on Twitter.
 
 ### Which Solidity version NFT should I choose?
 

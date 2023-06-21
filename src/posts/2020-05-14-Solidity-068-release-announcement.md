@@ -64,7 +64,6 @@ contract C {
 }
 
 ```
- 
 
 ### Implicit Constructor Callvalue Check Bug
 
@@ -84,33 +83,35 @@ contract Derived is Base {
 ```
 
 Before 0.6.8, it was possible to send Ether together with the creation
-transaction of an instance of ``Derived``. At the same time - confusingly -
+transaction of an instance of `Derived`. At the same time - confusingly -
 the compiler did now allow Solidity-based creation of the form
-``new Derived{value: 1}()``. We solved this discrepancy by reverting
-during the constructor of ``Derived`` if Ether was provided with the creation.
+`new Derived{value: 1}()`. We solved this discrepancy by reverting
+during the constructor of `Derived` if Ether was provided with the creation.
 
 To replicate the old behaviour, you can add a payable constructor to the most
 derived contract.
 
 ## Other Bugfixes
 
-* **ABI**: Skip `private` or `internal` constructors.
-* **Code Generator**: Fixed an "Assembly Exception in Bytecode" error where requested functions were generated twice.
-* **Natspec**: Fixed a bug that ignored `@return` tag when no other developer-documentation tags were present.
-* **Type Checker**: Checks if a literal exponent in the `**` operation is too large or fractional.
-* **Type Checker**: Disallow accessing `runtimeCode` for contract types that contain immutable state variables.
-* **Yul Assembler**: Fix source location of variable declarations without value.
+- **ABI**: Skip `private` or `internal` constructors.
+- **Code Generator**: Fixed an "Assembly Exception in Bytecode" error where requested functions were generated twice.
+- **Natspec**: Fixed a bug that ignored `@return` tag when no other developer-documentation tags were present.
+- **Type Checker**: Checks if a literal exponent in the `**` operation is too large or fractional.
+- **Type Checker**: Disallow accessing `runtimeCode` for contract types that contain immutable state variables.
+- **Yul Assembler**: Fix source location of variable declarations without value.
 
 ## New Features
 
 ### Language Features
-* Implemented `type(T).min` and `type(T).max` for every integer type T that returns the smallest and largest value representable by the type.
+
+- Implemented `type(T).min` and `type(T).max` for every integer type T that returns the smallest and largest value representable by the type.
 
 ### Compiler Features
-* **Commandline Interface**: Don't ignore `--yul-optimizations` in assembly mode.
-* **ABI**: Allow using abi encoding functions for calldata array slices without explicit casts.
-* **Wasm binary output**: Implement `br` and `br_if`.
 
-A big thank you to all contributors who helped  make this release possible!
+- **Commandline Interface**: Don't ignore `--yul-optimizations` in assembly mode.
+- **ABI**: Allow using abi encoding functions for calldata array slices without explicit casts.
+- **Wasm binary output**: Implement `br` and `br_if`.
+
+A big thank you to all contributors who helped make this release possible!
 
 Download the new version of Solidity [here](https://github.com/ethereum/solidity/releases/tag/v0.6.8).

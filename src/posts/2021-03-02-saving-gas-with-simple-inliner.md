@@ -7,7 +7,7 @@ author: Christian Reitwiessner
 category: Explainers
 ---
 
-[Solidity v0.8.2](https://github.com/ethereum/solidity/releases/tag/v0.8.2) adds a simple inliner to the [low-level optimizer](https://docs.soliditylang.org/en/latest/internals/optimiser.html) of Solidity.  In this post, we examine how it works and take a look at synergies with other steps of the optimizer.
+[Solidity v0.8.2](https://github.com/ethereum/solidity/releases/tag/v0.8.2) adds a simple inliner to the [low-level optimizer](https://docs.soliditylang.org/en/latest/internals/optimiser.html) of Solidity. In this post, we examine how it works and take a look at synergies with other steps of the optimizer.
 
 ### Low-Level Inliner
 
@@ -31,7 +31,7 @@ JUMP
 JUMP
 ```
 
-If the sequence of opcodes in ``[ROUTINE]`` is short and simple enough, the first ``JUMP``
+If the sequence of opcodes in `[ROUTINE]` is short and simple enough, the first `JUMP`
 is replaced by a copy of this code to result in the following:
 
 ```
@@ -48,8 +48,8 @@ and the original routine can be removed, saving even more gas.
 
 ### Step-by-step Walkthrough and Synergies with Other Optimizer Steps
 
-You might ask what it means for ``[ROUTINE]`` to be "simple" and why it has to terminate
-in a ``JUMP`` opcode. The idea behind this
+You might ask what it means for `[ROUTINE]` to be "simple" and why it has to terminate
+in a `JUMP` opcode. The idea behind this
 restriction is that we want the inliner to just be the first step towards further optimizations.
 
 Take a look at the following code:
@@ -65,7 +65,7 @@ function doSomthing(uint x) pure returns (uint) {
 }
 ```
 
-We of course want the call to ``unsafeAdd`` to be inlined. Internally, Solidity translates
+We of course want the call to `unsafeAdd` to be inlined. Internally, Solidity translates
 the function call roughly to the following assembly code:
 
 ```
@@ -90,7 +90,7 @@ For the call, the stack looks as follows (top of the stack on the right):
 <return address> <y> <x>
 ```
 
-So the last ``JUMP`` in the code jumps back to the call site.
+So the last `JUMP` in the code jumps back to the call site.
 
 After inlining the code looks like this:
 
@@ -115,8 +115,8 @@ There is another optimizer stage in the Solidity compiler called the
 "Common Subexpression Eliminator". Despite its name, it is actually a symbolic reasoning engine
 that transforms code into an internal representation, simplifies it and tries to generate
 code with the same semantics but fewer instructions. This stage notices that the
-``PUSH <returnTag>`` lies unused on the stack until the very end (it is consumed by the
-``JUMP``) and re-arranges the code in the following way:
+`PUSH <returnTag>` lies unused on the stack until the very end (it is consumed by the
+`JUMP`) and re-arranges the code in the following way:
 
 ```
 ...
@@ -134,7 +134,7 @@ SWAP1
 JUMP
 ```
 
-Now the code is in a form where the target of the ``JUMP`` opcode
+Now the code is in a form where the target of the `JUMP` opcode
 can be determined without a potentially costly stack analysis, since it is pushed
 right above the opcode. Furthermore, it is a jump to a tag that is just the
 next opcode. This is a perfect opportunity for another stage in the optimizer called the
@@ -170,7 +170,7 @@ Now to get back to the point why we require the routine to be simple:
 As soon as you do more complicated things like for example branching, calling external contracts,
 the Common Subexpression Eliminator cannot re-construct the code anymore or does not
 do full symbolic evaluation of the expressions. Furthermore, it can only fully inline the
-function if there is a ``JUMP`` at the end.
+function if there is a `JUMP` at the end.
 
 ### Conclusion and Future Outlook
 

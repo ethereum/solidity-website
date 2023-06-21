@@ -1,8 +1,8 @@
 ---
 layout: post
 published: true
-title:  "Solidity Memory Array Creation Overflow Bug"
-date:   2020-04-06
+title: 'Solidity Memory Array Creation Overflow Bug'
+date: 2020-04-06
 author: Solidity Team
 category: Security Alerts
 ---
@@ -27,7 +27,7 @@ will terminate and revert the transation with out-of-gas in these cases.
 
 ## How to check if contract is vulnerable
 
-If you allocate dynamic memory arrays using ``new T[](length)`` with a length that depends
+If you allocate dynamic memory arrays using `new T[](length)` with a length that depends
 on user input, you may be vulnerable to this bug. If it is possible to supply a sufficiently
 large length, subsequent memory allocations will have overlapping memory regions and operations
 that use memory scratch space can invalidate the contents of the array.
@@ -90,5 +90,5 @@ can cause an overflow, resulting in only a small amount of memory to be actually
 Subsequent memory allocations will therefore use memory regions that overlap with
 the originally allocated array.
 Starting from Solidity version 0.6.5 the maximum allocation size for dynamic memory arrays
-is ``2**64-1``. Attempting to allocate larger arrays now directly reverts.
+is `2**64-1`. Attempting to allocate larger arrays now directly reverts.
 This effectively prevents such overflows from occurring.

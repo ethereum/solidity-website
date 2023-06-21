@@ -35,7 +35,7 @@ In total, the 2021 survey received **435 responses from developers from 73 diffe
 
 ![Survey Participants World Map](/img/2022/02/geo.png)
 
-#### Residency 
+#### Residency
 
 More than 20% stated to be residing in the US, followed by India (9%) and Germany (4%). Roughly 9% preferred to not share details on their location.
 
@@ -49,13 +49,13 @@ The respondents cover a wide variety of languages with their native languages. I
 
 ![Survey Participants Native Language](/img/2022/02/native_lang.png)
 
-The big majority of more than 80% predominantly speaks English at work. 
+The big majority of more than 80% predominantly speaks English at work.
 
 Several respondents also speak Spanish (2.8%), French (2.1%), Russian (1.6%) or Portuguese (1.6%) at work.
 
 ![Survey Participants Work Language](/img/2022/02/work_lang.png)
 
-Of the respondents who didn't name English as their native language, more than 90% are okay with reading the Solidity documentation in English. 8.6% would prefer to read it in their native language, the most mentioned ones being Mandarin and Traditional Chinese, Spanish and Portuguese. 
+Of the respondents who didn't name English as their native language, more than 90% are okay with reading the Solidity documentation in English. 8.6% would prefer to read it in their native language, the most mentioned ones being Mandarin and Traditional Chinese, Spanish and Portuguese.
 
 ![Preferred Documentation Lanugage](/img/2022/02/docs_lang.png)
 
@@ -95,7 +95,7 @@ On the other hand, almost 30% do so on a daily or weekly basis.
 
 #### Programming Language Preferences
 
-JavaScript and Solidity share rank 1 in terms of most used programming languages (both 27%), followed by TypeScript (14.7%) and Python (10.9%). 
+JavaScript and Solidity share rank 1 in terms of most used programming languages (both 27%), followed by TypeScript (14.7%) and Python (10.9%).
 
 ![Most Used Programming Language](/img/2022/02/progr_lang.png)
 
@@ -125,7 +125,6 @@ Solidity remains to appear rather easy to learn with 26.7% of respondents feelin
 
 ![Time to Productiveness](/img/2022/02/sol_productivity.png)
 
-
 #### Solidity Developer Profile
 
 The majority (roughly 80%) of respondents use Solidity on a daily or weekly basis. 8% indicated to be using Solidity "rarely" or "never", out of which almost all predominantly code in another programming language at work and most indicated they only have been using Solidity for less than 3 months.
@@ -154,7 +153,7 @@ Luckily, only a few people are still using very old versions from the 0.4.x or 0
 
 ![Used Solidity Versions](/img/2022/02/versions.png)
 
-*⚠️ Reminder: Please make sure to frequently update your code. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json#L922) have been added since 0.4.x!*
+_⚠️ Reminder: Please make sure to frequently update your code. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json#L922) have been added since 0.4.x!_
 
 ## [2] Solidity User Experience
 
@@ -186,21 +185,21 @@ _⚠️ We noted that respondents were using various different terms like "float
 
 Most mentioned anticipated features in descending order:
 
-* "floats"
-* better array management / more functions for array & mappings
-* fix stack too deep
-* gas optimizations / optimizer improvements
-* better debugging
-* better support for strings
-* easier/better gas metering while building/developing
-* console.log()
-* custom errors for require()
-* generics
-* better docs (esp. for advanced content like inline assembly, Yul, etc.)
-* codegen via Yul
-* custom value types
-* fixed point math
-* LSP
+- "floats"
+- better array management / more functions for array & mappings
+- fix stack too deep
+- gas optimizations / optimizer improvements
+- better debugging
+- better support for strings
+- easier/better gas metering while building/developing
+- console.log()
+- custom errors for require()
+- generics
+- better docs (esp. for advanced content like inline assembly, Yul, etc.)
+- codegen via Yul
+- custom value types
+- fixed point math
+- LSP
 
 ### Most Liked & Dreaded
 
@@ -208,71 +207,70 @@ Respondents most like Solidity's simplicity, the "easy to learn" aspect of it, S
 
 Most mentioned liked features in descending order:
 
-* simplicity
-* easy to learn
-* domain-specific language / right tool for the job / "it works"
-* SafeMath by default / over- & underflow checks
-* modifiers
-* mappings
-* clean syntax
-* interfaces
-* static typing
-* readability
-* inheritance
-* good tooling
-* structs
-* inline assembly
-* delegate call
-* require and assertions
-* custom errors
-* memory management
-* events
-* libraries
-* compiler safety
-* ABIEncoderV2
-* explicitness
-* flexibility
-* immutability
-* language safety
-* object orientation
+- simplicity
+- easy to learn
+- domain-specific language / right tool for the job / "it works"
+- SafeMath by default / over- & underflow checks
+- modifiers
+- mappings
+- clean syntax
+- interfaces
+- static typing
+- readability
+- inheritance
+- good tooling
+- structs
+- inline assembly
+- delegate call
+- require and assertions
+- custom errors
+- memory management
+- events
+- libraries
+- compiler safety
+- ABIEncoderV2
+- explicitness
+- flexibility
+- immutability
+- language safety
+- object orientation
 
 Most dreaded topics are debugging, the stack too deep error and missing support for fractional numbers.
 
 Dreaded features in descending order:
 
-* debugging
-* stack too deep
-* missing floating numbers / fixed point numbers
-* inline assembly
-* ambiguous/generic (revert) error messages
-* arrays
-* strings
-* docs difficult to read and navigate
-* breaking changes in minor versions / lack of compatibility
-* security
-* gas cost / deploy cost
-* inheritance
-* testing
-* gas optimization
-* modifiers
-* outdated resources / tutorials in community resources
-* increasing complexity
-* `returns`
-* explicit conversions
-* missing docs on inline assembly / yul
-* missing console.log
-* memory allocation
-* missing standard library
-* reentrancy
-* type system
-* override
+- debugging
+- stack too deep
+- missing floating numbers / fixed point numbers
+- inline assembly
+- ambiguous/generic (revert) error messages
+- arrays
+- strings
+- docs difficult to read and navigate
+- breaking changes in minor versions / lack of compatibility
+- security
+- gas cost / deploy cost
+- inheritance
+- testing
+- gas optimization
+- modifiers
+- outdated resources / tutorials in community resources
+- increasing complexity
+- `returns`
+- explicit conversions
+- missing docs on inline assembly / yul
+- missing console.log
+- memory allocation
+- missing standard library
+- reentrancy
+- type system
+- override
 
 ### Restrictiveness
 
 More than 60% of respondents wish that Solidity becomes more restrictive/explicit, having more checks. 26% would like it to remain as is.
 
 ![Solidity Restrictiveness Ranking](/img/2022/02/restrictiveness.png)
-
 
 ## [4] Solidity Community
 
@@ -283,7 +281,6 @@ Less than 20% of respondents ever participated in Solidity language design relat
 Of the roughly 80% that did not participate in language design, almost 8% state not being interested, while 35% are too busy with their work and 40% don't know how they could get involved.
 
 ![Language Design Participation](/img/2022/02/lang_design.png)
-
 
 ### Staying Informed
 
@@ -299,10 +296,10 @@ More than half of respondents interact with other Solidity developers. Interesti
 
 As the last part of the survey, we wanted to hear how many participants agree or disagree with several statements regarding the Solidity community and the work of the Solidity team.
 
-* 75% of respondents feel welcome in the Solidity developer community.
-* Roughly 80% agree or somewhat agree that they feel confident in the work of the Solidity team.
-* More than half feel welcome to contribute to Solidity, however only less than half say that they know how to contribute ideas or feedback to Solidity.
-* Roughly 25% are confident that the Solidity team understands their needs as a developer. Another 40% somewhat agree, while only a fraction disagree or strongly disagree.
+- 75% of respondents feel welcome in the Solidity developer community.
+- Roughly 80% agree or somewhat agree that they feel confident in the work of the Solidity team.
+- More than half feel welcome to contribute to Solidity, however only less than half say that they know how to contribute ideas or feedback to Solidity.
+- Roughly 25% are confident that the Solidity team understands their needs as a developer. Another 40% somewhat agree, while only a fraction disagree or strongly disagree.
 
 ![Community and Solidity Team Confidence Ranking](/img/2022/02/statements.png)
 
@@ -315,10 +312,11 @@ We hope the insights from the 2021 Solidity Developer Survey were useful for you
 We will continue to collect feedback on an ongoing basis, so please don't stop to hold your eyes and ears open!
 
 To not miss anything make sure to...
+
 - follow Solidity on [Twitter](https://twitter.com/solidity_lang) or [Mastodon](https://fosstodon.org/@solidity).
 - join the discussions in the [Solidity forum](https://forum.soliditylang.org/).
 - follow announcements on the [Solidity blog](https://blog.soliditylang.org/).
 
---- 
-*All graphs can be found [here](https://docs.google.com/presentation/d/1B4ffyq4gJT3zxNbYmAToT4ognCkmbUjVCf8sye_yNEA/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1PFCv7TwP8hp3AiJHYqy3qk4FTNatJDfUKjtsZnI5SUM/edit?usp=sharing).*
+---
 
+_All graphs can be found [here](https://docs.google.com/presentation/d/1B4ffyq4gJT3zxNbYmAToT4ognCkmbUjVCf8sye_yNEA/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1PFCv7TwP8hp3AiJHYqy3qk4FTNatJDfUKjtsZnI5SUM/edit?usp=sharing)._

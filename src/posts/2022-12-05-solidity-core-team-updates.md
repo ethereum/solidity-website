@@ -13,13 +13,13 @@ Before we dive in, a reminder that the Solidity programming language and compile
 
 ## Thank you to our alumni 💐
 
-Like in any other project, there naturally comes a time for some team members to move on to other challenges. Since our last update, we have bid farewell to Christian (@christianparpart), Damian (@wechman), Đorđe (@mijovic), Hari (@hrkrshnn), Mathias (@marenz),  and Nishant (@nishant-sachdeva). We were delighted to have them and wish them all the best for their future! Luckily, some alumni remain in our orbit and continue contributing with code and input to language design discussions.
+Like in any other project, there naturally comes a time for some team members to move on to other challenges. Since our last update, we have bid farewell to Christian (@christianparpart), Damian (@wechman), Đorđe (@mijovic), Hari (@hrkrshnn), Mathias (@marenz), and Nishant (@nishant-sachdeva). We were delighted to have them and wish them all the best for their future! Luckily, some alumni remain in our orbit and continue contributing with code and input to language design discussions.
 
 ## Introducing new team members 💝
 
 On a happy note, we are excited to introduce new core team members who have joined us along the way. Please meet Matheus, Nikola, Nuno and Rodrigo!
 
-To give you a chance to get to know them better, we asked all new joiners to respond to a selection of questions. Read their responses below. 
+To give you a chance to get to know them better, we asked all new joiners to respond to a selection of questions. Read their responses below.
 
 ### Matheus - @[matheusaaguiar](https://github.com/matheusaaguiar)
 
@@ -35,7 +35,6 @@ _After being a teacher for a fair share of years, I wanted to work with the indu
 
 _I enjoy playing digital games such as ~~cracktorio~~ Factorio and StarCraft II, but also like to gather some friends and play board games while drinking some beers 🍻. Besides that, I really like skateboarding, running and football of course 🇧🇷!_
 
-
 ### Nikola - @[nikola-matic](https://github.com/nikola-matic)
 
 #### What is your professional background?
@@ -49,7 +48,6 @@ _I've only joined the team ~4 months prior to writing this, so not that much. I 
 #### What do you think is Solidity’s biggest challenge?
 
 _Fundamentally, I think that we, as the Solidity team, don't use the language enough, which is especially concerning seeing as we design and implement it. This is something that the community has pointed out in the past as well, and is something we're well aware of. Thankfully, we are working on this, and plan to have internal team projects and hackathons in the future, which should hopefully give us a different perspective going forward._
-
 
 ### Nuno - @[NunoFilipeSantos](https://github.com/NunoFilipeSantos)
 
@@ -76,19 +74,19 @@ _Solidity will start having a more community-friendly [roadmap](https://github.c
 
 #### What is your professional background?
 
-*I have a BSc in Computer Science, and after my bachelor's, I worked for almost five years as a system administrator of High-Performance Computing clusters using mainly open-source software and developing all sorts of scripts and tools to manage the systems. Then, I decided that it was time to explore new areas and learn a new programming language, so I did an MSc in Distributed Systems. My MSc thesis focused on implementing and evaluating a Collision-fast Atomic Broadcast protocol based on a variation of the Distributed Consensus problem, which I implemented in Scala.*
+_I have a BSc in Computer Science, and after my bachelor's, I worked for almost five years as a system administrator of High-Performance Computing clusters using mainly open-source software and developing all sorts of scripts and tools to manage the systems. Then, I decided that it was time to explore new areas and learn a new programming language, so I did an MSc in Distributed Systems. My MSc thesis focused on implementing and evaluating a Collision-fast Atomic Broadcast protocol based on a variation of the Distributed Consensus problem, which I implemented in Scala._
 
-*After my master's, I worked as a software engineer in a Brazilian IT company building an API Gateway and API Manager Platform that worked as an abstraction layer for legacy web services. The system was mainly implemented in Javascript, Ruby, and Go.*
+_After my master's, I worked as a software engineer in a Brazilian IT company building an API Gateway and API Manager Platform that worked as an abstraction layer for legacy web services. The system was mainly implemented in Javascript, Ruby, and Go._
 
-*Over the years, I developed some small projects in Solidity in my free time, and eventually, in 2018, I decided to start a PhD in Distributed Systems to fulfill my desire to learn more about Ethereum. My PhD was focused on designing and developing a transparent and privacy-preserving verifiable credential system for academic diplomas that could work on a global scale. The core functionality was implemented in Solidity and Circom. Finally, in 2022, I had the opportunity to join the Solidity team.*
+_Over the years, I developed some small projects in Solidity in my free time, and eventually, in 2018, I decided to start a PhD in Distributed Systems to fulfill my desire to learn more about Ethereum. My PhD was focused on designing and developing a transparent and privacy-preserving verifiable credential system for academic diplomas that could work on a global scale. The core functionality was implemented in Solidity and Circom. Finally, in 2022, I had the opportunity to join the Solidity team._
 
 #### What is your role in the Solidity team? On which parts of Solidity do you work the most?
 
-*I work primarily on solc-js (a JavaScript wrapper around the Solidity compiler), task automation, and Continuous Integration scripts in the Solidity repository. I also collaborate with the development of some minor changes in the compiler, and I'm looking forward to contributing to more compiler features and optimizations in the future.*
+_I work primarily on solc-js (a JavaScript wrapper around the Solidity compiler), task automation, and Continuous Integration scripts in the Solidity repository. I also collaborate with the development of some minor changes in the compiler, and I'm looking forward to contributing to more compiler features and optimizations in the future._
 
 #### What made you join the Solidity team?
 
-*Being part of the Solidity team sounded like an exciting challenge to me - a natural step for learning more about the Solidity language and an excellent way to contribute and learn more about the Ethereum ecosystem.*
+_Being part of the Solidity team sounded like an exciting challenge to me - a natural step for learning more about the Solidity language and an excellent way to contribute and learn more about the Ethereum ecosystem._
 
 ## Changes in Team Structure 🧑‍💻👩‍💻
 
@@ -104,7 +102,7 @@ Furthermore, we'd like to announce that one of our long-time Solidity core team 
 
 Daniel started contributing to Solidity in February 2018. He is a mathematician by training, but worked as a part-time software developer since his studies. This year, he received a PhD in Computational Metaphysics.
 
-Daniel demonstrated technical leadership throughout his work on the optimizer and ``via-IR`` pipeline in Solidity and has been a vital sparring partner for language design decisions since he joined the team.
+Daniel demonstrated technical leadership throughout his work on the optimizer and `via-IR` pipeline in Solidity and has been a vital sparring partner for language design decisions since he joined the team.
 
 We are glad to have him as a new Tech Lead and confident he is the perfect choice to continue Chris' legacy.
 
@@ -131,6 +129,7 @@ We have also just published our [Solidity Roadmap](https://github.com/orgs/ether
 If you are not into language design but you are still eager to contribute to Solidity, there are many other ways!
 
 You can get started by:
+
 - Reporting issues
 - Fixing and responding to issues tagged as “good first issue”
 - Improving the documentation

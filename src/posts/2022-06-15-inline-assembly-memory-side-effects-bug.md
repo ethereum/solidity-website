@@ -41,9 +41,8 @@ effects should in most cases be easily detectable in tests. However,
 since the consequences in affected cases can be severe, we assigned it a severity
 of "medium".
 
-
 In the following example, the legacy code generation pipeline with enabled optimizer will
-remove the ``mstore`` instruction and the function ``f`` will return zero:
+remove the `mstore` instruction and the function `f` will return zero:
 
 ```solidity
 contract C {
@@ -60,8 +59,8 @@ contract C {
 
 However, if the same memory is either read again in the same inline assembly block
 or if the inline assembly block accesses any local Solidity variables, the bug is
-not present. Both is the case in the following example, so ``f`` will return
-``0x42`` as expected:
+not present. Both is the case in the following example, so `f` will return
+`0x42` as expected:
 
 ```solidity
 contract C {
@@ -74,8 +73,8 @@ contract C {
 }
 ```
 
-In the following example, the first ``mstore`` will not be removed, since the written memory
-is read again by the ``return``. The second ``mstore`` on the other hand will be removed, since the memory
+In the following example, the first `mstore` will not be removed, since the written memory
+is read again by the `return`. The second `mstore` on the other hand will be removed, since the memory
 it writes is never read again. In this case, this is a valid optimization and the example is not adversely
 affected by the bug. Generally, any assembly block that terminates the transaction or does not have memory side-effects that
 need to be observed afterwards is unaffected.

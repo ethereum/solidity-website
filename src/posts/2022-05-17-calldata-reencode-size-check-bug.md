@@ -18,10 +18,10 @@ We assigned the bug a severity of "very low".
 ## Which Contracts are Affected?
 
 You might be affected if you pass a nested array directly to another external
-function call or use ``abi.encode`` on it.
+function call or use `abi.encode` on it.
 
 If calldata is malformed in a certain way, the call might not revert as it should.
-Instead, data with extra zeros at the end is passed on to the called contract or to the ``abi.encode`` function.
+Instead, data with extra zeros at the end is passed on to the called contract or to the `abi.encode` function.
 
 ## Technical Details
 
@@ -31,16 +31,17 @@ index or member access to the outer type. While in most such accesses calldata
 validation correctly checks that the data area of the nested array (see [the ABI
 encoding specification](https://docs.soliditylang.org/en/develop/abi-spec.html#use-of-dynamic-types))
 is completely contained in the passed calldata (i.e. in
-the range ``[0, calldatasize()]``), this check may not be performed, when ABI
+the range `[0, calldatasize()]`), this check may not be performed, when ABI
 encoding such nested types again directly from calldata.
 
 For instance, this can happen, if a value in calldata with a nested dynamic array is
-passed to an external call, used in ``abi.encode`` or emitted as event.
-In such cases, if the data area of the nested array extends beyond ``calldatasize()``,
+passed to an external call, used in `abi.encode` or emitted as event.
+In such cases, if the data area of the nested array extends beyond `calldatasize()`,
 ABI encoding it did not revert, but continued reading values from beyond
-``calldatasize()`` (i.e. zero values).
+`calldatasize()` (i.e. zero values).
 
 For example, in this contract:
+
 ```solidity
 contract C {
 	event e(uint[][]);
@@ -52,10 +53,11 @@ contract C {
 	}
 }
 ```
-A call to ``f`` with corrupted calldata, in which an element of ``a`` has a data area that extends
-beyond ``calldatasize``, will not revert.
 
-However, each of the following cases will properly validate against ``calldatasize`` and will revert
+A call to `f` with corrupted calldata, in which an element of `a` has a data area that extends
+beyond `calldatasize`, will not revert.
+
+However, each of the following cases will properly validate against `calldatasize` and will revert
 with similarly corrupted calldata. This is because the calldata array is only being decoded rather than
 decoded and encoded back in a single operation. This is handled by a different code path in the compiler that
 is unaffected by this bug:

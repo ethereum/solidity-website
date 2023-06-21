@@ -17,10 +17,11 @@ We assigned the bug a severity of "medium".
 ## Which Contracts are Affected?
 
 The effects of the bug manifest when a contract performs ABI-encoding of a tuple that meets **all** of the following conditions:
+
 1. The last component of the tuple is a (potentially nested) statically-sized calldata array with the most base type being either `uint` or `bytes32`.
-    E.g. `bytes32[10]` or `uint[2][2][2]`.
+   E.g. `bytes32[10]` or `uint[2][2][2]`.
 2. The tuple contains at least one dynamic component.
-    E.g. `bytes` or a struct containing a dynamic array.
+   E.g. `bytes` or a struct containing a dynamic array.
 3. The code is using ABI coder v2, which is the default since Solidity 0.8.0.
 
 Note that structs are represented as tuples in the ABI.
@@ -68,7 +69,7 @@ the layout of an ABI-encoded tuple.
 ### Layout and Encoding Order of Static and Dynamic Tuples
 
 [The ABI encoding of a tuple](https://docs.soliditylang.org/en/latest/abi-spec.html#formal-specification-of-the-encoding)
-consists of two areas - the statically encoded *head* and the dynamically encoded *tail*.
+consists of two areas - the statically encoded _head_ and the dynamically encoded _tail_.
 Every static component is placed directly in the head area while for dynamic ones, the head contains only the offset
 of the location within the tail where the data is stored.
 This layout ensures that component locations within the head are fixed and any of them can be accessed without the need to decode all
@@ -77,6 +78,7 @@ the components that precede it.
 #### Static Encoding Example
 
 Let us consider the following example that encodes a tuple with no dynamic components:
+
 ```solidity
 struct S {
     address x;
@@ -95,6 +97,7 @@ f(true, S(0x1111111111222222222233333333334444444444, [uint(11), 12, 13]), [byte
 ```
 
 would encode its arguments as follows:
+
 ```
 0x0000000000000000000000000000000000000000000000000000000000000001 a
 0x0000000000000000000000001111111111222222222233333333334444444444 b.x
@@ -106,6 +109,7 @@ would encode its arguments as follows:
 ```
 
 The encoded tuple has no tail and is laid out in the following way:
+
 ```
 |---------------------------------------------------|
 |                        HEAD                       |
@@ -127,6 +131,7 @@ The numbers at the bottom indicate the order in which the components are written
 #### Dynamic Encoding Example
 
 The example below uses a very similar tuple but with one of the static fields replaced by a dynamic one:
+
 ```solidity
 struct T {
     bytes x;
@@ -139,10 +144,13 @@ contract D {
 ```
 
 In this case a call to `D.f()` with the following input:
+
 ```solidity
 f(true, T("abcd", [uint(11), 12, 13]), [bytes32("a"), "b"])
 ```
+
 results in a vastly different encoding:
+
 ```
 0x0000000000000000000000000000000000000000000000000000000000000001 a
 0x0000000000000000000000000000000000000000000000000000000000000080 offset of b
@@ -229,7 +237,7 @@ The case with a static tuple was not affected because, in absence of the tail, t
 The encoder could still write past the end of the whole area reserved for the encoding but the compiler would be able
 to ensure that the memory past it had not been allocated for another purpose, making the cleanup perfectly safe.
 
-The bug only affected the encoding of tuples in the presence of a ``calldata`` array because that was the only situation where
+The bug only affected the encoding of tuples in the presence of a `calldata` array because that was the only situation where
 the routine that performs the aggressive cleanup was used.
 
 The routine is a part of the IR-based code generator and runs regardless of the use of the optimizer,

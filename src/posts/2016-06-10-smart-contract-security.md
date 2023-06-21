@@ -6,6 +6,7 @@ date: '2016-06-10'
 author: Christian Reitwiessner
 category: Security Alerts
 ---
+
 _This post was originally published on the [Ethereum blog](https://blog.ethereum.org/2016/06/10/smart-contract-security/)._
 
 Solidity was started in October 2014 when neither the Ethereum network nor the virtual machine had any real-world testing, the gas costs at that time were even drastically different from what they are now. Furthermore, some of the early design decisions were taken over from Serpent. During the last couple of months, examples and patterns that were initially considered best-practice were exposed to reality and some of them actually turned out to be anti-patterns. Due to that, we recently updated some of the [Solidity documentation](https://solidity.readthedocs.org), but as most people probably do not follow the stream of github commits to that repository, I would like to highlight some of the findings here.
@@ -33,7 +34,7 @@ contract auction {
 }
 ```
 
-Because of the maximal stack depth of 1024 the new bidder can always increase the stack size to 1023 and then call ``bid()`` which will cause the ``send(highestBid)`` call to silently fail (i.e. the previous bidder will not receive the refund), but the new bidder will still be highest bidder. One way to check whether ``send`` was successful is to check its return value:
+Because of the maximal stack depth of 1024 the new bidder can always increase the stack size to 1023 and then call `bid()` which will cause the `send(highestBid)` call to silently fail (i.e. the previous bidder will not receive the refund), but the new bidder will still be highest bidder. One way to check whether `send` was successful is to check its return value:
 
 ```solidity
 /// THIS IS STILL A NEGATIVE EXAMPLE! DO NOT USE!
@@ -42,7 +43,7 @@ if (highestBidder != 0)
     throw;
 ```
 
-The ``throw`` statement causes the current call to be reverted. This is a bad idea, because the recipient, e.g. by implementing the fallback function as ``function() { throw; }`` can always force the Ether transfer to fail and this would have the effect that nobody can overbid her.
+The `throw` statement causes the current call to be reverted. This is a bad idea, because the recipient, e.g. by implementing the fallback function as `function() { throw; }` can always force the Ether transfer to fail and this would have the effect that nobody can overbid her.
 
 The only way to prevent both situations is to convert the sending pattern into a withdrawing pattern by giving the recipient control over the transfer:
 
@@ -66,7 +67,7 @@ contract auction {
 }
 ```
 
-Why does it still say "negative example" above the contract? Because of gas mechanics, the contract is actually fine, but it is still not a good example. The reason is that it is impossible to prevent code execution at the recipient as part of a send. This means that while the send function is still in progress, the recipient can call back into withdrawRefund. At that point, the refund amount is still the same and thus they would get the amount again and so on. In this specific example, it does not work, because the recipient only gets the gas stipend (2100 gas) and it is impossible to perform another send with this amount of gas. The following code, though, is vulnerable to this attack: ``msg.sender.call.value(refunds[msg.sender])()``.
+Why does it still say "negative example" above the contract? Because of gas mechanics, the contract is actually fine, but it is still not a good example. The reason is that it is impossible to prevent code execution at the recipient as part of a send. This means that while the send function is still in progress, the recipient can call back into withdrawRefund. At that point, the refund amount is still the same and thus they would get the amount again and so on. In this specific example, it does not work, because the recipient only gets the gas stipend (2100 gas) and it is impossible to perform another send with this amount of gas. The following code, though, is vulnerable to this attack: `msg.sender.call.value(refunds[msg.sender])()`.
 
 Having considered all this, the following code should be fine (of course it is still not a complete example of an auction contract):
 

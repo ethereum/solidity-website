@@ -6,19 +6,20 @@ date: '2017-05-03'
 author: Martin Swende
 category: Security Alerts
 ---
+
 _This post was originally published on the [Ethereum blog](https://blog.ethereum.org/2017/05/03/solidity-optimizer-bug/)._
 
 A bug in the Solidity optimizer was reported through the [Ethereum Foundation Bounty program](https://bounty.ethereum.org/), by Christoph Jentzsch. This bug is patched as of 2017-05-03, with the release of Solidity 0.4.11.
 
 ## Background
 
-The bug in question concerned how the optimizer optimizes on constants in the byte code. By "byte code constants", we mean anything which is ``PUSH``ed on the stack (not to be confused with Solidity constants). For example, if the value ``0xfffffffffffffffffffffffffffffffffffffffffffffffe`` is ``PUSH``ed, then the optimizer can either do ``PUSH32 0xfffffffffffffffffffffffffffffffffffffffffffffffe``, or choose to encode this as ``PUSH1 1; NOT;``.
+The bug in question concerned how the optimizer optimizes on constants in the byte code. By "byte code constants", we mean anything which is `PUSH`ed on the stack (not to be confused with Solidity constants). For example, if the value `0xfffffffffffffffffffffffffffffffffffffffffffffffe` is `PUSH`ed, then the optimizer can either do `PUSH32 0xfffffffffffffffffffffffffffffffffffffffffffffffe`, or choose to encode this as `PUSH1 1; NOT;`.
 
 An error in the optimizer made optimizations of byte code constants fail for certain cases by producing a routine that did not properly recreate the original constant.
 
 The behavior described in the reported bug was found in a contract in which one method ceased functioning when another - totally unrelated - method was added to the contract. After analysis, it was determined that a number of conditions must exist at once for the bug to trigger. Any combination of conditions that would trigger the bug would consistently have the following two conditions:
 
-- The constant needs to start with ``0xFF...`` and end with a long series of zeroes (or vice versa).
+- The constant needs to start with `0xFF...` and end with a long series of zeroes (or vice versa).
 - The same constant needs to be used in multiple locations, for the optimizer to choose to optimize this particular constant. Alternatively, it needs to be used in the constructor, which optimises for size rather than gas.
 
 In addition to the two conditions above, there are further, more complicated conditions that are required.

@@ -6,6 +6,7 @@ date: '2019-06-25'
 author: Solidity and Security Team
 category: Security Alerts
 ---
+
 _This post was originally published on the [Ethereum blog](https://blog.ethereum.org/2019/06/25/solidity-storage-array-bugs/)._
 
 This blog post is about two bugs connected to storage arrays which are otherwise unrelated. Both have been present in the compiler for a long time and have only been discovered now even though a contract containing them should very likely show malfunctions in tests.
@@ -30,12 +31,12 @@ Details about the two bugs can be found below.
 
 If you have deployed contracts which use signed integer arrays in storage and either directly assign
 
- - a literal array with at least one negative value in it (``x = [-1, -2, -3];``) or
- - an existing array of a _different_ signed integer type
+- a literal array with at least one negative value in it (`x = [-1, -2, -3];`) or
+- an existing array of a _different_ signed integer type
 
 to it, this will lead to data corruption in the storage array.
 
-Contracts that only assign individual array elements (i.e. with ``x[2] = -1;``) are not affected.
+Contracts that only assign individual array elements (i.e. with `x[2] = -1;`) are not affected.
 
 ## How to check if contract is vulnerable
 
@@ -55,27 +56,26 @@ Which bits to zero out was incorrectly determined from the source and not the ta
 
 If you have deployed contracts which use the experimental ABI encoder V2, then those might be affected. This means that only contracts which use the following directive within the source code can be affected:
 
-
     pragma experimental ABIEncoderV2;
 
-
-Additionally, there are a number of requirements for the bug to trigger. See technical details further below for more information. 
+Additionally, there are a number of requirements for the bug to trigger. See technical details further below for more information.
 
 ## How to check if contract is vulnerable
 
 The bug only manifests itself when all of the following conditions are met:
-* Storage data involving arrays or structs is sent directly to an external function call, to ``abi.encode`` or to event data without prior assignment to a local (memory) variable AND
-* this data either contains an array of structs or an array of statically-sized arrays (i.e. at least two-dimensional).
+
+- Storage data involving arrays or structs is sent directly to an external function call, to `abi.encode` or to event data without prior assignment to a local (memory) variable AND
+- this data either contains an array of structs or an array of statically-sized arrays (i.e. at least two-dimensional).
 
 In addition to that, in the following situation, your code is NOT affected:
-* if you only return such data and do not use it in ``abi.encode``, external calls or event data.
+
+- if you only return such data and do not use it in `abi.encode`, external calls or event data.
 
 ## Possible consequences
 
-Naturally, any bug can have wildly varying consequences depending on the program control flow, but we expect that this is more likely to lead to malfunction than exploitability. 
+Naturally, any bug can have wildly varying consequences depending on the program control flow, but we expect that this is more likely to lead to malfunction than exploitability.
 
-The bug, when triggered, will under certain circumstances send corrupt parameters on method invocations to other contracts. 
-
+The bug, when triggered, will under certain circumstances send corrupt parameters on method invocations to other contracts.
 
 ## Technical details
 
@@ -83,7 +83,7 @@ During the encoding process, the experimental ABI encoder does not properly adva
 
 This is only the case for elements that are structs or statically-sized arrays. Arrays of dynamically-sized arrays or of elementary datatypes are not affected.
 
-The specific effect you will see is that data is "shifted" in the encoded array: If you have an array of type ``uint[2][]`` and it contains the data
-``[[1, 2], [3, 4], [5, 6]]``, then it will be encoded as ``[[1, 2], [2, 3], [3, 4]]`` because the encoder only advances by a single slot between elements instead of two.
+The specific effect you will see is that data is "shifted" in the encoded array: If you have an array of type `uint[2][]` and it contains the data
+`[[1, 2], [3, 4], [5, 6]]`, then it will be encoded as `[[1, 2], [2, 3], [3, 4]]` because the encoder only advances by a single slot between elements instead of two.
 
 This post was jointly composed by [@axic](https://github.com/axic), [@chriseth](https://github.com/chriseth), [@holiman](https://github.com/holiman).

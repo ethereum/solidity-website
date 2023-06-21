@@ -17,11 +17,11 @@ The goal of this contest is to write innocent-looking Solidity code, which prete
 
 By hosting such a contest we aim to:
 
-+ Raise awareness about smart contract security.
-+ Uncover language design flaws.
-+ Battle-test recently introduced language features and restrictions.
-+ Highlight anti-patterns in smart contact development.
-+ Establish new best practices for secure smart contract development.
+- Raise awareness about smart contract security.
+- Uncover language design flaws.
+- Battle-test recently introduced language features and restrictions.
+- Highlight anti-patterns in smart contact development.
+- Establish new best practices for secure smart contract development.
 
 ## The Theme 🚪🔑
 
@@ -41,21 +41,21 @@ Submissions are open from 1st of October until the 31st of October 2020. Anybody
 
 Judges will be presented with anonymised submissions. This year's submissions will be assessed by:
 
-+ Alex Beregszaszi, Solidity Co-Lead at Ethereum Foundation.
-+ Austin Williams, Security Researcher at OpenZeppelin.
-+ Christian Reitwiessner, Solidity Co-Lead at Ethereum Foundation.
-+ Gonçalo Sá, Security Engineer at ConsenSys Diligence.
-+ Stefan Beyer, Lead Auditor at Solidified.
+- Alex Beregszaszi, Solidity Co-Lead at Ethereum Foundation.
+- Austin Williams, Security Researcher at OpenZeppelin.
+- Christian Reitwiessner, Solidity Co-Lead at Ethereum Foundation.
+- Gonçalo Sá, Security Engineer at ConsenSys Diligence.
+- Stefan Beyer, Lead Auditor at Solidified.
 
-Winners will be able to choose a prize of their choice from the prize pool. 
+Winners will be able to choose a prize of their choice from the prize pool.
 
-The prize pool contains: 
+The prize pool contains:
 
-+ 1x Ticket to Devcon6.
-+ 1x 1-year MythX Pro Plan.
-+ 1x 1-year MythX Dev Plan.
-+ 1x Automatic acceptance into Solidified auditor pool & a paid audit with Solidified.
-+ 1x 1-year subscription to OpenZeppelin's forthcoming security product.
+- 1x Ticket to Devcon6.
+- 1x 1-year MythX Pro Plan.
+- 1x 1-year MythX Dev Plan.
+- 1x Automatic acceptance into Solidified auditor pool & a paid audit with Solidified.
+- 1x 1-year subscription to OpenZeppelin's forthcoming security product.
 
 Furthermore, the winners and all qualified submissions will receive a custom NFT.
 
@@ -63,18 +63,17 @@ Furthermore, the winners and all qualified submissions will receive a custom NFT
 
 Consider the following aspects and properties for your submissions:
 
-+ **Simplicity & Briefness**: Since it's much easier to hide a vulnerability in complex and poorly written code, short and clean submissions will be scored higher than those that are lengthy and complicated.
-+ **Plausibility**: Code that drops down to inline assembly without any clear reason why will look immediately suspicious, no matter how cleverly written the assembly-level flaw is.
-+ **Originality**: Truly original ideas will receive more points than making use of already well known exploit/backdoor mechanisms.
+- **Simplicity & Briefness**: Since it's much easier to hide a vulnerability in complex and poorly written code, short and clean submissions will be scored higher than those that are lengthy and complicated.
+- **Plausibility**: Code that drops down to inline assembly without any clear reason why will look immediately suspicious, no matter how cleverly written the assembly-level flaw is.
+- **Originality**: Truly original ideas will receive more points than making use of already well known exploit/backdoor mechanisms.
 
 ## Submissions 📩
 
-**License**: The entirety of your submission must be licensed under an open-source license. 
+**License**: The entirety of your submission must be licensed under an open-source license.
 
 **Solidity Version**: Please use Solidity v0.7.0 or newer.
 
 Submissions open on 1st of October 2020. Email your submissions before the deadline (2020-10-31) to `sol_underhanded@ethereum.org`. Entries should consist of a ZIP file containing a README describing your submission and how it works (spoilers included), and one or more Solidity files. For details of the submission process, please refer to the [contest website](https://underhanded.soliditylang.org/).
-
 
 ## Thank you to our supporters! 🥰
 

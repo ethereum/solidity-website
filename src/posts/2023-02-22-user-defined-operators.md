@@ -8,7 +8,7 @@ category: Explainers
 ---
 
 The highlight of [Solidity 0.8.19](https://github.com/ethereum/solidity/releases/tag/v0.8.19) release
-is the support for defining *operators* on [user-defined value types](https://docs.soliditylang.org/en/latest/types.html#user-defined-value-types) (UDVTs).
+is the support for defining _operators_ on [user-defined value types](https://docs.soliditylang.org/en/latest/types.html#user-defined-value-types) (UDVTs).
 
 If you have not been keeping up with recent features, UDVTs are a new class of types introduced in Solidity 0.8.8.
 They provide an abstraction over an elementary value type that results in a completely new type.
@@ -19,10 +19,12 @@ built-in types and promote the use of type-safe interfaces.
 Below, we are going to take a closer look into the details of this new mechanism.
 
 ### A Quick Refresher
+
 Before we get into the details of the new feature and how it affects the language, it may be a good
 idea to first go over the two existing features that it builds upon: built-in operators and `using for`.
 
 #### Built-in Operators
+
 Solidity, like the vast majority of programming languages,
 [offers a set of operators](https://docs.soliditylang.org/en/latest/types.html#operators) as syntactic sugar
 over common arithmetical and logical functions.
@@ -34,16 +36,16 @@ What is included in that set varies widely from language to language.
 
 Here is the full list for Solidity:
 
-| Category             | Operators                                                                |
-|----------------------|--------------------------------------------------------------------------|
-| Bitwise              | `&`, `|`, `^`, `<<`, `>>`, `~`                                           |
-| Arithmetic           | `+`, `-`, `*`, `/`, `%`, `**`                                            |
-| Comparison           | `==`, `!=`, `<`, `<=`, `>`, `>=`                                         |
-| Boolean              | `!`, `&&`, `||`                                                          |
-| Increment/decrement  | `++`, `--`                                                               |
-| Simple assignment    | `=`                                                                      |
-| Composite assignment | `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=`       |
-| Miscellaneous        | `delete`, `new`, `.`, `()`, `[]`, `?:`                                   |
+| Category             | Operators                                   |
+| -------------------- | ------------------------------------------- | ----------------------- | --- |
+| Bitwise              | `&`, `                                      | `, `^`, `<<`, `>>`, `~` |
+| Arithmetic           | `+`, `-`, `*`, `/`, `%`, `**`               |
+| Comparison           | `==`, `!=`, `<`, `<=`, `>`, `>=`            |
+| Boolean              | `!`, `&&`, `                                |                         | `   |
+| Increment/decrement  | `++`, `--`                                  |
+| Simple assignment    | `=`                                         |
+| Composite assignment | `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, ` | =`, `^=`, `<<=`, `>>=`  |
+| Miscellaneous        | `delete`, `new`, `.`, `()`, `[]`, `?:`      |
 
 It is important to note that in many languages, an assignment is a statement that is handled in a special way.
 In Solidity, like in the C-like languages it took inspiration from, an assignment operator can be freely used in
@@ -55,6 +57,7 @@ For example, you can put almost anything in parentheses or branches of the terna
 of a bigger expression, even if its type cannot be named or even assigned to anything.
 
 #### `using for`
+
 Since operators are a purely syntactic element, you can always use a function as a substitute.
 Solidity has a mechanism that is often used this way:
 [`using for`](https://docs.soliditylang.org/en/latest/contracts.html#using-for).
@@ -79,16 +82,19 @@ function test(Int a, Int b) pure returns (Int) {
 ```
 
 Currently, `using for` has 3 forms:
+
 1. `using L for T`: attaches all non-private functions from library `L` to type `T`.
 1. `using L for *`: attaches all non-private functions from library `L` to any type, including types that
-    cannot be named in the language and used explicitly (e.g. types of literals or array slices).
+   cannot be named in the language and used explicitly (e.g. types of literals or array slices).
 1. `using {f, L.g, ...} for T`: attaches given free or library functions `f`, `L.g`, ... to type `T`.
 
 The directive can be used:
+
 - ✅ At file level.
 - ✅ Inside contract and library definitions.
 
 The directive can not be used:
+
 - ❌ Inside interface definitions.
 
 When used inside contracts, it is not inherited.
@@ -100,6 +106,7 @@ It does not affect other files that import the file containing it, unless it is 
 The use of `global` is possible only with UDVTs, structs, and enums that are defined in its source unit.
 
 ### Introducing User-Defined Operators
+
 The new feature extends the third form of the `using for` syntax to allow binding operators to functions.
 The function is invoked whenever the operator is used on the values of the type:
 
@@ -129,8 +136,8 @@ must always be invoked with exact types.
 The following operators can be defined:
 
 | Category   | Operators                        |
-|------------|----------------------------------|
-| Bitwise    | `&`, `|`, `^`,  `~`              |
+| ---------- | -------------------------------- | ------------ |
+| Bitwise    | `&`, `                           | `, `^`,  `~` |
 | Arithmetic | `+`, `-`, `*`, `/`, `%`          |
 | Comparison | `==`, `!=`, `<`, `<=`, `>`, `>=` |
 
@@ -145,6 +152,7 @@ bound to a function provided by the user.
 Once the operator is bound, the definition cannot be changed.
 
 #### Operator Bindings vs Attached Functions
+
 User-defined operators are independent of attached functions.
 One can be done without the other, and both can be done simultaneously, even in the same `using for` directive.
 
@@ -174,18 +182,19 @@ function test(Int x, Int y) pure {
 }
 ```
 
-In the above example, the function `add()` is used *only* as the operator `+`, and not callable as `x.add(y)`
+In the above example, the function `add()` is used _only_ as the operator `+`, and not callable as `x.add(y)`
 (but it can, of course, be also called as `add(x, y)`).
 `sub()`, on the other hand, can both be used as the operator `-` and called on the type.
 
 The rules for `using for global` with operators are the same as for attached functions
-(with an additional restriction that operators *must* be global), i.e.
+(with an additional restriction that operators _must_ be global), i.e.
 it is only allowed at file level, the type must be defined in the same file and it makes
 the operator available everywhere.
 Note that only the directive itself must be colocated with the type.
 The operator definitions may be imported from a separate file.
 
 #### Parameter Cleanup
+
 If you decide to use inline assembly in your operator implementation, you should be aware of
 a dangerous pitfall when using types that do not fill the whole stack slot.
 Accessing Solidity variables in inline assembly bypasses the
@@ -195,6 +204,7 @@ In inline assembly you must perform that cleanup manually.
 
 Consider an example that naively accesses the parameters and return values of operators
 without properly cleaning up `uint8` values:
+
 ```solidity
 pragma solidity ^0.8.19;
 
@@ -235,10 +245,13 @@ This results in an integer division by 258 rather than by 2.
 
 The problem can be avoided with manual cleanup.
 The code would work as designed if `add(x, y)` was replaced with
+
 ```solidity
 and(0xff, add(and(0xff, x), and(0xff, y)))
 ```
+
 and `div(x, y)` with
+
 ```solidity
 and(0xff, div(and(0xff, x), and(0xff, y)))
 ```
@@ -246,6 +259,7 @@ and(0xff, div(and(0xff, x), and(0xff, y)))
 #### Examples
 
 ##### Unchecked Counter
+
 This example shows how operators can be used to bypass the checked arithmetic for types
 specifically defined for cases where those checks are superfluous:
 
@@ -288,10 +302,12 @@ contract C {
 ```
 
 ##### A More Complex Abstract Example
+
 This is a more complex example that shows multiple aspects of user-defined operators.
 The exact calculations it performs do not matter, the point is to show the syntax in a larger context.
 
 `redBlueScore.sol`
+
 ```solidity
 pragma solidity ^0.8.19;
 
@@ -320,6 +336,7 @@ contract RedBlueScore {
 ```
 
 `types.sol`
+
 ```solidity
 pragma solidity ^0.8.19;
 
@@ -349,6 +366,7 @@ Blue constant BLUE_LIMIT = Blue.wrap(20);
 ```
 
 `operators.sol`
+
 ```solidity
 pragma solidity ^0.8.19;
 
@@ -394,23 +412,29 @@ function divScore(Score x, Score y) pure returns (Score) { return Score.wrap(Sco
 ```
 
 ### AST Changes
+
 The new feature introduces two new attributes to the Abstract Syntax Tree (AST) produced by the compiler:
+
 1. `functionList` on `UsingForDirective` nodes can now contain operator entries of the following structure:
-    ```json
-    {
-        "operator": "+",
-        "definition": { /* function */ }
-    }
-    ```
-    in addition to the current entries for functions that are structured as follows:
-    ```json
-    {
-        "function": { /* function */ }
-    }
-    ```
+   ```json
+   {
+     "operator": "+",
+     "definition": {
+       /* function */
+     }
+   }
+   ```
+   in addition to the current entries for functions that are structured as follows:
+   ```json
+   {
+     "function": {
+       /* function */
+     }
+   }
+   ```
 1. `BinaryOperation` and `UnaryOperation` nodes may now have a `function` attribute.
-    If present, the attribute indicates that the operation is actually an invocation of a user-defined
-    operator and specifies the ID of the function used to define it.
+   If present, the attribute indicates that the operation is actually an invocation of a user-defined
+   operator and specifies the ID of the function used to define it.
 
 This effectively introduces a new way to perform a function call not represented by a `FunctionCall` node.
 It will affect any tool that needs to detect and follow function calls, for example, to build a
@@ -419,6 +443,7 @@ control flow graph.
 ### Design Rationale
 
 #### Why Does Solidity Need User-Defined Operators?
+
 The support for user-defined value types in Solidity cannot be considered complete without more natural
 ways to operate on them.
 The ability to use operators was envisioned from the beginning, and the main reason it was not provided
@@ -427,25 +452,27 @@ We decided that it was best to release the feature in a minimal usable state and
 taking into account user feedback.
 
 UDVTs in general were meant to fulfill two needs:
+
 1. More type-safety when performing operations on values of the same underlying value type that express
-    conceptually different things.
-    For example quantities of different dimensions could both be stored as `uint` but adding them without
-    an explicit conversion is a mistake that can only be prevented if the compiler knows that they
-    are values of different kinds.
+   conceptually different things.
+   For example quantities of different dimensions could both be stored as `uint` but adding them without
+   an explicit conversion is a mistake that can only be prevented if the compiler knows that they
+   are values of different kinds.
 
 1. The ability to define new types using value types as the underlying representation.
-    The best example of this are fixed-point types.
+   The best example of this are fixed-point types.
 
-    Fixed-point types were originally planned to be an integral part of the language, and the
-    partially implemented [`ufixed` and `fixed`](https://docs.soliditylang.org/en/latest/types.html#fixed-point-numbers)
-    types are the vestiges of that old design.
-    While trying to agree on the final design for the feature, however, we realized that no implementation
-    will be a good enough trade-off for most situations and cannot become a suitable default choice.
-    We decided to leave the choice up to library authors and instead focus on providing primitives
-    necessary to build their own fixed-point types that feel like native types.
-    User-defined operators are a step towards that goal.
+   Fixed-point types were originally planned to be an integral part of the language, and the
+   partially implemented [`ufixed` and `fixed`](https://docs.soliditylang.org/en/latest/types.html#fixed-point-numbers)
+   types are the vestiges of that old design.
+   While trying to agree on the final design for the feature, however, we realized that no implementation
+   will be a good enough trade-off for most situations and cannot become a suitable default choice.
+   We decided to leave the choice up to library authors and instead focus on providing primitives
+   necessary to build their own fixed-point types that feel like native types.
+   User-defined operators are a step towards that goal.
 
 #### Will User-Defined Operators Make Auditing Harder?
+
 In the feedback we received so far one of the most common concerns is the effect of the feature on contract
 auditing and potential to mask malicious code.
 We want to address these concerns here.
@@ -457,18 +484,23 @@ We think that improving the ergonomics of UDVTs is important enough that it outw
 
 The readability benefits provided by operators cannot be overstated.
 Code containing even relatively simple expressions can be hard to understand at a glance when many function calls are involved:
+
 ```solidity
 if (equals(add(mul(a, x), mul(b, y)), add(div(c, z), mod(d, w)))) {
     return add(div(c, z), mod(d, w));
 }
 ```
+
 Chaining attached functions somewhat helps by placing the operation name between the arguments (similar to an infix operator):
+
 ```solidity
 if (a.mul(x).add(b.mul(y)).equals(c.div(z).add(d.mul(w)))) {
     return c.div(z).add(d.mod(w)));
 }
 ```
+
 It is, however, still a far cry from the clean, concise notation that can be achieved with the use of operators:
+
 ```solidity
 if (a * x + b * y == c / z + d % w) {
     return c / z + d % w;
@@ -486,54 +518,56 @@ We tried both to limit surprises and to avoid prematurely adding support for cas
 In the current implementation, it is not possible to:
 
 1. Have operators on types other than UDVTs.
-    - User-defined operators on [reference types](https://docs.soliditylang.org/en/latest/types.html#reference-types)
-      like structs or arrays are not allowed.
-    - It is not possible to define them on built-in value types, function types or enums.
-    - You cannot define them to unnamed types using the type wildcard (`*`).
+   - User-defined operators on [reference types](https://docs.soliditylang.org/en/latest/types.html#reference-types)
+     like structs or arrays are not allowed.
+   - It is not possible to define them on built-in value types, function types or enums.
+   - You cannot define them to unnamed types using the type wildcard (`*`).
 1. Have operators that are not `pure`.
-    Operators cannot modify storage.
-    They can, at most, make pure external calls.
+   Operators cannot modify storage.
+   They can, at most, make pure external calls.
 
-    The worst that is technically possible with tricks is for them to modify memory (only through inline assembly)
-    or make staticcalls (through interfaces that do not match deployed code).
+   The worst that is technically possible with tricks is for them to modify memory (only through inline assembly)
+   or make staticcalls (through interfaces that do not match deployed code).
+
 1. Have operators on mixed types.
-    Parameter and return value types of operators must be the same.
-    Also, no implicit conversions are possible, so it is very simple to determine if a particular operation
-    will invoke a user-define operator or a built-in one (just look at the type).
+   Parameter and return value types of operators must be the same.
+   Also, no implicit conversions are possible, so it is very simple to determine if a particular operation
+   will invoke a user-define operator or a built-in one (just look at the type).
 1. Redefine operators.
-    You cannot replace any of the built-in operators with a custom definition.
-    For user-defined operators, only one definition can be provided.
+   You cannot replace any of the built-in operators with a custom definition.
+   For user-defined operators, only one definition can be provided.
 1. Bind operators to contract functions.
-    This also means that operator definitions cannot be inherited, virtual, or remain unimplemented.
+   This also means that operator definitions cannot be inherited, virtual, or remain unimplemented.
 1. Bind operators to overloaded functions.
 1. Use built-in functions to define operators.
-    You cannot e.g. bind an operator directly to `keccak256()`.
+   You cannot e.g. bind an operator directly to `keccak256()`.
 1. Change the precedence or associativity of an operator.
 1. Define any of the operators with more complex semantics.
-    You cannot define:
-    - `&&` and `||` due to their short-circuiting behavior.
-    - `++` and `--` because they modify their argument and also have separate prefix and postfix variants with different semantics.
-    - `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=` because they modify their argument.
-    - `=`, `()`, `?:`, and `.` because they are built-in for all types.
-    - `delete`, `new`, and `[]` because they are not usable with UDVTs.
+   You cannot define:
+   - `&&` and `||` due to their short-circuiting behavior.
+   - `++` and `--` because they modify their argument and also have separate prefix and postfix variants with different semantics.
+   - `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=` because they modify their argument.
+   - `=`, `()`, `?:`, and `.` because they are built-in for all types.
+   - `delete`, `new`, and `[]` because they are not usable with UDVTs.
 1. Define custom operators that do not exist in the language, like `===` or unary `+`.
 1. Bind operators in bulk or accidentally.
-    The `using L for T` syntax for attaching a whole library to a type does not cover operators.
-    Operators must always be bound explicitly.
+   The `using L for T` syntax for attaching a whole library to a type does not cover operators.
+   Operators must always be bound explicitly.
 
 In addition to these restrictions, we decided to limit them even more in response to feedback we received before releasing Solidity 0.8.18.
 This means you also cannot:
+
 1. Use library functions to define operators.
-    This excludes external, public, and private functions.
-    It is also now impossible to apply modifiers to operators because free functions cannot have them.
+   This excludes external, public, and private functions.
+   It is also now impossible to apply modifiers to operators because free functions cannot have them.
 1. Have non-global operators, which has several consequences:
-    - Operators can only be bound in the file that also defines the type.
-        They are available wherever the type is available and cannot have different definitions in different scopes.
-    - Local bindings at contract level are not possible (i.e. inside contracts and libraries).
-        This also makes it impossible to define operators for local types that are defined inside contracts or libraries.
+   - Operators can only be bound in the file that also defines the type.
+     They are available wherever the type is available and cannot have different definitions in different scopes.
+   - Local bindings at contract level are not possible (i.e. inside contracts and libraries).
+     This also makes it impossible to define operators for local types that are defined inside contracts or libraries.
 1. Define `!`, `<<`, `>>` and `**`.
 
-We may lift *some* of these restrictions in the future, but we will consider every case carefully.
+We may lift _some_ of these restrictions in the future, but we will consider every case carefully.
 Some of them, like the inability to use overloaded functions, stem from pre-existing limitations of the syntax, but
 others, like a ban on redefining built-in operators, are very intentional and meant to limit potential misuse.
 
@@ -561,11 +595,13 @@ It is also worth noting that the feature is meant to be predominantly used in re
 In this context, once the library is audited, the concern about operators having misleading or unexpected behavior should be minimal.
 
 ### The Future of User-Defined Operators and UDVTs
-Now that we know the new feature and its limitations, the  question on everyone's mind is probably
+
+Now that we know the new feature and its limitations, the question on everyone's mind is probably
 "Will it stay that way?".
 How will the feature evolve in the short and long term?
 
 #### Literal Suffixes
+
 The very next step for UDVTs is the ability to provide custom literals of user-defined value types.
 The ease of using literal values in expressions is a big part of what makes a type feel native.
 Solidity already provides fractional literals and our intention is to make them usable with custom
@@ -578,6 +614,7 @@ type UFixed128x18 is uint128;
 
 function uf(int16 mantissa, uint8 exponent) pure suffix returns (UFixed128x18) { ... }
 ```
+
 ```solidity
 UFixed128x18 circumference = 2 uf * 3.14 uf * radius;
 ```
@@ -586,26 +623,28 @@ While the application of a suffix will involve a function call, eventually, with
 compile-time evaluation, literal suffixes are going to become as efficient as native literals.
 
 #### More Operators
+
 Many operators have been excluded from the initial implementation.
 Some of them will very likely be user-definable at some point:
 
 1. `<<`, `>>` and `**` were excluded due to their non-uniform arguments.
-    For built-in types, the right-hand side is always an unsigned type.
-1.  `!` was excluded because we have to decide whether it should return the same type as the argument
-    or just `bool`.
-    We are leaning towards the latter, but it needs more consideration.
+   For built-in types, the right-hand side is always an unsigned type.
+1. `!` was excluded because we have to decide whether it should return the same type as the argument
+   or just `bool`.
+   We are leaning towards the latter, but it needs more consideration.
 1. `++` and `--` are very convenient, and we want to have them eventually.
-    They just need to be handled in a special way, and there is more than way to do so.
+   They just need to be handled in a special way, and there is more than way to do so.
 1. Composite assignment operators, such as `+=`, will likely be provided automatically
-    in the future as long as the corresponding arithmetic/bitwise operator is available.
-    Allowing a direct implementation is currently not possible anyway, because there are no references
-    to value types in the language.
+   in the future as long as the corresponding arithmetic/bitwise operator is available.
+   Allowing a direct implementation is currently not possible anyway, because there are no references
+   to value types in the language.
 
 On the other hand, it is unlikely that we will allow redefining some other operators:
 
 1. `=` is already provided by the compiler for all types and it is very unlikely that we will ever allow redefining it.
 
 #### Operators on Complex Types
+
 While UDVTs were the primary target, in some cases it may also be reasonable to build a custom type
 with a more complex underlying representation, such as a struct or a dynamic array.
 The main thing holding us back here are upcoming changes to the type system that are a significant part
@@ -614,6 +653,7 @@ To avoid having to introduce breaking changes later, we decided to defer support
 these changes are behind us.
 
 #### What Will Not Change?
+
 Due to concerns about the safety of the feature, there are some key elements that are very unlikely to ever change regarding operators.
 Operators will likely always be global and defined at file level with free functions.
 It will not be possible to replace built-in opertors or redefine already defined user-defined operators.

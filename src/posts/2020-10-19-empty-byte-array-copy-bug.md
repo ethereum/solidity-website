@@ -1,8 +1,8 @@
 ---
 layout: post
 published: true
-title:  "Solidity Empty Byte Array Copy Bug"
-date:   2020-10-19
+title: 'Solidity Empty Byte Array Copy Bug'
+date: 2020-10-19
 author: Solidity Team
 category: Security Alerts
 ---
@@ -17,13 +17,13 @@ We assigned the bug a severity level of "medium".
 
 ## Who should be concerned
 
-This bug can cause newly created elements of ``bytes`` or ``string`` arrays in storage
+This bug can cause newly created elements of `bytes` or `string` arrays in storage
 to be initialized by a non-zero value. For this to happen, the following three
 actions have to take place:
 
- - You copy an **empty** ``bytes`` or ``string`` value from ``memory`` or ``calldata`` to storage.
- - You extend the storage value by modifying ``.length`` or using ``.push()`` (not ``.push(c)``).
- - You read the newly created byte array element without writing to it first.
+- You copy an **empty** `bytes` or `string` value from `memory` or `calldata` to storage.
+- You extend the storage value by modifying `.length` or using `.push()` (not `.push(c)`).
+- You read the newly created byte array element without writing to it first.
 
 Note that the last step can also be done implicitly by reading the whole byte array
 or passing it on to somewhere.

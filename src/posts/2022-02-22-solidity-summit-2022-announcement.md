@@ -34,6 +34,7 @@ The call for speakers is open! Please fill in [speaker form](https://docs.google
 Note that the Solidity Summit is focusing on an advanced audience, which means you can go "deep" into the Solidity weeds or technical stuff quickly!
 
 **Who is a good fit for a talk at the Solidity Summit?**
+
 - **Solidity Language Shapers**: You are a Solidity pro and interested in language design? → Join the Solidity Summit to present your language improvement proposals.
 - **Tooling Builders**: You build an IDE, debugger, analysis tool or testing framework? → Use the opportunity to share your tools and what you've been working on with the audience.
 - **Auditors & Security Researchers**: You frequently read or audit Solidity code and have useful tips, insights or ideas you want to share? → Present them to the audience at the Solidity Summit.

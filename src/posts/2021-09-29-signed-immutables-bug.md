@@ -26,19 +26,19 @@ these values were stored left-aligned within the 32 byte word and when the value
 read again, they were shifted back accordingly, but no cleanup was performed on the values.
 In particular, the signextend operation was not performed on signed values.
 
-As an example, if you store ``-2`` in an ``int8``, it is stored in two's complement encoding
-as a single-byte value of ``0xfe``. Since the words in the EVM use 32 bytes, the value
+As an example, if you store `-2` in an `int8`, it is stored in two's complement encoding
+as a single-byte value of `0xfe`. Since the words in the EVM use 32 bytes, the value
 needs to be properly sign-extended before an operation like signed division is performed,
 otherwise the value would be interpreted as a positive value.
 
 Sign-extension means setting the higher order bits to the same value as the
 sign bit, which is the most significant bit of the actual type.
 
-The value ``-2`` represented as a two's complement in 32 bits (``int8``) is
-``0xfe``, however, in EVM, it is sign extended to
-``0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe``,
-which also represents the value ``-2`` when interpreted as ``int256``.
-Note that ``0xfe`` when interpreted as ``int256`` is ``+254``.
+The value `-2` represented as a two's complement in 32 bits (`int8`) is
+`0xfe`, however, in EVM, it is sign extended to
+`0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe`,
+which also represents the value `-2` when interpreted as `int256`.
+Note that `0xfe` when interpreted as `int256` is `+254`.
 
 The missing sign extension was not discovered earlier, since Solidity always performs
 additional cleanup (which can be removed by the optimizer if done twice)
@@ -52,8 +52,8 @@ inside inline assembly.
 
 ## Affected Example
 
-In the example below, the call to ``f()`` returns ``0x000000...0000fe`` instead of
-``0xffffff...fffffe``.
+In the example below, the call to `f()` returns `0x000000...0000fe` instead of
+`0xffffff...fffffe`.
 
 ```solidity
 contract C {
@@ -65,9 +65,9 @@ contract C {
 }
 ```
 
-If you use something like ``r = bytes32(int(y));`` to return the value without
+If you use something like `r = bytes32(int(y));` to return the value without
 inline assembly, it would return the correct value. The same is true when using
-a getter - ``int8 public immutable x = -2``.
+a getter - `int8 public immutable x = -2`.
 
 ## Justification for Inline Assembly to be Required
 

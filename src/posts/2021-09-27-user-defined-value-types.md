@@ -1,8 +1,8 @@
 ---
 layout: post
 published: true
-title:  User Defined Value Types in Solidity
-date:   2021-09-27
+title: User Defined Value Types in Solidity
+date: 2021-09-27
 author: Solidity Team
 category: Explainers
 ---
@@ -115,7 +115,7 @@ type UFixed is uint256;
 library FixedMath {
     uint constant multiplier = 10**18;
 
-    /// Adds two UFixed numbers. Reverts on overflow, 
+    /// Adds two UFixed numbers. Reverts on overflow,
     /// relying on checked arithmetic on uint256.
     function add(UFixed a, UFixed b) internal pure returns (UFixed) {
         return UFixed.wrap(UFixed.unwrap(a) + UFixed.unwrap(b));

@@ -9,7 +9,7 @@ category: Announcements
 
 Today, we launched the [Solidity Developer Survey 2021](https://docs.google.com/forms/d/e/1FAIpQLSc5iacmGfzHfAAgQK3hQVxIXXKMImYbQ5tzi33BiMwaBvhbFQ/viewform). Please all take 10 minutes to participate and let us know your feedback!
 
-This marks the second time we are conducting a structured big developer survey. You can find the results of last year's Solidity developer survey [here](https://blog.soliditylang.org/2021/01/26/solidity-developer-survey-2020-results/). 
+This marks the second time we are conducting a structured big developer survey. You can find the results of last year's Solidity developer survey [here](https://blog.soliditylang.org/2021/01/26/solidity-developer-survey-2020-results/).
 
 ## Shape the Future of Solidity 🔮
 
@@ -18,6 +18,7 @@ The survey helps us to further improve the Solidity language and compiler and sh
 Your replies are invaluable for the Solidity project to understand your needs, the current strengths and weaknesses of the language and will contribute towards establishing development priorities for the future. This will ultimatively result in improving the Solidity developer experience as a whole.
 
 Similar to last year, the survey consists of several chapters:
+
 - Demographics
 - Developer Profile
 - Solidity Profile

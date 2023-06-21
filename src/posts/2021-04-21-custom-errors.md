@@ -1,8 +1,8 @@
 ---
 layout: post
 published: true
-title:  Custom Errors in Solidity
-date:   2021-04-21
+title: Custom Errors in Solidity
+date: 2021-04-21
 author: Solidity Team
 category: Explainers
 ---
@@ -13,7 +13,7 @@ custom errors. Until now, you could already use strings to give more information
 (e.g., `revert("Insufficient funds.");`), but they are rather expensive, especially when it comes to
 deploy cost, and it is difficult to use dynamic information in them.
 
-Custom errors are defined using the ``error`` statement, which can be used inside and outside of
+Custom errors are defined using the `error` statement, which can be used inside and outside of
 contracts (including interfaces and libraries).
 
 ## Example
@@ -45,7 +45,6 @@ together with the [revert
 statement](https://docs.soliditylang.org/en/latest/control-structures.html#revert-statement) which
 causes all changes in the current call to be reverted and passes the error data back to the caller.
 Using errors together with `require` is not yet supported (see below).
-
 
 ## Errors with Parameters
 
@@ -79,30 +78,30 @@ contract TestToken {
 ```
 
 The error data would be encoded identically as the ABI encoding for function calls, i.e.,
-``abi.encodeWithSignature("InsufficientBalance(uint256,uint256)", balance[msg.sender], amount)``.
+`abi.encodeWithSignature("InsufficientBalance(uint256,uint256)", balance[msg.sender], amount)`.
 
 We hope that frameworks will provide direct support for custom errors. The following is an example on
 decoding error data using the current version of [ethers.js](https://docs.ethers.io/v5/):
 
 ```javascript
-import { ethers } from "ethers";
+import { ethers } from 'ethers'
 
 // As a workaround, we have a function with the
 // same name and parameters as the error in the abi.
 const abi = [
-    "function InsufficientBalance(uint256 available, uint256 required)"
-];
+  'function InsufficientBalance(uint256 available, uint256 required)',
+]
 
-const interface = new ethers.utils.Interface(abi);
+const interface = new ethers.utils.Interface(abi)
 const error_data =
-    "0xcf479181000000000000000000000000000000000000" +
-    "0000000000000000000000000100000000000000000000" +
-    "0000000000000000000000000000000000000100000000";
+  '0xcf479181000000000000000000000000000000000000' +
+  '0000000000000000000000000100000000000000000000' +
+  '0000000000000000000000000000000000000100000000'
 
 const decoded = interface.decodeFunctionData(
-    interface.functions["InsufficientBalance(uint256,uint256)"],
-    error_data
-);
+  interface.functions['InsufficientBalance(uint256,uint256)'],
+  error_data
+)
 // Contents of decoded:
 // [
 //   BigNumber { _hex: '0x0100', _isBigNumber: true },
@@ -111,10 +110,10 @@ const decoded = interface.decodeFunctionData(
 //   required: BigNumber { _hex: '0x0100000000', _isBigNumber: true }
 // ]
 console.log(
-    "Insufficient balance for transfer. " +
+  'Insufficient balance for transfer. ' +
     `Needed ${decoded.required.toString()} but only ` +
     `${decoded.available.toString()} available.`
-);
+)
 // Insufficient balance for transfer. Needed 4294967296 but only 256 available.
 ```
 

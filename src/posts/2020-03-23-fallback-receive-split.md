@@ -9,8 +9,8 @@ category: Explainers
 
 In versions of Solidity before 0.6.x, developers typically used the [fallback function](https://solidity.readthedocs.io/en/v0.5.15/contracts.html#fallback-function) to handle logic in two scenarios:
 
- - contract received ether and no data
- - contract received data but no function matched the function called
+- contract received ether and no data
+- contract received data but no function matched the function called
 
 The main use case of the pre-0.6.x fallback function is to receive ether and react
 to it, a typical pattern used by token-style contracts to reject transfers, emit
@@ -69,14 +69,14 @@ demonstrating this confusing behaviour is below.
     pragma solidity ^0.5.0;
     contract Charity {
         mapping (address => uint256) public donations;
-    
+
         function processDonation(address user) external payable {
             donations[user] += msg.value;
         }
     }
     contract Receiver {
         event ValueReceived(address user, uint amount);
-    
+
         function() external payable {
             emit ValueReceived(msg.sender, msg.value);
         }
@@ -101,7 +101,7 @@ its fallback function ends up being called, swallowing the sent value.
     // Charity.processDonation is executed successfully and 10 wei donation is recorded
     await charitySplitter.donate(goodCharity, { value: 10 });
     // Triggers the underlying Receiver fallback function
-    // 10 wei is acquired and ValueReceived event emitted 
+    // 10 wei is acquired and ValueReceived event emitted
     await charitySplitter.donate(badCharity, { value: 10 });
 ```
 
@@ -113,8 +113,8 @@ confusion but can work in many cases.
 This is why in version 0.6.x, the fallback function was split into two
 separate functions:
 
- - [receive()](https://solidity.readthedocs.io/en/latest/contracts.html#receive-ether-function) `external payable` — for empty calldata (and any value)
- - [fallback()](https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function) `external payable` — when no other function matches (not even the receive function). Optionally `payable`.
+- [receive()](https://solidity.readthedocs.io/en/latest/contracts.html#receive-ether-function) `external payable` — for empty calldata (and any value)
+- [fallback()](https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function) `external payable` — when no other function matches (not even the receive function). Optionally `payable`.
 
 This separation provides an alternative to the fallback function for
 contracts that want to receive plain ether.
@@ -154,10 +154,10 @@ above under 0.6.0, use the following code:
 
     contract DelegateProxy {
         address internal implementation;
-        
+
         fallback() external payable {
             address addr = implementation;
-        
+
             assembly {
                 calldatacopy(0, 0, calldatasize())
                 let result := delegatecall(gas(), addr, 0, calldatasize(), 0, 0)
@@ -180,14 +180,14 @@ avoids the type confusion that led to the loss of value demonstrated above.
     pragma solidity ^0.6.0;
     contract Charity {
         mapping (address => uint256) public donations;
-        
+
         function processDonation(address user) external payable {
             donations[user] += msg.value;
         }
     }
     contract Receiver {
         event ValueReceived(address user, uint amount);
-        
+
         receive() external payable {
             emit ValueReceived(msg.sender, msg.value);
         }

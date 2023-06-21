@@ -9,23 +9,23 @@ category: Security Alerts
 
 On July 1, 2021, a bug in the Solidity code generator was found by differential fuzzing.
 The bug causes the legacy code generation pipeline to generate code that
-may write dirty values to storage when copying ``bytes`` arrays from ``calldata`` or ``memory``.
+may write dirty values to storage when copying `bytes` arrays from `calldata` or `memory`.
 
 Initially, it was assumed that the dirty values in storage are only observable using inline
-assembly. However, resizing a ``bytes`` array using an empty ``.push()`` without actually
+assembly. However, resizing a `bytes` array using an empty `.push()` without actually
 writing values to it, can expose the dirty bytes without any use of inline assembly.
 
-The bug was already present in the initial implementation of ``bytes`` arrays in very early versions of the compiler.
+The bug was already present in the initial implementation of `bytes` arrays in very early versions of the compiler.
 Despite this, it was never exploited or reported externally, and therefore we assigned it a severity of "low".
 
 ## Which Contracts are Affected?
 
-Most instances of copying ``bytes`` arrays from ``memory`` or ``calldata`` to ``storage`` can be affected
+Most instances of copying `bytes` arrays from `memory` or `calldata` to `storage` can be affected
 in the sense that they may write dirty values. Those dirty values in storage only become visible,
-if there are empty ``.push()``es to the ``bytes`` array (in older version also assignments to its
-``.length`` field) and the resulting elements are assumed to be zero without actually writing to them.
+if there are empty `.push()`es to the `bytes` array (in older version also assignments to its
+`.length` field) and the resulting elements are assumed to be zero without actually writing to them.
 
-For example, the following used to result in the newly ``.push()``ed array element in ``h()`` not being zero:
+For example, the following used to result in the newly `.push()`ed array element in `h()` not being zero:
 
 ```solidity
 contract C {
@@ -49,7 +49,7 @@ contract C {
 }
 ```
 
-Similarly, dirty values from ``calldata`` may end up being copied to storage:
+Similarly, dirty values from `calldata` may end up being copied to storage:
 
 ```solidity
 contract C {
@@ -62,8 +62,8 @@ contract C {
 }
 ```
 
-The function ``f`` here can be called with dirty bytes in calldata past the length of ``c``, which
-will be copied to ``s`` and become visible after ``s.push()``.
+The function `f` here can be called with dirty bytes in calldata past the length of `c`, which
+will be copied to `s` and become visible after `s.push()`.
 
 However, the fact that this bug remained undiscovered until now indicates that real projects do not seem to depend
-on the fact that empty ``.push()``es to ``bytes`` arrays are supposed to add a zeroed new element.
+on the fact that empty `.push()`es to `bytes` arrays are supposed to add a zeroed new element.

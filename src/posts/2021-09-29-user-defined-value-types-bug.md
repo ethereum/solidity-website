@@ -59,4 +59,3 @@ introduced inconsistent storage layout for contracts with short user defined val
 variables. The Solidity 0.8.9 release corrects the layout. Be extra careful when upgrading from a
 contract that was compiled with 0.8.8, and that uses short user defined value types, to a version
 higher than 0.8.9.
-

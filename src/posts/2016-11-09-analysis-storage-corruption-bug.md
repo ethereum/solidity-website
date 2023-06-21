@@ -6,9 +6,10 @@ date: '2016-11-09'
 author: Christian Reitwiessner
 category: Security Alerts
 ---
+
 _This post was originally published on the [Ethereum blog](https://blog.ethereum.org/2016/11/09/analysis-storage-corruption-bug/)._
 
-This blog post provides an update on our findings following the discovery of the [storage corruption bug last week](https://blog.soliditylang.org/2016/11/01/security-alert-solidity-variables-can-overwritten-storage/). 
+This blog post provides an update on our findings following the discovery of the [storage corruption bug last week](https://blog.soliditylang.org/2016/11/01/security-alert-solidity-variables-can-overwritten-storage/).
 In summary, the bug was much less severe than we initially thought. The small number of affected contracts we found is either only exploitable by the owner, or the exploit can only cause a disruption in the user interface and not in the actual contract logic. All exploitable contracts/dapps we reviewed can be fixed without having to upgrade the contract itself. Of course, please still check your contracts to be safe.
 
 Following the discovery of the storage corruption bug in the Solidity compiler and the realization that it may have serious effects on already-deployed contracts that cannot be updated, we started analyzing how common the bug is and how exploitable contracts can be addressed.
@@ -25,10 +26,10 @@ First, let us define what we mean by "exploitable":
 
 The storage corruption bug is exploitable if it can be used to modify a variable in storage in a way that would not be possible without the bug, and this modification has consequences for the behaviour and use of the smart contract. For example, we do not consider a contract exploitable in the following situations:
 
-+ The same account would be able to overwrite the variable in the same state of the contract by regular means.
-+ Overwriting can only happen at construction time (note that we did not check whether overwriting occurred at that time).
-+ Overwriting is only triggered in unlikely situations where the contract logic was broken anyway (for example, a 32-bit counter that is incremented once per block, oveflows).
-+ Variables can be overwritten that are unused in the smart contract and look non-critical, but may be part of the public interface.
+- The same account would be able to overwrite the variable in the same state of the contract by regular means.
+- Overwriting can only happen at construction time (note that we did not check whether overwriting occurred at that time).
+- Overwriting is only triggered in unlikely situations where the contract logic was broken anyway (for example, a 32-bit counter that is incremented once per block, oveflows).
+- Variables can be overwritten that are unused in the smart contract and look non-critical, but may be part of the public interface.
 
 **Why is this critical bug only exploitable in so few cases?**
 
@@ -37,7 +38,7 @@ It is a combination of the following factors that together multiply and dramatic
 1. Since small types only provide an advantage in very rare cases, they are seldomly used.
 2. Small types must be adjacent to each other in storage – a single large type in between them prevents the bug from being triggered.
 3. State variables are often assigned one after the other, which removes the corruption at the second assignment.
-4. The combination of "address" and "bool" is most common among the cases that are left, but here, the address variable is often an "owner" that is assigned from ``msg.sender`` and thus not exploitable. Even if the owner can be changed, the flag is often a flag that can be still be set by the owner through other means.
+4. The combination of "address" and "bool" is most common among the cases that are left, but here, the address variable is often an "owner" that is assigned from `msg.sender` and thus not exploitable. Even if the owner can be changed, the flag is often a flag that can be still be set by the owner through other means.
 
 ## How to fix affected contracts
 

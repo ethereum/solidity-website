@@ -19,7 +19,7 @@ Now, let's have a look at this year's winners, starting from the 5th place!
 
 ## Underhanded Solidity Contest 2020 Winners
 
-### 5️⃣ th Place: [Marius van der Wijden](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2020/submissions_2020/submission14_MariusVanDerWijden) 
+### 5️⃣ th Place: [Marius van der Wijden](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2020/submissions_2020/submission14_MariusVanDerWijden)
 
 _commentary by [Alex Beregszaszi](https://twitter.com/alexberegszaszi)_
 
@@ -29,7 +29,8 @@ Using this validation shortcoming, the submission allows anyone to create unlimi
 
 Solidity has always supported multiple return values which allows returning a status/error code and data separately, but more importantly the established best practice is to use `require` statements for validation, which most `ecrecover` use cases follow today.
 
-While the submission is written clearly and the issue is not obvious without dissecting both the `closeVote` and the *trusted* `ECDSA.recover` functions, in our opinion there are two shortcomings raising suspicion:
+While the submission is written clearly and the issue is not obvious without dissecting both the `closeVote` and the _trusted_ `ECDSA.recover` functions, in our opinion there are two shortcomings raising suspicion:
+
 1. Append only data structures are not commonly used.
 2. Awareness about `ECDSA.recover` was raised recently, and thus one would expect a more thorough review of its applications. The submission used the version from OpenZeppelin 2.5.0.
 
@@ -37,12 +38,12 @@ While the submission is written clearly and the issue is not obvious without dis
 
 _commentary by [Stefan Beyer](https://twitter.com/beyer_st)_
 
-The submission exploits `CREATE2` to hijack a multisig contract that controls upgradability. Whilst this is a known issue, the scenario demonstrates the impact of `CREATE2` in combination with self-destruct and shows the importance of assessing the contracts deployment procedure in a security analysis. 
+The submission exploits `CREATE2` to hijack a multisig contract that controls upgradability. Whilst this is a known issue, the scenario demonstrates the impact of `CREATE2` in combination with self-destruct and shows the importance of assessing the contracts deployment procedure in a security analysis.
 
 ### 3️⃣ rd Place: [Cory Dickson](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2020/submissions_2020/submission1_CoreyDickson)
 
 _commentary by [Goncalo Sá](https://twitter.com/GNSPS)_
- 
+
 This submission highlights the perils of validating non-EOA (Externally Owned Accounts) addresses within the EVM. Even though assessing whether an account interacting with a certain system is not a contract has been the source of many production hacks on mainnet and therefore is a well-studied, bad-practice pattern, the one where a user "DoS-es" a system by self-destructing their contract is not.
 
 In a nutshell, this attack demonstrates the possibility of a lock-up scenario in a governance system that depends on composability and expects the existence of a smart contract at a certain address to be a time-independent function.
@@ -69,7 +70,6 @@ The `_optIn` storage variable is stored in storage slot `0x7b191067458f5b5c0c36f
 
 In this way, the back door can be unlocked and locked simply by sending tokens to and from some address that is controlled by the admin.
 
-
 ### 1️⃣ st Place: [Robert M C Forster](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2020/submissions_2020/submission11_RobertMCForster)
 
 _commentary by [Chris Reitwiessner](https://twitter.com/ethchris)_
@@ -81,7 +81,7 @@ The exploit is very well hidden and makes use of special unicode symbols that ch
 
 Since multi-line comments work in the same way when read from left to right as well as from right to left, the submission is able to terminate the comment "from right to left" and switches into code mode which is then displayed in the "wrong" order. This causes the day and month variables to be swapped unnoticed and the upgrade is performed much earlier than expected.
 
-You can see (*or not, depending on your editor 😬*) the direction change in action by selecting [part of line 65](https://github.com/ethereum/solidity-underhanded-contest/blob/master/submissions_2020/submission11_RobertMCForster/contracts/TimelockUpgrade.sol#L65) in the submission.
+You can see (_or not, depending on your editor 😬_) the direction change in action by selecting [part of line 65](https://github.com/ethereum/solidity-underhanded-contest/blob/master/submissions_2020/submission11_RobertMCForster/contracts/TimelockUpgrade.sol#L65) in the submission.
 
 This is a flaw that can be prevented at the level of Solidity by disallowing text direction changes to flow across comments ([issue tracker](https://github.com/ethereum/solidity/issues/10254)), but I would also call this to the attention of IDE, highlighter and linter developers. I am not sure how a linter would handle such a situation, but if a linter marks superfluous whitespace at the end of a line, it should certainly mark a text direction change flowing out of a comment.
 
@@ -91,7 +91,7 @@ This is a flaw that can be prevented at the level of Solidity by disallowing tex
 
 Props for the witty and detailed storytelling and documentation!
 
-This submission shows the social aspect of trusting “audited” upgradable contracts: unless someone verifies every single on-chain executed upgrade (plus the initialization), none of the audits matter. *Not even the one from Open Trail of Diligence! ;)*
+This submission shows the social aspect of trusting “audited” upgradable contracts: unless someone verifies every single on-chain executed upgrade (plus the initialization), none of the audits matter. _Not even the one from Open Trail of Diligence! ;)_
 
 ### 🐛 [Luiz Soares & Boris Breslav](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2020/submissions_2020/submission9_LuizSoares)'s Superior Proxy
 

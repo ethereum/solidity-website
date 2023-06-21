@@ -6,6 +6,7 @@ date: '2016-09-01'
 author: Christian Reitwiessner
 category: Announcements
 ---
+
 _This post was originally published on the [Ethereum blog](https://blog.ethereum.org/2016/09/01/formal-methods-roadmap/)._
 
 Today, I am delighted to announce that Yoichi Hirai ([@pirapira](https://github.com/pirapira) on github) is joining the Ethereum project as a formal verification engineer. He holds a PhD from the University of Tokyo on the topic of formalizing communicating parallel processes and created formal verification tools for Ethereum in his spare time.
@@ -28,16 +29,19 @@ Having a person dedicated to formal methods not only gives us the ability to mov
 Here are some projects we would like to tackle in the future, most of them will probably be done in cooperation with other teams.
 
 Solidity:
-- extending the Solidity to Why3 translation to the full Solidity language (maybe switch to F*)
+
+- extending the Solidity to Why3 translation to the full Solidity language (maybe switch to F\*)
 - formal specification of Solidity
 - syntax and semantics of modal logics for reasoning about multiple parties
 
 Community:
+
 - creating a map of formal verification projects on Ethereum
 - collecting buggy Solidity codes, for benchmarking automatic analyzers
 - analyzing deployed contracts on the blockchain for vulnerabilities (related: [OYENTE tool](https://eprint.iacr.org/2016/633))
 
 Tools:
+
 - provide a human- and machine-readable formalization of the EVM, which can also be executed
 - developing formally verified libraries in EVM bytecode or Solidity
 - developing a formally verified compiler for a tiny language
