@@ -85,11 +85,4 @@ export const URL_CATEGORIES_MAP = {
   explainers: EXPLAINERS,
 }
 
-export const CATEGORIES_COLOR_MAP = {
-  [RELEASES]: '#f664',
-  [SECURITY_ALERTS]: '#6f64',
-  [ANNOUNCEMENTS]: '#66f4',
-  [EXPLAINERS]: '#f6f4',
-}
-
 export const MAX_POSTS_PER_PAGE = 10
