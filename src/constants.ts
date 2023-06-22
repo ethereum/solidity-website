@@ -10,7 +10,7 @@ export const SITE_URL = 'https://soliditylang.org/'
 export const TWITTER_HANDLE = '@solidity_lang'
 
 // Page paths
-// export const BLOG_URL = 'https://blog.soliditylang.org/'
+export const BLOG_URL = 'https://blog.soliditylang.org/'
 export const BLOG_PATH = '/blog'
 export const PAGE_PATH = '/page'
 export const CATEGORY_PATH = '/category'
