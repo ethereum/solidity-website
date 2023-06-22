@@ -2,7 +2,7 @@ import fs from 'fs'
 import { GetStaticProps } from 'next/types'
 import { Hero, PageMetadata, BlogPostListSection } from '@/components'
 import { BLOG_DIR } from '@/constants'
-import { getAllPostsData, getTotalPages } from '@/utils'
+import { getPostsDataForPage, getTotalPages } from '@/utils'
 import type { BlogProps } from '@/interfaces'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -10,7 +10,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const files = fs.readdirSync(BLOG_DIR)
   const totalPages = getTotalPages(files)
   const sortedFiles = files.sort().reverse()
-  const allPostsData = getAllPostsData(sortedFiles, fs)
+  const allPostsData = getPostsDataForPage(sortedFiles, 1, fs)
   // TODO: generate RSS feed
   // const feed = await generateRssFeed(allPostsData)
   // const directory = `./public/${locale}/`
