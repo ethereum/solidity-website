@@ -2,6 +2,7 @@ import { Box, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
 import { CATEGORIES_COLOR_MAP } from '@/constants'
 import { BlogPostProps } from '@/interfaces'
+import removeMd from 'remove-markdown'
 
 export const BlogPostPreview: React.FC<BlogPostProps> = ({
   frontmatter,
@@ -33,7 +34,7 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
       >
         {category}
       </Box>
-      <Text>{content}</Text>
+      <Text>{removeMd(content)}</Text>
     </Box>
   )
 }
