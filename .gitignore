@@ -3,3 +3,9 @@ node_modules
 .vscode
 .DS_Store
 .env
+
+# rss feeds
+feed.xml
+
+# Sitemaps
+sitemap*.xml

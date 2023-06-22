@@ -50,7 +50,7 @@ export interface EventPost {
 export type Category = keyof typeof CATEGORIES_URL_MAP
 
 export interface BlogPostFrontmatter {
-  layout: string
+  layout?: string
   published: string
   title: string
   date: string

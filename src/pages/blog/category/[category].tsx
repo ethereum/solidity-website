@@ -7,7 +7,7 @@ import { CategoryPath, BlogPostProps } from '@/interfaces'
 // import { generateRssFeed, getCategoryFromURL, hidePostFromTheFuture } from '@/utils/'
 import { BlogPostPreview, Hero, PageMetadata, Section } from '@/components'
 import { BLOG_DIR, CATEGORY_URLS, URL_CATEGORIES_MAP } from '@/constants'
-import { getAllPostsData } from '@/utils'
+import { generateRssFeed, getAllPostsData } from '@/utils'
 
 // generate the paths for each category
 export const getStaticPaths: GetStaticPaths = () => {
@@ -44,21 +44,25 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { category } = context.params as ParsedUrlQuery
   // get list of all files from our posts directory
   const files = fs.readdirSync(BLOG_DIR)
-  console.log({categoryParam: category})
   const sortedFiles = files.sort().reverse()
   const allPostsData = getAllPostsData(sortedFiles, fs)
   const categoryPostsData = allPostsData.filter(
     ({ frontmatter })  => 
       frontmatter.category === URL_CATEGORIES_MAP[category as keyof typeof URL_CATEGORIES_MAP]
   )
-  // const feed = await generateRssFeed(
-  //   allPostsData,
-  //   locale!,
-  //   category as keyof typeof URL_CATEGORIES_MAP
-  // )
-  // const directory = `./public/${locale}/${category}/`
-  // fs.mkdirSync(directory, { recursive: true })
-  // fs.writeFileSync(`${directory}/feed.xml`, feed.rss2())
+
+  // Generate RSS feeds
+  const fullFeed = await generateRssFeed(allPostsData)
+  const directory = `./public/`
+  fs.mkdirSync(directory, { recursive: true })
+  fs.writeFileSync(`${directory}/feed.xml`, fullFeed.rss2())
+  const categoryFeed = await generateRssFeed(
+    allPostsData,
+    category as keyof typeof URL_CATEGORIES_MAP
+  ) 
+  const categoryDirectory = `./public/${category}/`
+  fs.mkdirSync(categoryDirectory, { recursive: true })
+  fs.writeFileSync(`${categoryDirectory}/feed.xml`, categoryFeed.rss2())
 
   return {
     props: {

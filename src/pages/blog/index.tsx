@@ -11,12 +11,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const totalPages = getTotalPages(files)
   const sortedFiles = files.sort().reverse()
   const allPostsData = getPostsDataForPage(sortedFiles, 1, fs)
-  // TODO: generate RSS feed
-  // const feed = await generateRssFeed(allPostsData)
-  // const directory = `./public/${locale}/`
-  // fs.mkdirSync(directory, { recursive: true })
-  // fs.writeFileSync(`${directory}/feed.xml`, feed.rss2())
-
   return { props: { allPostsData, totalPages } }
 }
 
