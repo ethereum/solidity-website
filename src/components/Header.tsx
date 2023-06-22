@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
         zIndex="sticky"
         justifyContent="end"
         top={0}
-        px={8}
+        px={{ base: 4, md: 8 }}
         py={4}
         bg="transparent"
         backdropFilter="blur(3px)"
@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
           display="flex"
           position="absolute"
           top={4}
-          insetStart={8}
+          insetStart={{ base: 4, md: 8 }}
           alignItems="end"
           style={{ scale, y }}
           transformOrigin="top left"

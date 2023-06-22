@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import {
   DEFAULT_IMAGE_PATH,
+  FAVICON_IMAGE_PATH,
   SITE_NAME,
   SITE_URL,
   TWITTER_HANDLE,
@@ -67,7 +68,7 @@ export const PageMetadata: React.FC<Props> = ({
         <meta key={data.name || data.property} {...data} />
       ))}
       {/* favicon */}
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/x-icon" href={FAVICON_IMAGE_PATH} />
     </Head>
   )
 }
