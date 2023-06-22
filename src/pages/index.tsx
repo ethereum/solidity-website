@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
-  BlogPreview,
+  BlogSectionPreview,
   ButtonLink,
   CompilerPlayground,
   EventCard,
@@ -150,7 +150,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
 
         <Section py={16} gap={6}>
           <Text textStyle="h3">Latest from the blog</Text>
-          <BlogPreview />
+          <BlogSectionPreview />
           <Flex justify="center">
             <ButtonLink href={BLOG_PATH} variant="outline">
               All blog updates

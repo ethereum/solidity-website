@@ -4,7 +4,7 @@ import { BlogCard } from '@/components'
 import type { BlogCardInfo } from '@/interfaces'
 
 const MAX_POSTS_TO_SHOW = 3
-export const BlogPreview: React.FC = () => {
+export const BlogSectionPreview: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [blogPosts, setBlogPosts] = useState<BlogCardInfo[]>([])
 
