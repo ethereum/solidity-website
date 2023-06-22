@@ -44,9 +44,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { category } = context.params as ParsedUrlQuery
   // get list of all files from our posts directory
   const files = fs.readdirSync(BLOG_DIR)
+  console.log({categoryParam: category})
   const sortedFiles = files.sort().reverse()
   const allPostsData = getAllPostsData(sortedFiles, fs)
-
+  const categoryPostsData = allPostsData.filter(
+    ({ frontmatter })  => 
+      frontmatter.category === URL_CATEGORIES_MAP[category as keyof typeof URL_CATEGORIES_MAP]
+  )
   // const feed = await generateRssFeed(
   //   allPostsData,
   //   locale!,
@@ -58,18 +62,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      allPostsData,
+      categoryPostsData,
       category,
     },
   }
 }
 
 interface Props {
-  allPostsData: BlogPostProps[]
+  categoryPostsData: BlogPostProps[]
   category: keyof typeof URL_CATEGORIES_MAP
 }
 
-const CategoryPage: NextPage<Props> = ({ allPostsData, category }) => {
+const CategoryPage: NextPage<Props> = ({ categoryPostsData, category }) => {
   return (
     <>
       <PageMetadata
@@ -87,7 +91,7 @@ const CategoryPage: NextPage<Props> = ({ allPostsData, category }) => {
           fontSize="md"
           mx="auto"
         >
-          {allPostsData.slice(0, 10).map(({ frontmatter, content, url }) => (
+          {categoryPostsData.map(({ frontmatter, content, url }) => (
             <BlogPostPreview
               key={url}
               frontmatter={frontmatter}

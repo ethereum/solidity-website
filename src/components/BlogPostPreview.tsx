@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
-import { CATEGORIES_COLOR_MAP } from '@/constants'
+import { CATEGORIES_COLOR_MAP, CATEGORIES_URL_MAP } from '@/constants'
 import { BlogPostProps } from '@/interfaces'
 import removeMd from 'remove-markdown'
 
@@ -26,14 +26,16 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
       <Text>
         Posted by {author} on {new Date(date).toLocaleDateString()}
       </Text>
-      <Box
-        borderRadius="full"
-        bg={CATEGORIES_COLOR_MAP[category]}
-        px={4}
-        w="fit-content"
-      >
-        {category}
-      </Box>
+      <Link href={CATEGORIES_URL_MAP[category]} textDecoration="none">
+        <Box
+          borderRadius="full"
+          bg={CATEGORIES_COLOR_MAP[category]}
+          px={4}
+          w="fit-content"
+        >
+          {category}
+        </Box>
+      </Link>
       <Text>{removeMd(content)}</Text>
     </Box>
   )
