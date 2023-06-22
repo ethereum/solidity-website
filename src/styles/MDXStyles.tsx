@@ -1,13 +1,12 @@
 import {
   Divider,
-  Flex,
+  // Flex,
   Heading,
   Image,
   Stack,
-
+  // Table,
   Text,
 } from '@chakra-ui/react'
-import { Table } from '@chakra-ui/table'
 import { Link } from '@/components'
 
 export const MDXStyles = {
@@ -51,20 +50,20 @@ export const MDXStyles = {
       <pre>{children}</pre>
     </Stack>
   ),
-  table: ({ children }: any) => (
-    <Flex maxW="min(100%, 100vw)" overflowX="scroll">
-      <Table
-        variant="striped"
-        border="1px"
-        borderColor="blackAlpha.50"
-        mb={10}
-        size={{ base: 'sm', lg: 'md' }}
-        w="auto"
-      >
-        {children}
-      </Table>
-    </Flex>
-  ),
+  // table: ({ children }: any) => (
+  //   <Flex maxW="min(100%, 100vw)" overflowX="scroll">
+  //     <Table
+  //       variant="striped"
+  //       border="1px"
+  //       borderColor="blackAlpha.50"
+  //       mb={10}
+  //       size={{ base: 'sm', lg: 'md' }}
+  //       w="auto"
+  //     >
+  //       {children}
+  //     </Table>
+  //   </Flex>
+  // ),
   img: (img: any) => {
     return <Image display="block" mx="auto" src={img.src} alt={img.alt} />
   },
