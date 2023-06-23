@@ -38,5 +38,10 @@ export interface Event {
   endDate: string
   imageSrc?: string
   content?: string | React.ReactNode
-  links: EventLink[]
+  links?: EventLink[]
+}
+
+export interface EventPost {
+  frontmatter: Event
+  content: string
 }
