@@ -24,9 +24,9 @@ const CloseIcon = createIcon({
     stroke: 'currentColor',
   },
   path: [
-    <path key="1" d="M23 1L1 23" strokeLinecap="round"/>,
-    <path key="2" d="M1 1L23 23" strokeLinecap="round"/>,
-  ]
+    <path key="1" d="M23 1L1 23" strokeLinecap="round" />,
+    <path key="2" d="M1 1L23 23" strokeLinecap="round" />,
+  ],
 })
 
 export const MobileMenu: React.FC<FlexProps> = (props) => {
@@ -85,7 +85,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
               my={3}
               display="block"
             >
-              <SolidityLogo h='40px' w='calc(40px * 10/16)' />
+              <SolidityLogo h="40px" w="calc(40px * 10/16)" />
             </Link>
             <Flex direction="column" my={6} gap={4}>
               {NAV_LINKS.map(({ name, href }) => (
