@@ -1,18 +1,33 @@
 import {
   Box,
+  createIcon,
   Drawer,
   DrawerBody,
-  DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
   Flex,
   IconButton,
+  Spacer,
   useDisclosure,
 } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { ColorModeToggle, Link, SocialLinks, SolidityLogo } from '@/components'
 import { NAV_LINKS } from '@/constants'
+
+const CloseIcon = createIcon({
+  displayName: 'CloseIcon',
+  viewBox: '0 0 24 24',
+  defaultProps: {
+    width: '24px',
+    height: '24px',
+    stroke: 'currentColor',
+  },
+  path: [
+    <path key="1" d="M23 1L1 23" strokeLinecap="round"/>,
+    <path key="2" d="M1 1L23 23" strokeLinecap="round"/>,
+  ]
+})
 
 export const MobileMenu: React.FC<FlexProps> = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -32,18 +47,29 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
 
       <Drawer isOpen={isOpen} placement="end" size="xs" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="transparent">
-          <DrawerCloseButton top={6} insetEnd="6" color="text" zIndex="9999" />
+        <DrawerContent bg="transparent" maxW="280px">
+          <IconButton
+            aria-label="Close menu"
+            icon={<CloseIcon />}
+            onClick={onClose}
+            position="absolute"
+            top={3}
+            insetEnd={8}
+            zIndex="9999"
+            variant="ghost"
+            size="lg"
+          />
           <DrawerBody
             display="flex"
             flexDirection="column"
-            justifyContent="space-between"
             color="text"
             textAlign="center"
+            px={5}
             pb={8}
             bg="transparent"
             position="relative"
             backdropFilter="blur(3px)"
+            fontSize="lg"
           >
             <Box
               position="absolute"
@@ -52,28 +78,32 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
               opacity="0.9"
               zIndex={-1}
             />
-            <Flex direction="column" my={6} gap={6} alignItems="center">
-              <Link
-                href="/"
-                aria-label="Solidity home"
-                onClick={onClose}
-                my={6}
-              >
-                <SolidityLogo h="50px" />
-              </Link>
+            <Link
+              href="/"
+              aria-label="Solidity home"
+              onClick={onClose}
+              my={3}
+              display="block"
+            >
+              <SolidityLogo h='40px' w='calc(40px * 10/16)' />
+            </Link>
+            <Flex direction="column" my={6} gap={4}>
               {NAV_LINKS.map(({ name, href }) => (
                 <Link
                   href={href}
                   key={name}
                   fontFamily="mono"
                   onClick={onClose}
+                  textDecoration="none"
                 >
                   {name}
                 </Link>
               ))}
             </Flex>
 
-            <SocialLinks gap={2} />
+            <Spacer />
+
+            <SocialLinks direction={{ base: 'column', md: 'row' }} gap={0} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

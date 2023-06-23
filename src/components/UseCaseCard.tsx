@@ -1,6 +1,6 @@
 import { Flex, Grid, Image, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
-import type { UseCase } from '@/types'
+import type { UseCase } from '@/interfaces'
 
 interface UseCaseCardProps extends FlexProps {
   useCase: UseCase
@@ -23,7 +23,7 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
         />
       </Grid>
       <Flex direction="column" gap={2}>
-        <Text fontSize="2xl">{title}</Text>
+        <Text fontSize="3xl">{title}</Text>
         <Text>{description}</Text>
       </Flex>
     </Flex>

@@ -15,7 +15,10 @@ export const Link: React.FC<LinkComponentProps> = ({
     textDecoration: 'underline',
     w: 'fit-content',
   }
-  const isExternal = href?.startsWith('http') && !href?.startsWith(BLOG_URL) && !href?.startsWith(DOCS_URL)
+  const isExternal =
+    href?.startsWith('http') &&
+    !href?.startsWith(BLOG_URL) &&
+    !href?.startsWith(DOCS_URL)
   if (isExternal)
     return (
       <ChakraLink

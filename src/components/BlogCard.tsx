@@ -1,10 +1,9 @@
-import { Flex, Text } from '@chakra-ui/react'
-import type { FlexProps } from '@chakra-ui/react'
+import { Flex, type FlexProps, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
-import type { BlogPost } from '@/types'
+import type { BlogCardInfo } from '@/interfaces'
 
 interface BlogCardProps extends FlexProps {
-  blogPost: BlogPost
+  blogPost: BlogCardInfo
 }
 export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...props }) => {
   const { title, author, date, content, href } = blogPost
@@ -15,7 +14,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...props }) => {
   })
   return (
     <Flex direction="column" px={6} py={8} gap={4} {...props}>
-      <Text fontSize="xl" fontFamily="mono" fontWeight="bold">
+      <Text fontSize="2xl" fontFamily="mono" fontWeight="bold">
         {title}
       </Text>
       <Text>

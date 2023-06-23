@@ -1,6 +1,6 @@
-import type { Event } from '../types'
+import type { EventFrontmatter } from '@/interfaces'
 
-export const events: Event[] = [
+export const events: EventFrontmatter[] = [
   {
     title: 'Solidity Summit 2020',
     location: 'Remote',
@@ -50,8 +50,8 @@ export const events: Event[] = [
   {
     title: 'Solidity Summit 2023',
     location: 'Istanbul, Turkey',
-    startDate: 'November, 2023',
-    endDate: 'November, 2023',
+    startDate: '2023-11-16',
+    endDate: '2023-11-16',
 
     imageSrc: '/assets/solidity-summit-2022.png',
     links: [

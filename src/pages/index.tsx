@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
-  BlogPreview,
+  BlogSectionPreview,
   ButtonLink,
   CompilerPlayground,
   EventCard,
@@ -16,7 +16,7 @@ import {
   ShowcaseVisual,
   Triangles,
 } from '@/components'
-import { BLOG_URL, CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
+import { BLOG_PATH, DOCS_URL } from '@/constants'
 import { fetchLatestVersion, fetchStargazersCount } from '@/utils'
 import { events } from '@/data'
 
@@ -64,7 +64,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             alignItems="start"
             maxW="container.lg"
           >
-            <Box fontSize="xl" maxW="8ch">
+            <Box fontSize="2xl" maxW="8ch">
               <Text fontFamily="mono" color="header" lineHeight="130%">
                 Solidity {versionNumber}
               </Text>
@@ -150,9 +150,9 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
 
         <Section py={16} gap={6}>
           <Text textStyle="h3">Latest from the blog</Text>
-          <BlogPreview />
+          <BlogSectionPreview />
           <Flex justify="center">
-            <ButtonLink href={BLOG_URL} variant="outline">
+            <ButtonLink href={BLOG_PATH} variant="outline">
               All blog updates
             </ButtonLink>
           </Flex>
@@ -190,7 +190,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             </Text>
           </ShowcaseContent>
           <ShowcaseVisual direction="column">
-            <Text color="primary" fontSize="lg">
+            <Text color="primary" fontSize="xl">
               Upcoming event
             </Text>
             {nextEvent ? (
@@ -202,7 +202,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
         </ShowcaseSection>
 
         <Section gap={6}>
-          <Text fontSize="lg" color="primary">
+          <Text fontSize="xl" color="primary">
             Past events
           </Text>
           <EventPreview />

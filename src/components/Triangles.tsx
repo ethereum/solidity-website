@@ -49,12 +49,23 @@ interface TriangleProps {
 }
 export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
   const targetRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: targetRef, offset: ["start end", "center center"]})
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start end', 'center center'],
+  })
   const scale = useTransform(scrollYProgress, [0, 0.5], [0, 1])
 
   let index = variantIndex % triangleVariants.length
   return (
-    <Flex position="relative" minH="calc(86.6px * 2 + 64px)" w="100%" bg="blackAlpha.100" p={8} ref={targetRef} borderRadius="lg" >
+    <Flex
+      position="relative"
+      minH="calc(86.6px * 2 + 64px)"
+      w="100%"
+      bg="blackAlpha.100"
+      p={8}
+      ref={targetRef}
+      borderRadius="lg"
+    >
       <AnimatePresence>
         {triangleVariants[index].map(({ x, y, r }, i) => (
           <motion.div
@@ -63,15 +74,15 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
             dragConstraints={targetRef}
             dragElastic={0.1}
             style={{
-              position: "absolute",
-              display: "block",
+              position: 'absolute',
+              display: 'block',
               top: '50%',
               left: '50%',
               x,
               y,
               rotate: r,
               scale,
-              transformStyle: 'preserve-3d'
+              transformStyle: 'preserve-3d',
             }}
           >
             <Triangle color={['a', 'c', 'd', 'e'][i]} />

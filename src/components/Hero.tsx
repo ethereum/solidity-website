@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa'
 import { IoStarSharp } from 'react-icons/io5'
 import { ButtonLink, Section } from '@/components'
 import { GITHUB_URL } from '@/constants'
-import type { NavLink } from '@/types'
+import type { NavLink } from '@/interfaces'
 import { formatBigNumber } from '@/utils'
 
 interface HeroProps extends FlexProps {
@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({
     >
       {`{${header.replaceAll(' ', '_')}}`}
     </Text>
-    <Text maxW="container.md" fontSize={['xl', null, '2xl']}>
+    <Text maxW="container.md" fontSize={['2xl', null, '3xl']}>
       {children}
     </Text>
     {cta?.length && (
