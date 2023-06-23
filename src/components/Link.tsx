@@ -1,7 +1,7 @@
 import { Link as ChakraLink } from '@chakra-ui/react'
 import type { LinkProps } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { BLOG_URL, DOCS_URL } from '@/constants'
+import { DOCS_URL } from '@/constants'
 interface LinkComponentProps extends LinkProps {
   hideArrow?: boolean
 }
@@ -15,10 +15,7 @@ export const Link: React.FC<LinkComponentProps> = ({
     textDecoration: 'underline',
     w: 'fit-content',
   }
-  const isExternal =
-    href?.startsWith('http') &&
-    !href?.startsWith(BLOG_URL) &&
-    !href?.startsWith(DOCS_URL)
+  const isExternal = href?.startsWith('http') && !href?.startsWith(DOCS_URL)
   if (isExternal)
     return (
       <ChakraLink

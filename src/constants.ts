@@ -10,18 +10,17 @@ export const SITE_URL = 'https://soliditylang.org/'
 export const TWITTER_HANDLE = '@solidity_lang'
 
 // Page paths
-export const BLOG_URL = 'https://blog.soliditylang.org/'
 export const BLOG_PATH = '/blog'
 export const PAGE_PATH = '/page'
 export const CATEGORY_PATH = '/category'
 export const BLOG_CATEGORY_PATH = `${BLOG_PATH}${CATEGORY_PATH}`
 export const BLOG_PAGE_PATH = `${BLOG_PATH}${PAGE_PATH}`
-export const DOCS_URL = 'https://docs.soliditylang.org/'
+export const DOCS_URL = 'https://solidity-docs-dev.readthedocs.io' // TODO: Revert back to 'https://docs.soliditylang.org/' for production launch
 export const FORUM_URL = 'https://forum.soliditylang.org/'
 export const GITHUB_URL = 'https://github.com/ethereum/solidity'
 export const GITTER_URL = 'https://gitter.im/ethereum/solidity'
-export const USE_CASES_PATH = '/use-cases/'
-export const CONTRIBUTE_PATH = '/contribute/'
+export const USE_CASES_PATH = '/use-cases'
+export const CONTRIBUTE_PATH = `${DOCS_URL}/en/latest/contribute`
 export const ABOUT_PATH = '/about/'
 export const TWITTER_URL = `https://twitter.com/${TWITTER_HANDLE.split('@')[1]}`
 export const MASTODON_URL = 'https://fosstodon.org/@solidity'
