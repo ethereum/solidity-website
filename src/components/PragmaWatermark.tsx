@@ -43,7 +43,7 @@ export const PragmaWatermark: React.FC = () => {
           <Box
             key={label}
             fontFamily="mono"
-            fontSize={{ base: '4xl', lg: '5xl' }}
+            fontSize={{ base: '5xl', lg: '6xl' }}
             opacity="5%"
             textAlign="end"
           >

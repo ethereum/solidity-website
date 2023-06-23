@@ -64,7 +64,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             alignItems="start"
             maxW="container.lg"
           >
-            <Box fontSize="xl" maxW="8ch">
+            <Box fontSize="2xl" maxW="8ch">
               <Text fontFamily="mono" color="header" lineHeight="130%">
                 Solidity {versionNumber}
               </Text>
@@ -190,7 +190,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             </Text>
           </ShowcaseContent>
           <ShowcaseVisual direction="column">
-            <Text color="primary" fontSize="lg">
+            <Text color="primary" fontSize="xl">
               Upcoming event
             </Text>
             {nextEvent ? (
@@ -202,7 +202,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
         </ShowcaseSection>
 
         <Section gap={6}>
-          <Text fontSize="lg" color="primary">
+          <Text fontSize="xl" color="primary">
             Past events
           </Text>
           <EventPreview />

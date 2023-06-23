@@ -42,7 +42,7 @@ Expedita quia voluptatem, totam eveniet doloremque et commodi modi quaerat hic b
 Error optio facere, officia id consequuntur alias nisi sint mollitia fuga? Quidem dolores sed accusantium autem natus qui non nemo facere velit, aut sit officia alias. Numquam ipsam quibusdam quo.
 
 ## More information
- 
+
 - [Officiis dignissimos](#)
 - [Sint culpa pariatur](#)
 - [Totam alias? Facere, alias](#)

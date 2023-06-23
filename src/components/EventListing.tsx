@@ -20,7 +20,7 @@ export const EventListing: React.FC<EventListingProps> = ({
   return (
     <>
       <Box as="article" px={6} maxW="container.sm" mx="auto">
-        <Box as="aside" fontSize="xl" textAlign="center">
+        <Box as="aside" fontSize="2xl" textAlign="center">
           {isMultiDay ? (
             <Text>
               Dates: {new Date(startDate).toLocaleDateString()} -{' '}

@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({
     >
       {`{${header.replaceAll(' ', '_')}}`}
     </Text>
-    <Text maxW="container.md" fontSize={['xl', null, '2xl']}>
+    <Text maxW="container.md" fontSize={['2xl', null, '3xl']}>
       {children}
     </Text>
     {cta?.length && (

@@ -14,7 +14,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...props }) => {
   })
   return (
     <Flex direction="column" px={6} py={8} gap={4} {...props}>
-      <Text fontSize="xl" fontFamily="mono" fontWeight="bold">
+      <Text fontSize="2xl" fontFamily="mono" fontWeight="bold">
         {title}
       </Text>
       <Text>

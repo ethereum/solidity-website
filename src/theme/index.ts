@@ -1,5 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
-import { config } from './foundations'
+import { config, textStyles } from './foundations'
 const overrides = {
   config,
   colors: {
@@ -23,13 +23,12 @@ const overrides = {
     mono: "'Overpass Mono', monospace",
   },
   fontSizes: {
-    lg: '1.25rem',
-    xl: '1.5rem',
-    '2xl': '2rem',
-    '3xl': '2.375rem',
-    '4xl': '2.75rem',
-    '5xl': '3.25rem',
-    '6xl': '4rem',
+    '2xl': '1.5rem',
+    '3xl': '2rem',
+    '4xl': '2.375rem',
+    '5xl': '2.75rem',
+    '6xl': '3.25rem',
+    '7xl': '4rem',
   },
   shadows: {},
   sizes: {
@@ -53,97 +52,7 @@ const overrides = {
       },
     }),
   },
-  textStyles: {
-    heading: {
-      fontFamily: 'heading',
-      fontWeight: 'bold',
-      color: 'header',
-    },
-    h1: {
-      fontFamily: 'heading',
-      fontWeight: '700',
-      fontSize: { base: '4xl', md: '6xl' },
-      color: 'text',
-      lineHeight: '1.1',
-      textWrap: 'balance',
-    },
-    h2: {
-      fontFamily: 'heading',
-      fontWeight: '700',
-      fontSize: '4xl',
-      color: 'header',
-      lineHeight: '1.1',
-      textWrap: 'balance',
-    },
-    h3: {
-      fontFamily: 'heading',
-      fontWeight: '700',
-      fontSize: '3xl',
-      color: 'header',
-      lineHeight: '1.2',
-      textWrap: 'balance',
-    },
-    h4: {
-      fontFamily: 'heading',
-      fontWeight: '700',
-      fontSize: '2xl',
-      color: 'header',
-      lineHeight: '1.4',
-      textWrap: 'balance',
-    },
-    'h2-mono': {
-      fontFamily: 'mono',
-      fontWeight: '700',
-      fontSize: '4xl',
-      color: 'header',
-      lineHeight: '1.1',
-      textWrap: 'balance',
-    },
-    'h3-mono': {
-      fontFamily: 'mono',
-      fontWeight: '700',
-      fontSize: '3xl',
-      color: 'header',
-      lineHeight: '1.2',
-      textWrap: 'balance',
-    },
-    'h4-mono': {
-      fontFamily: 'mono',
-      fontWeight: '700',
-      fontSize: '2xl',
-      color: 'header',
-      lineHeight: '1.2',
-      textWrap: 'balance',
-    },
-    'h5-mono': {
-      fontFamily: 'mono',
-      fontWeight: '700',
-      fontSize: 'xl',
-      color: 'header',
-      lineHeight: '1.3',
-      textWrap: 'balance',
-    },
-    'h6-mono': {
-      fontFamily: 'mono',
-      fontWeight: '700',
-      fontSize: 'lg',
-      color: 'header',
-      lineHeight: '1.3',
-      textWrap: 'balance',
-    },
-    body: {
-      fontFamily: 'body',
-      fontWeight: 'regular',
-      fontSize: 'sm',
-      color: 'text',
-    },
-    link: {
-      fontFamily: 'body',
-      fontWeight: 'regular',
-      fontSize: 'inherit',
-      color: 'inherit',
-    },
-  },
+  textStyles,
   semanticTokens: {
     colors: {
       a: { _light: 'purple.900', _dark: 'gray.200' }, // text

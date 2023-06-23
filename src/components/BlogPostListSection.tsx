@@ -23,7 +23,8 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
         key={url}
         frontmatter={frontmatter}
         content={content}
-        url={url} />
+        url={url}
+      />
     ))}
     <Flex justify="space-between" gap={3}>
       {page > 1 ? (
@@ -34,7 +35,8 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
             verticalAlign="middle"
             as={FaArrowLeft}
             size={16}
-            _groupHover={{ color: 'primary' }} />
+            _groupHover={{ color: 'primary' }}
+          />
 
           <Text
             as="span"
@@ -45,14 +47,17 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
             Newer posts
           </Text>
         </ButtonLink>
-      ) : <Spacer />}
+      ) : (
+        <Spacer />
+      )}
       {page < totalPages ? (
         <ButtonLink href={`${BLOG_PAGE_PATH}/${page + 1}`}>
           <Icon
             verticalAlign="middle"
             as={FaArrowRight}
             size={16}
-            _groupHover={{ color: 'primary' }} />
+            _groupHover={{ color: 'primary' }}
+          />
 
           <Text
             as="span"
@@ -63,7 +68,9 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
             Older posts
           </Text>
         </ButtonLink>
-      ) : <Spacer />}
+      ) : (
+        <Spacer />
+      )}
     </Flex>
   </Section>
 )

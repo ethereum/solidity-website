@@ -42,13 +42,15 @@ const Blog: React.FC<BlogProps> = ({ allPostsData, page, totalPages }) => (
   <>
     <PageMetadata
       title="Blog"
-      description="Solidity Lang blog: latest news & announcements" />
+      description="Solidity Lang blog: latest news & announcements"
+    />
     <main>
       <Hero header="Blog">Latest News & Announcements</Hero>
       <BlogPostListSection
         allPostsData={allPostsData}
         page={page}
-        totalPages={totalPages} />
+        totalPages={totalPages}
+      />
     </main>
   </>
 )

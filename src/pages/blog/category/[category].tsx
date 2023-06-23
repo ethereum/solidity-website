@@ -47,8 +47,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const sortedFiles = files.sort().reverse()
   const allPostsData = getAllPostsData(sortedFiles, fs)
   const categoryPostsData = allPostsData.filter(
-    ({ frontmatter })  => 
-      frontmatter.category === URL_CATEGORIES_MAP[category as keyof typeof URL_CATEGORIES_MAP]
+    ({ frontmatter }) =>
+      frontmatter.category ===
+      URL_CATEGORIES_MAP[category as keyof typeof URL_CATEGORIES_MAP]
   )
 
   // Generate RSS feeds
@@ -59,7 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const categoryFeed = await generateRssFeed(
     allPostsData,
     category as keyof typeof URL_CATEGORIES_MAP
-  ) 
+  )
   const categoryDirectory = `./public/${category}/`
   fs.mkdirSync(categoryDirectory, { recursive: true })
   fs.writeFileSync(`${categoryDirectory}/feed.xml`, categoryFeed.rss2())

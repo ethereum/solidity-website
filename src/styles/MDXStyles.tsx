@@ -11,7 +11,7 @@ import { Link } from '@/components'
 
 export const MDXStyles = {
   p: ({ children }: any) => (
-    <Text fontSize="lg" lineHeight="150%" mb={{ base: 4, md: 6 }}>
+    <Text fontSize="xl" lineHeight="150%" mb={{ base: 4, md: 6 }}>
       {children}
     </Text>
   ),

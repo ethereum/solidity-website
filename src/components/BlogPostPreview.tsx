@@ -26,7 +26,11 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
       <Text>
         Posted by {author} on {new Date(date).toLocaleDateString()}
       </Text>
-      <Link href={CATEGORIES_URL_MAP[category]} textDecoration="none!important" data-group>
+      <Link
+        href={CATEGORIES_URL_MAP[category]}
+        textDecoration="none!important"
+        data-group
+      >
         <Box
           borderRadius="full"
           px={3}

@@ -32,7 +32,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
 
       <Drawer isOpen={isOpen} placement="end" size="xs" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="transparent">
+        <DrawerContent bg="transparent" maxW="280px">
           <DrawerCloseButton top={6} insetEnd="6" color="text" zIndex="9999" />
           <DrawerBody
             display="flex"
@@ -73,7 +73,7 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
               ))}
             </Flex>
 
-            <SocialLinks gap={2} />
+            <SocialLinks direction={{ base: 'column', md: 'row' }} gap={2} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

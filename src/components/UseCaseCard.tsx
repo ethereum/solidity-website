@@ -23,7 +23,7 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
         />
       </Grid>
       <Flex direction="column" gap={2}>
-        <Text fontSize="2xl">{title}</Text>
+        <Text fontSize="3xl">{title}</Text>
         <Text>{description}</Text>
       </Flex>
     </Flex>
