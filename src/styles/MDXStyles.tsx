@@ -5,7 +5,8 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { Link } from '@/components'
+import { Code, Link } from '@/components'
+// TODO: Debug tables
 
 export const MDXStyles = {
   p: ({ children }: any) => (
@@ -62,6 +63,10 @@ export const MDXStyles = {
       <pre>{children}</pre>
     </Stack>
   ),
+  code: ({ children, inline, node: { properties }}: any) => 
+    <Code inline={inline} properties={properties}>
+      {children}
+    </Code>,
   img: (img: any) => {
     return <Image display="block" mx="auto" src={img.src} alt={img.alt} />
   },
