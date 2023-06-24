@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import type { LinkProps } from '@chakra-ui/react'
 import { Link } from '@/components'
 
@@ -36,19 +36,20 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       }}
       {...props}
     >
-      <Box
+      <Flex
         {...(variant === 'outline' ? outline : solid)}
         borderRadius="none"
         px={6}
         py={2}
         textAlign="center"
+        alignItems="center"
         w={{
           base: 'full',
           [fullWidthBelowBreakpoint]: 'fit-content',
         }}
       >
         {children}
-      </Box>
+      </Flex>
     </Link>
   )
 }

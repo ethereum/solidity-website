@@ -6,7 +6,7 @@ import { ParsedUrlQuery } from 'querystring'
 import { CategoryPath, BlogPostProps } from '@/interfaces'
 // import { generateRssFeed, getCategoryFromURL, hidePostFromTheFuture } from '@/utils/'
 import { BlogPostPreview, Hero, PageMetadata, Section } from '@/components'
-import { BLOG_DIR, CATEGORY_URLS, URL_CATEGORIES_MAP } from '@/constants'
+import { BLOG_DIR, BLOG_PAGE_PATH, BLOG_TITLE, CATEGORY_URLS, URL_CATEGORIES_MAP } from '@/constants'
 import { generateRssFeed, getAllPostsData } from '@/utils'
 
 // generate the paths for each category
@@ -86,12 +86,12 @@ const CategoryPage: NextPage<Props> = ({ categoryPostsData, category }) => {
         description="Solidity Lang blog: latest news & announcements"
       />
       <main>
-        <Hero header="Blog">All {category} posts</Hero>
+        <Hero header={BLOG_TITLE}>All {category} posts</Hero>
         <Section
           direction="column"
-          gap={8}
-          maxW="container.lg"
-          pt={28}
+          gap={16}
+          maxW="container.md"
+          pt={12}
           pb={64}
           fontSize="md"
           mx="auto"

@@ -87,3 +87,5 @@ export const URL_CATEGORIES_MAP = {
 
 export const MAX_POSTS_PER_PAGE = 10 as const
 export const FEATURED_POSTS = 1 as const
+export const MAX_WORDS_PER_POST_PREVIEW = 80 as const
+export const BLOG_TITLE = 'Solidity:​log' as const

@@ -1,10 +1,10 @@
 import fs from 'fs'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
-import { Hero, PageMetadata, BlogPostListSection } from '@/components'
-import { BLOG_DIR } from '@/constants'
-import { getPostsDataForPage, getTotalPages } from '@/utils'
-import type { BlogProps, PageParams } from '@/interfaces'
 import { ParsedUrlQuery } from 'querystring'
+import { Hero, PageMetadata, BlogPostListSection } from '@/components'
+import { getPostsDataForPage, getTotalPages } from '@/utils'
+import { BLOG_DIR, BLOG_TITLE } from '@/constants'
+import type { BlogProps, PageParams } from '@/interfaces'
 
 // Generate the paths for each page
 export const getStaticPaths: GetStaticPaths = () => {
@@ -41,11 +41,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const Blog: React.FC<BlogProps> = ({ allPostsData, page, totalPages }) => (
   <>
     <PageMetadata
-      title="Blog"
+      title="Solidity Blog"
       description="Solidity Lang blog: latest news & announcements"
     />
     <main>
-      <Hero header="Blog">Latest News & Announcements</Hero>
+      <Hero header={BLOG_TITLE}>Latest News & Announcements</Hero>
       <BlogPostListSection
         allPostsData={allPostsData}
         page={page}

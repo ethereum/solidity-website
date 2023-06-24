@@ -5,7 +5,7 @@ export const textStyles = {
     color: 'header',
   },
   h1: {
-    fontFamily: 'heading',
+    fontFamily: 'mono',
     fontWeight: '700',
     fontSize: { base: '5xl', md: '7xl' },
     color: 'text',

@@ -1,6 +1,7 @@
 export * from './fetchStargazersCount'
 export * from './fetchLatestVersion'
 export * from './formatBigNumber'
+export * from './formatDateString'
 export * from './generateRssFeed'
 export * from './getAllPostsData'
 export * from './getPostParamsFromFilename'

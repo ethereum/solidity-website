@@ -1,8 +1,9 @@
 import { Box, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
-import { CATEGORIES_URL_MAP } from '@/constants'
+import { CATEGORIES_URL_MAP, MAX_WORDS_PER_POST_PREVIEW } from '@/constants'
 import { BlogPostProps } from '@/interfaces'
 import removeMd from 'remove-markdown'
+import { formatDateString } from '@/utils'
 
 export const BlogPostPreview: React.FC<BlogPostProps> = ({
   frontmatter,
@@ -11,26 +12,29 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
   ...boxProps
 }) => {
   const { title, date, author, category } = frontmatter
+  const wordArray: string[] = removeMd(content).split(' ')
+  const isTooLong: boolean = wordArray.length > MAX_WORDS_PER_POST_PREVIEW
+  const sliceEnd: number = isTooLong
+    ? MAX_WORDS_PER_POST_PREVIEW
+    : wordArray.length
+  const sanitizedContent: string =
+    wordArray.slice(0, sliceEnd).join(' ') + (isTooLong ? '...' : '')
   return (
     <Box {...boxProps}>
-      {url ? (
-        <Link href={url}>
-          <Text as="h2" textStyle="h2" fontFamily="mono">
-            {title}
-          </Text>
-        </Link>
-      ) : (
-        <Text as="h2" textStyle="h2">
+      <Link href={url} textDecoration="none">
+        <Text as="h2" textStyle="h4-mono" color="text" mb={1}>
           {title}
         </Text>
-      )}
-      <Text>
-        Posted by {author} on {new Date(date).toLocaleDateString()}
+      </Link>
+      <Text color="primary" mb={6}>
+        Posted by {author} on {formatDateString(date)}
       </Text>
       <Link
         href={CATEGORIES_URL_MAP[category]}
         textDecoration="none!important"
         data-group
+        mb={2}
+        display="block"
       >
         <Box
           borderRadius="full"
@@ -51,7 +55,10 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
           {category}
         </Box>
       </Link>
-      <Text>{removeMd(content)}</Text>
+      <Text mb={2}>{sanitizedContent}</Text>
+      <Link href={url} mb={1}>
+        [Read More]
+      </Link>
     </Box>
   )
 }
