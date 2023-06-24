@@ -1,15 +1,24 @@
 import path from 'path'
 import matter from 'gray-matter'
 import { getPostParamsFromFilename, getSlicedContent } from '@/utils'
-import { BLOG_DIR, MATTER_OPTIONS, BLOG_PATH } from '@/constants'
+import {
+  BLOG_DIR,
+  MATTER_OPTIONS,
+  BLOG_PATH,
+  MAX_POSTS_PER_PAGE,
+  FEATURED_POSTS,
+} from '@/constants'
 import type { BlogPostProps } from '@/interfaces'
 
 export const getPostsDataForPage = (
   sortedFiles: string[],
   page: number,
   fs: any
-): BlogPostProps[] =>
-  sortedFiles.slice((page - 1) * 10, page * 10).map((file) => {
+): BlogPostProps[] => {
+  const sliceFrom =
+    page === 1 ? 0 : (page - 1) * MAX_POSTS_PER_PAGE + FEATURED_POSTS
+  const sliceTo = page * MAX_POSTS_PER_PAGE + FEATURED_POSTS
+  return sortedFiles.slice(sliceFrom, sliceTo).map((file) => {
     // Read markdown file as string
     const fullPath = path.join(BLOG_DIR, file)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -25,3 +34,4 @@ export const getPostsDataForPage = (
       url,
     } as BlogPostProps
   })
+}

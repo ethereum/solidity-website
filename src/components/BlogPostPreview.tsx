@@ -8,10 +8,11 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
   frontmatter,
   content,
   url,
+  ...boxProps
 }) => {
   const { title, date, author, category } = frontmatter
   return (
-    <Box>
+    <Box {...boxProps}>
       {url ? (
         <Link href={url}>
           <Text as="h2" textStyle="h2" fontFamily="mono">

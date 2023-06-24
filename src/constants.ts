@@ -85,4 +85,5 @@ export const URL_CATEGORIES_MAP = {
   explainers: EXPLAINERS,
 }
 
-export const MAX_POSTS_PER_PAGE = 10
+export const MAX_POSTS_PER_PAGE = 10 as const
+export const FEATURED_POSTS = 1 as const

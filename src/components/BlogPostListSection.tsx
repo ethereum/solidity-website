@@ -1,7 +1,7 @@
 import { BlogPostPreview, ButtonLink, Section } from '@/components'
 import type { BlogProps } from '@/interfaces'
-import { BLOG_PATH, BLOG_PAGE_PATH, MAX_POSTS_PER_PAGE } from '@/constants'
-import { Flex, Icon, Spacer, Text } from '@chakra-ui/react'
+import { BLOG_PATH, BLOG_PAGE_PATH } from '@/constants'
+import { Flex, Grid, Icon, Spacer, Text } from '@chakra-ui/react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 export const BlogPostListSection: React.FC<BlogProps> = ({
@@ -18,14 +18,18 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
     fontSize="md"
     mx="auto"
   >
-    {allPostsData.map(({ frontmatter, content, url }) => (
-      <BlogPostPreview
-        key={url}
-        frontmatter={frontmatter}
-        content={content}
-        url={url}
-      />
-    ))}
+    <Grid templateColumns={{ base: '1fr', md: '1fr 1fr'}}>
+      {allPostsData.map(({ frontmatter, content, url }, i) => (
+        <BlogPostPreview
+          gridColumn={page === 1 && i === 0 ? "span 2" : "span 1"}
+          key={url}
+          frontmatter={frontmatter}
+          content={content}
+          url={url}
+          
+        />
+      ))}
+    </Grid>
     <Flex justify="space-between" gap={3}>
       {page > 1 ? (
         <ButtonLink

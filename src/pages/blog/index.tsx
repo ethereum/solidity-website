@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Blog: React.FC<BlogProps> = ({ allPostsData, totalPages }) => (
   <>
     <PageMetadata
-      title="Blog"
+      title="Solidity:Blog"
       description="Solidity Lang blog: latest news & announcements"
     />
     <main>

@@ -1,3 +1,4 @@
+import type { BoxProps } from '@chakra-ui/react'
 import type { IconType } from 'react-icons'
 import { CATEGORIES_URL_MAP } from '@/constants'
 
@@ -58,7 +59,7 @@ export interface BlogPostFrontmatter {
   category: Category
 }
 
-export interface BlogPostProps {
+export interface BlogPostProps extends BoxProps {
   frontmatter: BlogPostFrontmatter
   content: string
   availableURLs?: string[]
