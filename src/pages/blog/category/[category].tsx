@@ -1,16 +1,11 @@
 import fs from 'fs'
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-// import { PostsPerCategory } from '../../components/UI'
-// import { getAllPostsData } from '..'
 import { CategoryPath, BlogPostProps } from '@/interfaces'
-// import { generateRssFeed, getCategoryFromURL, hidePostFromTheFuture } from '@/utils/'
 import { BlogPostPreview, Hero, PageMetadata, Section } from '@/components'
 import {
-  BLOG_DIR,
-  BLOG_PAGE_PATH,
+  BLOG_POSTS_DIR,
   BLOG_TITLE,
-  CATEGORY_URLS,
   URL_CATEGORIES_MAP,
 } from '@/constants'
 import { generateRssFeed, getAllPostsData } from '@/utils'
@@ -18,7 +13,7 @@ import { generateRssFeed, getAllPostsData } from '@/utils'
 // generate the paths for each category
 export const getStaticPaths: GetStaticPaths = () => {
   // check if any .md post file exists, don't generate the paths otherwise
-  if (!fs.existsSync(BLOG_DIR)) {
+  if (!fs.existsSync(BLOG_POSTS_DIR)) {
     return {
       paths: [],
       fallback: false,
@@ -27,16 +22,9 @@ export const getStaticPaths: GetStaticPaths = () => {
 
   // generate a path for each one
   const paths: CategoryPath[] = []
-  const categories: string[] = [
-    'releases',
-    'security-alerts',
-    'announcements',
-    'explainers',
-  ]
-  categories.forEach((category) => {
-    paths.push({ params: { category } })
+  Object.keys(URL_CATEGORIES_MAP).forEach((key) => {
+    paths.push({ params: { category: key } })
   })
-  Object.values(CATEGORY_URLS).forEach((value) => {})
 
   // return list of paths
   return {
@@ -49,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { category } = context.params as ParsedUrlQuery
   // get list of all files from our posts directory
-  const files = fs.readdirSync(BLOG_DIR)
+  const files = fs.readdirSync(BLOG_POSTS_DIR)
   const sortedFiles = files.sort().reverse()
   const allPostsData = getAllPostsData(sortedFiles, fs)
   const categoryPostsData = allPostsData.filter(
@@ -108,6 +96,7 @@ const CategoryPage: NextPage<Props> = ({ categoryPostsData, category }) => {
               frontmatter={frontmatter}
               content={content}
               url={url}
+              isCategoryPage
             />
           ))}
         </Section>

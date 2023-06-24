@@ -5,10 +5,14 @@ import { BlogPostProps } from '@/interfaces'
 import removeMd from 'remove-markdown'
 import { formatDateString } from '@/utils'
 
-export const BlogPostPreview: React.FC<BlogPostProps> = ({
+interface BlogPostPreviewProps extends BlogPostProps {
+  isCategoryPage?: boolean
+}
+export const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({
   frontmatter,
   content,
   url,
+  isCategoryPage,
   ...boxProps
 }) => {
   const { title, date, author, category } = frontmatter
@@ -29,7 +33,7 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
       <Text color="primary" mb={6}>
         Posted by {author} on {formatDateString(date)}
       </Text>
-      <CategoryPill category={category} />
+      <CategoryPill category={category} skipLink={isCategoryPage} />
       <Text mb={2}>{sanitizedContent}</Text>
       <Link href={url} mb={1}>
         [Read More]

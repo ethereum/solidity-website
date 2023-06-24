@@ -3,18 +3,18 @@ import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { ParsedUrlQuery } from 'querystring'
 import { Hero, PageMetadata, BlogPostListSection } from '@/components'
 import { getPostsDataForPage, getTotalPages } from '@/utils'
-import { BLOG_DIR, BLOG_TITLE } from '@/constants'
+import { BLOG_POSTS_DIR, BLOG_TITLE } from '@/constants'
 import type { BlogProps, PageParams } from '@/interfaces'
 
 // Generate the paths for each page
 export const getStaticPaths: GetStaticPaths = () => {
   // Check if any .md post file exists, don't generate the paths otherwise
-  if (!fs.existsSync(BLOG_DIR)) return { paths: [], fallback: false }
+  if (!fs.existsSync(BLOG_POSTS_DIR)) return { paths: [], fallback: false }
 
   const paths: PageParams[] = []
 
   // Get list of all files from our blog posts directory
-  const files = fs.readdirSync(BLOG_DIR)
+  const files = fs.readdirSync(BLOG_POSTS_DIR)
   // Calculate how many pages will be needed
   const totalPages = getTotalPages(files)
   Array(totalPages)
@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { page } = context.params as ParsedUrlQuery
   const pageNumber = parseInt(page as string)
   // get list of all files from our posts directory
-  const files = fs.readdirSync(BLOG_DIR)
+  const files = fs.readdirSync(BLOG_POSTS_DIR)
   const totalPages = getTotalPages(files)
   const sortedFiles = files.sort().reverse()
   const allPostsData = getPostsDataForPage(sortedFiles, pageNumber, fs)
