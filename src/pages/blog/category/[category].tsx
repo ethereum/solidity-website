@@ -6,7 +6,13 @@ import { ParsedUrlQuery } from 'querystring'
 import { CategoryPath, BlogPostProps } from '@/interfaces'
 // import { generateRssFeed, getCategoryFromURL, hidePostFromTheFuture } from '@/utils/'
 import { BlogPostPreview, Hero, PageMetadata, Section } from '@/components'
-import { BLOG_DIR, BLOG_PAGE_PATH, BLOG_TITLE, CATEGORY_URLS, URL_CATEGORIES_MAP } from '@/constants'
+import {
+  BLOG_DIR,
+  BLOG_PAGE_PATH,
+  BLOG_TITLE,
+  CATEGORY_URLS,
+  URL_CATEGORIES_MAP,
+} from '@/constants'
 import { generateRssFeed, getAllPostsData } from '@/utils'
 
 // generate the paths for each category

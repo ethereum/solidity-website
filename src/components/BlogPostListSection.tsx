@@ -2,7 +2,7 @@ import { BlogPostPreview, ButtonLink, Section } from '@/components'
 import type { BlogProps } from '@/interfaces'
 import { BLOG_PATH, BLOG_PAGE_PATH } from '@/constants'
 import { Flex, Grid, Icon, Spacer, Text } from '@chakra-ui/react'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { MdPlayArrow } from 'react-icons/md'
 
 export const BlogPostListSection: React.FC<BlogProps> = ({
   allPostsData,
@@ -33,39 +33,35 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
         />
       ))}
     </Grid>
-    <Flex justify="space-between" gap={3}>
+    <Flex justify="center" gap={8}>
       {page > 1 ? (
-        <ButtonLink href={page === 2 ? BLOG_PATH : `${BLOG_PAGE_PATH}/${page - 1}`}>
-          <Icon
-            as={FaArrowLeft}
-            size={16}
-            marginEnd={3}
-          />
-          <Text
-            as="span"
-            fontFamily="heading"
-            textTransform="uppercase"
-          >
-            Newer posts
-          </Text>
+        <ButtonLink
+          href={page === 2 ? BLOG_PATH : `${BLOG_PAGE_PATH}/${page - 1}`}
+          variant="outline"
+        >
+          <Flex flexWrap="nowrap" me="auto" alignItems="center">
+            <Icon
+              as={MdPlayArrow}
+              transform="rotate(180deg)"
+              size={16}
+              marginEnd={2}
+            />
+            <Text as="span" fontFamily="heading" textTransform="uppercase">
+              Newer posts
+            </Text>
+          </Flex>
         </ButtonLink>
       ) : (
-        <Spacer />
+        <Spacer display={{ base: 'none', sm: 'block' }} />
       )}
       {page < totalPages ? (
-        <ButtonLink href={`${BLOG_PAGE_PATH}/${page + 1}`}>
-          <Text
-            as="span"
-            fontFamily="heading"
-            textTransform="uppercase"
-          >
-            Older posts
-          </Text>
-          <Icon
-            as={FaArrowRight}
-            size={16}
-            marginStart={3}
-          />
+        <ButtonLink href={`${BLOG_PAGE_PATH}/${page + 1}`} variant="outline">
+          <Flex flexWrap="nowrap" ms="auto" alignItems="center">
+            <Text as="span" fontFamily="heading" textTransform="uppercase">
+              Older posts
+            </Text>
+            <Icon as={MdPlayArrow} size={16} marginStart={2} />
+          </Flex>
         </ButtonLink>
       ) : (
         <Spacer />

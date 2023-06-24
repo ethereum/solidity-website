@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react'
-import { Link } from '@/components'
-import { CATEGORIES_URL_MAP, MAX_WORDS_PER_POST_PREVIEW } from '@/constants'
+import { CategoryPill, Link } from '@/components'
+import { MAX_WORDS_PER_POST_PREVIEW } from '@/constants'
 import { BlogPostProps } from '@/interfaces'
 import removeMd from 'remove-markdown'
 import { formatDateString } from '@/utils'
@@ -29,32 +29,7 @@ export const BlogPostPreview: React.FC<BlogPostProps> = ({
       <Text color="primary" mb={6}>
         Posted by {author} on {formatDateString(date)}
       </Text>
-      <Link
-        href={CATEGORIES_URL_MAP[category]}
-        textDecoration="none!important"
-        data-group
-        mb={2}
-        display="block"
-      >
-        <Box
-          borderRadius="full"
-          px={3}
-          w="fit-content"
-          border="1px"
-          borderColor="primary"
-          color="primary"
-          fontSize="xs"
-          fontFamily="mono"
-          fontWeight="bold"
-          textTransform="uppercase"
-          _groupHover={{
-            bg: 'primary',
-            color: 'bg',
-          }}
-        >
-          {category}
-        </Box>
-      </Link>
+      <CategoryPill category={category} />
       <Text mb={2}>{sanitizedContent}</Text>
       <Link href={url} mb={1}>
         [Read More]

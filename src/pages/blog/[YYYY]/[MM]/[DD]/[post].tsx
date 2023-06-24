@@ -1,16 +1,15 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { ParsedUrlQuery } from 'querystring'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import {
+  BlogHero,
   BlogPost,
-  Hero,
-  Link,
   PageMetadata,
   PostNavigation,
 } from '@/components'
-import { BLOG_DIR, CATEGORIES_URL_MAP, MATTER_OPTIONS } from '@/constants'
+import { BLOG_DIR, MATTER_OPTIONS } from '@/constants'
 import { getPostParamsFromFilename, getPostURL } from '@/utils'
 import type { PostPath, BlogPostProps } from '@/interfaces'
 
@@ -54,24 +53,20 @@ const BlogPostPage: React.FC<BlogPostProps> = ({
   frontmatter,
   content,
   availableURLs = [],
-}) => {
-  const { title, date, author, category } = frontmatter
-  const subtitle = `Posted by ${author} on ${new Date(
-    date
-  ).toLocaleDateString()}`
-  return (
-    <>
-      <PageMetadata title={title} description={subtitle} />
-      <main>
-        <Hero header={title}>
-          <Text>{subtitle}</Text>
-          <Link href={CATEGORIES_URL_MAP[category]}>{category}</Link>
-        </Hero>
-        <BlogPost content={content} />
-        <PostNavigation availableURLs={availableURLs} />
-      </main>
-    </>
-  )
-}
+}) => (
+  <>
+    <PageMetadata
+      title={frontmatter.title}
+      description={`Posted by ${frontmatter.author} on ${new Date(
+        frontmatter.date
+      ).toLocaleDateString()}`}
+    />
+    <Box as="main" maxWidth="container.lg" mx="auto" px={{ base: 4, sm: 8 }}>
+      <BlogHero frontmatter={frontmatter} />
+      <BlogPost content={content} />
+      <PostNavigation availableURLs={availableURLs} />
+    </Box>
+  </>
+)
 
 export default BlogPostPage

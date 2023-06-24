@@ -9,7 +9,7 @@ interface BlogPostProps {
 }
 export const BlogPost: React.FC<BlogPostProps> = ({ content }) => (
   <>
-    <Box as="article" px={6} maxW="container.md" mx="auto">
+    <Box as="article">
       <ReactMarkdown
         components={ChakraUIRenderer(MDXStyles)}
         remarkPlugins={[gfm]}
