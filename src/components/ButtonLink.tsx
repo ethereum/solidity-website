@@ -15,14 +15,19 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   const solid = {
     color: 'bg',
     bg: 'text',
-    _groupHover: { bg: 'primary' },
+    _groupHover: { bg: 'header' },
   }
   const outline = {
     color: 'text',
     bg: 'transparent',
     border: '2px',
     borderColor: 'border',
-    _groupHover: { bg: 'primary', color: 'bg', textDecoration: 'none' },
+    _groupHover: {
+      bg: 'mode',
+      color: 'header',
+      textDecoration: 'none',
+      borderColor: 'header',
+    },
   }
   return (
     <Link
@@ -30,6 +35,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       boxSizing="border-box"
       data-group
       textDecoration="none !important"
+      fontWeight="bold"
       w={{
         base: 'full',
         [fullWidthBelowBreakpoint]: 'fit-content',

@@ -11,8 +11,10 @@ const overrides = {
     },
     blue: {
       200: '#AEC0F1',
+      900: '#110C4E',
     },
     gray: {
+      50: '#FAF8FF',
       200: '#E6E3EC',
     },
   },
@@ -61,12 +63,14 @@ const overrides = {
       d: { _light: 'purple.300', _dark: 'purple.500' },
       e: { _light: 'blue.200', _dark: 'purple.600' },
       f: { _light: 'gray.200', _dark: 'purple.900' }, // background
+      mode: { _light: 'gray.50', _dark: 'blue.900' },
 
       text: 'a',
       bg: 'f',
       header: 'b',
       border: 'a',
       primary: 'c',
+      highlight: 'd',
     },
   },
 }
