@@ -61,9 +61,9 @@ const BlogPostPage: React.FC<BlogPostProps> = ({
         frontmatter.date
       ).toLocaleDateString()}`}
     />
-    <Box as="main" maxWidth="container.lg" mx="auto" px={{ base: 4, sm: 8 }}>
+    <Box as="main" px={{ base: 4, md: 8 }}>
       <BlogHero frontmatter={frontmatter} />
-      <BlogPost content={content} />
+      <BlogPost content={content} maxW="container.md" />
       <PostNavigation availableURLs={availableURLs} />
     </Box>
   </>
