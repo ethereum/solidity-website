@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { FaGithub } from 'react-icons/fa'
 import { IoStarSharp } from 'react-icons/io5'
@@ -55,9 +55,9 @@ export const Hero: React.FC<HeroProps> = ({
     >
       {`{${header.replaceAll(' ', '_')}}`}
     </Text>
-    <Text maxW="container.md" fontSize="2xl">
+    <Box maxW="container.md" fontSize="2xl">
       {children}
-    </Text>
+    </Box>
     {cta?.length && (
       <Flex direction={['column', 'row']} gap={5} justify="start">
         {cta.map(({ name, href }) => (
