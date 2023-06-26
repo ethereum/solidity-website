@@ -7,6 +7,7 @@ import {
   useTransform,
   isValidMotionProp,
 } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const NAV_PADDING = 2 * 16
 const Y_OFFSET = 64
@@ -24,7 +25,8 @@ const MotionDiv = chakra(motion.div, {
 })
 
 export const Header: React.FC = () => {
-  const { scrollY } = useScroll(/* { offset: ['end end', 'start end'] } */)
+  const { pathname } = useRouter()
+  const { scrollY } = useScroll()
 
   const y = useTransform(scrollY, [0, Y_OFFSET], [Y_OFFSET, 0])
   const scale = useTransform(
@@ -97,6 +99,7 @@ export const Header: React.FC = () => {
               fontFamily="mono"
               letterSpacing="-0.02em"
               textDecoration="none"
+              background={pathname === href ? 'mode' : 'none'}
             >
               {name}
             </Link>
