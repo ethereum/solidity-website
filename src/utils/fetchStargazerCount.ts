@@ -1,6 +1,6 @@
 import { SOLIDITY_REPO_STARGAZERS_URL } from '../constants'
 
-export const fetchStargazersCount = async () => {
+export const fetchStargazerCount = async () => {
   const headers = new Headers({
     Authorization: 'Token ' + process.env.GITHUB_TOKEN_READ_ONLY,
   })

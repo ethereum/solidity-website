@@ -1,4 +1,4 @@
-export * from './fetchStargazersCount'
+export * from './fetchStargazerCount'
 export * from './fetchLatestVersion'
 export * from './formatBigNumber'
 export * from './formatDateString'

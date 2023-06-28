@@ -17,13 +17,13 @@ import {
   Triangles,
 } from '@/components'
 import { BLOG_PATH, DOCS_URL } from '@/constants'
-import { fetchLatestVersion, fetchStargazersCount } from '@/utils'
+import { fetchLatestVersion, fetchStargazerCount } from '@/utils'
 import { events } from '@/data'
 import { useRouter } from 'next/router'
 
 export const getStaticProps: GetStaticProps = async () => {
   const { versionNumber } = await fetchLatestVersion()
-  const { stargazersCount } = await fetchStargazersCount()
+  const { stargazersCount } = await fetchStargazerCount()
   return { props: { versionNumber, stargazersCount } }
 }
 
