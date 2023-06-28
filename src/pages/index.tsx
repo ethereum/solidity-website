@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text, useColorMode } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
   BlogSectionPreview,
@@ -19,6 +19,7 @@ import {
 import { BLOG_PATH, DOCS_URL } from '@/constants'
 import { fetchLatestVersion, fetchStargazersCount } from '@/utils'
 import { events } from '@/data'
+import { useRouter } from 'next/router'
 
 export const getStaticProps: GetStaticProps = async () => {
   const { versionNumber } = await fetchLatestVersion()

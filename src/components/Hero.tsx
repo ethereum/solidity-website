@@ -65,32 +65,32 @@ export const Hero: React.FC<HeroProps> = ({
             {name}
           </ButtonLink>
         ))}
-        {stargazerCount && (
-          <ButtonLink
-            href={GITHUB_URL}
-            variant="outline"
-            sx={{
-              '&>div': { p: 0, display: 'flex' },
-              '&>*': { textDecoration: 'none' },
-            }}
+        <ButtonLink
+          href={GITHUB_URL}
+          variant="outline"
+          sx={{
+            '&>div': { p: 0, display: 'flex' },
+            '&>*': { textDecoration: 'none' },
+          }}
+        >
+          <Flex
+            borderEnd={stargazerCount !==  0 ? "1px" : 0}
+            borderColor="border"
+            alignItems="center"
+            gap={2}
+            px={3}
+            py={1.5}
           >
-            <Flex
-              borderEnd="1px"
-              borderColor="border"
-              alignItems="center"
-              gap={2}
-              px={3}
-              py={1.5}
-            >
-              <FaGithub />
-              Repository
-            </Flex>
+            <FaGithub />
+            Repository
+          </Flex>
+          {stargazerCount !== 0 && stargazerCount && (
             <Flex alignItems="center" gap={2} px={3}>
               <IoStarSharp />
               {formatBigNumber(stargazerCount)}
             </Flex>
-          </ButtonLink>
-        )}
+          )}
+        </ButtonLink>
       </Flex>
     )}
   </Section>
