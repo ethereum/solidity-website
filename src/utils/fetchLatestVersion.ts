@@ -1,11 +1,8 @@
 import { LATEST_SOLIDITY_RELEASE_URL } from '../constants'
 
 export const fetchLatestVersion = async () => {
-  const headers = new Headers({
-    Authorization: 'Token ' + process.env.GITHUB_TOKEN_READ_ONLY,
-  })
   try {
-    const response = await fetch(LATEST_SOLIDITY_RELEASE_URL, { headers })
+    const response = await fetch(LATEST_SOLIDITY_RELEASE_URL)
     if (response.status !== 200)
       throw new Error('Failed to fetch latest version')
     const release = await response.json()
