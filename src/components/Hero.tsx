@@ -10,13 +10,13 @@ import { formatBigNumber } from '@/utils'
 interface HeroProps extends FlexProps {
   header: string
   cta?: NavLink[]
-  stargazerCount?: number
+  stargazersCount?: number
 }
 export const Hero: React.FC<HeroProps> = ({
   header,
   children,
   cta,
-  stargazerCount,
+  stargazersCount,
   ...props
 }) => (
   <Section
@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({
           }}
         >
           <Flex
-            borderEnd={stargazerCount !==  0 ? "1px" : 0}
+            borderEnd={stargazersCount !==  0 ? "1px" : 0}
             borderColor="border"
             alignItems="center"
             gap={2}
@@ -84,10 +84,10 @@ export const Hero: React.FC<HeroProps> = ({
             <FaGithub />
             Repository
           </Flex>
-          {stargazerCount !== 0 && stargazerCount && (
+          {stargazersCount !== 0 && stargazersCount && (
             <Flex alignItems="center" gap={2} px={3}>
               <IoStarSharp />
-              {formatBigNumber(stargazerCount)}
+              {formatBigNumber(stargazersCount)}
             </Flex>
           )}
         </ButtonLink>

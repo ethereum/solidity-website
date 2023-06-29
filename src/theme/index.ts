@@ -67,9 +67,10 @@ const overrides = {
 
       text: 'a',
       bg: 'f',
-      header: 'b',
+      header: 'c',
       border: 'a',
       primary: 'c',
+      secondary: 'b',
       highlight: 'd',
     },
   },

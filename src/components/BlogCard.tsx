@@ -1,29 +1,24 @@
 import { Flex, type FlexProps, Text } from '@chakra-ui/react'
-import { Link } from '@/components'
-import type { BlogCardInfo } from '@/interfaces'
+import { ButtonLink } from '@/components'
+import type { BlogPostProps } from '@/interfaces'
+import { formatDateString } from '@/utils'
 
 interface BlogCardProps extends FlexProps {
-  blogPost: BlogCardInfo
+  blogPost: BlogPostProps
 }
-export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...props }) => {
-  const { title, author, date, content, href } = blogPost
-  const dateString = new Date(date).toLocaleString('en', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
+export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...flexProps }) => {
+  const { frontmatter, content, url } = blogPost
+  const { title, author, date } = frontmatter
   return (
-    <Flex direction="column" px={6} py={8} gap={4} {...props}>
-      <Text fontSize="2xl" fontFamily="mono" fontWeight="bold">
+    <Flex direction="column" px={6} py={8} {...flexProps}>
+      <Text textStyle="h4-mono" color="text" mb={1}>
         {title}
       </Text>
-      <Text>
-        Posted {author ? `by ${author}` : ``} on {dateString}
+      <Text color="primary">
+        Posted by {author} on {formatDateString(date)}
       </Text>
-      <Flex direction="column" gap={2}>
-        {typeof content === 'string' ? <Text>{content}</Text> : content}
-      </Flex>
-      <Link href={href}>Read more</Link>
+      <Text my={6}>{content}</Text>
+      <ButtonLink href={url} variant="outline">Read more</ButtonLink>
     </Flex>
   )
 }

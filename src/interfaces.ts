@@ -63,7 +63,7 @@ export interface BlogPostProps extends BoxProps {
   frontmatter: BlogPostFrontmatter
   content: string
   availableURLs?: string[]
-  url?: string
+  url: string
 }
 
 export interface BlogParams {

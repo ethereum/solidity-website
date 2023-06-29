@@ -61,10 +61,8 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
       position="relative"
       minH="calc(86.6px * 2 + 64px)"
       w="100%"
-      bg="blackAlpha.100"
       p={8}
       ref={targetRef}
-      borderRadius="lg"
     >
       <AnimatePresence>
         {triangleVariants[index].map(({ x, y, r }, i) => (

@@ -5,24 +5,20 @@ import {
   getSlicedContent,
   sanitizePostPreviewContent,
 } from '@/utils'
-import {
-  BLOG_POSTS_DIR,
-  MATTER_OPTIONS,
-  BLOG_PATH,
-  POSTS_PER_PAGE,
-  FEATURED_POSTS,
-} from '@/constants'
+import { BLOG_POSTS_DIR, MATTER_OPTIONS, BLOG_PATH } from '@/constants'
 import type { BlogPostProps } from '@/interfaces'
 
-export const getPostsDataForPage = (
+interface SliceRange {
+  from: number
+  to: number
+}
+export const getPostsDataForRange = (
   sortedFiles: string[],
-  page: number,
+  sliceRange: SliceRange,
   fs: any
 ): BlogPostProps[] => {
-  const sliceFrom =
-    page === 1 ? 0 : (page - 1) * POSTS_PER_PAGE + FEATURED_POSTS
-  const sliceTo = page * POSTS_PER_PAGE + FEATURED_POSTS
-  return sortedFiles.slice(sliceFrom, sliceTo).map((file) => {
+  const { from, to } = sliceRange
+  return sortedFiles.slice(from, to).map((file) => {
     // Read markdown file as string
     const fullPath = path.join(BLOG_POSTS_DIR, file)
     const fileContents = fs.readFileSync(fullPath, 'utf8')

@@ -1,4 +1,5 @@
-import { Box, Flex, Text, useColorMode } from '@chakra-ui/react'
+import fs from 'fs'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
   BlogSectionPreview,
@@ -16,22 +17,45 @@ import {
   ShowcaseVisual,
   Triangles,
 } from '@/components'
-import { BLOG_PATH, DOCS_URL } from '@/constants'
-import { fetchLatestVersion, fetchStargazerCount } from '@/utils'
-import { events } from '@/data'
-import { useRouter } from 'next/router'
+import {
+  BLOG_PATH,
+  BLOG_POSTS_DIR,
+  DOCS_URL,
+  MAX_POSTS_TO_PREVIEW,
+} from '@/constants'
+import {
+  fetchLatestVersion,
+  fetchStargazersCount,
+  getPostsDataForRange,
+} from '@/utils'
+import type { BlogPostProps } from '@/interfaces'
+import { events } from '@/data' // TODO: Pull from MD pages
 
 export const getStaticProps: GetStaticProps = async () => {
+  // get list of all files from our posts directory
+  const files = fs.readdirSync(BLOG_POSTS_DIR)
+  const sortedFiles = files.sort().reverse()
+  const previewBlogPosts = getPostsDataForRange(
+    sortedFiles,
+    { from: 0, to: MAX_POSTS_TO_PREVIEW },
+    fs
+  )
+
   const { versionNumber } = await fetchLatestVersion()
-  const { stargazersCount } = await fetchStargazerCount()
-  return { props: { versionNumber, stargazersCount } }
+  const { stargazersCount } = await fetchStargazersCount()
+  return { props: { previewBlogPosts, versionNumber, stargazersCount } }
 }
 
 interface HomeProps {
+  previewBlogPosts: BlogPostProps[]
   versionNumber: string
   stargazersCount: number
 }
-export default function Home({ versionNumber, stargazersCount }: HomeProps) {
+export default function Home({
+  previewBlogPosts,
+  versionNumber,
+  stargazersCount,
+}: HomeProps) {
   const futureEvents = events.filter(
     (event) => new Date(event.endDate) >= new Date()
   )
@@ -43,10 +67,11 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
         description="Solidity is a statically-typed curly-braces programming language designed for developing smart contracts that run on Ethereum."
       />
       <main>
+        {/* HERO */}
         <Hero
           header="Solidity"
           cta={[{ name: 'Get into the docs', href: DOCS_URL }]}
-          stargazerCount={stargazersCount}
+          stargazersCount={stargazersCount}
         >
           A statically-typed curly-braces programming language designed for
           developing smart contracts that run on{' '}
@@ -54,6 +79,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           <PragmaWatermark />
         </Hero>
 
+        {/* SOLIDITY VERSION */}
         <Section py={8} alignItems="center">
           <Flex
             as="aside"
@@ -66,7 +92,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
             maxW="container.lg"
           >
             <Box fontSize="2xl" maxW="8ch">
-              <Text fontFamily="mono" color="header" lineHeight="130%">
+              <Text fontFamily="mono" color="b" lineHeight="130%">
                 Solidity {versionNumber}
               </Text>
             </Box>
@@ -90,6 +116,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </Flex>
         </Section>
 
+        {/* Solidity is evolving rapidly > Get started */}
         <ShowcaseSection>
           <ShowcaseContent title="Solidity is evolving rapidly" gap={8}>
             <Text>
@@ -113,6 +140,7 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </ShowcaseVisual>
         </ShowcaseSection>
 
+        {/* Contribute to Solidity */}
         <ShowcaseSection startWithVisual>
           <ShowcaseContent title="Contribute to Solidity">
             <Text>
@@ -127,21 +155,18 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </ShowcaseVisual>
         </ShowcaseSection>
 
-        {/* TODO: Start contributing cards with "Start contributing" CTA button */}
+        {/* Cards: Ways to contribute */}
+        {/* TODO: Add "contributing cards" with "Start contributing" CTA button */}
 
+        {/* Stay updated */}
+        {/* TODO: Update copy */}
         <ShowcaseSection>
           <ShowcaseContent title="Stay Updated">
             <Text>
-              We aim for a regular (non-breaking) release every month, with
-              approximately one breaking release per year. You can follow the
-              implementation status of new features in the{' '}
-              <Link
-                href="https://github.com/ethereum/solidity/projects/43"
-                fontWeight="bold"
-              >
-                Solidity Github project
-              </Link>
-              .
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+              commodi dicta debitis eligendi quo exercitationem. Repellendus
+              repellat itaque sapiente quibusdam? Iste illum nihil, possimus
+              accusamus ea voluptatum nisi illo eligendi.
             </Text>
           </ShowcaseContent>
           <ShowcaseVisual>
@@ -149,9 +174,10 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </ShowcaseVisual>
         </ShowcaseSection>
 
+        {/* Latest from the blog */}
         <Section py={16} gap={6}>
           <Text textStyle="h3">Latest from the blog</Text>
-          <BlogSectionPreview />
+          <BlogSectionPreview postsData={previewBlogPosts} />
           <Flex justify="center">
             <ButtonLink href={BLOG_PATH} variant="outline">
               All blog updates
@@ -172,9 +198,9 @@ export default function Home({ versionNumber, stargazersCount }: HomeProps) {
           </ShowcaseVisual>
         </ShowcaseSection>
 
-        <Section py={8}>
+        {/* <Section py={8}>
           <CompilerPlayground />
-        </Section>
+        </Section> */}
 
         <ShowcaseSection>
           <ShowcaseContent title="Solidity Events">
