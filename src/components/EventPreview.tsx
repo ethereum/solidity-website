@@ -1,18 +1,20 @@
 import { Grid } from '@chakra-ui/react'
-import type { EventFrontmatter } from '@/interfaces'
+import type { EventPost } from '@/interfaces'
 import { EventCard } from '@/components'
-import { events } from '@/data'
 
-export const EventPreview: React.FC = () => (
+interface EventPreviewProps {
+  events: EventPost[]
+}
+export const EventPreview: React.FC<EventPreviewProps> = ({ events }) => (
   <Grid templateColumns={['1fr', null, 'repeat(3, 1fr)']} gap={4}>
     {events
       .filter(
-        (event: EventFrontmatter) =>
-          new Date(event.endDate) <
+        ({ frontmatter }: EventPost) =>
+          new Date(frontmatter.endDate) <
           new Date(new Date().setDate(new Date().getDate() + 1))
       )
-      .map((event: EventFrontmatter) => (
-        <EventCard event={event} key={event.title} />
+      .map(({ frontmatter }: EventPost) => (
+        <EventCard frontmatter={frontmatter} key={frontmatter.title} />
       ))}
   </Grid>
 )

@@ -26,38 +26,40 @@ import {
 import {
   fetchLatestVersion,
   fetchStargazersCount,
+  getAllEvents,
   getPostsDataForRange,
 } from '@/utils'
-import type { BlogPostProps } from '@/interfaces'
-import { events } from '@/data' // TODO: Pull from MD pages
+import type { BlogPostProps, EventPost } from '@/interfaces'
 
 export const getStaticProps: GetStaticProps = async () => {
   // get list of all files from our posts directory
-  const files = fs.readdirSync(BLOG_POSTS_DIR)
-  const sortedFiles = files.sort().reverse()
+  const postFiles = fs.readdirSync(BLOG_POSTS_DIR)
+  const sortedPostFiles = postFiles.sort().reverse()
   const previewBlogPosts = getPostsDataForRange(
-    sortedFiles,
+    sortedPostFiles,
     { from: 0, to: MAX_POSTS_TO_PREVIEW },
     fs
   )
-
+  const allEvents = getAllEvents(fs)
   const { versionNumber } = await fetchLatestVersion()
   const { stargazersCount } = await fetchStargazersCount()
-  return { props: { previewBlogPosts, versionNumber, stargazersCount } }
+  return { props: { previewBlogPosts, allEvents, versionNumber, stargazersCount } }
 }
 
 interface HomeProps {
   previewBlogPosts: BlogPostProps[]
+  allEvents: EventPost[]
   versionNumber: string
   stargazersCount: number
 }
 export default function Home({
   previewBlogPosts,
+  allEvents,
   versionNumber,
   stargazersCount,
 }: HomeProps) {
-  const futureEvents = events.filter(
-    (event) => new Date(event.endDate) >= new Date()
+  const futureEvents = allEvents.filter(
+    ({ frontmatter: { endDate }}) => new Date(endDate) >= new Date()
   )
   const nextEvent = futureEvents.length ? futureEvents[0] : null
   return (
@@ -185,6 +187,7 @@ export default function Home({
           </Flex>
         </Section>
 
+        {/* Playground section */}
         <ShowcaseSection startWithVisual>
           <ShowcaseContent title="Playground">
             <Text>
@@ -198,10 +201,12 @@ export default function Home({
           </ShowcaseVisual>
         </ShowcaseSection>
 
+        {/* TODO: Fix compiler playground */}
         {/* <Section py={8}>
           <CompilerPlayground />
         </Section> */}
 
+        {/* Upcoming solidity events */}
         <ShowcaseSection>
           <ShowcaseContent title="Solidity Events">
             <Text>
@@ -221,18 +226,19 @@ export default function Home({
               Upcoming event
             </Text>
             {nextEvent ? (
-              <EventCard event={nextEvent} />
+              <EventCard frontmatter={nextEvent.frontmatter} />
             ) : (
               <Text>No upcoming events</Text>
             )}
           </ShowcaseVisual>
         </ShowcaseSection>
 
+        {/* Past events */}
         <Section gap={6}>
           <Text fontSize="xl" color="primary">
             Past events
           </Text>
-          <EventPreview />
+          <EventPreview events={allEvents} />
         </Section>
       </main>
     </>

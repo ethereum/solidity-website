@@ -39,13 +39,14 @@ export interface EventFrontmatter {
   startDate: string
   endDate: string
   imageSrc?: string
-  content?: string | React.ReactNode
+  description?: string
   links?: EventLink[]
 }
 
 export interface EventPost {
   frontmatter: EventFrontmatter
   content: string
+  url: string
 }
 
 export type Category = keyof typeof CATEGORIES_URL_MAP

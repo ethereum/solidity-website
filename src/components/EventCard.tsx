@@ -4,16 +4,15 @@ import { ButtonLink } from '@/components'
 import type { EventFrontmatter } from '@/interfaces'
 
 interface EventCardProps extends FlexProps {
-  event: EventFrontmatter
+  frontmatter: EventFrontmatter
 }
-export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
-  const { title, location, startDate, endDate, content, links, imageSrc } =
-    event
+export const EventCard: React.FC<EventCardProps> = ({ frontmatter, ...flexProps }) => {
+  const { title, location, startDate, endDate, links, description, imageSrc } = frontmatter
   const start = new Date(startDate)
   const end = new Date(endDate)
   const date = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
   return (
-    <Flex direction="column" maxW="container.sm" {...props}>
+    <Flex direction="column" maxW="container.sm" {...flexProps}>
       <Image
         src={imageSrc ? imageSrc : '/assets/default-event-image.png'}
         h="200"
@@ -34,9 +33,9 @@ export const EventCard: React.FC<EventCardProps> = ({ event, ...props }) => {
           <Text>{location}</Text>
           <Text>{date}</Text>
         </Box>
-        {content && (
+        {description && (
           <Flex direction="column" gap={2}>
-            {typeof content === 'string' ? <Text>{content}</Text> : content}
+            {typeof description === 'string' ? <Text>{description}</Text> : description}
           </Flex>
         )}
         <Flex

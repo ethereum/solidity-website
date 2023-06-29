@@ -16,13 +16,14 @@ export const getStaticPaths: GetStaticPaths = () => {
   }
   const paths: EventPath[] = []
 
-  // Get list of all files from our events directory
-  const files = fs.readdirSync(EVENTS_DIR)
-  // Generate a path for each one
-  files.forEach((file) => {
-    const fileName = file.replace('.md', '')
-    paths.push({ params: { event: fileName } })
-  })
+  // TODO: Uncomment when ready to build these paths as markdown pages
+  // // Get list of all files from our events directory
+  // const files = fs.readdirSync(EVENTS_DIR)
+  // // Generate a path for each one
+  // files.forEach((file) => {
+  //   const fileName = file.replace('.md', '')
+  //   paths.push({ params: { event: fileName } })
+  // })
 
   // Return list of paths
   return { paths, fallback: false }
