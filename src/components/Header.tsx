@@ -99,7 +99,7 @@ export const Header: React.FC = () => {
               fontFamily="mono"
               letterSpacing="-0.02em"
               textDecoration="none"
-              background={pathname === href ? 'mode' : 'none'}
+              background={pathname.includes(href) ? 'mode' : 'none'}
             >
               {name}
             </Link>
