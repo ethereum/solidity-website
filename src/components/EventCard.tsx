@@ -17,7 +17,7 @@ export const EventCard: React.FC<EventCardProps> = ({
   const end = new Date(endDate)
   const date = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
   return (
-    <Flex direction="column" maxW="container.sm" {...flexProps}>
+    <Flex direction="column" maxW="container.md" {...flexProps}>
       <Image
         src={imageSrc ? imageSrc : '/assets/default-event-image.png'}
         h="200"
@@ -25,12 +25,10 @@ export const EventCard: React.FC<EventCardProps> = ({
         objectFit="cover"
         alt="Solidity event image"
       />
-      <Flex direction="column" px={6} py={8} gap={2}>
+      <Flex direction="column" px={0} pt={4} gap={2}>
         <Text
-          fontSize="3xl"
-          fontWeight="bold"
-          lineHeight="125%"
-          fontFamily="mono"
+          textStyle="h5-mono"
+          color="text"
         >
           {title}
         </Text>

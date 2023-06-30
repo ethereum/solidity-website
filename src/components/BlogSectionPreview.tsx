@@ -10,7 +10,7 @@ export const BlogSectionPreview: React.FC<BlogSectionPreviewProps> = ({
   postsData,
 }) => {
   return (
-    <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={4}>
+    <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={12}>
       {postsData.map((blogPost: BlogPostProps) => (
         <BlogCard
           blogPost={blogPost}

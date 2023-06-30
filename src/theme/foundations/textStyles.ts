@@ -19,6 +19,7 @@ export const textStyles = {
     color: 'header',
     lineHeight: '1.1',
     textWrap: 'balance',
+    marginBottom: '2',
   },
   h3: {
     fontFamily: 'heading',
@@ -27,6 +28,7 @@ export const textStyles = {
     color: 'header',
     lineHeight: '1.2',
     textWrap: 'balance',
+    marginBottom: '4',
   },
   h4: {
     fontFamily: 'heading',

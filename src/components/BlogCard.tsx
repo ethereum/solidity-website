@@ -13,8 +13,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   const { frontmatter, content, url } = blogPost
   const { title, author, date } = frontmatter
   return (
-    <Flex direction="column" px={6} py={8} {...flexProps}>
-      <Text textStyle="h4-mono" color="text" mb={1}>
+    <Flex direction="column" {...flexProps}>
+      <Text textStyle="h5-mono" color="text" mb={1}>
         {title}
       </Text>
       <Text color="primary">

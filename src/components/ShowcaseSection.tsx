@@ -2,20 +2,25 @@ import { Section } from '@/components'
 import { Flex, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 
-export interface SectionProps extends Pick<FlexProps, 'children'> {
+export interface SectionProps extends FlexProps {
   startWithVisual?: boolean
+  reverseMobile?: boolean
 }
 export const ShowcaseSection: React.FC<SectionProps> = ({
   children,
   startWithVisual,
+  reverseMobile,
+  ...props
 }) => (
   <Section
     direction={{
-      base: 'column-reverse',
+      base: reverseMobile ? 'column' : 'column-reverse',
       md: startWithVisual ? 'row-reverse' : 'row',
     }}
-    py={16}
+    alignItems="centeR"
+    p={0}
     gap={12}
+    {...props}
   >
     {children}
   </Section>

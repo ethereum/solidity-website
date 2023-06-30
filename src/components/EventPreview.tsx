@@ -6,7 +6,7 @@ interface EventPreviewProps {
   events: EventPost[]
 }
 export const EventPreview: React.FC<EventPreviewProps> = ({ events }) => (
-  <Grid templateColumns={['1fr', null, 'repeat(3, 1fr)']} gap={4}>
+  <Grid templateColumns={['1fr', null, 'repeat(3, 1fr)']} gap={8}>
     {events
       .filter(
         ({ frontmatter }: EventPost) =>

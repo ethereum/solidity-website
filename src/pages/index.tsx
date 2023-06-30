@@ -1,10 +1,11 @@
 import fs from 'fs'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Text, useBreakpointValue } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
   BlogSectionPreview,
   ButtonLink,
   CompilerPlayground,
+  ContributingCards,
   EventCard,
   EventPreview,
   Hero,
@@ -20,6 +21,7 @@ import {
 import {
   BLOG_PATH,
   BLOG_POSTS_DIR,
+  CONTRIBUTE_PATH,
   DOCS_URL,
   MAX_POSTS_TO_PREVIEW,
 } from '@/constants'
@@ -64,6 +66,7 @@ export default function Home({
     ({ frontmatter: { endDate } }) => new Date(endDate) >= new Date()
   )
   const nextEvent = futureEvents.length ? futureEvents[0] : null
+  const sectionPaddingY = useBreakpointValue({ base: 12, md: 24 })
   return (
     <>
       <PageMetadata
@@ -84,7 +87,7 @@ export default function Home({
         </Hero>
 
         {/* SOLIDITY VERSION */}
-        <Section py={8} alignItems="center">
+        <Section pt={16} pb={24} alignItems="center">
           <Flex
             as="aside"
             direction={['column', null, 'row']}
@@ -121,8 +124,8 @@ export default function Home({
         </Section>
 
         {/* Solidity is evolving rapidly > Get started */}
-        <ShowcaseSection>
-          <ShowcaseContent title="Solidity is evolving rapidly" gap={8}>
+        <ShowcaseSection py={sectionPaddingY}>
+          <ShowcaseContent title="Solidity is evolving rapidly" px={{ base: 4, md: 0 }}>
             <Text>
               We aim for a regular (non-breaking) release every month, with
               approximately one breaking release per year. You can follow the
@@ -135,7 +138,7 @@ export default function Home({
               </Link>
               .
             </Text>
-            <ButtonLink href={DOCS_URL} variant="outline">
+            <ButtonLink href={DOCS_URL} variant="outline" mt={8}>
               Get started
             </ButtonLink>
           </ShowcaseContent>
@@ -145,102 +148,114 @@ export default function Home({
         </ShowcaseSection>
 
         {/* Contribute to Solidity */}
-        <ShowcaseSection startWithVisual>
-          <ShowcaseContent title="Contribute to Solidity">
-            <Text>
-              You can see the upcoming changes for the next breaking release by
-              switching from the default branch (`develop`) to the `breaking
-              branch`. Shape Solidity by providing your input and participating
-              in the language design.
-            </Text>
-          </ShowcaseContent>
-          <ShowcaseVisual>
-            <Triangles variantIndex={1} />
-          </ShowcaseVisual>
-        </ShowcaseSection>
+        <Section py={sectionPaddingY} gap={12}>
+          <ShowcaseSection startWithVisual px={0}>
+            <ShowcaseContent title="Contribute to Solidity">
+              <Text>
+                You can see the upcoming changes for the next breaking release by
+                switching from the default branch (`develop`) to the `breaking
+                branch`. Shape Solidity by providing your input and participating
+                in the language design.
+              </Text>
+            </ShowcaseContent>
+            <ShowcaseVisual>
+              <Triangles variantIndex={1} />
+            </ShowcaseVisual>
+          </ShowcaseSection>
 
-        {/* Cards: Ways to contribute */}
-        {/* TODO: Add "contributing cards" with "Start contributing" CTA button */}
+          <ContributingCards />
 
-        {/* Stay updated */}
-        {/* TODO: Update copy */}
-        <ShowcaseSection>
-          <ShowcaseContent title="Stay Updated">
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-              commodi dicta debitis eligendi quo exercitationem. Repellendus
-              repellat itaque sapiente quibusdam? Iste illum nihil, possimus
-              accusamus ea voluptatum nisi illo eligendi.
-            </Text>
-          </ShowcaseContent>
-          <ShowcaseVisual>
-            <Triangles variantIndex={2} />
-          </ShowcaseVisual>
-        </ShowcaseSection>
-
-        {/* Latest from the blog */}
-        <Section py={16} gap={6}>
-          <Text textStyle="h3">Latest from the blog</Text>
-          <BlogSectionPreview postsData={previewBlogPosts} />
           <Flex justify="center">
-            <ButtonLink href={BLOG_PATH} variant="outline">
-              All blog updates
+            <ButtonLink href={CONTRIBUTE_PATH} variant="outline">
+              Start contributing
             </ButtonLink>
           </Flex>
         </Section>
 
-        {/* Playground section */}
-        <ShowcaseSection startWithVisual>
-          <ShowcaseContent title="Playground">
-            <Text>
-              Try solidity yourself in this simple compiler. for a more fully
-              featured browser based IDE, try using{' '}
-              <Link href="https://remix.ethereum.org">Remix</Link>
-            </Text>
-          </ShowcaseContent>
-          <ShowcaseVisual>
-            <Triangles variantIndex={3} />
-          </ShowcaseVisual>
-        </ShowcaseSection>
+        {/* Stay updated */}
+        {/* TODO: Update copy */}
+        <Section py={sectionPaddingY} gap={12}>
+          <ShowcaseSection px={0}>
+            <ShowcaseContent title="Stay Updated">
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                commodi dicta debitis eligendi quo exercitationem. Repellendus
+                repellat itaque sapiente quibusdam? Iste illum nihil, possimus
+                accusamus ea voluptatum nisi illo eligendi.
+              </Text>
+            </ShowcaseContent>
+            <ShowcaseVisual>
+              <Triangles variantIndex={2} />
+            </ShowcaseVisual>
+          </ShowcaseSection>
 
-        {/* Interactive Solidity code editor and compiler */}
-        <Section py={8}>
+          {/* Latest from the blog */}
+          <Section>
+            <Text textStyle="h3">Latest from the blog</Text>
+            <BlogSectionPreview postsData={previewBlogPosts} />
+          </Section>
+
+            <Flex justify="center">
+              <ButtonLink href={BLOG_PATH} variant="outline">
+                All blog updates
+              </ButtonLink>
+            </Flex>
+        </Section>
+
+        {/* Playground section */}
+        <Section py={sectionPaddingY} gap={12}>
+          <ShowcaseSection startWithVisual>
+            <ShowcaseContent title="Playground">
+              <Text>
+                Try solidity yourself in this simple compiler. for a more fully
+                featured browser based IDE, try using{' '}
+                <Link href="https://remix.ethereum.org">Remix</Link>
+              </Text>
+            </ShowcaseContent>
+            <ShowcaseVisual>
+              <Triangles variantIndex={3} />
+            </ShowcaseVisual>
+          </ShowcaseSection>
+
+          {/* Interactive Solidity code editor and compiler */}
           <CompilerPlayground />
         </Section>
 
         {/* Upcoming solidity events */}
-        <ShowcaseSection>
-          <ShowcaseContent title="Solidity Events" flex={4}>
-            <Text>
-              The Solidity Summit is a free interactive forum for people
-              involved and interested in the Solidity language and the ecosystem
-              around it.
-            </Text>
-            <Text>
-              Enable useful (language-design related) discussions which result
-              in improvement proposals and actual implementations, foster
-              communication between teams working on similar topics and Identify
-              needs for the smart contract ecosystem for Ethereum.
-            </Text>
-          </ShowcaseContent>
-          <ShowcaseVisual direction="column" flex={5}>
-            <Text color="primary" fontSize="xl">
-              Upcoming event
-            </Text>
-            {nextEvent ? (
-              <EventCard frontmatter={nextEvent.frontmatter} />
-            ) : (
-              <Text>No upcoming events</Text>
-            )}
-          </ShowcaseVisual>
-        </ShowcaseSection>
+        <Section py={sectionPaddingY} gap={12}>
+          <ShowcaseSection px={0} reverseMobile>
+            <ShowcaseContent title="Solidity Events" flex={4}>
+              <Text>
+                The Solidity Summit is a free interactive forum for people
+                involved and interested in the Solidity language and the ecosystem
+                around it.
+              </Text>
+              <Text>
+                Enable useful (language-design related) discussions which result
+                in improvement proposals and actual implementations, foster
+                communication between teams working on similar topics and Identify
+                needs for the smart contract ecosystem for Ethereum.
+              </Text>
+            </ShowcaseContent>
+            <ShowcaseVisual direction="column" flex={5} w="full">
+              <Text color="primary" fontSize="xl">
+                Upcoming event
+              </Text>
+              {nextEvent ? (
+                <EventCard frontmatter={nextEvent.frontmatter} />
+              ) : (
+                <Text>No upcoming events</Text>
+              )}
+            </ShowcaseVisual>
+          </ShowcaseSection>
 
-        {/* Past events */}
-        <Section gap={6}>
-          <Text fontSize="xl" color="primary">
-            Past events
-          </Text>
-          <EventPreview events={allEvents} />
+          {/* Past events */}
+          <Section gap={6}>
+            <Text fontSize="xl" color="primary">
+              Past events
+            </Text>
+            <EventPreview events={allEvents} />
+          </Section>
         </Section>
       </main>
     </>
