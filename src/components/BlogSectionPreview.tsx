@@ -6,12 +6,18 @@ interface BlogSectionPreviewProps {
   postsData: BlogPostProps[]
 }
 
-export const BlogSectionPreview: React.FC<BlogSectionPreviewProps> = ({ postsData }) => {
+export const BlogSectionPreview: React.FC<BlogSectionPreviewProps> = ({
+  postsData,
+}) => {
   return (
     <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={4}>
-        {postsData.map((blogPost: BlogPostProps) => (
-          <BlogCard blogPost={blogPost} key={blogPost.frontmatter.title} maxW="container.md" />
-        ))}
+      {postsData.map((blogPost: BlogPostProps) => (
+        <BlogCard
+          blogPost={blogPost}
+          key={blogPost.frontmatter.title}
+          maxW="container.md"
+        />
+      ))}
     </Grid>
   )
 }

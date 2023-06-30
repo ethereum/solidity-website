@@ -6,7 +6,10 @@ import { formatDateString } from '@/utils'
 interface BlogCardProps extends FlexProps {
   blogPost: BlogPostProps
 }
-export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...flexProps }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({
+  blogPost,
+  ...flexProps
+}) => {
   const { frontmatter, content, url } = blogPost
   const { title, author, date } = frontmatter
   return (
@@ -18,7 +21,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blogPost, ...flexProps }) =>
         Posted by {author} on {formatDateString(date)}
       </Text>
       <Text my={6}>{content}</Text>
-      <ButtonLink href={url} variant="outline">Read more</ButtonLink>
+      <ButtonLink href={url} variant="outline">
+        Read more
+      </ButtonLink>
     </Flex>
   )
 }

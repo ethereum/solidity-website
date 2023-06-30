@@ -3,11 +3,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { CategoryPath, BlogPostProps } from '@/interfaces'
 import { BlogPostPreview, Hero, PageMetadata, Section } from '@/components'
-import {
-  BLOG_POSTS_DIR,
-  BLOG_TITLE,
-  URL_CATEGORIES_MAP,
-} from '@/constants'
+import { BLOG_POSTS_DIR, BLOG_TITLE, URL_CATEGORIES_MAP } from '@/constants'
 import { generateRssFeed, getAllPostsData } from '@/utils'
 
 // generate the paths for each category

@@ -1,13 +1,18 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Icon, Image, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { ButtonLink } from '@/components'
 import type { EventFrontmatter } from '@/interfaces'
+import { MdPlayArrow } from 'react-icons/md'
 
 interface EventCardProps extends FlexProps {
   frontmatter: EventFrontmatter
 }
-export const EventCard: React.FC<EventCardProps> = ({ frontmatter, ...flexProps }) => {
-  const { title, location, startDate, endDate, links, description, imageSrc } = frontmatter
+export const EventCard: React.FC<EventCardProps> = ({
+  frontmatter,
+  ...flexProps
+}) => {
+  const { title, location, startDate, endDate, links, description, imageSrc } =
+    frontmatter
   const start = new Date(startDate)
   const end = new Date(endDate)
   const date = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
@@ -29,13 +34,17 @@ export const EventCard: React.FC<EventCardProps> = ({ frontmatter, ...flexProps 
         >
           {title}
         </Text>
-        <Box fontWeight="medium" fontSize="md">
+        <Box color="primary">
           <Text>{location}</Text>
           <Text>{date}</Text>
         </Box>
         {description && (
           <Flex direction="column" gap={2}>
-            {typeof description === 'string' ? <Text>{description}</Text> : description}
+            {typeof description === 'string' ? (
+              <Text>{description}</Text>
+            ) : (
+              description
+            )}
           </Flex>
         )}
         <Flex
@@ -46,7 +55,15 @@ export const EventCard: React.FC<EventCardProps> = ({ frontmatter, ...flexProps 
         >
           {links &&
             links.map(({ href, label }) => (
-              <ButtonLink href={href} key={href} fullWidthBelowBreakpoint="lg">
+              <ButtonLink
+                href={href}
+                key={href}
+                fullWidthBelowBreakpoint="lg"
+                variant="outline"
+              >
+                {label.toLowerCase() === 'talks' && (
+                  <Icon as={MdPlayArrow} me={2} />
+                )}
                 {label}
               </ButtonLink>
             ))}

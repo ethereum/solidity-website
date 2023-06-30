@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react"
-import { Footer, Header } from "@/components"
-import { useColorContinuity } from "@/hooks"
-import { AppProps } from "next/app"
+import { Box } from '@chakra-ui/react'
+import { Footer, Header } from '@/components'
+import { useColorContinuity } from '@/hooks'
+import { AppProps } from 'next/app'
 
-interface TemplateProps extends Pick<AppProps, "Component" | "pageProps"> {}
+interface TemplateProps extends Pick<AppProps, 'Component' | 'pageProps'> {}
 export const Template: React.FC<TemplateProps> = ({ Component, pageProps }) => {
   useColorContinuity()
   return (

@@ -43,7 +43,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const allEvents = getAllEvents(fs)
   const { versionNumber } = await fetchLatestVersion()
   const { stargazersCount } = await fetchStargazersCount()
-  return { props: { previewBlogPosts, allEvents, versionNumber, stargazersCount } }
+  return {
+    props: { previewBlogPosts, allEvents, versionNumber, stargazersCount },
+  }
 }
 
 interface HomeProps {
@@ -59,7 +61,7 @@ export default function Home({
   stargazersCount,
 }: HomeProps) {
   const futureEvents = allEvents.filter(
-    ({ frontmatter: { endDate }}) => new Date(endDate) >= new Date()
+    ({ frontmatter: { endDate } }) => new Date(endDate) >= new Date()
   )
   const nextEvent = futureEvents.length ? futureEvents[0] : null
   return (
@@ -208,7 +210,7 @@ export default function Home({
 
         {/* Upcoming solidity events */}
         <ShowcaseSection>
-          <ShowcaseContent title="Solidity Events">
+          <ShowcaseContent title="Solidity Events" flex={4}>
             <Text>
               The Solidity Summit is a free interactive forum for people
               involved and interested in the Solidity language and the ecosystem
@@ -221,7 +223,7 @@ export default function Home({
               needs for the smart contract ecosystem for Ethereum.
             </Text>
           </ShowcaseContent>
-          <ShowcaseVisual direction="column">
+          <ShowcaseVisual direction="column" flex={5}>
             <Text color="primary" fontSize="xl">
               Upcoming event
             </Text>

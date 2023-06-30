@@ -1,4 +1,8 @@
-import { Link as ChakraLink, type LinkProps, useColorMode } from '@chakra-ui/react'
+import {
+  Link as ChakraLink,
+  type LinkProps,
+  useColorMode,
+} from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { DOCS_URL } from '@/constants'
 interface LinkComponentProps extends LinkProps {
@@ -41,7 +45,7 @@ export const Link: React.FC<LinkComponentProps> = ({
   if (isDoc) {
     path += `?pcm=${colorMode}`
   }
-  
+
   return (
     <NextLink href={path} passHref legacyBehavior>
       <ChakraLink {...linkStyes} {...props} />

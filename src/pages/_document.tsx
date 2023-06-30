@@ -4,11 +4,11 @@ import theme from '../theme'
 
 export default function Document() {
   const preloadFonts = [
-    "overpass/overpass-regular.otf",
-    "overpass/overpass-bold.otf",
-    "overpass-mono/overpass-mono-regular.otf",
-    "overpass-mono/overpass-mono-bold.otf",
-  ];
+    'overpass/overpass-regular.otf',
+    'overpass/overpass-bold.otf',
+    'overpass-mono/overpass-mono-regular.otf',
+    'overpass-mono/overpass-mono-bold.otf',
+  ]
 
   return (
     <Html lang="en">

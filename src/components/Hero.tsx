@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({
             }}
           >
             <Flex
-              borderEnd={stargazersCount !==  0 ? "1px" : "0px"}
+              borderEnd={stargazersCount !== 0 ? '1px' : '0px'}
               borderColor="border"
               alignItems="center"
               gap={2}

@@ -20,13 +20,7 @@ const CodeEditor = dynamic(
 )
 
 const ResultTextarea: React.FC<TextareaProps> = (props) => (
-  <Textarea
-    readOnly
-    flex={1}
-    fontSize="xs"
-    p={2}
-    {...props}
-  />
+  <Textarea readOnly flex={1} fontSize="xs" p={2} {...props} />
 )
 interface CompilerResult {
   evm: {
@@ -178,7 +172,9 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
           </Text>
           {error ? (
             <>
-              <Text fontWeight="bold" fontSize="lg">Errors</Text>
+              <Text fontWeight="bold" fontSize="lg">
+                Errors
+              </Text>
               <Text color="error">{error}</Text>
             </>
           ) : (
