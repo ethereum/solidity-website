@@ -202,9 +202,9 @@ export default function Home({
         </ShowcaseSection>
 
         {/* TODO: Fix compiler playground */}
-        {/* <Section py={8}>
+        <Section py={8}>
           <CompilerPlayground />
-        </Section> */}
+        </Section>
 
         {/* Upcoming solidity events */}
         <ShowcaseSection>
