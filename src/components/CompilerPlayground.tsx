@@ -19,14 +19,15 @@ const CodeEditor = dynamic(
   { ssr: false }
 )
 
-const ResultTextarea: React.FC<TextareaProps> = (props) => (<Textarea
-  readOnly
-  flex={1}
-  resize="vertical"
-  fontSize="xs"
-  p={2}
-  {...props}
-/>)
+const ResultTextarea: React.FC<TextareaProps> = (props) => (
+  <Textarea
+    readOnly
+    flex={1}
+    fontSize="xs"
+    p={2}
+    {...props}
+  />
+)
 interface CompilerResult {
   evm: {
     assembly: string
@@ -41,7 +42,7 @@ interface CompilerResultState {
   totalCost: string
   version: string
   contractName: string
-  bytes?: string
+  error?: string | null
 }
 
 export const CompilerPlayground: React.FC<FlexProps> = (props) => {
@@ -54,8 +55,10 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
     totalCost: '',
     contractName: '',
     version: '',
+    error: null,
   })
-  const { assembly, bytecode, totalCost, version, contractName } = compilerResults
+  const { assembly, bytecode, totalCost, version, contractName, error } =
+    compilerResults
   const bytes: number = bytecode.length / 2
   useEffect(() => {
     // Guard for undefined Worker type
@@ -64,11 +67,16 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
     // See: https://github.com/r0qs/solcjs-webworker-example
     const newWorker = new Worker('./bundle.js')
     // Listen for messages FROM the worker, with compiler results
-    newWorker.addEventListener(
-      'message',
-      function (e: MessageEvent) {
-        console.log({ e })
-        const { version: _version }: { version: string } = e.data
+    const handleMessage = (e: MessageEvent) => {
+      const { version: _version }: { version: string } = e.data
+      try {
+        if (e.data.output.errors)
+          throw new Error(
+            e.data.output.errors.map(
+              ({ formattedMessage }: { formattedMessage: string }) =>
+                formattedMessage
+            )
+          )
         const contract: { [key: string]: CompilerResult } =
           e.data.output.contracts['']
         const [_contractName, result]: [string, CompilerResult] =
@@ -88,10 +96,20 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
           totalCost: _totalCost,
           contractName: _contractName,
           version: _version,
+          error: null,
         })
-      },
-      false
-    )
+      } catch ({ message }) {
+        setCompilerResults({
+          assembly: '',
+          bytecode: '',
+          totalCost: '',
+          contractName: '',
+          version: _version,
+          error: message as string,
+        })
+      }
+    }
+    newWorker.addEventListener('message', handleMessage, false)
     setWorker(newWorker)
   }, [])
 
@@ -101,7 +119,6 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
     // Every time `code` changes, post a message TO the worker
     worker.postMessage({ contractCode: code })
   }, [worker, code])
-
   const onSelectionChange = (e: any) => {
     if (!e?.target?.value) return
     setCode(examples.get(e.target.value))
@@ -109,10 +126,15 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
   const handleCodeChange = (evn: any) => {
     setCode(evn.target.value)
   }
-  const editorHeight = useBreakpointValue({ base: '300px', md: '500px'})
+  const editorHeight = useBreakpointValue({ base: '300px', md: '500px' })
   return (
     <Flex direction="column" w="full" gap={2} {...props}>
-      <Select bg="mode" onChange={onSelectionChange} w="fit-content">
+      <Select
+        bg="mode"
+        borderRadius="none"
+        onChange={onSelectionChange}
+        w="fit-content"
+      >
         <option value="helloWorld">Hello World!</option>
         <option value="erc20">ERC20</option>
         <option value="simpleAuction">Simple Auction</option>
@@ -129,7 +151,7 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
           style={{
             fontSize: 12,
             backgroundColor: 'var(--chakra-colors-mode)',
-            height: editorHeight,
+            minHeight: editorHeight,
             overflowY: 'scroll',
             resize: 'vertical',
             fontFamily:
@@ -144,7 +166,9 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
           maxW="100%"
           textOverflow="ellipsis"
         >
-          <Text fontWeight="bold" fontSize="lg">Compiler result</Text>
+          <Text fontWeight="bold" fontSize="lg">
+            Compiler result
+          </Text>
 
           <Text fontWeight="bold">
             Compiler version:{' '}
@@ -152,23 +176,26 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
               {version}
             </Text>
           </Text>
-          
-          <Text fontWeight="bold">
-            {contractName} ({bytes} bytes)
-          </Text>
+          {error ? (
+            <>
+              <Text fontWeight="bold" fontSize="lg">Errors</Text>
+              <Text color="error">{error}</Text>
+            </>
+          ) : (
+            <>
+              <Text fontWeight="bold">
+                {contractName} ({bytes} bytes)
+              </Text>
 
-          <Text>Deployment costs: {totalCost} gas</Text>
+              <Text>Deployment costs: {totalCost} gas</Text>
 
-          <Text fontWeight="bold">
-            Bytecode
-          </Text>
-          <ResultTextarea value={bytecode} />
+              <Text fontWeight="bold">Bytecode</Text>
+              <ResultTextarea value={bytecode} />
 
-          <Text fontWeight="bold">
-            Assembly
-          </Text>
-          <ResultTextarea value={assembly} />
-
+              <Text fontWeight="bold">Assembly</Text>
+              <ResultTextarea value={assembly} />
+            </>
+          )}
         </Flex>
       </Grid>
     </Flex>

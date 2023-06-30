@@ -72,6 +72,7 @@ const overrides = {
       primary: 'c',
       secondary: 'b',
       highlight: 'd',
+      error: { _light: 'red.500', _dark: 'red.300' },
     },
   },
 }

@@ -201,7 +201,7 @@ export default function Home({
           </ShowcaseVisual>
         </ShowcaseSection>
 
-        {/* TODO: Fix compiler playground */}
+        {/* Interactive Solidity code editor and compiler */}
         <Section py={8}>
           <CompilerPlayground />
         </Section>
