@@ -1,7 +1,22 @@
-import { Flex, Text } from '@chakra-ui/react'
-import { Hero, PageMetadata, Section } from '@/components'
-import { CONTRIBUTE_PATH, DOCS_URL } from '@/constants'
+import { Flex, FlexProps, Text } from '@chakra-ui/react'
+import { Hero, Link, PageMetadata, Section } from '@/components'
+import { CONTRIBUTE_PATH, DOCS_URL, FORUM_URL } from '@/constants'
 
+interface FaqItemProps extends FlexProps {
+  question: string
+}
+const FaqItem: React.FC<FaqItemProps> = ({
+  question,
+  children,
+  ...flexProps
+}) => (
+  <Flex px={8} py={6} gap={6} {...flexProps}>
+    <Text flex={1} textStyle="h6-mono" color="text" textAlign={{ base: 'start', md: 'end'}}>
+      {question}
+    </Text>
+    <Text flex={2}>{children}</Text>
+  </Flex>
+)
 export default function About() {
   return (
     <>
@@ -21,16 +36,19 @@ export default function About() {
           still learning, still trying to push Solidity to the next, better
           stages.
         </Hero>
-        <Section>
-          <Flex
-            as="article"
-            direction="column"
-            gap={4}
-            maxW="container.md"
-            pt={28}
-            pb={64}
-            fontSize="md"
-          >
+        <Section
+          as="article"
+          direction="column"
+          gap={4}
+          maxW="container.md"
+          py={24}
+          mx="auto"
+          fontSize="md"
+          bgImg="url(/assets/about-bg.svg)"
+          bgRepeat="no-repeat"
+          bgPosition="top center"
+        
+        >
             <Text>
               Solidity is a powerful programming language designed specifically
               for writing smart contracts on the Ethereum blockchain. With
@@ -85,7 +103,39 @@ export default function About() {
               project governed by a core team. The core team is sponsored by the
               Ethereum Foundation.
             </Text>
-          </Flex>
+        </Section>
+
+        <Section maxW="container.lg" py={16} mx="auto">
+          <Text as="h2" textStyle="h3" mb={16}>
+            Frequently asked questions about Solidity
+          </Text>
+          <FaqItem question="What is Solidity?">
+            Solidity is a programming language specifically designed for writing
+            smart contracts on the Ethereum blockchain. It enables developers to
+            define the behavior and rules of decentralized applications (DApps)
+            and facilitates secure and reliable execution of these contracts
+          </FaqItem>
+          <FaqItem question="What is the purpose of Solidity?">
+            Solidity aims to provide a language for creating self-executing
+            smart contracts that automate transactions and agreements on the
+            Ethereum blockchain. It allows developers to write code that defines
+            the logic and interactions within decentralized applications.
+          </FaqItem>
+          <FaqItem question="What are the key features of Solidity?">
+            Solidity offers features such as contract-oriented programming,
+            static typing, inheritance, events, modifiers, and a comprehensive
+            standard library. It supports the creation of complex smart
+            contracts with custom data structures, mappings, and enums.
+          </FaqItem>
+          <FaqItem question="How can I learn Solidity?">
+            Learning Solidity can be achieved through various online resources,{' '}
+            <Link href="https://www.w3schools.io/blockchain/solidity-tutorials/">
+              tutorials
+            </Link>
+            , <Link href={DOCS_URL}>documentation</Link>, and{' '}
+            <Link href={FORUM_URL}>community forums</Link>. You can engage with
+            other developers and learn from their experiences.
+          </FaqItem>
         </Section>
       </main>
     </>
