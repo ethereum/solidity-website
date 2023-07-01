@@ -1,13 +1,16 @@
-import { Flex, Grid, Icon, Image, Text } from '@chakra-ui/react'
+import { Flex, Grid, Icon, Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import type { UseCase } from '@/interfaces'
-import { ButtonLink } from '@/components'
+import { ButtonLink, Triangles } from '@/components'
 import { MdPlayArrow } from 'react-icons/md'
+
 interface UseCaseCardProps extends FlexProps {
   useCase: UseCase
+  index: number
 }
 export const UseCaseCard: React.FC<UseCaseCardProps> = ({
   useCase,
+  index,
   ...props
 }) => {
   const { title, description, imageSrc, learnMoreLink, exampleLink } = useCase
@@ -20,14 +23,7 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
       {...props}
     >
       <Grid placeItems="center" p={4}>
-        <Image
-          src={imageSrc}
-          alt={title}
-          width={200}
-          height={100}
-          objectFit="contain"
-          {...props}
-        />
+        <Triangles variantIndex={index} />
       </Grid>
       <Flex direction="column" gap={2}>
         <Text textStyle="h2-mono" my={12}>{title}</Text>

@@ -25,8 +25,8 @@ export default function UseCases() {
           gap={24}
           py={20}
         >
-          {USE_CASES.map((useCase) => (
-            <UseCaseCard useCase={useCase} key={useCase.title} />
+          {USE_CASES.map((useCase, index) => (
+            <UseCaseCard useCase={useCase} key={useCase.title} index={index} />
           ))}
         </Section>
         <Section gap={4}>
