@@ -34,7 +34,7 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
       ))}
     </Grid>
     <Flex justify="center" gap={8}>
-      {page > 1 ? (
+      {page > 1 && (
         <ButtonLink
           href={page === 2 ? BLOG_PATH : `${BLOG_PAGE_PATH}/${page - 1}`}
           variant="outline"
@@ -51,10 +51,8 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
             </Text>
           </Flex>
         </ButtonLink>
-      ) : (
-        <Spacer display={{ base: 'none', sm: 'block' }} />
       )}
-      {page < totalPages ? (
+      {page < totalPages && (
         <ButtonLink href={`${BLOG_PAGE_PATH}/${page + 1}`} variant="outline">
           <Flex flexWrap="nowrap" ms="auto" alignItems="center">
             <Text as="span" fontFamily="heading" textTransform="uppercase">
@@ -63,8 +61,6 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
             <Icon as={MdPlayArrow} size={16} marginStart={2} />
           </Flex>
         </ButtonLink>
-      ) : (
-        <Spacer />
       )}
     </Flex>
   </Section>

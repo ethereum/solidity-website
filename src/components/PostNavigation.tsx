@@ -22,9 +22,7 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
       gap={{ base: 4, sm: 8 }}
       direction={{ base: 'column', sm: 'row' }}
     >
-      {isFirstPost ? (
-        <Spacer />
-      ) : (
+      {!isFirstPost && (
         <ButtonLink
           href={`${BLOG_PATH}${availableURLs[currentPost - 1]}`}
           variant="outline"
@@ -43,9 +41,7 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
         </ButtonLink>
       )}
 
-      {isOldestPost ? (
-        <Spacer />
-      ) : (
+      {!isOldestPost && (
         <ButtonLink
           href={`${BLOG_PATH}${availableURLs[currentPost + 1]}`}
           variant="outline"
