@@ -1,6 +1,6 @@
 import path from 'path'
 import matter from 'gray-matter'
-import { getPostParamsFromFilename, getSlicedContent } from '@/utils'
+import { getPostParamsFromFilename, sanitizePostPreviewContent } from '@/utils'
 import { BLOG_POSTS_DIR, MATTER_OPTIONS, BLOG_PATH } from '@/constants'
 import type { BlogPostProps } from '@/interfaces'
 
@@ -17,7 +17,7 @@ export const getAllPostsData = (files: string[], fs: any): BlogPostProps[] => {
       : ''
     return {
       frontmatter,
-      content: getSlicedContent(content),
+      content: sanitizePostPreviewContent(content),
       url,
     } as BlogPostProps
   })

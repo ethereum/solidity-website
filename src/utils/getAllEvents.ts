@@ -1,6 +1,6 @@
 import path from 'path'
 import matter from 'gray-matter'
-import { getSlicedContent, sanitizePostPreviewContent } from '@/utils'
+import { sanitizePostPreviewContent } from '@/utils'
 import { MATTER_OPTIONS, EVENTS_DIR, EVENTS_PATH } from '@/constants'
 import type { EventPost } from '@/interfaces'
 
@@ -15,7 +15,7 @@ export const getAllEvents = (fs: any): EventPost[] => {
     const url: string = `${EVENTS_PATH}/${file.replace(/\.md$/, '')}`
     return {
       frontmatter,
-      content: sanitizePostPreviewContent(getSlicedContent(content)),
+      content: sanitizePostPreviewContent(content),
       url,
     } as EventPost
   })
