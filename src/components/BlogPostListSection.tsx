@@ -1,7 +1,7 @@
 import { BlogPostPreview, ButtonLink, Section } from '@/components'
 import type { BlogProps } from '@/interfaces'
 import { BLOG_PATH, BLOG_PAGE_PATH } from '@/constants'
-import { Flex, Grid, Icon, Spacer, Text } from '@chakra-ui/react'
+import { Flex, Grid, Icon, Text } from '@chakra-ui/react'
 import { MdPlayArrow } from 'react-icons/md'
 
 export const BlogPostListSection: React.FC<BlogProps> = ({

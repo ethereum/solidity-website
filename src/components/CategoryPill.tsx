@@ -40,7 +40,7 @@ export const CategoryPill: React.FC<CategoryPillProps> = ({
   ...boxProps
 }) =>
   skipLink ? (
-    <Pill category={category} {...boxProps} />
+    <Pill category={category} mb={mb ?? 2} {...boxProps} />
   ) : (
     <Link
       href={CATEGORIES_URL_MAP[category]}

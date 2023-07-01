@@ -1,4 +1,4 @@
-import { Flex, Icon, Spacer, Text } from '@chakra-ui/react'
+import { Flex, Icon, Text } from '@chakra-ui/react'
 import { MdPlayArrow } from 'react-icons/md'
 import { ButtonLink } from '@/components'
 import { useCleanRouterPath } from '@/hooks'
