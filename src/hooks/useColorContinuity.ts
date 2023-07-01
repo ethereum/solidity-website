@@ -4,11 +4,11 @@ import { useRouter } from 'next/router'
 export const useColorContinuity = () => {
   const { setColorMode } = useColorMode()
   const router = useRouter()
-  // Look for `pcm` (preferred color mode) search query, can be `light` or `dark`
-  const { pcm } = router.query
-  if (pcm && ['light', 'dark'].includes(pcm as string)) {
-    setColorMode(pcm)
-    // Update URL with pcm search query removed
+  // Look for `color` (preferred color mode) search query, can be `light` or `dark`
+  const { color } = router.query
+  if (color && ['light', 'dark'].includes(color as string)) {
+    setColorMode(color)
+    // Update URL with color search query removed
     router.replace(router.pathname, undefined, { shallow: true })
   }
 }

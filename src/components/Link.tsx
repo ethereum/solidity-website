@@ -43,7 +43,11 @@ export const Link: React.FC<LinkComponentProps> = ({
 
   let path: string = href
   if (isDoc) {
-    path += `?pcm=${colorMode}`
+    const url = new URL(href)
+    const params = new URLSearchParams(url.search)
+    params.set("color", colorMode)
+    url.search = params.toString()
+    path = url.toString()
   }
 
   return (
