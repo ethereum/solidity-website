@@ -11,10 +11,10 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
 }) => (
   <Section
     direction="column"
-    gap={8}
+    gap={20}
     maxW="container.xl"
     pt={28}
-    pb={64}
+    pb={12}
     fontSize="md"
     mx="auto"
   >
@@ -39,14 +39,19 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
           href={page === 2 ? BLOG_PATH : `${BLOG_PAGE_PATH}/${page - 1}`}
           variant="outline"
         >
-          <Flex flexWrap="nowrap" me="auto" alignItems="center">
+          <Flex flexWrap="nowrap" alignItems="center">
             <Icon
               as={MdPlayArrow}
               transform="rotate(180deg)"
               size={16}
               marginEnd={2}
             />
-            <Text as="span" fontFamily="heading" textTransform="uppercase">
+            <Text
+              as="span"
+              fontFamily="heading"
+              me="auto"
+              textTransform="uppercase"
+            >
               Newer posts
             </Text>
           </Flex>
@@ -54,8 +59,13 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
       )}
       {page < totalPages && (
         <ButtonLink href={`${BLOG_PAGE_PATH}/${page + 1}`} variant="outline">
-          <Flex flexWrap="nowrap" ms="auto" alignItems="center">
-            <Text as="span" fontFamily="heading" textTransform="uppercase">
+          <Flex flexWrap="nowrap" alignItems="center">
+            <Text
+              as="span"
+              fontFamily="heading"
+              ms="auto"
+              textTransform="uppercase"
+            >
               Older posts
             </Text>
             <Icon as={MdPlayArrow} size={16} marginStart={2} />

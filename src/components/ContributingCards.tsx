@@ -1,4 +1,10 @@
-import { Grid, type GridProps, Text, Divider, useBreakpointValue } from '@chakra-ui/react'
+import {
+  Grid,
+  type GridProps,
+  Text,
+  Divider,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 
 interface ContributingCard {
   title: string
@@ -39,8 +45,8 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
     >
       {cards.map(({ title, description }, i) => {
         const gridColumn = {
-          base: `${i%2 + 1} / ${i%2 + 2}`,
-          lg: `${i%4 + 1} / ${i%4 + 2}`,
+          base: `${(i % 2) + 1} / ${(i % 2) + 2}`,
+          lg: `${(i % 4) + 1} / ${(i % 4) + 2}`,
         }
         const getGridRow = (i: number, n: number) => ({
           // base: 'auto',
@@ -64,10 +70,9 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
               gridColumn={gridColumn}
               gridRow={getGridRow(i, 2)}
             />
-            <Text
-              gridColumn={gridColumn}
-              gridRow={getGridRow(i, 3)}
-            >{description}</Text>
+            <Text gridColumn={gridColumn} gridRow={getGridRow(i, 3)}>
+              {description}
+            </Text>
           </>
         )
       })}

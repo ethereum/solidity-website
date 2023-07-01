@@ -21,6 +21,7 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
       justifyContent="center"
       gap={{ base: 4, sm: 8 }}
       direction={{ base: 'column', sm: 'row' }}
+      py={12}
     >
       {!isFirstPost && (
         <ButtonLink
@@ -46,12 +47,13 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
           href={`${BLOG_PATH}${availableURLs[currentPost + 1]}`}
           variant="outline"
         >
-          <Flex flexWrap="nowrap" ms="auto" alignItems="center">
+          <Flex flexWrap="nowrap" alignItems="center">
             <Text
               as="span"
               fontFamily="heading"
               textTransform="uppercase"
               textAlign="end"
+              ms="auto"
             >
               Next post
             </Text>

@@ -17,7 +17,8 @@ export interface UseCase {
   imageSrc: string
   title: string
   description: string | React.ReactNode
-  href?: string
+  learnMoreLink?: string
+  exampleLink?: string
 }
 
 export interface BlogCardInfo {

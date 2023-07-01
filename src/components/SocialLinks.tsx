@@ -5,7 +5,7 @@ import { Link } from '@/components'
 
 export const SocialLinks: React.FC<FlexProps> = (props) => (
   <Flex
-    direction={{ base: 'column', sm: 'row' }}
+    direction={{ base: 'column', md: 'row' }}
     columnGap={8}
     flexWrap="wrap"
     justify="center"

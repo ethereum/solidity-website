@@ -125,7 +125,10 @@ export default function Home({
 
         {/* Solidity is evolving rapidly > Get started */}
         <ShowcaseSection py={sectionPaddingY}>
-          <ShowcaseContent title="Solidity is evolving rapidly" px={{ base: 4, md: 0 }}>
+          <ShowcaseContent
+            title="Solidity is evolving rapidly"
+            px={{ base: 4, md: 0 }}
+          >
             <Text>
               We aim for a regular (non-breaking) release every month, with
               approximately one breaking release per year. You can follow the
@@ -152,10 +155,10 @@ export default function Home({
           <ShowcaseSection startWithVisual px={0}>
             <ShowcaseContent title="Contribute to Solidity">
               <Text>
-                You can see the upcoming changes for the next breaking release by
-                switching from the default branch (`develop`) to the `breaking
-                branch`. Shape Solidity by providing your input and participating
-                in the language design.
+                You can see the upcoming changes for the next breaking release
+                by switching from the default branch (`develop`) to the
+                `breaking branch`. Shape Solidity by providing your input and
+                participating in the language design.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
@@ -195,11 +198,11 @@ export default function Home({
             <BlogSectionPreview postsData={previewBlogPosts} />
           </Section>
 
-            <Flex justify="center">
-              <ButtonLink href={BLOG_PATH} variant="outline">
-                All blog updates
-              </ButtonLink>
-            </Flex>
+          <Flex justify="center">
+            <ButtonLink href={BLOG_PATH} variant="outline">
+              All blog updates
+            </ButtonLink>
+          </Flex>
         </Section>
 
         {/* Playground section */}
@@ -227,14 +230,14 @@ export default function Home({
             <ShowcaseContent title="Solidity Events" flex={4}>
               <Text>
                 The Solidity Summit is a free interactive forum for people
-                involved and interested in the Solidity language and the ecosystem
-                around it.
+                involved and interested in the Solidity language and the
+                ecosystem around it.
               </Text>
               <Text>
                 Enable useful (language-design related) discussions which result
                 in improvement proposals and actual implementations, foster
-                communication between teams working on similar topics and Identify
-                needs for the smart contract ecosystem for Ethereum.
+                communication between teams working on similar topics and
+                Identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual direction="column" flex={5} w="full">

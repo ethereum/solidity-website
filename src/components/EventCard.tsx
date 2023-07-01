@@ -26,10 +26,7 @@ export const EventCard: React.FC<EventCardProps> = ({
         alt="Solidity event image"
       />
       <Flex direction="column" px={0} pt={4} gap={2}>
-        <Text
-          textStyle="h5-mono"
-          color="text"
-        >
+        <Text textStyle="h5-mono" color="text">
           {title}
         </Text>
         <Box color="primary">
