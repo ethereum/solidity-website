@@ -1,7 +1,10 @@
 import { useRef } from 'react'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { Flex } from '@chakra-ui/react'
-import { Triangle } from '@/components'
+import { Triangle, HEIGHT, WIDTH } from '@/components'
+import dynamic from 'next/dynamic'
+
+const PAD = 32
 
 type TriangleCoord = [number, number, number, string]
 type Variant = TriangleCoord[]
@@ -49,17 +52,22 @@ type VariantProps = TrianglePlacementProps[]
 
 const variantProps: VariantProps[] = variants.map((variant) =>
   variant.map(([x, y, r, c]) => ({
-    x: `${(x - 1) * 50}%`,
-    y: `${y * -100}%`,
+    x: `calc(50% + ${((x - 1) * WIDTH) / 2}px)`,
+    y: `calc(100% - ${HEIGHT}px - ${PAD}px - ${y * HEIGHT}px)`,
     r: `${r}deg`,
     c: c as string,
   }))
+)
+const variantPxHeightNeeded = variants.map(
+  (variant) =>
+    (variant.reduce((acc, [_, y]) => Math.max(y, acc), 0) + 1) * HEIGHT +
+    2 * PAD
 )
 
 interface TriangleProps {
   variantIndex?: number
 }
-export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
+const TrianglesComponent: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
   const targetRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -71,9 +79,9 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
   return (
     <Flex
       position="relative"
-      minH="calc(86.6px * 2 + 64px)"
+      h={`${variantPxHeightNeeded[index]}px`}
       w="100%"
-      p={8}
+      m={4}
       ref={targetRef}
     >
       <AnimatePresence>
@@ -86,10 +94,8 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
             style={{
               position: 'absolute',
               display: 'block',
-              top: '50%',
-              left: '50%',
-              x,
-              y,
+              top: y,
+              left: x,
               rotate: r,
               scale,
               transformStyle: 'preserve-3d',
@@ -102,3 +108,10 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
     </Flex>
   )
 }
+
+export default TrianglesComponent
+
+export const Triangles = dynamic(
+  () => import('@/components/Triangles').then((mod) => mod.default),
+  { ssr: false }
+)
