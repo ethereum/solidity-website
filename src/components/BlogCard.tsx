@@ -21,7 +21,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         Posted by {author} on {formatDateString(date)}
       </Text>
       <Text my={6}>{content}</Text>
-      <ButtonLink href={url} variant="outline">
+      <ButtonLink href={url} variant="outline" w="fit-content">
         Read more
       </ButtonLink>
     </Flex>

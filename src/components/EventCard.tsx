@@ -42,18 +42,13 @@ export const EventCard: React.FC<EventCardProps> = ({
             )}
           </Flex>
         )}
-        <Flex
-          direction={['column', null, null, 'row']}
-          gap={4}
-          mt={6}
-          alignItems="end"
-        >
+        <Flex gap={4} mt={6}>
           {links &&
             links.map(({ href, label }) => (
               <ButtonLink
                 href={href}
                 key={href}
-                fullWidthBelowBreakpoint="lg"
+                w="fit-content"
                 variant="outline"
               >
                 {label.toLowerCase() === 'talks' && (

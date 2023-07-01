@@ -49,7 +49,6 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
         py={2}
         textAlign="center"
         alignItems="center"
-        // display="block"
         w={{
           base: 'full',
           [fullWidthBelowBreakpoint]: 'fit-content',
