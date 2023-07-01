@@ -3,44 +3,56 @@ import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { Flex } from '@chakra-ui/react'
 import { Triangle } from '@/components'
 
-const triangleVariants = [
-  // [[color A coords], [color C coords], [color D coords], [color E coords]]
+type TriangleCoord = [number, number, number, string]
+type Variant = TriangleCoord[]
+const variants: Variant[] = [
+  // [x position (<-0+>), y position (0 Base, +Up), rotation (0/180), color token]
   [
-    // [x position (<-0+>), y position (0 Base, +Up), rotation (0/180)]
-    [1, 1, 0],
-    [1, 0, 180],
-    [-1, 0, 180],
-    [0, 0, 0],
+    [1, 1, 0, 'a'],
+    [1, 0, 180, 'c'],
+    [-1, 0, 180, 'd'],
+    [0, 0, 0, 'e'],
   ],
   [
-    [0, 1, 0],
-    [0, 0, 180],
-    [-1, 0, 0],
-    [1, 0, 0],
+    [0, 1, 0, 'a'],
+    [0, 0, 180, 'c'],
+    [-1, 0, 0, 'd'],
+    [1, 0, 0, 'e'],
   ],
   [
-    [0, 1, 0],
-    [1, 1, 180],
-    [0, 0, 180],
-    [-1, 0, 0],
+    [0, 1, 0, 'a'],
+    [1, 1, 180, 'c'],
+    [0, 0, 180, 'd'],
+    [-1, 0, 0, 'e'],
   ],
   [
-    [0.2, 1.2, 0],
-    [0, 0, 180],
-    [0, 0, 180],
-    [-1, 0, 0],
+    [0.2, 1.2, 0, 'a'],
+    [0, 0, 180, 'c'],
+    [0, 0, 180, 'd'],
+    [-1, 0, 0, 'e'],
   ],
   [
-    [-1, 0, 0],
-    [-1, 0, 0],
-    [0, 0, 180],
-    [1, 0, 0],
+    [-1, 0, 0, 'a'],
+    [-1, 0, 0, 'c'],
+    [0, 0, 180, 'd'],
+    [1, 0, 0, 'e'],
   ],
-].map((variant) =>
-  variant.map(([x, y, r]) => ({
+]
+
+interface TrianglePlacementProps {
+  x: string
+  y: string
+  r: string
+  c: string
+}
+type VariantProps = TrianglePlacementProps[]
+
+const variantProps: VariantProps[] = variants.map((variant) =>
+  variant.map(([x, y, r, c]) => ({
     x: `${(x - 1) * 50}%`,
     y: `${y * -100}%`,
     r: `${r}deg`,
+    c: c as string,
   }))
 )
 
@@ -55,7 +67,7 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
   })
   const scale = useTransform(scrollYProgress, [0, 0.5], [0, 1])
 
-  let index = variantIndex % triangleVariants.length
+  const index = variantIndex % variantProps.length
   return (
     <Flex
       position="relative"
@@ -65,9 +77,9 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
       ref={targetRef}
     >
       <AnimatePresence>
-        {triangleVariants[index].map(({ x, y, r }, i) => (
+        {variantProps[index].map(({ x, y, r, c }, i) => (
           <motion.div
-            key={i + x + y + r}
+            key={i + x + y + r + c}
             drag
             dragConstraints={targetRef}
             dragElastic={0.1}
@@ -83,7 +95,7 @@ export const Triangles: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
               transformStyle: 'preserve-3d',
             }}
           >
-            <Triangle color={['a', 'c', 'd', 'e'][i]} />
+            <Triangle color={c} />
           </motion.div>
         ))}
       </AnimatePresence>
