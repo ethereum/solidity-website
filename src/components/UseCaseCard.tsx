@@ -10,10 +10,16 @@ interface UseCaseCardProps extends FlexProps {
 }
 export const UseCaseCard: React.FC<UseCaseCardProps> = ({
   useCase,
-  index,
   ...props
 }) => {
-  const { title, description, imageSrc, learnMoreLink, exampleLink } = useCase
+  const {
+    title,
+    description,
+    imageSrc,
+    learnMoreLink,
+    exampleLink,
+    triangleVariant,
+  } = useCase
   return (
     <Flex
       direction="column"
@@ -23,10 +29,12 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
       {...props}
     >
       <Grid placeItems="center" p={4}>
-        <Triangles variantIndex={index} />
+        <Triangles variant={triangleVariant} />
       </Grid>
       <Flex direction="column" gap={2}>
-        <Text textStyle="h2-mono" my={12}>{title}</Text>
+        <Text textStyle="h2-mono" my={12}>
+          {title}
+        </Text>
         <Text>{description}</Text>
         {learnMoreLink && (
           <ButtonLink href={learnMoreLink} mx="auto" variant="outline">

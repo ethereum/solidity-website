@@ -146,7 +146,7 @@ export default function Home({
             </ButtonLink>
           </ShowcaseContent>
           <ShowcaseVisual>
-            <Triangles variantIndex={0} />
+            <Triangles variant="evolving" />
           </ShowcaseVisual>
         </ShowcaseSection>
 
@@ -162,7 +162,7 @@ export default function Home({
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
-              <Triangles variantIndex={1} />
+              <Triangles variant="triforce" />
             </ShowcaseVisual>
           </ShowcaseSection>
 
@@ -188,7 +188,7 @@ export default function Home({
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
-              <Triangles variantIndex={2} />
+              <Triangles variant="slash" />
             </ShowcaseVisual>
           </ShowcaseSection>
 
@@ -216,7 +216,7 @@ export default function Home({
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
-              <Triangles variantIndex={3} />
+              <Triangles variant="detached" />
             </ShowcaseVisual>
           </ShowcaseSection>
 

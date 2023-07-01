@@ -1,6 +1,6 @@
 import type { BoxProps } from '@chakra-ui/react'
 import type { IconType } from 'react-icons'
-import { CATEGORIES_URL_MAP } from '@/constants'
+import { CATEGORIES_URL_MAP, TRIANGLE_VARIANTS } from '@/constants'
 
 export interface NavLink {
   name: string
@@ -11,14 +11,6 @@ export interface SocialLink {
   name: string
   href: string
   Icon: IconType
-}
-
-export interface UseCase {
-  imageSrc: string
-  title: string
-  description: string | React.ReactNode
-  learnMoreLink?: string
-  exampleLink?: string
 }
 
 export interface BlogCardInfo {
@@ -91,4 +83,27 @@ export interface BlogProps {
   allPostsData: BlogPostProps[]
   page: number
   totalPages: number
+}
+
+export type TriangleCoord = [number, number, number, string]
+export type Variant = TriangleCoord[]
+export interface TriangleVariants {
+  [key: string]: Variant
+}
+export interface TrianglePlacementProps {
+  left: string
+  top: string
+  rotate: string
+  color: string
+}
+export type VariantProps = TrianglePlacementProps[]
+export type VariantName = keyof typeof TRIANGLE_VARIANTS
+
+export interface UseCase {
+  imageSrc: string
+  title: string
+  description: string | React.ReactNode
+  learnMoreLink?: string
+  exampleLink?: string
+  triangleVariant: VariantName
 }

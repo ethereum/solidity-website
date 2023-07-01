@@ -1,15 +1,13 @@
 import { createIcon } from '@chakra-ui/react'
-
-export const WIDTH: number = 110 as const
-export const HEIGHT: number = (WIDTH * Math.sqrt(3)) / 2
+import { TRIANGLE_WIDTH as W, TRIANGLE_HEIGHT as H } from '@/constants'
 
 export const Triangle = createIcon({
   displayName: 'Triangle',
-  viewBox: `0 0 ${WIDTH} ${HEIGHT}`,
+  viewBox: `0 0 ${W} ${H}`,
   defaultProps: {
-    width: `${WIDTH}px`,
-    height: `${HEIGHT}px`,
+    width: `${W}px`,
+    height: `${H}px`,
     fill: 'currentColor',
   },
-  d: `M${WIDTH / 2} 0L0 ${HEIGHT}L${WIDTH} ${HEIGHT}L${WIDTH / 2} 0Z`,
+  d: `M${W / 2} 0L0 ${H}L${W} ${H}L${W / 2} 0Z`,
 })

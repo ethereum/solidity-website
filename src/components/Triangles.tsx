@@ -1,107 +1,79 @@
 import { useRef } from 'react'
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import {
+  AnimatePresence,
+  easeOut,
+  motion,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
 import { Flex } from '@chakra-ui/react'
-import { Triangle, HEIGHT, WIDTH } from '@/components'
+import { Triangle } from '@/components'
 import dynamic from 'next/dynamic'
+import {
+  TRIANGLES_PADDING as PAD,
+  TRIANGLE_VARIANTS,
+  VARIANT_PX_HEIGHT_NEEDED as MIN_H,
+  TRIANGLE_HEIGHT as H,
+  TRIANGLE_WIDTH as W,
+} from '@/constants'
+import { TrianglePlacementProps, VariantName } from '@/interfaces'
 
-const PAD = 32
-
-type TriangleCoord = [number, number, number, string]
-type Variant = TriangleCoord[]
-const variants: Variant[] = [
-  // [x position (<-0+>), y position (0 Base, +Up), rotation (0/180), color token]
-  [
-    [1, 1, 0, 'a'],
-    [1, 0, 180, 'c'],
-    [-1, 0, 180, 'd'],
-    [0, 0, 0, 'e'],
-  ],
-  [
-    [0, 1, 0, 'a'],
-    [0, 0, 180, 'c'],
-    [-1, 0, 0, 'd'],
-    [1, 0, 0, 'e'],
-  ],
-  [
-    [0, 1, 0, 'a'],
-    [1, 1, 180, 'c'],
-    [0, 0, 180, 'd'],
-    [-1, 0, 0, 'e'],
-  ],
-  [
-    [0.2, 1.2, 0, 'a'],
-    [0, 0, 180, 'c'],
-    [0, 0, 180, 'd'],
-    [-1, 0, 0, 'e'],
-  ],
-  [
-    [-1, 0, 0, 'a'],
-    [-1, 0, 0, 'c'],
-    [0, 0, 180, 'd'],
-    [1, 0, 0, 'e'],
-  ],
-]
-
-interface TrianglePlacementProps {
-  x: string
-  y: string
-  r: string
-  c: string
-}
-type VariantProps = TrianglePlacementProps[]
-
-const variantProps: VariantProps[] = variants.map((variant) =>
-  variant.map(([x, y, r, c]) => ({
-    x: `calc(50% + ${((x - 1) * WIDTH) / 2}px)`,
-    y: `calc(100% - ${HEIGHT}px - ${PAD}px - ${y * HEIGHT}px)`,
-    r: `${r}deg`,
-    c: c as string,
-  }))
-)
-const variantPxHeightNeeded = variants.map(
-  (variant) =>
-    (variant.reduce((acc, [_, y]) => Math.max(y, acc), 0) + 1) * HEIGHT +
-    2 * PAD
+const variantProps: { [key: VariantName]: TrianglePlacementProps[] } = {}
+Object.entries(TRIANGLE_VARIANTS).forEach(
+  ([name, coords]) =>
+    (variantProps[name] = coords.map(([left, top, rotate, color]) => ({
+      left: `calc(50% + ${((left - 1) * W) / 2}px)`,
+      top: `calc(100% - ${H}px - ${PAD}px - ${
+        top * H
+      }px)`,
+      rotate: `${rotate}deg`,
+      color,
+    })))
 )
 
 interface TriangleProps {
-  variantIndex?: number
+  variant: VariantName
 }
-const TrianglesComponent: React.FC<TriangleProps> = ({ variantIndex = 0 }) => {
+const TrianglesComponent: React.FC<TriangleProps> = ({ variant }) => {
   const targetRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start end', 'center center'],
   })
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0, 1])
+  const scale = useTransform(scrollYProgress, [0.5, 0.9], [0, 1], {
+    ease: easeOut
+  })
+  const y = useTransform(scrollYProgress, [0, 0.7], [500, 0], {
+    ease: easeOut,
+  })
 
-  const index = variantIndex % variantProps.length
   return (
     <Flex
       position="relative"
-      h={`${variantPxHeightNeeded[index]}px`}
+      h={`${MIN_H[variant]}px`}
       w="100%"
       m={4}
       ref={targetRef}
     >
       <AnimatePresence>
-        {variantProps[index].map(({ x, y, r, c }, i) => (
+        {variantProps[variant].map(({ left, top, rotate, color }, i) => (
           <motion.div
-            key={i + x + y + r + c}
-            drag
-            dragConstraints={targetRef}
-            dragElastic={0.1}
+            key={i + left + top + rotate + color}
+            // drag
+            // dragConstraints={targetRef}
+            // dragElastic={0.1}
             style={{
               position: 'absolute',
               display: 'block',
-              top: y,
-              left: x,
-              rotate: r,
+              top,
+              left,
+              y,
+              rotate,
               scale,
               transformStyle: 'preserve-3d',
             }}
           >
-            <Triangle color={c} />
+            <Triangle color={color} />
           </motion.div>
         ))}
       </AnimatePresence>
