@@ -129,6 +129,12 @@ export const TRIANGLE_VARIANTS: TriangleVariants = {
     [0, 0, 180, 'd'],
     [-1, 0, 0, 'e'],
   ],
+  double: [
+    [-2, 0, 0, 'a'],
+    [-1, 0, 180, 'b'],
+    [1, 0, 0, 'c'],
+    [2, 0, 180, 'd'],
+  ],
   floor: [
     [-1, 0, 0, 'c'],
     [0, 0, 180, 'd'],

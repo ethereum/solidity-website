@@ -216,7 +216,7 @@ export default function Home({
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
-              <Triangles variant="detached" />
+              <Triangles variant="double" />
             </ShowcaseVisual>
           </ShowcaseSection>
 

@@ -29,7 +29,7 @@ export default function UseCases() {
             <UseCaseCard useCase={useCase} key={useCase.title} index={index} />
           ))}
         </Section>
-        <Section gap={4}>
+        <Section gap={4} mb={12} maxW="container.lg" mx="auto">
           <Text textStyle="h3" color="text">
             ... and much more
           </Text>

@@ -40,10 +40,10 @@ const TrianglesComponent: React.FC<TriangleProps> = ({ variant }) => {
     target: targetRef,
     offset: ['start end', 'center center'],
   })
-  const scale = useTransform(scrollYProgress, [0.5, 0.9], [0, 1], {
+  const scale = useTransform(scrollYProgress, [0.2, 0.7], [0, 1], {
     ease: easeOut
   })
-  const y = useTransform(scrollYProgress, [0, 0.7], [500, 0], {
+  const y = useTransform(scrollYProgress, [0, 0.5], [500, 0], {
     ease: easeOut,
   })
 
