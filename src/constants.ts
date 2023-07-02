@@ -194,7 +194,7 @@ export const TRIANGLE_VARIANTS: TriangleVariants = {
     [2.5, 0, 0, 'b'],
   ],
 }
-export const TRIANGLE_WIDTH = 100 as const
+export const TRIANGLE_WIDTH = 120 as const
 export const TRIANGLE_HEIGHT: number = (TRIANGLE_WIDTH * Math.sqrt(3)) / 2
 export const TRIANGLES_PADDING = 32 as const
 const VARIANT_PX_HEIGHT_NEEDED: {

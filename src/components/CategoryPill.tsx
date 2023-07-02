@@ -48,6 +48,7 @@ export const CategoryPill: React.FC<CategoryPillProps> = ({
       data-group
       mb={mb ?? 2}
       display="block"
+      borderRadius="full"
     >
       <Pill category={category} {...boxProps} />
     </Link>
