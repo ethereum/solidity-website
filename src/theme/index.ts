@@ -66,12 +66,13 @@ const overrides = {
       mode: { _light: 'gray.50', _dark: 'blue.900' },
 
       text: 'a',
-      bg: 'f',
-      header: 'c',
-      border: 'a',
-      primary: 'c',
       secondary: 'b',
+      primary: 'c',
       highlight: 'd',
+      bg: 'f',
+
+      border: 'a',
+      header: 'c',
       error: { _light: 'red.500', _dark: 'red.300' },
     },
   },

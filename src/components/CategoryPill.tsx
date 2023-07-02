@@ -46,7 +46,7 @@ export const CategoryPill: React.FC<CategoryPillProps> = ({
       href={CATEGORIES_URL_MAP[category]}
       textDecoration="none !important"
       data-group
-      mb={mb ?? 2}
+      mb={mb ?? 4}
       display="block"
       borderRadius="full"
     >

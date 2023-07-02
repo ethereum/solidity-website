@@ -11,27 +11,31 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
 }) => (
   <Section
     direction="column"
-    gap={20}
     maxW="container.xl"
     pt={28}
     pb={12}
     fontSize="md"
     mx="auto"
   >
-    <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={16}>
-      {allPostsData.map(({ frontmatter, content, url }, i) => (
-        <BlogPostPreview
-          key={url}
-          frontmatter={frontmatter}
-          content={content}
-          url={url}
-          gridColumn={{
-            base: 'span 1',
-            md: page === 1 && i === 0 ? 'span 2' : 'span 1',
-          }}
-          maxW="container.md"
-        />
-      ))}
+    <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} columnGap={16} /* rowGap={24} */>
+      {allPostsData.map(({ frontmatter, content, url }, i) => {
+        const isFeatured = page === 1 && i === 0
+        return (
+          <BlogPostPreview
+            key={url}
+            frontmatter={frontmatter}
+            content={content}
+            url={url}
+            isFeatured={isFeatured}
+            borderBottom={isFeatured ? "1px solid" : "none"}
+            borderColor="primary"
+            gridColumn={{
+              base: 'span 1',
+              md: isFeatured ? 'span 2' : 'span 1',
+            }}
+            py={14} />
+        )
+      })}
     </Grid>
     <Flex justify="center" gap={8}>
       {page > 1 && (
