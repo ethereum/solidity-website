@@ -50,11 +50,15 @@ export const EventCard: React.FC<EventCardProps> = ({
                 key={href}
                 w="fit-content"
                 variant="outline"
+                flexWrap="nowrap"
+                alignItems="center"
               >
-                {label.toLowerCase() === 'talks' && (
-                  <Icon as={MdPlayArrow} me={2} />
-                )}
-                {label}
+                <Flex flexWrap="nowrap" me="auto" alignItems="center">
+                  {label.toLowerCase() === 'talks' && (
+                    <Icon as={MdPlayArrow} me={2} />
+                  )}
+                  {label}
+                </Flex>
               </ButtonLink>
             ))}
         </Flex>

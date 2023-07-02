@@ -38,8 +38,10 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
         <Text>{description}</Text>
         {learnMoreLink && (
           <ButtonLink href={learnMoreLink} mx="auto" variant="outline">
-            <Icon as={MdPlayArrow} me={2} />
-            Learn more
+            <Flex flexWrap="nowrap" me="auto" alignItems="center">
+              <Icon as={MdPlayArrow} me={2} />
+              Learn more
+            </Flex>
           </ButtonLink>
         )}
       </Flex>
