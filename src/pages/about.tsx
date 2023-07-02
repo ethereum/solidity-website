@@ -10,7 +10,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
   children,
   ...flexProps
 }) => (
-  <Flex direction={{ base: "column", md: "row" }} py={6} gap={6} {...flexProps}>
+  <Flex direction={{ base: 'column', md: 'row' }} py={6} gap={6} {...flexProps}>
     <Text
       flex={1}
       textStyle="h6-mono"

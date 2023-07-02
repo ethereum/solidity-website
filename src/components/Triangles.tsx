@@ -23,9 +23,7 @@ Object.entries(TRIANGLE_VARIANTS).forEach(
   ([name, coords]) =>
     (variantProps[name] = coords.map(([left, top, rotate, color]) => ({
       left: `calc(50% + ${((left - 1) * W) / 2}px)`,
-      top: `calc(100% - ${H}px - ${PAD}px - ${
-        top * H
-      }px)`,
+      top: `calc(100% - ${H}px - ${PAD}px - ${top * H}px)`,
       rotate: `${rotate}deg`,
       color,
     })))
@@ -41,7 +39,7 @@ const TrianglesComponent: React.FC<TriangleProps> = ({ variant }) => {
     offset: ['start end', 'center center'],
   })
   const scale = useTransform(scrollYProgress, [0.2, 0.7], [0, 1], {
-    ease: easeOut
+    ease: easeOut,
   })
   const y = useTransform(scrollYProgress, [0, 0.5], [500, 0], {
     ease: easeOut,

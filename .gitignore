@@ -9,3 +9,6 @@ feed.xml
 
 # Sitemaps
 sitemap*.xml
+
+# Robots.txt
+robots.txt

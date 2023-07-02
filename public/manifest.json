@@ -1,0 +1,45 @@
+{
+  "short_name": "Solidity",
+  "name": "Solidity Lang Website",
+  "icons": [
+    {
+      "src": "/assets/solidity-app-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/assets/solidity-app-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/solidity-app-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "id": "/",
+  "start_url": "/",
+  "background_color": "#2B247C",  
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#2B247C",
+  "shortcuts": [
+    {
+      "name": "Solidity Blog",
+      "short_name": "Blog",
+      "description": "Latest news about Solidity development",
+      "url": "/blog",
+      "icons": [{ "src": "/assets/solidity-app-icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "description": "Gateway to the Solidity programming language",
+  "screenshots": [
+    {
+      "src": "/assets/solidity-app-screenshot.png",
+      "type": "image/png",
+      "sizes": "782x848",
+      "form_factor": "narrow"
+    }
+  ]
+}

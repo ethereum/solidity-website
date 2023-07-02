@@ -69,6 +69,7 @@ export const PageMetadata: React.FC<Props> = ({
       ))}
       {/* favicon */}
       <link rel="icon" type="image/x-icon" href={FAVICON_IMAGE_PATH} />
+      <link rel="manifest" href="/manifest.json" />
     </Head>
   )
 }
