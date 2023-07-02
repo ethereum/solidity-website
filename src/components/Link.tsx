@@ -17,7 +17,10 @@ export const Link: React.FC<LinkComponentProps> = ({
   const { colorMode } = useColorMode()
   const linkStyes = {
     textDecoration: 'underline',
-    w: 'fit-content', // TODO: Double check this logic
+    w: 'fit-content',
+    _hover: {
+      color: 'primary',
+    },
   }
   const isDoc = href.startsWith(DOCS_URL)
   const isExternal = href.startsWith('http') && !isDoc
