@@ -100,6 +100,7 @@ export const Header: React.FC = () => {
               letterSpacing="-0.02em"
               textDecoration="none"
               background={pathname.includes(href) ? 'mode' : 'none'}
+              _hover={{ color: 'text', textDecoration: 'underline' }}
             >
               {name}
             </Link>
