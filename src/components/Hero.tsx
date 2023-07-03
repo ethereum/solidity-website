@@ -38,6 +38,9 @@ export const Hero: React.FC<HeroProps> = ({
       _after={{
         content: '"_"',
         fontSize: '1.5em',
+        display: 'inline-block',
+        width: 0,
+        overflowX: 'visible',
         color: 'primary',
         sx: {
           '@keyframes blink-cursor': {
