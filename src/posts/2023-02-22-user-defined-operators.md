@@ -37,14 +37,14 @@ What is included in that set varies widely from language to language.
 Here is the full list for Solidity:
 
 | Category             | Operators                                   |
-| -------------------- | ------------------------------------------- | ----------------------- | --- |
-| Bitwise              | `&`, `                                      | `, `^`, `<<`, `>>`, `~` |
+| -------------------- | ------------------------------------------- |
+| Bitwise              | `&`, `\|`, `^`, `<<`, `>>`, `~`             |
 | Arithmetic           | `+`, `-`, `*`, `/`, `%`, `**`               |
 | Comparison           | `==`, `!=`, `<`, `<=`, `>`, `>=`            |
-| Boolean              | `!`, `&&`, `                                |                         | `   |
+| Boolean              | `!`, `&&`, `\|\|`                           |
 | Increment/decrement  | `++`, `--`                                  |
 | Simple assignment    | `=`                                         |
-| Composite assignment | `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, ` | =`, `^=`, `<<=`, `>>=`  |
+| Composite assignment | `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, `\|=`, `^=`, `<<=`, `>>=`  |
 | Miscellaneous        | `delete`, `new`, `.`, `()`, `[]`, `?:`      |
 
 It is important to note that in many languages, an assignment is a statement that is handled in a special way.
@@ -136,8 +136,8 @@ must always be invoked with exact types.
 The following operators can be defined:
 
 | Category   | Operators                        |
-| ---------- | -------------------------------- | ------------ |
-| Bitwise    | `&`, `                           | `, `^`,  `~` |
+| ---------- | -------------------------------- |
+| Bitwise    | `&`, `\|`, `^`,  `~`             |
 | Arithmetic | `+`, `-`, `*`, `/`, `%`          |
 | Comparison | `==`, `!=`, `<`, `<=`, `>`, `>=` |
 

@@ -15,14 +15,14 @@ export const BlogHero: React.FC<BlogHeroProps> = ({
 }) => {
   const { title, author, date, category } = frontmatter
   return (
-    <Section pt={56} pb={[10, null, null, 12]} px={0} {...sectionProps}>
+    <Section pt={56} pb={{ base: 20, lg: 24 }} px={0} {...sectionProps}>
       <Text as="h1" textStyle="h2-mono" color="text" mb={1}>
         {title}
       </Text>
       <Text color="primary" mb={6}>
         Posted by {author} on {formatDateString(date)}
       </Text>
-      <CategoryPill category={category} />
+      <CategoryPill category={category} mb={0}/>
     </Section>
   )
 }

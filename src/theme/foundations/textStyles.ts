@@ -90,4 +90,12 @@ export const textStyles = {
     fontSize: 'inherit',
     color: 'inherit',
   },
+  code: {
+    px: 1,
+    py: 0.5,
+    fontSize: '0.875em',
+    fontFamily: 'mono',
+    bg: 'mode',
+    color: 'primary',
+  },
 }

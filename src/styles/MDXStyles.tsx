@@ -4,12 +4,12 @@ import { Code, Link } from '@/components'
 
 export const MDXStyles = {
   p: ({ children }: any) => (
-    <Text fontSize="xl" lineHeight="150%" mb={{ base: 4, md: 6 }}>
+    <Text fontSize="md" lineHeight="150%" mb={{ base: 4, md: 6 }}>
       {children}
     </Text>
   ),
   a: ({ children, href }: any) => (
-    <Link textStyle="link" href={href}>
+    <Link textStyle="link" color="secondary" href={href}>
       {children}
     </Link>
   ),
@@ -19,8 +19,8 @@ export const MDXStyles = {
       id={id}
       textStyle="h2"
       color="text"
-      mt={{ base: 12, md: 0 }}
-      mb={{ base: 4, md: 7 }}
+      mt={{ base: 12, md: 16 }}
+      mb={{ base: 4, md: 6 }}
     >
       {children}
     </Heading>
@@ -31,14 +31,21 @@ export const MDXStyles = {
       id={id}
       textStyle="h3"
       color="text"
-      mt={{ base: 8, md: 0 }}
+      mt={{ base: 12, md: 16 }}
       mb={{ base: 4, md: 6 }}
     >
       {children}
     </Heading>
   ),
   h4: ({ children, id }: any) => (
-    <Heading as="h4" id={id} textStyle="h4" color="text">
+    <Heading
+      as="h4"
+      id={id}
+      textStyle="h4"
+      color="text"
+      mt={{ base: 8, md: 12 }}
+      mb={{ base: 4, md: 6 }}
+    >
       {children}
     </Heading>
   ),
