@@ -36,14 +36,9 @@ export const Hero: React.FC<HeroProps> = ({
       w="fit-content"
       whiteSpace="normal"
       _after={{
-        content: '""',
-        position: 'absolute',
-        left: '100%',
-        bottom: 0,
-        transform: 'translateY(-100%)',
-        width: 'min(3.75rem, 7.5vw)',
-        height: 'min(0.5rem, 1vw)',
-        bg: 'primary',
+        content: '"_"',
+        fontSize: '1.5em',
+        color: 'primary',
         sx: {
           '@keyframes blink-cursor': {
             'from, to': { opacity: 0 },
