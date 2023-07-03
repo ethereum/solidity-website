@@ -28,10 +28,9 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
           href={`${BLOG_PATH}${availableURLs[currentPost - 1]}`}
           variant="outline"
         >
-          <Flex flexWrap="nowrap" me="auto" alignItems="center">
+          <Flex flexWrap="nowrap" justify="center" alignItems="center">
             <Icon
               as={MdPlayArrow}
-              size={16}
               marginEnd={2}
               transform="rotate(180deg)"
             />
@@ -47,13 +46,11 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
           href={`${BLOG_PATH}${availableURLs[currentPost + 1]}`}
           variant="outline"
         >
-          <Flex flexWrap="nowrap" alignItems="center">
+          <Flex flexWrap="nowrap" justify="center" alignItems="center">
             <Text
               as="span"
               fontFamily="heading"
               textTransform="uppercase"
-              textAlign="end"
-              ms="auto"
             >
               Next post
             </Text>

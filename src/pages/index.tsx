@@ -169,7 +169,7 @@ export default function Home({
           <ContributingCards />
 
           <Flex justify="center">
-            <ButtonLink href={CONTRIBUTE_PATH} variant="outline">
+            <ButtonLink href={CONTRIBUTE_PATH} variant="solid">
               Start contributing
             </ButtonLink>
           </Flex>
@@ -199,7 +199,7 @@ export default function Home({
           </Section>
 
           <Flex justify="center">
-            <ButtonLink href={BLOG_PATH} variant="outline">
+            <ButtonLink href={BLOG_PATH} variant="solid">
               All blog updates
             </ButtonLink>
           </Flex>
