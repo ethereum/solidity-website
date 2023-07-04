@@ -3,8 +3,6 @@ import type {
   SocialLink,
   TriangleVariants,
   UseCase,
-  Variant,
-  VariantProps,
 } from '@/interfaces'
 import { FaGithub, FaGitter, FaMastodon, FaTwitter } from 'react-icons/fa'
 import { SiMatrix } from 'react-icons/si'
@@ -86,11 +84,18 @@ export const RELEASES = 'Releases' as const
 export const SECURITY_ALERTS = 'Security Alerts' as const
 export const ANNOUNCEMENTS = 'Announcements' as const
 export const EXPLAINERS = 'Explainers' as const
+
 export const CATEGORIES_URL_MAP = {
-  [RELEASES]: `${BLOG_CATEGORY_PATH}/releases`,
-  [SECURITY_ALERTS]: `${BLOG_CATEGORY_PATH}/security-alerts`,
-  [ANNOUNCEMENTS]: `${BLOG_CATEGORY_PATH}/announcements`,
-  [EXPLAINERS]: `${BLOG_CATEGORY_PATH}/explainers`,
+  [RELEASES]: 'releases',
+  [SECURITY_ALERTS]: 'security-alerts',
+  [ANNOUNCEMENTS]: 'announcements',
+  [EXPLAINERS]: 'explainers',
+} as const
+export const CATEGORIES_PATH_MAP = {
+  [RELEASES]: `${BLOG_CATEGORY_PATH}/${CATEGORIES_URL_MAP[RELEASES]}`,
+  [SECURITY_ALERTS]: `${BLOG_CATEGORY_PATH}/${CATEGORIES_URL_MAP[SECURITY_ALERTS]}`,
+  [ANNOUNCEMENTS]: `${BLOG_CATEGORY_PATH}/${CATEGORIES_URL_MAP[ANNOUNCEMENTS]}`,
+  [EXPLAINERS]: `${BLOG_CATEGORY_PATH}/${CATEGORIES_URL_MAP[EXPLAINERS]}`,
 } as const
 export const URL_CATEGORIES_MAP = {
   releases: RELEASES,

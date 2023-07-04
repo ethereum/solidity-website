@@ -1,6 +1,10 @@
 import type { BoxProps } from '@chakra-ui/react'
 import type { IconType } from 'react-icons'
-import { CATEGORIES_URL_MAP, TRIANGLE_VARIANTS } from '@/constants'
+import {
+  CATEGORIES_URL_MAP,
+  TRIANGLE_VARIANTS,
+  URL_CATEGORIES_MAP,
+} from '@/constants'
 
 export interface NavLink {
   name: string
@@ -42,6 +46,7 @@ export interface EventPost {
 }
 
 export type Category = keyof typeof CATEGORIES_URL_MAP
+export type CategoryUrl = keyof typeof URL_CATEGORIES_MAP
 
 export interface BlogPostFrontmatter {
   layout?: string
@@ -67,7 +72,7 @@ export interface BlogParams {
 }
 
 export interface CategoryPath {
-  params: { category: string }
+  params: { category: CategoryUrl }
 }
 
 export interface PostPath {

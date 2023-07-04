@@ -1,5 +1,6 @@
 import { Link } from '@/components'
-import { CATEGORIES_URL_MAP } from '@/constants'
+import { CATEGORIES_PATH_MAP } from '@/constants'
+import type { Category } from '@/interfaces'
 import { Box, BoxProps } from '@chakra-ui/react'
 
 interface PillProps extends BoxProps {
@@ -28,7 +29,7 @@ const Pill: React.FC<PillProps> = ({ category, ...boxProps }) => (
 )
 
 interface CategoryPillProps extends BoxProps {
-  category: keyof typeof CATEGORIES_URL_MAP
+  category: Category
   mb?: number
   skipLink?: boolean
 }
@@ -43,7 +44,7 @@ export const CategoryPill: React.FC<CategoryPillProps> = ({
     <Pill category={category} mb={mb ?? 2} {...boxProps} />
   ) : (
     <Link
-      href={CATEGORIES_URL_MAP[category]}
+      href={CATEGORIES_PATH_MAP[category]}
       textDecoration="none !important"
       data-group
       mb={mb ?? 4}

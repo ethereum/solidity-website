@@ -1,11 +1,11 @@
 import { Feed, Item } from 'feed'
 import removeMd from 'remove-markdown'
-import { BlogPostProps } from '../interfaces'
+import { BlogPostProps, Category } from '../interfaces'
 import { SITE_URL, URL_CATEGORIES_MAP } from '../constants'
 
 export const generateRssFeed = async (
   posts: BlogPostProps[],
-  category?: keyof typeof URL_CATEGORIES_MAP
+  category?: Category
 ): Promise<Feed> => {
   const date = new Date()
   const feed = new Feed({
@@ -18,13 +18,13 @@ export const generateRssFeed = async (
     copyright: `All rights reserved ${date.getFullYear()}`,
     updated: date,
     feedLinks: {
-      rss2: `${SITE_URL}/rss/feed.xml`,
+      rss2: `${SITE_URL}/feed.xml`,
     },
   })
   posts
     .filter(
       ({ frontmatter: { category: frontmatterCategory } }) =>
-        !category || frontmatterCategory === URL_CATEGORIES_MAP[category]
+        !category || frontmatterCategory === category
     )
     .forEach(
       ({ frontmatter: { title, date, author, category }, content, url }) => {

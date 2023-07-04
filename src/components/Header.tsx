@@ -115,9 +115,10 @@ export const Header: React.FC = () => {
               letterSpacing="-0.02em"
               textDecoration="none"
               background={pathname.includes(href) ? 'mode' : 'none'}
+              borderBottom="1px"
+              borderColor="transparent"
               _hover={{
                 color: 'text',
-                borderBottom: '1px',
                 borderColor: 'text',
               }}
             >

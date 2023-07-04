@@ -1,7 +1,7 @@
 import fs from 'fs'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { ParsedUrlQuery } from 'querystring'
-import { Hero, PageMetadata, BlogPostListSection } from '@/components'
+import { Hero, PageMetadata, BlogPostListSection, BlogHeroChild } from '@/components'
 import { getPostsDataForPage, getTotalPages } from '@/utils'
 import { BLOG_POSTS_DIR, BLOG_TITLE, MAIN_CONTENT_ID } from '@/constants'
 import type { BlogProps, PageParams } from '@/interfaces'
@@ -46,7 +46,9 @@ const Blog: React.FC<BlogProps> = ({ allPostsData, page, totalPages }) => (
       description="Solidity Lang blog: latest news & announcements"
     />
     <Box as="main" id={MAIN_CONTENT_ID}>
-      <Hero header={BLOG_TITLE}>Latest News & Announcements</Hero>
+      <Hero header={BLOG_TITLE}>
+        <BlogHeroChild>Latest News & Announcements</BlogHeroChild>
+      </Hero>
       <BlogPostListSection
         allPostsData={allPostsData}
         page={page}
