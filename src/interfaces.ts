@@ -32,7 +32,6 @@ export interface EventFrontmatter {
   startDate: string
   endDate: string
   imageSrc?: string
-  description?: string
   links?: EventLink[]
 }
 
