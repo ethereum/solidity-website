@@ -14,6 +14,7 @@ export const ColorModeToggle: React.FC = () => {
       color="text"
       borderRadius="none"
       _hover={{ bg: 'none', color: 'primary' }}
+      _focus={{ bg: 'none', color: 'primary' }}
       transition="none"
     />
   )
