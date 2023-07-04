@@ -36,16 +36,16 @@ What is included in that set varies widely from language to language.
 
 Here is the full list for Solidity:
 
-| Category             | Operators                                   |
-| -------------------- | ------------------------------------------- |
-| Bitwise              | `&`, `\|`, `^`, `<<`, `>>`, `~`             |
-| Arithmetic           | `+`, `-`, `*`, `/`, `%`, `**`               |
-| Comparison           | `==`, `!=`, `<`, `<=`, `>`, `>=`            |
-| Boolean              | `!`, `&&`, `\|\|`                           |
-| Increment/decrement  | `++`, `--`                                  |
-| Simple assignment    | `=`                                         |
-| Composite assignment | `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, `\|=`, `^=`, `<<=`, `>>=`  |
-| Miscellaneous        | `delete`, `new`, `.`, `()`, `[]`, `?:`      |
+| Category             | Operators                                                           |
+| -------------------- | ------------------------------------------------------------------- |
+| Bitwise              | `&`, `\|`, `^`, `<<`, `>>`, `~`                                     |
+| Arithmetic           | `+`, `-`, `*`, `/`, `%`, `**`                                       |
+| Comparison           | `==`, `!=`, `<`, `<=`, `>`, `>=`                                    |
+| Boolean              | `!`, `&&`, `\|\|`                                                   |
+| Increment/decrement  | `++`, `--`                                                          |
+| Simple assignment    | `=`                                                                 |
+| Composite assignment | `+=`, `-=`, `^=`, `*=`, `/=`, `%=`, `&=`, `\|=`, `^=`, `<<=`, `>>=` |
+| Miscellaneous        | `delete`, `new`, `.`, `()`, `[]`, `?:`                              |
 
 It is important to note that in many languages, an assignment is a statement that is handled in a special way.
 In Solidity, like in the C-like languages it took inspiration from, an assignment operator can be freely used in
@@ -137,7 +137,7 @@ The following operators can be defined:
 
 | Category   | Operators                        |
 | ---------- | -------------------------------- |
-| Bitwise    | `&`, `\|`, `^`,  `~`             |
+| Bitwise    | `&`, `\|`, `^`, `~`              |
 | Arithmetic | `+`, `-`, `*`, `/`, `%`          |
 | Comparison | `==`, `!=`, `<`, `<=`, `>`, `>=` |
 

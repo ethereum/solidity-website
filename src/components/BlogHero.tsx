@@ -22,7 +22,7 @@ export const BlogHero: React.FC<BlogHeroProps> = ({
       <Text color="primary" mb={6}>
         Posted by {author} on {formatDateString(date)}
       </Text>
-      <CategoryPill category={category} mb={0}/>
+      <CategoryPill category={category} mb={0} />
     </Section>
   )
 }

@@ -29,11 +29,7 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
           variant="outline"
         >
           <Flex flexWrap="nowrap" justify="center" alignItems="center">
-            <Icon
-              as={MdPlayArrow}
-              marginEnd={2}
-              transform="rotate(180deg)"
-            />
+            <Icon as={MdPlayArrow} marginEnd={2} transform="rotate(180deg)" />
             <Text fontFamily="heading" textTransform="uppercase">
               Previous post
             </Text>
@@ -47,11 +43,7 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({
           variant="outline"
         >
           <Flex flexWrap="nowrap" justify="center" alignItems="center">
-            <Text
-              as="span"
-              fontFamily="heading"
-              textTransform="uppercase"
-            >
+            <Text as="span" fontFamily="heading" textTransform="uppercase">
               Next post
             </Text>
             <Icon as={MdPlayArrow} size={16} marginStart={2} />

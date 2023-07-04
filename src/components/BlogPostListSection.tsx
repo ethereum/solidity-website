@@ -17,7 +17,10 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
     fontSize="md"
     mx="auto"
   >
-    <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} columnGap={16} /* rowGap={24} */>
+    <Grid
+      templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
+      columnGap={16} /* rowGap={24} */
+    >
       {allPostsData.map(({ frontmatter, content, url }, i) => {
         const isFeatured = page === 1 && i === 0
         return (
@@ -27,13 +30,14 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
             content={content}
             url={url}
             isFeatured={isFeatured}
-            borderBottom={isFeatured ? "1px solid" : "none"}
+            borderBottom={isFeatured ? '1px solid' : 'none'}
             borderColor="primary"
             gridColumn={{
               base: 'span 1',
               md: isFeatured ? 'span 2' : 'span 1',
             }}
-            py={14} />
+            py={14}
+          />
         )
       })}
     </Grid>
