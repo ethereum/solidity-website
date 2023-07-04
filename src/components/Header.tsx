@@ -74,11 +74,7 @@ export const Header: React.FC = () => {
           style={{ scale, y }}
           transformOrigin="top left"
         >
-          <Link
-            href="/"
-            aria-label="Go home"
-            display="block"
-          >
+          <Link href="/" aria-label="Go home" display="block">
             <SolidityLogo />
           </Link>
         </MotionDiv>
@@ -119,7 +115,11 @@ export const Header: React.FC = () => {
               letterSpacing="-0.02em"
               textDecoration="none"
               background={pathname.includes(href) ? 'mode' : 'none'}
-              _hover={{ color: 'text', textDecoration: 'underline' }}
+              _hover={{
+                color: 'text',
+                borderBottom: '1px',
+                borderColor: 'text',
+              }}
             >
               {name}
             </Link>
