@@ -42,6 +42,9 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
           size="md"
           onClick={onOpen}
           color="text"
+          borderRadius="none"
+          _hover={{ bg: 'none', color: 'primary' }}
+          transition="none"
         />
       </Flex>
 
@@ -58,6 +61,9 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
             zIndex="9999"
             variant="ghost"
             size="lg"
+            borderRadius="none"
+            _hover={{ bg: 'none', color: 'primary' }}
+            transition="none"
           />
           <DrawerBody
             display="flex"

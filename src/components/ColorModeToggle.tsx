@@ -12,6 +12,9 @@ export const ColorModeToggle: React.FC = () => {
       variant="ghost"
       size="md"
       color="text"
+      borderRadius="none"
+      _hover={{ bg: 'none', color: 'primary' }}
+      transition="none"
     />
   )
 }
