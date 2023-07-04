@@ -227,7 +227,7 @@ export default function Home({
 
         {/* Upcoming solidity events */}
         <Section py={sectionPaddingY} gap={12}>
-          <ShowcaseSection px={0} reverseMobile>
+          <ShowcaseSection px={0} reverseMobile alignItems="start">
             <ShowcaseContent title="Solidity Events" flex={4}>
               <Text>
                 The Solidity Summit is a free interactive forum for people
@@ -242,9 +242,6 @@ export default function Home({
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual direction="column" flex={5} w="full">
-              <Text color="primary" fontSize="xl">
-                Upcoming event
-              </Text>
               {nextEvent ? (
                 <EventCard frontmatter={nextEvent.frontmatter} />
               ) : (
