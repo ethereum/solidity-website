@@ -1,6 +1,6 @@
-import { Text } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import { Hero, UseCaseCard, PageMetadata, Section } from '@/components'
-import { DOCS_URL, USE_CASES } from '@/constants'
+import { DOCS_URL, MAIN_CONTENT_ID, USE_CASES } from '@/constants'
 
 export default function UseCases() {
   return (
@@ -9,7 +9,7 @@ export default function UseCases() {
         title="Use cases"
         description="Learn how Solidity can be used to solve real world problems."
       />
-      <main>
+      <Box as="main" id={MAIN_CONTENT_ID}>
         <Hero
           header="Use cases"
           cta={[{ name: 'Get started', href: DOCS_URL }]}
@@ -41,7 +41,7 @@ export default function UseCases() {
           </Text>
           <Text>We have also included 3 bug fixes in this release!</Text>
         </Section>
-      </main>
+      </Box>
     </>
   )
 }

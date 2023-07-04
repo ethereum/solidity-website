@@ -1,9 +1,10 @@
 import fs from 'fs'
 import { GetStaticProps } from 'next/types'
 import { Hero, PageMetadata, BlogPostListSection } from '@/components'
-import { BLOG_POSTS_DIR, BLOG_TITLE } from '@/constants'
+import { BLOG_POSTS_DIR, BLOG_TITLE, MAIN_CONTENT_ID } from '@/constants'
 import { getPostsDataForPage, getTotalPages } from '@/utils'
 import type { BlogProps } from '@/interfaces'
+import { Box } from '@chakra-ui/react'
 
 export const getStaticProps: GetStaticProps = async () => {
   // get list of all files from our posts directory
@@ -20,14 +21,14 @@ const Blog: React.FC<BlogProps> = ({ allPostsData, totalPages }) => (
       title="Solidity Blog"
       description="Solidity Lang blog: latest news & announcements"
     />
-    <main>
+    <Box as="main" id={MAIN_CONTENT_ID}>
       <Hero header={BLOG_TITLE}>Latest News & Announcements</Hero>
       <BlogPostListSection
         allPostsData={allPostsData}
         page={1}
         totalPages={totalPages}
       />
-    </main>
+    </Box>
   </>
 )
 

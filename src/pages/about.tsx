@@ -1,6 +1,6 @@
-import { Flex, FlexProps, Text } from '@chakra-ui/react'
+import { Box, Flex, FlexProps, Text } from '@chakra-ui/react'
 import { Hero, Link, PageMetadata, Section } from '@/components'
-import { CONTRIBUTE_PATH, DOCS_URL, FORUM_URL } from '@/constants'
+import { CONTRIBUTE_PATH, DOCS_URL, FORUM_URL, MAIN_CONTENT_ID } from '@/constants'
 
 interface FaqItemProps extends FlexProps {
   question: string
@@ -29,7 +29,7 @@ export default function About() {
         title="About"
         description="Solidity is a statically-typed curly-braces programming language designed for developing smart contracts that run on Ethereum."
       />
-      <main>
+      <Box as="main" id={MAIN_CONTENT_ID}>
         <Hero
           header="About"
           cta={[
@@ -140,7 +140,7 @@ export default function About() {
             other developers and learn from their experiences.
           </FaqItem>
         </Section>
-      </main>
+      </Box>
     </>
   )
 }

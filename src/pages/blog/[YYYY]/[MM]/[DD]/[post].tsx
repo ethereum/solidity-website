@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react'
 import { ParsedUrlQuery } from 'querystring'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { BlogHero, BlogPost, PageMetadata, PostNavigation } from '@/components'
-import { BLOG_POSTS_DIR, MATTER_OPTIONS } from '@/constants'
+import { BLOG_POSTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
 import { getPostParamsFromFilename, getPostURL } from '@/utils'
 import type { PostPath, BlogPostProps } from '@/interfaces'
 
@@ -56,7 +56,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({
         frontmatter.date
       ).toLocaleDateString()}`}
     />
-    <Box as="main" px={{ base: 4, md: 8 }}>
+    <Box as="main" id={MAIN_CONTENT_ID} px={{ base: 4, md: 8 }}>
       <BlogHero frontmatter={frontmatter} />
       <BlogPost content={content} maxW="container.md" />
       <PostNavigation availableURLs={availableURLs} />

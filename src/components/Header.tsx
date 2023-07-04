@@ -1,6 +1,6 @@
-import { chakra, Flex, shouldForwardProp } from '@chakra-ui/react'
+import { Box, chakra, Flex, shouldForwardProp } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
-import { NAV_LINKS, NAV_HEIGHT } from '@/constants'
+import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID } from '@/constants'
 import {
   motion,
   useScroll,
@@ -78,11 +78,30 @@ export const Header: React.FC = () => {
             href="/"
             aria-label="Go home"
             display="block"
-            w={`${ENDING_LOGO_WIDTH}px`}
           >
             <SolidityLogo />
           </Link>
         </MotionDiv>
+        {/* Skip To Content link */}
+        <Box
+          as="a"
+          href={`#${MAIN_CONTENT_ID}`}
+          pointerEvents="none"
+          m="auto"
+          opacity={0}
+          transition="opacity 200ms ease-in-out"
+          fontSize="sm"
+          px={1}
+          py={0.5}
+          _focus={{
+            opacity: 1,
+            transition: 'opacity 200ms ease-in-out',
+          }}
+          whiteSpace="nowrap"
+          display={{ base: 'none', md: 'block' }}
+        >
+          {`{ `}skip to content{` }`}
+        </Box>
         {/* Nav bar / mobile menu with color mode toggle */}
         <Flex
           as="nav"

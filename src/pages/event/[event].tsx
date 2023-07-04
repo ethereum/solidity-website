@@ -1,10 +1,11 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
-import { EVENTS_DIR, MATTER_OPTIONS } from '@/constants'
+import { EVENTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
 import { ParsedUrlQuery } from 'querystring'
 import type { EventPost } from '@/interfaces'
 import { EventListing, Hero, PageMetadata } from '@/components'
+import { Box } from '@chakra-ui/react'
 
 // Generate the paths for each event
 export const getStaticPaths: GetStaticPaths = () => {
@@ -45,10 +46,10 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
   return (
     <>
       <PageMetadata title={title} description={description} />
-      <main>
+      <Box as="main" id={MAIN_CONTENT_ID}>
         <Hero header={title}>{location}</Hero>
         <EventListing frontmatter={frontmatter} content={content} />
-      </main>
+      </Box>
     </>
   )
 }

@@ -36,6 +36,7 @@ export const NAV_LINKS: NavLink[] = [
   { name: 'About', href: ABOUT_PATH },
   { name: 'Forum', href: FORUM_URL },
 ]
+export const MAIN_CONTENT_ID = 'content' as const
 
 // Social links
 export const GITHUB_URL = 'https://github.com/ethereum/solidity' as const

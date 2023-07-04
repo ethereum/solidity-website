@@ -23,6 +23,7 @@ import {
   BLOG_POSTS_DIR,
   CONTRIBUTE_PATH,
   DOCS_URL,
+  MAIN_CONTENT_ID,
   MAX_POSTS_TO_PREVIEW,
 } from '@/constants'
 import {
@@ -73,7 +74,7 @@ export default function Home({
         title="Home"
         description="Solidity is a statically-typed curly-braces programming language designed for developing smart contracts that run on Ethereum."
       />
-      <main>
+      <Box as="main" id={MAIN_CONTENT_ID}>
         {/* HERO */}
         <Hero
           header="Solidity"
@@ -260,7 +261,7 @@ export default function Home({
             <EventPreview events={allEvents} />
           </Section>
         </Section>
-      </main>
+      </Box>
     </>
   )
 }

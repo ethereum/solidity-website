@@ -3,8 +3,9 @@ import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { ParsedUrlQuery } from 'querystring'
 import { Hero, PageMetadata, BlogPostListSection } from '@/components'
 import { getPostsDataForPage, getTotalPages } from '@/utils'
-import { BLOG_POSTS_DIR, BLOG_TITLE } from '@/constants'
+import { BLOG_POSTS_DIR, BLOG_TITLE, MAIN_CONTENT_ID } from '@/constants'
 import type { BlogProps, PageParams } from '@/interfaces'
+import { Box } from '@chakra-ui/react'
 
 // Generate the paths for each page
 export const getStaticPaths: GetStaticPaths = () => {
@@ -44,14 +45,14 @@ const Blog: React.FC<BlogProps> = ({ allPostsData, page, totalPages }) => (
       title="Solidity Blog"
       description="Solidity Lang blog: latest news & announcements"
     />
-    <main>
+    <Box as="main" id={MAIN_CONTENT_ID}>
       <Hero header={BLOG_TITLE}>Latest News & Announcements</Hero>
       <BlogPostListSection
         allPostsData={allPostsData}
         page={page}
         totalPages={totalPages}
       />
-    </main>
+    </Box>
   </>
 )
 
