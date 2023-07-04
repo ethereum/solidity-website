@@ -37,7 +37,6 @@ export const Hero: React.FC<HeroProps> = ({
       whiteSpace="normal"
       _after={{
         content: '"_"',
-        fontSize: '1.5em',
         display: 'inline-block',
         width: 0,
         overflowX: 'visible',
