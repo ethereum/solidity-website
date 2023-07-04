@@ -1,5 +1,5 @@
 import { Flex, type FlexProps, Text } from '@chakra-ui/react'
-import { ButtonLink } from '@/components'
+import { Link } from '@/components'
 import type { BlogPostProps } from '@/interfaces'
 import { formatDateString } from '@/utils'
 
@@ -17,13 +17,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       <Text textStyle="h5-mono" color="text" mb={1}>
         {title}
       </Text>
-      <Text color="primary">
+      <Text color="primary" mb={6}>
         Posted by {author} on {formatDateString(date)}
       </Text>
-      <Text my={6}>{content}</Text>
-      <ButtonLink href={url} variant="outline" w="fit-content">
+      <Text mb={4}>{content}</Text>
+      <Link href={url}>
         Read more
-      </ButtonLink>
+      </Link>
     </Flex>
   )
 }

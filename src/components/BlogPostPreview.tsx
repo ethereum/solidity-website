@@ -1,5 +1,5 @@
 import { Box, Text } from '@chakra-ui/react'
-import { ButtonLink, CategoryPill, Link } from '@/components'
+import { CategoryPill, Link } from '@/components'
 import { BlogPostProps } from '@/interfaces'
 import { formatDateString } from '@/utils'
 
@@ -18,8 +18,17 @@ export const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({
   const { title, date, author, category } = frontmatter
   return (
     <Box {...boxProps}>
-      <Link href={url} textDecoration="none" _hover={{ textDecoration: "underline" }}>
-        <Text as="h2" textStyle={isFeatured ? "h3-mono" : "h5-mono"} color="text" mb={1}>
+      <Link
+        href={url}
+        textDecoration="none"
+        _hover={{ textDecoration: 'underline' }}
+      >
+        <Text
+          as="h2"
+          textStyle={isFeatured ? 'h3-mono' : 'h5-mono'}
+          color="text"
+          mb={1}
+        >
           {title}
         </Text>
       </Link>
@@ -27,10 +36,12 @@ export const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({
         Posted by {author} on {formatDateString(date)}
       </Text>
       <CategoryPill category={category} skipLink={isCategoryPage} />
-      <Text mb={6} maxW="container.md">{content}</Text>
-      <ButtonLink href={url} variant="outline" w="fit-content">
+      <Text mb={4} maxW="container.md">
+        {content}
+      </Text>
+      <Link href={url}>
         Read more
-      </ButtonLink>
+      </Link>
     </Box>
   )
 }
