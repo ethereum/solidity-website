@@ -56,9 +56,9 @@ export const Hero: React.FC<HeroProps> = ({
       {children}
     </Box>
     {cta?.length && (
-      <Flex direction={['column', 'row']} gap={5} justify="start">
+      <Flex direction={['column', 'row']} gap={5} justify="center" alignItems="center" w={{ base:"full", sm: "fit-content" }}>
         {cta.map(({ name, href }) => (
-          <ButtonLink href={href} key={name} w={['100%', 'fit-content']}>
+          <ButtonLink href={href} key={name}>
             {name}
           </ButtonLink>
         ))}
@@ -75,6 +75,8 @@ export const Hero: React.FC<HeroProps> = ({
               borderEnd={stargazersCount !== 0 ? '1px' : '0px'}
               borderColor="border"
               alignItems="center"
+              justify="center"
+              w="full"
               gap={2}
               px={3}
               py={1.5}
