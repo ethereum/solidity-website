@@ -16,9 +16,9 @@ export const ColorModeToggle: React.FC = () => {
       _hover={{ bg: 'none', color: 'primary' }}
       sx={{
         '&:focus-visible': {
-          outline: "2px solid var(--chakra-colors-primary)",
-          outlineOffset: '-6px',   
-        }
+          outline: '2px solid var(--chakra-colors-primary)',
+          outlineOffset: '-6px',
+        },
       }}
       _focusVisible={{}}
     />

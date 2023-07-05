@@ -1,6 +1,11 @@
 import fs from 'fs'
 import { GetStaticProps } from 'next/types'
-import { BlogHeroChild, BlogPostListSection, Hero, PageMetadata } from '@/components'
+import {
+  BlogHeroChild,
+  BlogPostListSection,
+  Hero,
+  PageMetadata,
+} from '@/components'
 import { BLOG_POSTS_DIR, BLOG_TITLE, MAIN_CONTENT_ID } from '@/constants'
 import { getPostsDataForPage, getTotalPages } from '@/utils'
 import type { BlogProps } from '@/interfaces'
@@ -23,9 +28,7 @@ const Blog: React.FC<BlogProps> = ({ allPostsData, totalPages }) => (
     />
     <Box as="main" id={MAIN_CONTENT_ID}>
       <Hero header={BLOG_TITLE}>
-        <BlogHeroChild>
-          Latest News & Announcements
-        </BlogHeroChild>
+        <BlogHeroChild>Latest News & Announcements</BlogHeroChild>
       </Hero>
       <BlogPostListSection
         allPostsData={allPostsData}

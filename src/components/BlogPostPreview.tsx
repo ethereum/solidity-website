@@ -18,14 +18,11 @@ export const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({
   const { title, date, author, category } = frontmatter
   return (
     <Box {...boxProps}>
-      <Link
-        href={url}
-        textDecoration="none"
-        _hover={{ textDecoration: 'underline' }}
-      >
+      <Link href={url} textDecoration="none" data-group>
         <Text
           as="h2"
           textStyle={isFeatured ? 'h3-mono' : 'h5-mono'}
+          _groupHover={{ color: 'primary', textDecoration: 'underline' }}
           color="text"
           mb={1}
         >
@@ -39,9 +36,7 @@ export const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({
       <Text mb={4} maxW="container.md">
         {content}
       </Text>
-      <Link href={url}>
-        Read more
-      </Link>
+      <Link href={url}>Read more</Link>
     </Box>
   )
 }

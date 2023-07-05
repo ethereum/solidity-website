@@ -15,6 +15,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   const solid = {
     color: 'bg',
     bg: 'text',
+    fontSize: 'md',
     _groupHover: { bg: 'primary' },
   }
   const outline = {
@@ -22,6 +23,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     bg: 'transparent',
     border: '2px',
     borderColor: 'border',
+    fontSize: 'md',
     _groupHover: {
       bg: 'mode',
       color: 'primary',

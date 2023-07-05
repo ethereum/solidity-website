@@ -1,7 +1,12 @@
 import fs from 'fs'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { ParsedUrlQuery } from 'querystring'
-import { Hero, PageMetadata, BlogPostListSection, BlogHeroChild } from '@/components'
+import {
+  Hero,
+  PageMetadata,
+  BlogPostListSection,
+  BlogHeroChild,
+} from '@/components'
 import { getPostsDataForPage, getTotalPages } from '@/utils'
 import { BLOG_POSTS_DIR, BLOG_TITLE, MAIN_CONTENT_ID } from '@/constants'
 import type { BlogProps, PageParams } from '@/interfaces'

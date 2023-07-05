@@ -56,7 +56,13 @@ export const Hero: React.FC<HeroProps> = ({
       {children}
     </Box>
     {cta?.length && (
-      <Flex direction={['column', 'row']} gap={5} justify="center" alignItems="center" w={{ base:"full", sm: "fit-content" }}>
+      <Flex
+        direction={['column', 'row']}
+        gap={5}
+        justify="center"
+        alignItems="center"
+        w={{ base: 'full', sm: 'fit-content' }}
+      >
         {cta.map(({ name, href }) => (
           <ButtonLink href={href} key={name}>
             {name}

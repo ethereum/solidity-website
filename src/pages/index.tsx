@@ -100,7 +100,12 @@ export default function Home({
             maxW="container.lg"
           >
             <Box fontSize="2xl" maxW="8ch">
-              <Text fontFamily="mono" color="primary" lineHeight="130%">
+              <Text
+                fontFamily="mono"
+                color="primary"
+                lineHeight="130%"
+                fontSize="inherit"
+              >
                 Solidity {versionNumber}
               </Text>
             </Box>
@@ -142,7 +147,7 @@ export default function Home({
               </Link>
               .
             </Text>
-            <ButtonLink href={DOCS_URL} variant="outline" mt={8}>
+            <ButtonLink href={DOCS_URL} variant="solid" mt={8}>
               Get started
             </ButtonLink>
           </ShowcaseContent>
@@ -177,15 +182,22 @@ export default function Home({
         </Section>
 
         {/* Stay updated */}
-        {/* TODO: Update copy */}
         <Section py={sectionPaddingY} gap={12}>
           <ShowcaseSection px={0}>
             <ShowcaseContent title="Stay Updated">
+              {/* TODO: Fix copy below; repeats from above */}
               <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-                commodi dicta debitis eligendi quo exercitationem. Repellendus
-                repellat itaque sapiente quibusdam? Iste illum nihil, possimus
-                accusamus ea voluptatum nisi illo eligendi.
+                As a relatively young language, Solidity is advancing at a rapid
+                speed. We aim for a regular (non-breaking) release every month,
+                with approximately one breaking release per year. You can follow
+                the implementation status of new features in the Solidity Github
+                project.
+              </Text>
+              <Text>
+                You can see the upcoming changes for the next breaking release
+                by switching from the default branch (`develop`) to the
+                `breaking branch`. You can actively shape Solidity by providing
+                your input and participating in the language design.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
@@ -195,7 +207,9 @@ export default function Home({
 
           {/* Latest from the blog */}
           <Section>
-            <Text textStyle="h3" fontSize="xl">Latest from the blog</Text>
+            <Text textStyle="h3" fontSize="xl">
+              Latest from the blog
+            </Text>
             <BlogSectionPreview postsData={previewBlogPosts} />
           </Section>
 

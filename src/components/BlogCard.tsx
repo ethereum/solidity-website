@@ -14,16 +14,21 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   const { title, author, date } = frontmatter
   return (
     <Flex direction="column" {...flexProps}>
-      <Text textStyle="h5-mono" color="text" mb={1}>
-        {title}
-      </Text>
+      <Link href={url} textDecoration="none" data-group>
+        <Text
+          textStyle="h5-mono"
+          color="text"
+          mb={1}
+          _groupHover={{ color: 'primary', textDecoration: 'underline' }}
+        >
+          {title}
+        </Text>
+      </Link>
       <Text color="primary" mb={6}>
         Posted by {author} on {formatDateString(date)}
       </Text>
       <Text mb={4}>{content}</Text>
-      <Link href={url}>
-        Read more
-      </Link>
+      <Link href={url}>Read more</Link>
     </Flex>
   )
 }
