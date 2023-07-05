@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { Box, Flex, Text, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Code, Flex, Text, useBreakpointValue } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
 import {
   BlogSectionPreview,
@@ -68,7 +68,7 @@ export default function Home({
   )
   const nextEvent = futureEvents.length ? futureEvents[0] : null
   const sectionPaddingY = useBreakpointValue({ base: 12, md: 24 })
-  
+
   return (
     <>
       <PageMetadata
@@ -112,7 +112,7 @@ export default function Home({
             </Box>
             <Flex direction="column" justify="space-between" gap={6}>
               <Box>
-                <Text lineHeight="180%" fontSize="md">
+                <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
                     href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/"
                     fontWeight="bold"
@@ -163,9 +163,9 @@ export default function Home({
             <ShowcaseContent title="Contribute to Solidity">
               <Text>
                 You can see the upcoming changes for the next breaking release
-                by switching from the default branch (`develop`) to the
-                `breaking branch`. Shape Solidity by providing your input and
-                participating in the language design.
+                by switching from the default branch (<Code>develop</Code>) to
+                the <Code>breaking branch</Code>. Shape Solidity by providing
+                your input and participating in the language design.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
@@ -196,9 +196,10 @@ export default function Home({
               </Text>
               <Text>
                 You can see the upcoming changes for the next breaking release
-                by switching from the default branch (`develop`) to the
-                `breaking branch`. You can actively shape Solidity by providing
-                your input and participating in the language design.
+                by switching from the default branch (<Code>develop</Code>) to
+                the <Code>breaking branch</Code>. You can actively shape
+                Solidity by providing your input and participating in the
+                language design.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>

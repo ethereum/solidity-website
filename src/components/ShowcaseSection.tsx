@@ -34,7 +34,14 @@ export const ShowcaseContent: React.FC<ShowcaseContentProps> = ({
   children,
   ...props
 }) => (
-  <Flex flex={3} direction="column" {...props}>
+  <Flex
+    flex={3}
+    direction="column"
+    sx={{
+      '& > p:not(:last-of-type)': { mb: 4 },
+    }}
+    {...props}
+  >
     <Text as="h2" textStyle="h2">
       {title}
     </Text>
