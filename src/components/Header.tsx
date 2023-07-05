@@ -12,9 +12,7 @@ import { useRouter } from 'next/router'
 const NAV_PADDING = 2 * 16
 const Y_OFFSET = 64
 const STARTING_LOGO_HEIGHT = 176
-const ASPECT_RATIO = 113 / STARTING_LOGO_HEIGHT
 const ENDING_LOGO_HEIGHT = 40
-const ENDING_LOGO_WIDTH = ENDING_LOGO_HEIGHT * ASPECT_RATIO
 const STARTING_NAV_HEIGHT = STARTING_LOGO_HEIGHT + NAV_PADDING + Y_OFFSET
 const FINAL_SCROLL_DISTANCE =
   STARTING_LOGO_HEIGHT - ENDING_LOGO_HEIGHT + Y_OFFSET
@@ -119,10 +117,6 @@ export const Header: React.FC = () => {
               borderBottom="1px"
               borderColor="transparent"
               _hover={{
-                color: 'text',
-                borderColor: 'text',
-              }}
-              _focus={{
                 color: 'text',
                 borderColor: 'text',
               }}

@@ -44,7 +44,13 @@ export const MobileMenu: React.FC<FlexProps> = (props) => {
           color="text"
           borderRadius="none"
           _hover={{ bg: 'none', color: 'primary' }}
-          transition="none"
+          sx={{
+            '&:focus-visible': {
+              outline: '2px solid var(--chakra-colors-primary)',
+              outlineOffset: '-6px',
+            },
+          }}
+          _focusVisible={{}}
         />
       </Flex>
 
