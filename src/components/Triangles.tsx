@@ -3,6 +3,7 @@ import {
   AnimatePresence,
   easeOut,
   motion,
+  useMotionValue,
   useScroll,
   useTransform,
 } from 'framer-motion'
@@ -44,7 +45,9 @@ const TrianglesComponent: React.FC<TriangleProps> = ({ variant }) => {
   const y = useTransform(scrollYProgress, [0, 0.5], [500, 0], {
     ease: easeOut,
   })
-
+  const xDrag = useMotionValue(0)
+  const scaleDrag = useTransform(xDrag, [-150, 0, 150], [1.5, 1, 1.5])
+  const rotateDrag = useTransform(xDrag, [-150, 0, 150], [-90, 0, 90])
   return (
     <Flex
       position="relative"
@@ -54,26 +57,38 @@ const TrianglesComponent: React.FC<TriangleProps> = ({ variant }) => {
       ref={targetRef}
     >
       <AnimatePresence>
-        {variantProps[variant].map(({ left, top, rotate, color }, i) => (
-          <motion.div
-            key={i + left + top + rotate + color}
-            // drag
-            // dragConstraints={targetRef}
-            // dragElastic={0.1}
-            style={{
-              position: 'absolute',
-              display: 'block',
-              top,
-              left,
-              y,
-              rotate,
-              scale,
-              transformStyle: 'preserve-3d',
-            }}
-          >
-            <Triangle color={color} />
-          </motion.div>
-        ))}
+        <motion.div
+          style={{
+            width: '100%',
+            height: '100%',
+            x: xDrag,
+            scale: scaleDrag,
+            rotate: rotateDrag,
+            cursor: 'grab',
+          }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+          dragElastic={0.125}
+          whileTap={{ cursor: 'grabbing' }}
+        >
+          {variantProps[variant].map(({ left, top, rotate, color }, i) => (
+            <motion.div
+              key={i + left + top + rotate + color}
+              style={{
+                position: 'absolute',
+                display: 'block',
+                top,
+                left,
+                y,
+                rotate,
+                scale,
+              }}
+            >
+              <Triangle color={color} />
+            </motion.div>
+          ))}
+        </motion.div>
       </AnimatePresence>
     </Flex>
   )
