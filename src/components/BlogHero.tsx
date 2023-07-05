@@ -15,7 +15,7 @@ export const BlogHero: React.FC<BlogHeroProps> = ({
 }) => {
   const { title, author, date, category } = frontmatter
   return (
-    <Section pt={56} pb={{ base: 20, lg: 24 }} px={0} {...sectionProps}>
+    <Section pt={{ base: 28, md: 56}} pb={{ base: 20, lg: 24 }} px={0} {...sectionProps}>
       <Text as="h1" textStyle="h2-mono" color="text" mb={1}>
         {title}
       </Text>

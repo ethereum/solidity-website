@@ -20,7 +20,7 @@ export const Hero: React.FC<HeroProps> = ({
   ...props
 }) => (
   <Section
-    pt={56}
+    pt={{ base: 28, md: 56 }}
     pb={[10, null, null, 12]}
     gap={8}
     alignItems="center"

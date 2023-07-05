@@ -1,4 +1,4 @@
-import { Box, chakra, Flex, shouldForwardProp } from '@chakra-ui/react'
+import { Box, chakra, Flex, shouldForwardProp, useBreakpointValue } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
 import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID } from '@/constants'
 import {
@@ -26,18 +26,22 @@ export const Header: React.FC = () => {
   const { pathname } = useRouter()
   const { scrollY } = useScroll()
 
-  const y = useTransform(scrollY, [0, Y_OFFSET], [Y_OFFSET, 0])
-  const scale = useTransform(
-    scrollY,
-    [NAV_PADDING, FINAL_SCROLL_DISTANCE],
-    [1.1, 0.25]
-  )
   const opacity = useTransform(
     scrollY,
     [STARTING_NAV_HEIGHT - 50, STARTING_NAV_HEIGHT],
     [0, 0.95]
   )
 
+  const desktopY = useTransform(scrollY, [0, Y_OFFSET], [Y_OFFSET, 0])
+  const desktopScale = useTransform(
+    scrollY,
+    [NAV_PADDING, FINAL_SCROLL_DISTANCE],
+    [1.1, 0.25]
+  )  
+  const mobileY = useTransform(scrollY, [0, 1], [0, 0])
+  const mobileScale = useTransform(scrollY, [0, 1], [0.25, 0.25])
+  const y = useBreakpointValue({ base: mobileY, md: desktopY })
+  const scale = useBreakpointValue({ base: mobileScale, md: desktopScale })
   return (
     <>
       <MotionDiv
