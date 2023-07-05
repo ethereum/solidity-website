@@ -36,8 +36,8 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
   return (
     <Grid
       templateColumns={{
-        // base: '1fr',
-        base: 'repeat(2, 1fr)',
+        base: '1fr',
+        md: 'repeat(2, 1fr)',
         lg: 'repeat(4, 1fr)',
       }}
       gap={8}
@@ -45,12 +45,13 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
     >
       {cards.map(({ title, description }, i) => {
         const gridColumn = {
-          base: `${(i % 2) + 1} / ${(i % 2) + 2}`,
+          base: `1 / 2`,
+          md: `${(i % 2) + 1} / ${(i % 2) + 2}`,
           lg: `${(i % 4) + 1} / ${(i % 4) + 2}`,
         }
         const getGridRow = (i: number, n: number) => ({
-          // base: 'auto',
-          base: `${Math.floor(i / 2) * 3 + n}`,
+          base: 'auto',
+          md: `${Math.floor(i / 2) * 3 + n}`,
           lg: `${Math.floor(i / 4) * 3 + n}`,
         })
         return (
@@ -65,7 +66,6 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
               {title}
             </Text>
             <Divider
-              // my={8}
               borderColor="highlight"
               gridColumn={gridColumn}
               gridRow={getGridRow(i, 2)}

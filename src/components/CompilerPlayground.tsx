@@ -20,7 +20,16 @@ const CodeEditor = dynamic(
 )
 
 const ResultTextarea: React.FC<TextareaProps> = (props) => (
-  <Textarea readOnly flex={1} fontSize="xs" p={2} {...props} />
+  <Textarea
+    readOnly
+    flex={1}
+    fontSize="xs"
+    p={2}
+    minH={{ base: '200px', md: 'unset' }}
+    borderRadius="none"
+    {...props}
+    borderWidth="2px"
+  />
 )
 interface CompilerResult {
   evm: {
@@ -166,7 +175,7 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
 
           <Text fontWeight="bold">
             Compiler version:{' '}
-            <Text as="span" fontWeight="normal">
+            <Text as="span" fontWeight="normal" wordBreak="break-all">
               {version}
             </Text>
           </Text>

@@ -44,7 +44,7 @@ export const Footer: React.FC = () => (
       </Flex>
     </Flex>
     <Text fontSize="md" textAlign="center">
-      2022 Solidity Team •{' '}
+      2023 Solidity Team •{' '}
       <Link href="https://github.com/ethereum/solidity/blob/develop/CODE_OF_CONDUCT.md">
         Code of Conduct
       </Link>

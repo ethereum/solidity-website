@@ -33,11 +33,6 @@ const overrides = {
     '7xl': '4rem',
   },
   shadows: {},
-  sizes: {
-    container: {
-      xs: '480px',
-    },
-  },
   styles: {
     global: () => ({
       '*': {
@@ -51,6 +46,9 @@ const overrides = {
         transition: 'background 200ms linear !important',
         bg: 'bg',
         color: 'text',
+      },
+      p: {
+        fontSize: 'md',
       },
     }),
   },

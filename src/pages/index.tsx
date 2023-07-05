@@ -100,7 +100,7 @@ export default function Home({
             maxW="container.lg"
           >
             <Box fontSize="2xl" maxW="8ch">
-              <Text fontFamily="mono" color="b" lineHeight="130%">
+              <Text fontFamily="mono" color="primary" lineHeight="130%">
                 Solidity {versionNumber}
               </Text>
             </Box>
@@ -195,7 +195,7 @@ export default function Home({
 
           {/* Latest from the blog */}
           <Section>
-            <Text textStyle="h3">Latest from the blog</Text>
+            <Text textStyle="h3" fontSize="xl">Latest from the blog</Text>
             <BlogSectionPreview postsData={previewBlogPosts} />
           </Section>
 
