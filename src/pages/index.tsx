@@ -68,6 +68,7 @@ export default function Home({
   )
   const nextEvent = futureEvents.length ? futureEvents[0] : null
   const sectionPaddingY = useBreakpointValue({ base: 12, md: 24 })
+  
   return (
     <>
       <PageMetadata

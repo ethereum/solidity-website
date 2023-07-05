@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import { Box, chakra, Flex, shouldForwardProp, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import {
   motion,
   useTransform,
@@ -19,11 +18,6 @@ const labels = [
   'address',
 ]
 
-const MotionDiv = chakra(motion.div, {
-  shouldForwardProp: (prop) =>
-    isValidMotionProp(prop) || shouldForwardProp(prop),
-})
-
 export const PragmaWatermark: React.FC = () => {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 200, 300], [0, 200, 250], {
@@ -37,6 +31,7 @@ export const PragmaWatermark: React.FC = () => {
       top={0}
       insetEnd={8}
       zIndex={-2}
+      aria-hidden
     >
       <motion.aside style={{ y }}>
         {labels.map((label, i) => (
@@ -47,7 +42,7 @@ export const PragmaWatermark: React.FC = () => {
             opacity="5%"
             textAlign="end"
           >
-            <motion.p style={{ lineHeight }}>{label}</motion.p>
+            <motion.p style={{ lineHeight, fontSize: "inherit" }}>{label}</motion.p>
           </Box>
         ))}
       </motion.aside>
