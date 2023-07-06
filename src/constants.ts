@@ -158,6 +158,15 @@ export const TRIANGLE_VARIANTS: TriangleVariants = {
     [2, 1, 0, 'b'],
     [1, 1, 180, 'b'],
   ],
+  mobileSunrise: [
+    [0.75, 0, 0, 'a'],
+    [-1.75, 0, 0, 'd'],
+    [-0.25, 0, 180, 'b'],
+    [1.75, 0, 180, 'b'],
+    [-0.25, 1, 0, 'b'],
+    [1.75, 1, 0, 'b'],
+    [0.75, 1, 180, 'b'],
+  ],
   solidity: [
     [1, 1, 0, 'a'],
     [1, 0, 180, 'c'],
@@ -175,6 +184,12 @@ export const TRIANGLE_VARIANTS: TriangleVariants = {
     [2.5, 0, 0, 'd'],
     [1.5, 0, 0, 'b'],
   ],
+  mobileMountains: [
+    [-0.5, 0, 0, 'd'],
+    [-1.5, 0, 0, 'b'],
+    [0.5, 0, 0, 'a'],
+    [1.5, 0, 0, 'd'],
+  ],
   heap: [
     [-3, 0, 0, 'd'],
     [-1, 0, 0, 'a'],
@@ -186,6 +201,13 @@ export const TRIANGLE_VARIANTS: TriangleVariants = {
     [1, 1, 180, 'a'],
     [2, 1, 0, 'b'],
   ],
+  mobileHeap: [
+    [-1, 1, 0, 'a'],
+    [0, 1, 180, 'b'],
+    [-1, 0, 180, 'd'],
+    [1, 0, 180, 'a'],
+    [1, 1, 0, 'd'],
+  ],
   swan: [
     [-1.5, 0, 180, 'd'],
     [-0.5, 0, 0, 'b'],
@@ -194,11 +216,25 @@ export const TRIANGLE_VARIANTS: TriangleVariants = {
     [1.5, 1, 180, 'b'],
     [2.5, 1, 0, 'a'],
   ],
+  mobileSwan: [
+    [-1.5, 0, 180, 'd'],
+    [-0.5, 0, 0, 'b'],
+    [0.5, 0, 180, 'a'],
+    [0.5, 1, 0, 'd'],
+    [1.5, 1, 180, 'b'],
+    [1.5, 2, 0, 'a'],
+  ],
   defi: [
     [-2.5, 0, 180, 'b'],
     [-0.5, 1, 0, 'a'],
     [1.5, 0, 180, 'd'],
     [2.5, 0, 0, 'b'],
+  ],
+  mobileDefi: [
+    [-1.25, 0, 180, 'b'],
+    [-1.25, 1.25, 0, 'a'],
+    [1.25, 0, 180, 'd'],
+    [1.25, 1.25, 0, 'b'],
   ],
 }
 export const TRIANGLE_WIDTH = 120 as const
@@ -224,6 +260,7 @@ export const USE_CASES: UseCase[] = [
     imageSrc: '/assets/use-case-glyph-1.svg',
     learnMoreLink: `${ETHEREUM_ORG_URL}/defi`,
     triangleVariant: 'defi',
+    mobileTriangleVariant: 'mobileDefi',
   },
   {
     title: 'Non-Fungible Tokens (NFTs)',
@@ -232,6 +269,7 @@ export const USE_CASES: UseCase[] = [
     imageSrc: '/assets/use-case-glyph-2.svg',
     learnMoreLink: `${ETHEREUM_ORG_URL}/nft`,
     triangleVariant: 'swan',
+    mobileTriangleVariant: 'mobileSwan',
   },
   {
     title: 'Decentralized Autonomous Organizations (DAOs)',
@@ -240,6 +278,7 @@ export const USE_CASES: UseCase[] = [
     imageSrc: '/assets/use-case-glyph-3.svg',
     learnMoreLink: `${ETHEREUM_ORG_URL}/dao`,
     triangleVariant: 'heap',
+    mobileTriangleVariant: 'mobileHeap',
   },
   {
     title: 'Gaming and Virtual Worlds',
@@ -247,6 +286,7 @@ export const USE_CASES: UseCase[] = [
       'Solidity has been employed to develop blockchain-based games and virtual worlds with features like asset ownership, in-game economies, and provable scarcity. Projects like Axie Infinity, Decentraland, and Gods Unchained have leveraged Solidity to create immersive gaming experiences with unique digital assets and player interactions.',
     imageSrc: '/assets/use-case-glyph-4.svg',
     triangleVariant: 'mountains',
+    mobileTriangleVariant: 'mobileMountains',
   },
   {
     title: 'Supply Chain and Traceability',
@@ -254,5 +294,6 @@ export const USE_CASES: UseCase[] = [
       'Solidity can be used to create smart contracts that enhance transparency and traceability in supply chain management. By recording transactions and verifying the authenticity of products, Solidity-powered smart contracts can help prevent counterfeiting and improve trust in supply chain processes.',
     imageSrc: '/assets/use-case-glyph-5.svg',
     triangleVariant: 'sunrise',
+    mobileTriangleVariant: 'mobileSunrise',
   },
 ]

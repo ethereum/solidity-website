@@ -110,4 +110,5 @@ export interface UseCase {
   learnMoreLink?: string
   exampleLink?: string
   triangleVariant: VariantName
+  mobileTriangleVariant?: VariantName
 }
