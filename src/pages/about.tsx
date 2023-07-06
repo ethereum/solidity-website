@@ -138,6 +138,12 @@ export default function About() {
             standard library. It supports the creation of complex smart
             contracts with custom data structures, mappings, and enums.
           </FaqItem>
+          <FaqItem question="Can Solidity be used for platforms other than Ethereum?">
+            Solidity is primarily designed for Ethereum, but it has been adopted
+            by other blockchain platforms that are Ethereum Virtual Machine
+            (EVM) compatible. These platforms include Ethereum Classic, Binance
+            Smart Chain, and others.
+          </FaqItem>
           <FaqItem question="How can I learn Solidity?">
             Learning Solidity can be achieved through various online resources,{' '}
             <Link href="https://www.w3schools.io/blockchain/solidity-tutorials/">
@@ -146,6 +152,67 @@ export default function About() {
             , <Link href={DOCS_URL}>documentation</Link>, and{' '}
             <Link href={FORUM_URL}>community forums</Link>. You can engage with
             other developers and learn from their experiences.
+          </FaqItem>
+          <FaqItem question="Is Solidity a secure language?">
+            While Solidity provides features to enhance contract security,
+            writing secure smart contracts requires careful attention and
+            adherence to best practices. Solidity has evolved over time to
+            address vulnerabilities, but developers should stay updated with the
+            latest security considerations and conduct thorough code audits.
+          </FaqItem>
+          <FaqItem question="Can Solidity be used for off-chain computations?">
+            Solidity is primarily focused on on-chain computations within smart
+            contracts. However, it can interact with off-chain systems and
+            oracles to access external data and trigger actions based on that
+            data.
+          </FaqItem>
+          <FaqItem question="Is Solidity backward-compatible?">
+            Solidity strives to maintain backward compatibility, but breaking
+            changes may occur in major language versions. It's important to
+            consider the compiler version and be aware of any deprecated or
+            changed features when working with different Solidity versions.
+          </FaqItem>
+          <FaqItem question="Can I use Solidity for private or permissioned blockchains?">
+            Solidity is primarily designed for public blockchains like Ethereum,
+            but it can also be used for private or permissioned blockchains with
+            Ethereum-like functionality, such as Quorum or Hyperledger Besu.
+          </FaqItem>
+          <FaqItem question="Can Solidity handle financial calculations and complex arithmetic?">
+            Solidity provides built-in support for arithmetic operations,
+            including integers and fixed-point decimals. It can handle financial
+            calculations, but developers should be aware of potential precision
+            and rounding issues when dealing with complex arithmetic.
+          </FaqItem>
+          <FaqItem question="Are there any limitations or challenges in using Solidity?">
+            Solidity, like any programming language, has its limitations and
+            challenges. Some common considerations include gas optimization to
+            reduce transaction costs, avoiding security vulnerabilities, and
+            ensuring proper contract upgradeability and maintenance.
+          </FaqItem>
+          <FaqItem question="Can I write tests for Solidity contracts?">
+            Yes, Solidity contracts can be tested using various testing
+            frameworks like Truffle, Hardhat, and Remix. These frameworks
+            provide tools for writing unit tests, integration tests, and
+            simulation tests to ensure the correctness and functionality of your
+            contracts.
+          </FaqItem>
+          <FaqItem question="Is it possible to debug Solidity contracts?">
+            Solidity contracts can be debugged using specialized tools like
+            Remix IDE, Truffle Debugger, or Hardhat Debugger. These tools allow
+            you to step through your contract code, inspect variables, and
+            identify issues during development and testing.
+          </FaqItem>
+          <FaqItem question="Can Solidity contracts interact with other contracts?">
+            Yes, Solidity contracts can interact with other contracts through
+            function calls and message passing. Contract interactions enable the
+            composition of complex decentralized systems by leveraging the
+            functionalities of multiple contracts.
+          </FaqItem>
+          <FaqItem question="Can Solidity contracts be upgraded or modified after deployment?">
+            It is possible to design contracts for upgradability, but it
+            requires careful consideration of contract architecture and storage
+            layout. Upgrading contracts can be complex and has potential
+            security implications, so it should be approached with{' '}
           </FaqItem>
         </Section>
       </Box>
