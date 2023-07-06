@@ -110,9 +110,9 @@ export default function About() {
             can read more about Solidity&apos;s history here.
           </Text>
           <Text>
-            The Solidity programming language is an <b>open-source</b>, community
-            project governed by a core team. The core team is sponsored by the
-            Ethereum Foundation.
+            The Solidity programming language is an <b>open-source</b>,
+            community project governed by a core team. The core team is
+            sponsored by the Ethereum Foundation.
           </Text>
         </Section>
 
@@ -168,7 +168,7 @@ export default function About() {
           </FaqItem>
           <FaqItem question="Is Solidity backward-compatible?">
             Solidity strives to maintain backward compatibility, but breaking
-            changes may occur in major language versions. It's important to
+            changes may occur in major language versions. It&apos;s important to
             consider the compiler version and be aware of any deprecated or
             changed features when working with different Solidity versions.
           </FaqItem>
@@ -212,7 +212,7 @@ export default function About() {
             It is possible to design contracts for upgradability, but it
             requires careful consideration of contract architecture and storage
             layout. Upgrading contracts can be complex and has potential
-            security implications, so it should be approached with{' '}
+            security implications, so it should be approached with caution.
           </FaqItem>
         </Section>
       </Box>
