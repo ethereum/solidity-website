@@ -53,31 +53,32 @@ export default function About() {
           maxW="container.md"
           py={24}
           mx="auto"
-          fontSize="md"
           bgImg="url(/assets/about-bg.svg)"
           bgRepeat="no-repeat"
           bgPosition="top center"
+          lineHeight={1.8}
         >
           <Text>
-            Solidity is a powerful programming language designed specifically
-            for writing smart contracts on the Ethereum blockchain. With
-            Solidity, developers can define the rules and behavior of
-            decentralized applications (DApps), enabling the creation of
+            <b>Solidity</b> is a powerful programming language designed
+            specifically for writing smart contracts on the Ethereum blockchain.
+            With Solidity, developers can define the rules and behavior of{' '}
+            <b>decentralized applications (DApps)</b>, enabling the creation of
             innovative and secure blockchain-based solutions.
           </Text>
           <Text>
             At its core, Solidity provides a contract-oriented approach,
             allowing developers to encapsulate logic, data, and interactions
-            into self-executing smart contracts. These contracts automate the
-            execution of agreements and transactions, removing the need for
-            intermediaries and enabling decentralized, trustless interactions.
+            into self-executing smart contracts. These contracts guarantee the
+            execution of agreements and transactions,{' '}
+            <b>removing the need for intermediaries</b> and enabling
+            decentralized, trustless interactions.
           </Text>
           <Text>
             Solidity offers a range of features and functionalities tailored for
             blockchain development. Its static typing ensures code integrity and
             reduces common errors by enforcing explicit variable type
             declarations. The language also supports contract modularity and
-            inheritance, enabling code reuse and composability.
+            inheritance, enabling code <b>reuse and composability</b>.
           </Text>
           <Text>
             Security is a paramount concern in blockchain development, and
@@ -88,18 +89,20 @@ export default function About() {
           </Text>
           <Text>
             With Solidity, developers gain access to a thriving ecosystem
-            supported by a passionate community. They can leverage extensive
-            documentation, tutorials, and examples to learn the language and
-            harness its capabilities. Additionally, a wide range of development
-            tools and frameworks, such as Remix IDE and Truffle Suite, make it
+            supported by a passionate community. They can leverage extensive{' '}
+            <b>documentation</b>, <b>tutorials</b>, and <b>examples</b> to learn
+            the language and harness its capabilities. Additionally, a wide
+            range of development tools and frameworks, such as{' '}
+            <Link href="https://remix.ethereum.org">Remix IDE</Link> and{' '}
+            <Link href="https://trufflesuite.com/">Truffle Suite</Link>, make it
             easier to build, test, and deploy Solidity smart contracts.
           </Text>
           <Text>
             Solidity has played a pivotal role in the growth of Ethereum and the
-            blockchain ecosystem. It has been instrumental in enabling
-            decentralized finance (DeFi) applications, non-fungible tokens
-            (NFTs), decentralized exchanges, and various other blockchain-based
-            solutions.
+            blockchain ecosystem. It has been instrumental in enabling{' '}
+            <b>decentralized finance (DeFi)</b> applications,{' '}
+            <b>non-fungible tokens (NFTs)</b>, <b>decentralized exchanges</b>,
+            and various other blockchain-based solutions.
           </Text>
           <Text>
             Solidity was publicly previewed for the first time in November 2014
@@ -107,7 +110,7 @@ export default function About() {
             can read more about Solidity&apos;s history here.
           </Text>
           <Text>
-            The Solidity programming language is an open-source, community
+            The Solidity programming language is an <b>open-source</b>, community
             project governed by a core team. The core team is sponsored by the
             Ethereum Foundation.
           </Text>
