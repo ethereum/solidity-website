@@ -21,7 +21,7 @@ export const BlogHeroChild: React.FC<BlogHeroChildProps> = ({
     <Text
       pe={4}
       borderColor="text"
-      borderInlineEnd={{ base: '0px', sm: '1px' }}
+      borderInlineEnd={{ base: '0px', sm: '2px' }}
       mb={{ base: 4, sm: 0 }}
     >
       {children}

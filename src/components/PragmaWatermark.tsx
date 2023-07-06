@@ -42,7 +42,9 @@ export const PragmaWatermark: React.FC = () => {
             opacity="5%"
             textAlign="end"
           >
-            <motion.p style={{ lineHeight, fontSize: "inherit" }}>{label}</motion.p>
+            <motion.p style={{ lineHeight, fontSize: 'inherit' }}>
+              {label}
+            </motion.p>
           </Box>
         ))}
       </motion.aside>

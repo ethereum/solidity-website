@@ -73,7 +73,7 @@ export const textStyles = {
   'h6-mono': {
     fontFamily: 'mono',
     fontWeight: '700',
-    fontSize: 'lg',
+    fontSize: 'xl',
     color: 'header',
     lineHeight: '1.3',
     textWrap: 'balance',

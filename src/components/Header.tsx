@@ -1,4 +1,10 @@
-import { Box, chakra, Flex, shouldForwardProp, useBreakpointValue } from '@chakra-ui/react'
+import {
+  Box,
+  chakra,
+  Flex,
+  shouldForwardProp,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
 import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID } from '@/constants'
 import {
@@ -37,7 +43,7 @@ export const Header: React.FC = () => {
     scrollY,
     [NAV_PADDING, FINAL_SCROLL_DISTANCE],
     [1.1, 0.25]
-  )  
+  )
   const mobileY = useTransform(scrollY, [0, 1], [0, 0])
   const mobileScale = useTransform(scrollY, [0, 1], [0.25, 0.25])
   const y = useBreakpointValue({ base: mobileY, md: desktopY })
