@@ -11,7 +11,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "export": "next export"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",

@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
+  experimental: { esmExternals: true },
+  images: {
+    unoptimized: true,
+  },
 }
-module.exports = nextConfig
 
 const removeImports = require('next-remove-imports')()
-module.exports = removeImports({
-  experimental: { esmExternals: true },
-})
+module.exports = removeImports(nextConfig)
