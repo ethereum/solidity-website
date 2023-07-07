@@ -78,7 +78,7 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
               sx={{
                 '&:last-of-type': {
                   mb: '0 !important',
-                }
+                },
               }}
             >
               {description}

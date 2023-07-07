@@ -16,11 +16,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
   ...flexProps
 }) => (
   <Flex direction={{ base: 'column', md: 'row' }} py={6} gap={6} {...flexProps}>
-    <Text
-      flex={1}
-      textStyle="h6-mono"
-      color="text"
-    >
+    <Text flex={1} textStyle="h6-mono" color="text">
       {question}
     </Text>
     <Text flex={2}>{children}</Text>
