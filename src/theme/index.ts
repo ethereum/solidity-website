@@ -48,7 +48,8 @@ const overrides = {
         color: 'text',
       },
       p: {
-        fontSize: 'md',
+        lineHeight: '1.7',
+        '&:not(:last-of-type)': { mb: '4' },
       },
     }),
   },

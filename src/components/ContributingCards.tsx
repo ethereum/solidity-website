@@ -40,7 +40,6 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
         md: 'repeat(2, 1fr)',
         lg: 'repeat(4, 1fr)',
       }}
-      rowGap={{ base: 4, lg: 8 }}
       columnGap={8}
       {...props}
     >
@@ -74,7 +73,13 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
             <Text
               gridColumn={gridColumn}
               gridRow={getGridRow(i, 3)}
-              mb={{ base: 14, lg: 0 }}
+              mt={4}
+              mb={{ base: '12 !important', lg: '4 !important' }}
+              sx={{
+                '&:last-of-type': {
+                  mb: '0 !important',
+                }
+              }}
             >
               {description}
             </Text>

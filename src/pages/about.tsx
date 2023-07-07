@@ -20,7 +20,6 @@ const FaqItem: React.FC<FaqItemProps> = ({
       flex={1}
       textStyle="h6-mono"
       color="text"
-      textAlign={{ base: 'start', md: 'end' }}
     >
       {question}
     </Text>
@@ -56,7 +55,6 @@ export default function About() {
           bgImg="url(/assets/about-bg.svg)"
           bgRepeat="no-repeat"
           bgPosition="top center"
-          lineHeight={1.8}
         >
           <Text>
             <b>Solidity</b> is a powerful programming language designed

@@ -208,7 +208,7 @@ export default function Home({
           </ShowcaseSection>
 
           {/* Latest from the blog */}
-          <Section>
+          <Section px={0}>
             <Text textStyle="h3" fontSize="xl">
               Latest from the blog
             </Text>
@@ -267,8 +267,8 @@ export default function Home({
           </ShowcaseSection>
 
           {/* Past events */}
-          <Section gap={6}>
-            <Text fontSize="xl" color="primary">
+          <Section gap={6} px={0}>
+            <Text as="h3" fontSize="xl" color="primary" fontWeight="bold">
               Past events
             </Text>
             <EventPreview events={allEvents} />

@@ -17,7 +17,7 @@ export const Footer: React.FC = () => (
       alignItems={{ base: 'start', md: 'center' }}
       gap={1}
     >
-      <Text fontFamily="mono" fontSize="xl" color="secondary" fontWeight="bold">
+      <Text fontFamily="mono" fontSize="md" color="secondary" fontWeight="bold">
         Get involved
       </Text>
       <SocialLinks />
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => (
       alignItems={{ base: 'start', md: 'center' }}
       gap={1}
     >
-      <Text fontFamily="mono" fontSize="xl" color="secondary" fontWeight="bold">
+      <Text fontFamily="mono" fontSize="md" color="secondary" fontWeight="bold">
         Discover more
       </Text>
       <Flex
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => (
         ))}
       </Flex>
     </Flex>
-    <Text fontSize="md" textAlign="center">
+    <Text fontSize="lg" textAlign="center">
       2023 Solidity Team •{' '}
       <Link href="https://github.com/ethereum/solidity/blob/develop/CODE_OF_CONDUCT.md">
         Code of Conduct

@@ -81,7 +81,7 @@ export const textStyles = {
   body: {
     fontFamily: 'body',
     fontWeight: 'regular',
-    fontSize: 'sm',
+    fontSize: 'md',
     color: 'text',
   },
   link: {
