@@ -1,4 +1,11 @@
-import { Box, Flex, Grid, Icon, Text, useBreakpointValue } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Grid,
+  Icon,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import type { UseCase } from '@/interfaces'
 import { ButtonLink, Triangles } from '@/components'
@@ -32,11 +39,8 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({
       bgRepeat="no-repeat"
       bgPosition="top center"
       {...props}
-      >
-      <Grid placeItems="center" p={4}
-        maxW="100%"
-        overflow="visible"
-      >
+    >
+      <Grid placeItems="center" p={4} maxW="100%" overflow="visible">
         <Triangles variant={variant as string | number} />
       </Grid>
       <Box>

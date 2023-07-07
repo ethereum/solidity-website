@@ -137,6 +137,7 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
         borderRadius="none"
         onChange={onSelectionChange}
         w="fit-content"
+        aria-label="Contract selector"
       >
         <option value="helloWorld">Hello World!</option>
         <option value="erc20">ERC20</option>
