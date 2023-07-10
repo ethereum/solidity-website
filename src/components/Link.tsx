@@ -34,8 +34,7 @@ export const Link: React.FC<LinkComponentProps> = ({
           hideArrow
             ? {}
             : {
-                content: '"↗"',
-                ms: 1,
+                content: '" ↗"',
                 whiteSpace: 'nowrap',
               }
         }
