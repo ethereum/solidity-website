@@ -1,4 +1,5 @@
 export * from './BlogCard'
+export * from './BlogCategories'
 export * from './BlogHero'
 export * from './BlogHeroChild'
 export * from './BlogPost'

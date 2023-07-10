@@ -18,6 +18,8 @@ const Pill: React.FC<PillProps> = ({ category, ...boxProps }) => (
     fontFamily="mono"
     fontWeight="bold"
     textTransform="uppercase"
+    whiteSpace="nowrap"
+    pt={0.5}
     _groupHover={{
       bg: 'primary',
       color: 'bg',
