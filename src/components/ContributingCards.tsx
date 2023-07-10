@@ -5,6 +5,7 @@ import {
   Divider,
   useBreakpointValue,
 } from '@chakra-ui/react'
+import { Fragment } from 'react'
 
 interface ContributingCard {
   title: string
@@ -55,7 +56,7 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
           lg: `${Math.floor(i / 4) * 3 + n}`,
         })
         return (
-          <>
+          <Fragment key={title}>
             <Text
               textStyle="h6-mono"
               color="secondary"
@@ -83,7 +84,7 @@ export const ContributingCards: React.FC<GridProps> = (props) => {
             >
               {description}
             </Text>
-          </>
+          </Fragment>
         )
       })}
     </Grid>

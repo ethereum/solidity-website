@@ -19,7 +19,7 @@ export const BlogPostListSection: React.FC<BlogProps> = ({
   >
     <Grid
       templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }}
-      columnGap={16} /* rowGap={24} */
+      columnGap={16}
     >
       {allPostsData.map(({ frontmatter, content, url }, i) => {
         const isFeatured = page === 1 && i === 0

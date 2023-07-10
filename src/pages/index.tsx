@@ -162,10 +162,8 @@ export default function Home({
           <ShowcaseSection startWithVisual px={0}>
             <ShowcaseContent title="Contribute to Solidity">
               <Text>
-                You can see the upcoming changes for the next breaking release
-                by switching from the default branch (<Code>develop</Code>) to
-                the <Code>breaking branch</Code>. Shape Solidity by providing
-                your input and participating in the language design.
+                Solidity continues to improve with help from a global community. Check out these ways to get 
+                involved and contribute to the Solidity project.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
