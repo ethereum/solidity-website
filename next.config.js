@@ -1,15 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
-  basePath: '/solidity-website',
+  output: 'standalone',
   experimental: { esmExternals: true },
   images: {
     unoptimized: true,
-  },
-  env: {
-    PUBLIC_URL: 'https://wackerow.github.io/solidity-website',
-    assetPrefix: './',
   },
 }
 
