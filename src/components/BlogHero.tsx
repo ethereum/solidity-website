@@ -2,7 +2,7 @@ import { Text } from '@chakra-ui/react'
 import type { FlexProps } from '@chakra-ui/react'
 import { CategoryPill, Section } from '@/components'
 import type { BlogPostFrontmatter, NavLink } from '@/interfaces'
-import { formatDateString } from '@/utils'
+import { getBlogSubtitle } from '@/utils'
 
 interface BlogHeroProps extends FlexProps {
   frontmatter: BlogPostFrontmatter
@@ -25,7 +25,7 @@ export const BlogHero: React.FC<BlogHeroProps> = ({
         {title}
       </Text>
       <Text color="primary" mb={6}>
-        Posted by {author} on {formatDateString(date)}
+        {getBlogSubtitle(author, date)}
       </Text>
       <CategoryPill category={category} mb={0} />
     </Section>

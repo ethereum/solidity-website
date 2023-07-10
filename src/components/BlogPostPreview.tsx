@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react'
 import { CategoryPill, Link } from '@/components'
 import { BlogPostProps } from '@/interfaces'
-import { formatDateString } from '@/utils'
+import { getBlogSubtitle } from '@/utils'
 
 interface BlogPostPreviewProps extends BlogPostProps {
   isCategoryPage?: boolean
@@ -30,7 +30,7 @@ export const BlogPostPreview: React.FC<BlogPostPreviewProps> = ({
         </Text>
       </Link>
       <Text color="primary" mb={6}>
-        Posted by {author} on {formatDateString(date)}
+        {getBlogSubtitle(author, date)}
       </Text>
       <CategoryPill category={category} skipLink={isCategoryPage} />
       <Text mb={4} maxW="container.md">

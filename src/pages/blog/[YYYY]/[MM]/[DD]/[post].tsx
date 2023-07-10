@@ -5,7 +5,7 @@ import { ParsedUrlQuery } from 'querystring'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { BlogHero, BlogPost, PageMetadata, PostNavigation } from '@/components'
 import { BLOG_POSTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
-import { getPostParamsFromFilename, getPostURL } from '@/utils'
+import { getBlogSubtitle, getPostParamsFromFilename, getPostURL } from '@/utils'
 import type { PostPath, BlogPostProps } from '@/interfaces'
 
 // Generate the paths for each event
@@ -52,9 +52,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({
   <>
     <PageMetadata
       title={frontmatter.title}
-      description={`Posted by ${frontmatter.author} on ${new Date(
-        frontmatter.date
-      ).toLocaleDateString()}`}
+      description={getBlogSubtitle(frontmatter.author, frontmatter.date)}
     />
     <Box as="main" id={MAIN_CONTENT_ID} px={{ base: 4, md: 8 }}>
       <BlogHero frontmatter={frontmatter} />

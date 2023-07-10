@@ -1,7 +1,7 @@
 import { Flex, type FlexProps, Text } from '@chakra-ui/react'
 import { Link } from '@/components'
 import type { BlogPostProps } from '@/interfaces'
-import { formatDateString } from '@/utils'
+import { getBlogSubtitle } from '@/utils'
 
 interface BlogCardProps extends FlexProps {
   blogPost: BlogPostProps
@@ -25,7 +25,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         </Text>
       </Link>
       <Text color="primary" mb={6}>
-        Posted by {author} on {formatDateString(date)}
+        {getBlogSubtitle(author, date)}
       </Text>
       <Text mb={4}>{content}</Text>
       <Link href={url}>Read more</Link>
