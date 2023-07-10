@@ -126,6 +126,7 @@ export const Header: React.FC = () => {
               boxSizing="content-box"
               borderBottom="1px"
               borderColor="transparent"
+              fontSize="sm"
               _hover={{
                 color: 'primary',
                 borderColor: 'primary',
