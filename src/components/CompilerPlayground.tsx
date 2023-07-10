@@ -169,6 +169,7 @@ export const CompilerPlayground: React.FC<FlexProps> = (props) => {
           flex={1}
           maxW="100%"
           textOverflow="ellipsis"
+          sx={{ p: { mb: 0 } }}
         >
           <Text fontWeight="bold" fontSize="lg">
             Compiler result
