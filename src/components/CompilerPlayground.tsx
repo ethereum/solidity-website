@@ -27,8 +27,9 @@ const ResultTextarea: React.FC<TextareaProps> = (props) => (
     p={2}
     minH={{ base: '200px', md: 'unset' }}
     borderRadius="none"
-    {...props}
     borderWidth="2px"
+    borderColor="border"
+    {...props}
   />
 )
 interface CompilerResult {
