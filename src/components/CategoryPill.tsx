@@ -19,7 +19,6 @@ const Pill: React.FC<PillProps> = ({ category, ...boxProps }) => (
     fontWeight="bold"
     textTransform="uppercase"
     whiteSpace="nowrap"
-    pt={0.5}
     _groupHover={{
       bg: 'primary',
       color: 'bg',
@@ -43,7 +42,7 @@ export const CategoryPill: React.FC<CategoryPillProps> = ({
   ...boxProps
 }) =>
   skipLink ? (
-    <Pill category={category} mb={mb ?? 2} {...boxProps} />
+    <Pill category={category} mb={mb ?? 4} {...boxProps} />
   ) : (
     <Link
       href={CATEGORIES_PATH_MAP[category]}
