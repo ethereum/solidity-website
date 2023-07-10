@@ -12,3 +12,6 @@ sitemap*.xml
 
 # Robots.txt
 robots.txt
+
+# Build folder
+build
