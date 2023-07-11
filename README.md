@@ -1,38 +1,159 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![](./public/assets/solidity-logo.svg)
 
-## Getting Started
+# Solidity Lang Website
 
-First, run the development server:
+Welcome to the codebase for the Solidity Lang website!
+
+Homepage: [https://soliditylang.org](https://soliditylang.org)
+
+## Soliditylang.org website stack
+
+- [Node.js](https://nodejs.org/)
+- [Yarn package manager](https://yarnpkg.com/cli/install)
+- [React](https://reactjs.org/) - A JavaScript library for building component-based user interfaces
+- [Typescript](https://www.typescriptlang.org/) - TypeScript is a strongly typed programming language that builds on JavaScript
+- [Chakra UI](https://chakra-ui.com/) - A UI library (Migration in progress)
+- [GitHub Actions](https://github.com/features/actions) - Manages CI/CD, and issue tracking
+
+## Local environment setup
+
+Ensure you're using the correct version of Node.js:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+nvm use
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or see [.nvmrc](.nvmrc) for correct version.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Install dependencies:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+yarn
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Run the development server:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-To learn more about Next.js, take a look at the following resources:
+## API keys (optional)
+
+This site used a GitHub read-only API key to fetch some data from the GitHub API. To enable this functionality, first create you `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Go to [GitHub Personal Access Tokens](https://github.com/settings/tokens?type=beta) and generate a "fine-grained" personal access token, with "Public Repositories (read-only)" selected and nothing else. Copy the token and paste it into your `.env` file for `GITHUB_TOKEN_READ_ONLY`.
+
+## Code structure
+
+| Folder                   | Primary use                                                                                     |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| `/src`                   | Main source folder for development                                                              |
+| `/src/components`        | React components that do not function as standalone pages                                       |
+| `/src/events`            | Markdown files for **events**                                                                   |
+| `/src/hooks`             | Custom React hooks                                                                              |
+| `/src/pages`             | React components that function as standalone pages and will create URL paths                    |
+| `/src/posts`             | Markdown files for **blog posts**                                                               |
+| `/src/styles`            | Custom style declarations                                                                       |
+| `/src/theme`             | Declares site color themes, breakpoints and other constants (try to utilize these colors first) |
+| `/src/theme/foundations` | Theme foundations imported by theme config at `/src/theme`                                      |
+| `/src/utils`             | Custom utility scripts                                                                          |
+| `/src/constants.ts`      | Declares all constants that are used throughout the site.                                       |
+| `/src/interfaces.ts`     | Declared interfaces and types for to be used throughout the site                                |
+| `/public`                | Storage for assets that will be available at URL path after build                               |
+| `/public/assets`         | General image assets                                                                                    |
+| `/public/img`            | Image assets used in blog posts                                                                 |
+
+## Events
+
+Front matter from markdown files contained within `/src/events` is used to populate event cards, using the following interface:
+
+```ts
+export interface EventFrontmatter {
+  title: string
+  location: string
+  startDate: string
+  endDate: string
+  imageSrc?: string
+  links?: EventLink[]
+}
+```
+
+(See [src/interfaces.ts](src/interfaces.ts) for canonical `EventFrontmatter` interface.)
+
+The date properties are used to display recent events and next upcoming events on the homepage.
+
+### Event example
+
+```md
+---
+title: Solidity Summit 2023
+location: Istanbul, Turkey
+startDate: 2023-11-16
+endDate: 2023-11-16
+imageSrc: /assets/solidity-summit-2023.png
+links:
+  - label: Join us
+    href: https://summit.soliditylang.org
+---
+
+Intro text
+
+## First header as h2
+
+...
+```
+
+## Blog entries
+
+- Blog posts should be markdown files, stored in the `/src/post` folder
+- Filename must take the pattern of `YYYY-MM-DD-chosen-post-title.md`
+- Front matter should take the shape of the following interface:
+  ```ts
+  export interface BlogPostFrontmatter {
+    layout?: string
+    title: string
+    date: string
+    author: string
+    category: Category
+  }
+  ```
+  (See [src/interfaces.ts](src/interfaces.ts) for canonical `BlogPostFrontmatter` interface.)
+- `Category` must take one of the following values:
+  - `Releases`
+  - `Security Alerts`
+  - `Announcements`
+  - `Explainers`
+    (See [src/constants.ts](src/constants.ts) and [src/interfaces.ts](src/interfaces.ts) for canonical `Category` enum.)
+- `title` property will be displayed automatically as an `<h1>` (`#` in markdown), and should not be included in the markdown body—start document header levels from `<h2>` (`##`)
+- `date` property should be in `YYYY-MM-DD` format
+- MDX/JSX is not currently supported
+- Images can be placed in a corresponding folder within `/public/img` and references using `![alt text](/img/chosen-folder/image-name.png)`
+
+### Blog post example
+
+```md
+---
+title: 'Solidity 0.8.20 Release Announcement'
+date: '2023-05-10'
+author: Solidity Team
+category: Releases
+---
+
+Intro text
+
+## First header as h2
+
+...
+```
+
+## Learn more about the stack
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Chakra UI Documentation](https://chakra-ui.com/docs/getting-started) - learn about Chakra UI features and API.
