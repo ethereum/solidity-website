@@ -19,7 +19,7 @@ export const TWITTER_HANDLE = '@solidity_lang' as const
 // Navigation constants
 export const NAV_HEIGHT = 72 as const
 export const BLOG_PATH = '/blog' as const
-export const DOCS_URL = 'https://solidity-docs-dev.readthedocs.io' as const // TODO: Revert back to 'https://docs.soliditylang.org/' for production launch
+export const DOCS_URL = 'https://docs.soliditylang.org' as const
 export const USE_CASES_PATH = '/use-cases' as const
 export const ABOUT_PATH = '/about' as const
 export const EVENTS_PATH = '/events' as const
