@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Solidity Lang Blog</title>
+        <link>https://soliditylang.org</link>
+        <description></description>
+        <lastBuildDate>Tue, 11 Jul 2023 20:10:26 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Solidity Lang Blog</title>
+            <url>https://soliditylang.org/assets/solidity-logo.svg</url>
+            <link>https://soliditylang.org</link>
+        </image>
+        <copyright>All rights reserved 2023</copyright>
+        <item>
+            <title><![CDATA[Solidity Developer Survey 2022 Results]]></title>
+            <link>https://soliditylang.org//blog/2023/03/10/solidity-developer-survey-2022-results</link>
+            <guid>https://soliditylang.org//blog/2023/03/10/solidity-developer-survey-2022-results</guid>
+            <pubDate>Fri, 10 Mar 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[The 2022 Solidity Developer Survey results are in! In this post, we will be summarizing and analyzing them.  First of all, a big thank you to everybody who took the time and participated and to everybody who helped us spread the word about it! This year, we received a...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Developer Survey 2022 is Live!]]></title>
+            <link>https://soliditylang.org//blog/2022/12/07/solidity-developer-survey-2022-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/12/07/solidity-developer-survey-2022-announcement</guid>
+            <pubDate>Wed, 07 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[It’s that time of the year. Drumroll, please! 🥁🥁🥁 We are launching the Solidity Developer Survey 2022!  Before we wrap up 2022 for good, we want to reach out to collect your feedback and insights so we can improve on it!  📝 TAKE THE SURVEY! 📝  You...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Core Team Updates]]></title>
+            <link>https://soliditylang.org//blog/2022/12/05/solidity-core-team-updates</link>
+            <guid>https://soliditylang.org//blog/2022/12/05/solidity-core-team-updates</guid>
+            <pubDate>Mon, 05 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[More than two years have passed since we introduced Solidity core team members on the blog and we realized it is high time for some updates: Meet new team members, find out who moved on to other adventures and learn about recent changes in the team structure!  Before we...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Summit 2022 Recap]]></title>
+            <link>https://soliditylang.org//blog/2022/05/03/solidity-summit-2022-recap</link>
+            <guid>https://soliditylang.org//blog/2022/05/03/solidity-summit-2022-recap</guid>
+            <pubDate>Tue, 03 May 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[We can't believe it's already been two weeks since we met in Amsterdam for the second Solidity Summit!  Solidity Summit 2022 was part of Devconnect and took place on Wednesday, April 20, 2022.  With roughly 250 participants, the event was well attended. In addition, approximately 400 people joined...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Announcing the Winners of the Underhanded Solidity Contest 2022]]></title>
+            <link>https://soliditylang.org//blog/2022/04/08/announcing-the-underhanded-contest-winners-2022</link>
+            <guid>https://soliditylang.org//blog/2022/04/08/announcing-the-underhanded-contest-winners-2022</guid>
+            <pubDate>Sat, 09 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[The time has come to share this year's winners of the Underhanded Solidity Contest!  Before we dive into the winning submissions, let's revisit the most important features of the USC:  In a nutshell, the USC is about finding loopholes or “hiding spots” in the Solidity language and using...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Summit 2022 Goes Amsterdam]]></title>
+            <link>https://soliditylang.org//blog/2022/02/22/solidity-summit-2022-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/02/22/solidity-summit-2022-announcement</guid>
+            <pubDate>Tue, 22 Feb 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Solidity Summit is finally back! After a first virtual Solidity Summit in 2020, we are excited to announce an in-person event for 2022!  Solidity Summit 2022 is part of Devconnect and will happen on Wednesday, April 20 2022, in Amsterdam.  What is the Solidity Summit?  The...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Underhanded Solidity Contest 2022]]></title>
+            <link>https://soliditylang.org//blog/2022/02/09/underhanded-solidity-contest-2022-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/02/09/underhanded-solidity-contest-2022-announcement</guid>
+            <pubDate>Wed, 09 Feb 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[The long wait is over: The Underhanded Solidity Contest is back with a 2022 edition!  After a successful revival in 2020, we believe it's time for the great Solidity minds to get together again and compete over the next big underhanded hack!  In case you're new to this,...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Developer Survey 2021 Results]]></title>
+            <link>https://soliditylang.org//blog/2022/02/07/solidity-developer-survey-2021-results</link>
+            <guid>https://soliditylang.org//blog/2022/02/07/solidity-developer-survey-2021-results</guid>
+            <pubDate>Mon, 07 Feb 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[In this post, we will be summarizing and analyzing the results of the 2021 Solidity Developer Survey.  A big thank you goes out to everybody who took the time and participated!  Your input is invaluable to us and plays a crucial role in helping to continuously improve the...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Developer Survey 2021 is Live!]]></title>
+            <link>https://soliditylang.org//blog/2021/11/18/solidity-developer-survey-2021</link>
+            <guid>https://soliditylang.org//blog/2021/11/18/solidity-developer-survey-2021</guid>
+            <pubDate>Thu, 18 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Today, we launched the Solidity Developer Survey 2021. Please all take 10 minutes to participate and let us know your feedback!  This marks the second time we are conducting a structured big developer survey. You can find the results of last year's Solidity developer survey here.  Shape the...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Solidity Version Collectibles & Community Governance 💎]]></title>
+            <link>https://soliditylang.org//blog/2021/04/01/announcing-solidity-collectibles</link>
+            <guid>https://soliditylang.org//blog/2021/04/01/announcing-solidity-collectibles</guid>
+            <pubDate>Thu, 01 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[⚠️ Attention: This post is an April Fools' Day joke. Please consume it at your own risk. We will not distribute any Solidity NFTs in the foreseeable future. Stay safe.  Today, we are excited to announce a little surprise we’ve been working on silently for the last couple of...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Launching the Solidity Forum 🗃️]]></title>
+            <link>https://soliditylang.org//blog/2021/02/01/launching-the-solidity-forum</link>
+            <guid>https://soliditylang.org//blog/2021/02/01/launching-the-solidity-forum</guid>
+            <pubDate>Mon, 01 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[In our effort to foster exchange of information, encourage more developers to give feedback about Solidity and join the discussions on language design and future direction of the compiler, we are happy to launch the Solidity forum today!  Moving forward the Solidity forum will be the dedicated place to...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Developer Survey 2020 Results]]></title>
+            <link>https://soliditylang.org//blog/2021/01/26/solidity-developer-survey-2020-results</link>
+            <guid>https://soliditylang.org//blog/2021/01/26/solidity-developer-survey-2020-results</guid>
+            <pubDate>Tue, 26 Jan 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Before we dive into the results we want to extend a big thank you to all of the Solidity developers that participated in the very first Solidity Developer Survey, which we conducted at the end of last year!  We were overwhelmed by the high quality of the submissions and...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Launching the Solidity Developer Survey 2020]]></title>
+            <link>https://soliditylang.org//blog/2020/12/09/solidity-developer-survey-2020</link>
+            <guid>https://soliditylang.org//blog/2020/12/09/solidity-developer-survey-2020</guid>
+            <pubDate>Wed, 09 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Today we are launching the Solidity Developer Survey 2020. It is the first time we share a proper language survey and we hope to turn this into an annual tradition moving forward.  You might remember the small feedback survey we did this year as part of the Solidity Summit...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Announcing the Winners of the Underhanded Solidity Contest 👨‍💻🏅]]></title>
+            <link>https://soliditylang.org//blog/2020/12/03/solidity-underhanded-contest-winners</link>
+            <guid>https://soliditylang.org//blog/2020/12/03/solidity-underhanded-contest-winners</guid>
+            <pubDate>Thu, 03 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[After thorough assessment of all submissions, we are happy to share the winners of this year's Underhanded Solidity Contest!  If you are not familiar with it, please read the announcement from September.  Before we dive into the winning submissions, we'd like to thank all participants for taking part....]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Ask the Solidity Team Anything #1 Recap]]></title>
+            <link>https://soliditylang.org//blog/2020/11/04/solidity-ama-1-recap</link>
+            <guid>https://soliditylang.org//blog/2020/11/04/solidity-ama-1-recap</guid>
+            <pubDate>Wed, 04 Nov 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[We hosted our very first Solidity team AMA on Reddit last week! We would like to take the opportunity to summarize the most interesting and most upvoted questions & answers in this post.  If you are interested in going through the full AMA thread you can do so here....]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[The Underhanded Solidity Contest is back!]]></title>
+            <link>https://soliditylang.org//blog/2020/09/21/solidity-underhanded-contest</link>
+            <guid>https://soliditylang.org//blog/2020/09/21/solidity-underhanded-contest</guid>
+            <pubDate>Mon, 21 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're excited to share that the Underhanded Solidity Contest is finally back!  Inspired by the Underhanded C Contest and the first Underhanded Solidity Contest, organized in 2017 by Nick Johnson, we decided it is time for a much needed revival.  Underhanded Solidity Contest  The goal of this...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Meet the Solidity team! 🧑‍💻👩‍💻]]></title>
+            <link>https://soliditylang.org//blog/2020/09/18/meet-the-team</link>
+            <guid>https://soliditylang.org//blog/2020/09/18/meet-the-team</guid>
+            <pubDate>Fri, 18 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[As you might know, Solidity is an open-source community project mainly developed and maintained by a core team.  Today, we would like to introduce some of our team members and share insights into their professional background, which components of Solidity they mostly work on, what they would like to...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity v0.1.0 turns 5! A walk down memory lane...]]></title>
+            <link>https://soliditylang.org//blog/2020/07/08/solidity-turns-5</link>
+            <guid>https://soliditylang.org//blog/2020/07/08/solidity-turns-5</guid>
+            <pubDate>Wed, 08 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.1.0 turns 5  With happiness and a tad of nostalgia, we'd like to share that Solidity v0.1.0 turns 5 years old today! (To be fair, v0.1.0 wasn't an actual release, but it marks the time where the Solidity team started appointing version numbers.) We are puzzled over how...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Wrapping up the Virtual Solidity Summit 2020]]></title>
+            <link>https://soliditylang.org//blog/2020/06/09/solidity-summit-recap</link>
+            <guid>https://soliditylang.org//blog/2020/06/09/solidity-summit-recap</guid>
+            <pubDate>Tue, 09 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Roughly one month ago, we held the first Solidity Summit - a free interactive forum with discussions and talks on Solidity, Yul, language design and tooling. It took place on April 29-30 and was powered by a virtual meeting infrastructure based on open-source, self-hosted Jitsi video chat rooms. The platform...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Sourcify: Towards Safer Contract Interaction for Humans]]></title>
+            <link>https://soliditylang.org//blog/2020/06/02/Sourcify-Towards-Safer-Contract-Interaction-for-Humans</link>
+            <guid>https://soliditylang.org//blog/2020/06/02/Sourcify-Towards-Safer-Contract-Interaction-for-Humans</guid>
+            <pubDate>Tue, 02 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[tl;dr: Building sensible blockchain applications for humans is hard. You can enhance the user experience of your dapp today by leveraging the power of open source. Increase awareness and give more transparency on what users are actually doing when interacting with your code on the blockchain, i.e. when signing a...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity Summit 2020 Goes Interspace]]></title>
+            <link>https://soliditylang.org//blog/2020/04/17/Solidity-Summit-2020-Goes-Interspace</link>
+            <guid>https://soliditylang.org//blog/2020/04/17/Solidity-Summit-2020-Goes-Interspace</guid>
+            <pubDate>Fri, 17 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Tl;dr: As already announced on Twitter, we transformed the Solidity Summit, which was initially planned to be an in-person meeting in Berlin, into an online event. Today, we are excited to share that the summit will be powered by Interspace.Chat. Interspace is a virtual meeting infrastructure based on self-hosted Jitsi...]]></description>
+            <category>Announcements</category>
+        </item>
+        <item>
+            <title><![CDATA[Dev Update: Formal Methods]]></title>
+            <link>https://soliditylang.org//blog/2016/09/01/formal-methods-roadmap</link>
+            <guid>https://soliditylang.org//blog/2016/09/01/formal-methods-roadmap</guid>
+            <pubDate>Thu, 01 Sep 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This post was originally published on the Ethereum blog.  Today, I am delighted to announce that Yoichi Hirai (@pirapira on github) is joining the Ethereum project as a formal verification engineer. He holds a PhD from the University of Tokyo on the topic of formalizing communicating parallel processes and...]]></description>
+            <category>Announcements</category>
+        </item>
+    </channel>
+</rss>

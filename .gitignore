@@ -5,13 +5,10 @@ node_modules
 .env
 
 # rss feeds
-feed.xml
+# feed.xml
 
 # Sitemaps
-sitemap*.xml
+# sitemap*.xml
 
 # Robots.txt
-robots.txt
-
-# Build folder
-build
+# robots.txt

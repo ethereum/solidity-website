@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Solidity Lang Blog</title>
+        <link>https://soliditylang.org</link>
+        <description></description>
+        <lastBuildDate>Tue, 11 Jul 2023 20:10:26 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Solidity Lang Blog</title>
+            <url>https://soliditylang.org/assets/solidity-logo.svg</url>
+            <link>https://soliditylang.org</link>
+        </image>
+        <copyright>All rights reserved 2023</copyright>
+        <item>
+            <title><![CDATA[Feature Deep-Dive: User-Defined Operators]]></title>
+            <link>https://soliditylang.org//blog/2023/02/22/user-defined-operators</link>
+            <guid>https://soliditylang.org//blog/2023/02/22/user-defined-operators</guid>
+            <pubDate>Wed, 22 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[The highlight of Solidity 0.8.19 release is the support for defining operators on user-defined value types (UDVTs).  If you have not been keeping up with recent features, UDVTs are a new class of types introduced in Solidity 0.8.8. They provide an abstraction over an elementary value type that results...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[User Defined Value Types in Solidity]]></title>
+            <link>https://soliditylang.org//blog/2021/09/27/user-defined-value-types</link>
+            <guid>https://soliditylang.org//blog/2021/09/27/user-defined-value-types</guid>
+            <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.8 introduces user defined value types as a means to create zero-cost abstractions over an elementary value type that also increases type safety and improves readability.  Motivation  A problem with primitive value types is that they are not very descriptive: they only specify how the data is...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[What Happened with Solidity-related Domains?]]></title>
+            <link>https://soliditylang.org//blog/2021/05/03/soliditylangorg-umbrella-domain</link>
+            <guid>https://soliditylang.org//blog/2021/05/03/soliditylangorg-umbrella-domain</guid>
+            <pubDate>Mon, 03 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Some time ago we decided to get a domain that the Solidity team has easy access to in order to streamline efforts and initiatives that were hosted on other domains before.  And so soliditylang.org was born! 🎉  We announced most of these domain changes individually on Twitter, but...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Custom Errors in Solidity]]></title>
+            <link>https://soliditylang.org//blog/2021/04/21/custom-errors</link>
+            <guid>https://soliditylang.org//blog/2021/04/21/custom-errors</guid>
+            <pubDate>Wed, 21 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Starting from Solidity v0.8.4, there is a convenient and gas-efficient way to explain to users why an operation failed through the use of custom errors. Until now, you could already use strings to give more information about failures (e.g., revert("Insufficient funds.");), but they are rather expensive, especially when it comes...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Saving Gas with Simple Inlining]]></title>
+            <link>https://soliditylang.org//blog/2021/03/02/saving-gas-with-simple-inliner</link>
+            <guid>https://soliditylang.org//blog/2021/03/02/saving-gas-with-simple-inliner</guid>
+            <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.2 adds a simple inliner to the low-level optimizer of Solidity. In this post, we examine how it works and take a look at synergies with other steps of the optimizer.  Low-Level Inliner  The Low-Level Inliner is a component of the low-level optimizer of the Solidity compiler....]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Contributing to Solidity 101]]></title>
+            <link>https://soliditylang.org//blog/2021/02/15/contributing-to-solidity-101</link>
+            <guid>https://soliditylang.org//blog/2021/02/15/contributing-to-solidity-101</guid>
+            <pubDate>Mon, 15 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Solidity programming language is an open-source project governed by a core team. We rely on the community’s feedback, input and contributions to make the language as effective, safe and useful as possible.  In this post, we will walk you through the various different ways how you can get...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[An Introduction to Solidity's Fuzz Testing Approach]]></title>
+            <link>https://soliditylang.org//blog/2021/02/10/an-introduction-to-soliditys-fuzz-testing-approach</link>
+            <guid>https://soliditylang.org//blog/2021/02/10/an-introduction-to-soliditys-fuzz-testing-approach</guid>
+            <pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Security vulnerabilities and bugs detract from software quality. To discover them early, at best before they are released, we have adopted fuzz testing: feeding randomly generated programs to the Solidity compiler and observing the compilation runtime and code generated.  Since Q1 2019, the Solidity compiler is fuzz tested via...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[All you need to know about Sourcify]]></title>
+            <link>https://soliditylang.org//blog/2020/06/25/sourcify-faq</link>
+            <guid>https://soliditylang.org//blog/2020/06/25/sourcify-faq</guid>
+            <pubDate>Thu, 25 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Welcome to Sourcify's first short FAQ! If your questions around source verification haven't been answered after reading this post, please feel free to drop by the Sourcify Gitter channel and ask us any question there. Also stay tuned on more turorials and developer focused content to follow here and on...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.x features: inheritance]]></title>
+            <link>https://soliditylang.org//blog/2020/06/18/solidity-0.6-inheritance</link>
+            <guid>https://soliditylang.org//blog/2020/06/18/solidity-0.6-inheritance</guid>
+            <pubDate>Thu, 18 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Similar to object-oriented programming in Solidity - a contract-oriented language - the inheritance and polymorphism features are as widely adopted and critical for the language evolution. There is hardly any Solidity developer who hasn't used these language features in their contracts to decouple logic and increase code reuse. With version...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.x features: Array Slices]]></title>
+            <link>https://soliditylang.org//blog/2020/05/26/array-slices</link>
+            <guid>https://soliditylang.org//blog/2020/05/26/array-slices</guid>
+            <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Starting from version 0.6.0, Solidity supports array slices. Array slices are handy when you want to reference a contiguous portion of an array but do not want to perform a full copy of that portion. For now, array slices are only supported for calldata arrays.  How to use Array...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.x features: Saving Storage Costs with Immutables]]></title>
+            <link>https://soliditylang.org//blog/2020/05/13/immutable-keyword</link>
+            <guid>https://soliditylang.org//blog/2020/05/13/immutable-keyword</guid>
+            <pubDate>Wed, 13 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[With version 0.6.5, Solidity introduced the immutable keyword for state variables. Immutable state variables can only be assigned during contract creation, but will remain constant throughout the life-time of a deployed contract. The big advantage of immutables is that reading them is significantly cheaper than reading from regular state variables,...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.x features: fallback and receive functions]]></title>
+            <link>https://soliditylang.org//blog/2020/03/23/fallback-receive-split</link>
+            <guid>https://soliditylang.org//blog/2020/03/23/fallback-receive-split</guid>
+            <pubDate>Thu, 26 Mar 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[In versions of Solidity before 0.6.x, developers typically used the fallback function to handle logic in two scenarios:  contract received ether and no data contract received data but no function matched the function called  The main use case of the pre-0.6.x fallback function is to receive ether and...]]></description>
+            <category>Explainers</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.x features: try/catch statement]]></title>
+            <link>https://soliditylang.org//blog/2020/01/29/solidity-0.6-try-catch</link>
+            <guid>https://soliditylang.org//blog/2020/01/29/solidity-0.6-try-catch</guid>
+            <pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[This post was originally published on the Ethereum blog.  The try/catch syntax introduced in 0.6.0 is arguably the biggest leap in error handling capabilities in Solidity, since reason strings for revert and require were released in v0.4.22. Both try and catch have been reserved keywords since v0.5.9 and now...]]></description>
+            <category>Explainers</category>
+        </item>
+    </channel>
+</rss>

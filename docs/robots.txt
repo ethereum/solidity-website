@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://soliditylang.org
+
+# Sitemaps
+Sitemap: https://soliditylang.org/sitemap.xml

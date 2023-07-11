@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Solidity Lang Blog</title>
+        <link>https://soliditylang.org</link>
+        <description></description>
+        <lastBuildDate>Tue, 11 Jul 2023 20:10:26 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>Solidity Lang Blog</title>
+            <url>https://soliditylang.org/assets/solidity-logo.svg</url>
+            <link>https://soliditylang.org</link>
+        </image>
+        <copyright>All rights reserved 2023</copyright>
+        <item>
+            <title><![CDATA[Solidity 0.8.20 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2023/05/10/solidity-0.8.20-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2023/05/10/solidity-0.8.20-release-announcement</guid>
+            <pubDate>Wed, 10 May 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are excited to announce the latest release of the Solidity Compiler, Solidity v0.8.20. This latest version includes a range of improvements in the via-IR pipeline and improves the list of events exposed in the contract ABI, and, most importantly, support for the Shanghai hard fork!  Important Note ...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.19 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2023/02/22/solidity-0.8.19-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2023/02/22/solidity-0.8.19-release-announcement</guid>
+            <pubDate>Wed, 22 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are excited to announce the latest release of the Solidity Compiler, Solidity v0.8.19. This latest version includes a range of improvements and it also introduces the support for defining operators on user-defined value types (UDVTs)! You can learn about it at length in our feature deep-dive blogpost.  Notable...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.18 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2023/02/01/solidity-0.8.18-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2023/02/01/solidity-0.8.18-release-announcement</guid>
+            <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Introducing the newest version of the Solidity Compiler!  We are excited to announce the latest release of the Solidity Compiler, Solidity v0.8.18. This latest version includes a range of improvements and it also introduces support for the Paris upgrade!  Notable New Features  These are the features we...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.17 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2022/09/08/solidity-0.8.17-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/09/08/solidity-0.8.17-release-announcement</guid>
+            <pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.17 fixes an important bug, makes overflow checks on multiplication more efficient and adds an LSP feature to always analyze all files in a project.  Important Bugs  Storage Write Removal Bug On Conditional Early Termination  The bug may result in storage writes being incorrectly considered redundant...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.16 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2022/08/08/solidity-0.8.16-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/08/08/solidity-0.8.16-release-announcement</guid>
+            <pubDate>Mon, 08 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.16 fixes an important bug.  The bug may result in small parts of dynamic tuple components being inadvertently zeroed during ABI re-encoding when the last component is a statically-sized uint or bytes32 calldata array. See Head Overflow Bug in Calldata Tuple ABI-Reencoding for more information.  Apart from...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.15 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2022/06/15/solidity-0.8.15-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/06/15/solidity-0.8.15-release-announcement</guid>
+            <pubDate>Wed, 15 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.15 fixes two important bugs, improves inlining heuristics and adds a .selector member for errors and events.  Important Bugs  The first one is an optimizer bug that can lead to memory write operations in inline assembly being removed if the result of such an operation is not...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.14 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2022/05/17/solidity-0.8.14-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/05/17/solidity-0.8.14-release-announcement</guid>
+            <pubDate>Wed, 18 May 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.14 fixes two important bugs.  The first one is related to ABI-encoding nested arrays directly from calldata. You can find more information in the blog post.  The second bug is triggered in certain inheritance structures and can cause a memory pointer to be interpreted as a calldata...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.13 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2022/03/16/solidity-0.8.13-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/03/16/solidity-0.8.13-release-announcement</guid>
+            <pubDate>Wed, 16 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.13 fixes an important bug related to abi.encodeCall, extends the using for directive and implements "go to definition" for the language server.  Furthermore, compiling via the new Yul IR pipeline is now considered production ready.  Important Bugs  When abi.encodeCall was introduced in Solidity 0.8.11, hex literals...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.12 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2022/02/16/solidity-0.8.12-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2022/02/16/solidity-0.8.12-release-announcement</guid>
+            <pubDate>Wed, 16 Feb 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.12 improves the JavaScript / Wasm binary and fixes several bugs.  Notable New Features  Emscripten Build / solc-js  We were able to reduce the size of the JavaScript / WebAssembly binaries from 27 MB to just over 8 MB. The reason for the large binary in...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.11 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/12/20/solidity-0.8.11-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/12/20/solidity-0.8.11-release-announcement</guid>
+            <pubDate>Mon, 20 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.11 adds a first implementation of a Language Server, allows a safer way to perform ABI-encoding and fixes several bugs.  Notable New Features  Language Server Preview  Language Server Protocol is an initiative that allows better interoperability between IDEs and compilers, or more generally, language diagnostics tools....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.10 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/11/09/solidity-0.8.10-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/11/09/solidity-0.8.10-release-announcement</guid>
+            <pubDate>Tue, 09 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.10 can now report contract invariants and reentrancy properties through the SMTChecker. It also contains some new optimizations with regards to external function calls and enables the new EVM code generator for pure Yul mode.  Notable New Features  New EVM Code Transform for Compilation via Yul IR...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.9 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/09/29/solidity-0.8.9-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/09/29/solidity-0.8.9-release-announcement</guid>
+            <pubDate>Wed, 29 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.9 is a pure bugfix release and fixes two important, but low severity, bugs.  The first bug is related to immutables of signed integer types shorter than 256 bits. The bug causes sign extension (cleanup) of those values to not always being properly performed. It was introduced in...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.8 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/09/27/solidity-0.8.8-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/09/27/solidity-0.8.8-release-announcement</guid>
+            <pubDate>Mon, 27 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.8 introduces user defined value types as a major feature. The override keyword is now optional for interface functions, immutable variables can be read in the constructor, there is support for retrieving the smallest and largest value of an enum, you can specify include directories and the commandline interface...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.7 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/08/11/solidity-0.8.7-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/08/11/solidity-0.8.7-release-announcement</guid>
+            <pubDate>Wed, 11 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.7 introduces support for the London upgrade, includes various improvements to Yul to EVM code transformation, the SMTChecker and some bugfixes.  Please note: Unfortunately, the npm package of this version is corrupted. Pulling the solc-js repository directly will work.  Support for London Upgrade  Solidity adds support...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/06/22/solidity-0.8.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/06/22/solidity-0.8.6-release-announcement</guid>
+            <pubDate>Tue, 22 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.6 fixes some non-critical but annoying bugs, especially a warning about unreachable code that is in fact reachable.  Bugfixes  Unreachable Warning  With Solidity 0.8.5, we released a new feature that detects if code is unreachable because a called function always reverts before the code is executed....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/06/10/solidity-0.8.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/06/10/solidity-0.8.5-release-announcement</guid>
+            <pubDate>Thu, 10 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.5 allows conversions from bytes to bytesNN values, adds the verbatim builtin function to inject arbitrary bytecode in Yul and fixes several smaller bugs.  Notable New Features  Bytes Conversion  Find the complete feature documentation here.  This release introduces the ability to convert bytes and bytes...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/04/21/solidity-0.8.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/04/21/solidity-0.8.4-release-announcement</guid>
+            <pubDate>Wed, 21 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.4 adds custom structured errors, bytes.concat(...), allows more flexible configuration of the SMT checker and fixes a bug in the Solidity ABI decoder v2.  Important Bugfixes:  On April 5th, 2021, a bug in the Solidity ABI decoder v2 was reported by John Toman of the Certora development...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/03/23/solidity-0.8.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/03/23/solidity-0.8.3-release-announcement</guid>
+            <pubDate>Tue, 23 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.3 fixes the Solidity Optimizer Keccak Caching Bug, which is present in all prior versions of Solidity, and, in addition, includes two improvements to the optimizer which can provide a big gas benefit when writing structs that cover a full storage slot to storage.  Important Bugfixes  Solidity...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/03/02/solidity-0.8.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/03/02/solidity-0.8.2-release-announcement</guid>
+            <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.2 adds an optimizer stage that can inline small amounts of code to save gas and provides more means to work with code documentation by exporting inline comments and allowing custom natspec tags.  Notable New Features  Inliner  This release adds a simple inliner to the low-level...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2021/01/27/solidity-0.8.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2021/01/27/solidity-0.8.1-release-announcement</guid>
+            <pubDate>Wed, 27 Jan 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.8.1 introduces many new features for the SMTChecker (see below), updates the emscripten version for building soljson.js to 2.0.12, allows to catch panic errors and adds other small improvements.  Notable New Features  SMTChecker Counterexamples and Synthesis of External Functions  The SMTChecker already reports transaction traces as...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/12/16/solidity-v0.8.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/12/16/solidity-v0.8.0-release-announcement</guid>
+            <pubDate>Wed, 16 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity 0.8.0 is a breaking release of the Solidity compiler and language.  Some of the new features of this release have been elaborated in the 0.8.x preview release post. Please consider the preview release binary superseded and do not use it anymore.  Notable New Features and Changes ...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/12/16/solidity-0.7.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/12/16/solidity-0.7.6-release-announcement</guid>
+            <pubDate>Wed, 16 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.7.6 adds better support for calldata types. Furthermore, the fallback function can now have a parameter and explicitly return data.  Notable New Features  Detection of Overflowing Unicode Direction Markers  The winning entry in the Solidity Underhanded Contest used a clever combination of Unicode direction markers to...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/11/18/solidity-0.7.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/11/18/solidity-0.7.5-release-announcement</guid>
+            <pubDate>Wed, 18 Nov 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.7.5 adds the ability so select the ABI coder via pragma abicoder v1 and pragma abicoder v2 in preparation for making ABI coder v2 the default for 0.8.0 and introduces --experimental-via-ir which compiles via the new experimental Yul-based compiler pipeline.  Full Changelog  Language Features:  Ability to...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.8.x Preview Release]]></title>
+            <link>https://soliditylang.org//blog/2020/10/28/solidity-0.8.x-preview</link>
+            <guid>https://soliditylang.org//blog/2020/10/28/solidity-0.8.x-preview</guid>
+            <pubDate>Wed, 28 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[With the Solidity 0.8.x series being just around the corner, we would like to provide insights into the upcoming breaking changes that will come with it.  We want to provide a preview release binary for everyone to try out so that you can give your feedback.  The main...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/10/19/solidity-0.7.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/10/19/solidity-0.7.4-release-announcement</guid>
+            <pubDate>Mon, 19 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.7.4 fixes a storage corruption bug of medium severity. To learn more about the bug and to check if your contract is vulnerable please read this post with further details about the bug. The bug has been reported by John Toman of the Certora development team.  Additionally, v0.7.4...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/10/07/solidity-0.7.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/10/07/solidity-0.7.3-release-announcement</guid>
+            <pubDate>Wed, 07 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.7.3 fixes a bug in the dynamic-array cleanup. To learn more about the bug and check if your contract is vulnerable please read this post with further details about the bug. Additionally, v0.7.3 adds the option to stop compilation after the parsing stage using solc --stop-after parsing.  Important...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/09/28/solidity-0.7.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/09/28/solidity-0.7.2-release-announcement</guid>
+            <pubDate>Mon, 28 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.7.2 fixes a bug in free functions, which had been introduced with v0.7.1, and adds compiler-generated utility file export. Furthermore, it comes with a considerably broadened language support of the SMTChecker.  Important Bugfixes  Free Function Overloading Checks  Free functions were introduced in the previous release (Solidity...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/09/02/solidity-0.7.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/09/02/solidity-0.7.1-release-announcement</guid>
+            <pubDate>Wed, 02 Sep 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.7.1 adds functions at file-level and fixes several small bugs.  Notable New Features  Functions At File-Level  Functions can now be defined at file-level. Such functions are called "free functions" (as opposed to functions bound to a specific contract).  Free functions are always internal functions and...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.7.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/07/28/solidity-v0.7.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/07/28/solidity-v0.7.0-release-announcement</guid>
+            <pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity 0.7.0 is a breaking release of the Solidity compiler and language.  This release does not include many features but rather changes that require a backwards-incompatible adjustment in syntax or semantics. For a detailed explanation, please see the documentation.  Most notably, further cleanup of visibility and state mutability...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.12 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/07/22/Solidity-0612-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/07/22/Solidity-0612-release-announcement</guid>
+            <pubDate>Wed, 22 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.6.12 adds more flexibility when using inheritance with NatSpec comments and introduces many small improvements to the optimizer.  Notable New Features  NatSpec Inheritance  As explained in the Solidity 0.6.11 release announcement, NatSpec comments are now inherited automatically if you do not provide any NatSpec in the...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.11 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/07/07/Solidity-0611-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/07/07/Solidity-0611-release-announcement</guid>
+            <pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.6.11 adds inheritance to NatSpec comments, improves debugging data output and fixes some minor issues with opening up calldata for non-external functions.  Notable New Features  NatSpec Inheritance and on Events  NatSpec comments are a way to describe the behaviour of a function to end-users. It also...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.10 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/06/11/Solidity-0610-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/06/11/Solidity-0610-release-announcement</guid>
+            <pubDate>Thu, 11 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.6.10 fixes an important bug that was introduced in the previous release and adds error codes.  Please upgrade if you are using internal library functions with calldata parameters in connection with using for.  Important Bugfixes  Invalid Access for Calldata Parameters in Internal Library Functions  Problem:...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.9 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/06/05/Solidity-069-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/06/05/Solidity-069-release-announcement</guid>
+            <pubDate>Fri, 05 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.6.9 adds SMT-checking to solc-js, allows calldata for all variables and provides a mechanism to specify an import directory.  Please note that the solc-js / soljson binary includes the Z3 SMT solver built-in, which causes an increase in the binary size.  Notable New Features  SMTChecker ...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.8 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/05/14/Solidity-068-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/05/14/Solidity-068-release-announcement</guid>
+            <pubDate>Thu, 14 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.6.8 fixes three important bugs in the code generator and introduces a recommendation to use SPDX license identifiers. Furthermore, support for WebAssembly has been extended and it is now possible to access the min and max values of an integer type directly.  Please upgrade if you are using...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.7 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/05/04/solidity-0.6.7-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/05/04/solidity-0.6.7-release-announcement</guid>
+            <pubDate>Mon, 04 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity v0.6.7 introduces support for EIP-165 via type(InterfaceName).interfaceId.  Language Features:  Add support for EIP 165 interface identifiers with type(I).interfaceId. Allow virtual modifiers inside abstract contracts to have empty body.  Compiler Features:  Optimizer: Simplify repeated AND and OR operations. Option to specify optimization steps to be performed...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/04/09/solidity-0.6.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/04/09/solidity-0.6.6-release-announcement</guid>
+            <pubDate>Thu, 09 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a small bugfix release that solves an issue with certain tuple assignments.  Important Bugfixes:  Fix tuple assignments with components occupying multiple stack slots and different stack size on left- and right-hand-side.  Bugfixes:  AST export: Export immutable property in the field mutability. SMTChecker: Fix internal...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/04/06/solidity-0.6.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/04/06/solidity-0.6.5-release-announcement</guid>
+            <pubDate>Mon, 06 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Version 0.6.5 of Solidity fixes an important bug and introduces immutable as a major feature.  The bug concerns the allocation of dynamic memory arrays using e.g. new uint. The bug is considered to have a severity level of "low" but is present in all prior versions of Solidity. Therefore,...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.17 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/03/17/solidity-0.5.17-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/03/17/solidity-0.5.17-release-announcement</guid>
+            <pubDate>Tue, 17 Mar 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[This maintenance release of the 0.5.x series fixes a bug that was always present in the compiler. Some people do not even consider it a bug, though, which might explain why it was undiscovered for so long:  A private function can be overridden in a derived contract by a...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/03/10/solidity-0.6.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/03/10/solidity-0.6.4-release-announcement</guid>
+            <pubDate>Tue, 10 Mar 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Version 0.6.4 of Solidity fixes a bug that did not allow calling base contract functions directly, another bug that caused issues with variable scoping in try/catch and it allows for greater flexibility with regards to storage: It is now possible to set storage slots for storage reference variables from inline...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/02/18/solidity-0.6.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/02/18/solidity-0.6.3-release-announcement</guid>
+            <pubDate>Tue, 18 Feb 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release adds reason strings for compiler-generated reverts if you specify revert-strings debug or use the setting settings.debug.revertStrings = "debug". Furthermore, contract types and enums are now allowed as keys for mappings and the doxygen-style comments are better supported by the AST.  Language Features:  Allow contract types and...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/01/27/solidity-0.6.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/01/27/solidity-0.6.2-release-announcement</guid>
+            <pubDate>Mon, 27 Jan 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[After long discussions, we finally enabled a high-level way to use the create2 opcode introduced in Constantinople: When creating a contract, you can specify the salt as a "function call option": new Contract{salt: 0x1234}(arg1, arg2). We took this opportunity and also extended the use of these function call options to...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/01/02/solidity-0.6.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/01/02/solidity-0.6.1-release-announcement</guid>
+            <pubDate>Thu, 02 Jan 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes a bug in the Yul optimizer related to break and continue statements in loops. The Yul optimizer is part of the regular optimizer since version 0.6.0. In version 0.5.x, you had to explicitly activate the Yul optimizer in addition to the regular optimizer. The Yul optimizer only...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.16 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2020/01/02/solidity-0.5.16-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2020/01/02/solidity-0.5.16-release-announcement</guid>
+            <pubDate>Thu, 02 Jan 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes a bug in the Yul optimizer. You are only affected if you manually enabled the Yul optimizer (not the regular optimizer) and either used Yul stand-alone or via ABIEncoderV2. For more details, please see buglist.json.  Bugfixes:  Yul Optimizer: Fix bug in redundant assignment remover in...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.6.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/12/17/solidity-0.6.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/12/17/solidity-0.6.0-release-announcement</guid>
+            <pubDate>Tue, 17 Dec 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a major breaking release of the Solidity compiler and language. Changes include explicit virtual and override keywords in inheritance, support for try/catch, splitting the fallback function into a receive Ether function and an actual fallback function and limitations on how the length of an array can be changed,...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.15 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/12/17/solidity-0.5.15-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/12/17/solidity-0.5.15-release-announcement</guid>
+            <pubDate>Tue, 17 Dec 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes a bug that was introduced in 0.5.14 (the previous release). You are only affected if you manually enabled the Yul optimizer (not the regular optimizer) and either used Yul stand-alone or via ABIEncoderV2. For more details, please see buglist.json.  Bugfixes:  Yul Optimizer: Fix incorrect redundant...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.14 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/12/09/solidity-0.5.14-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/12/09/solidity-0.5.14-release-announcement</guid>
+            <pubDate>Mon, 09 Dec 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity 0.5.14 sets the default EVM version to "Istanbul" and is targeted as the last release in the 0.5.x series.  The SMT checker supports constructors now and it is possible to directly translate EVM-flavoured Yul to Ewasm from the commandline interface.  Language Features:  Allow to obtain the...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.13 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/11/14/solidity-0.5.13-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/11/14/solidity-0.5.13-release-announcement</guid>
+            <pubDate>Thu, 14 Nov 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Solidity 0.5.13 provides Istanbul-EVM compatibility (default is still set to Petersburg), is the first version to generate Ethereum-Webassembly (EWasm) binary output (not fully working yet, though), improves the developer experience by listing potential overloads when resolution fails and can output the layout of the storage variables of a contract. As...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.12 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/10/01/solidity-0.5.12-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/10/01/solidity-0.5.12-release-announcement</guid>
+            <pubDate>Tue, 01 Oct 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a small bugfix release that also includes loop support for the SMT solver and some improvements to the Yul optimizer. The reason for the smaller feature set is that we are mainly working on the upcoming 0.6.0 release.  Language Features:  Type Checker: Allow assignment to external...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.11 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/08/12/solidity-0.5.11-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/08/12/solidity-0.5.11-release-announcement</guid>
+            <pubDate>Mon, 12 Aug 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes a bug related to calldata structs in ABIEncoderV2 and calldata decoding in V1. Several internal bugs of the SMT checker are fixed. Furthermore, internal types are added to the ABI output which allows you to see which struct type is behind an ABI tuple. Finally, Yul and...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.10 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/06/25/solidity-0.5.10-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/06/25/solidity-0.5.10-release-announcement</guid>
+            <pubDate>Tue, 25 Jun 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apart from further invisible work on the Yul optimizer, the Solidity to Yul code generation, the eWasm backend and the SMT checker, this release contains two important bug fixes related to storage arrays.  For details see our earlier blog post.  It also contains an experimental mode that allows...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.9 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/05/28/solidity-0.5.9-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/05/28/solidity-0.5.9-release-announcement</guid>
+            <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[As in previous releases, we spent most of the time making Solidity future-proof by further working on the Yul optimizer, the Solidity to Yul (and eWasm) translator and the SMT Checker.  Code generated from Solidity now always includes the version number in the CBOR metadata so that it becomes...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.8 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/04/30/solidity-0.5.8-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/04/30/solidity-0.5.8-release-announcement</guid>
+            <pubDate>Tue, 30 Apr 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes important but very unlikely bugs and further completes ABIEncoderV2, SMTChecker and Yul and improves the optimizer.  Notably, if ABIEncoderV2 is activated, the ABI decoder will now revert on input with dirty higher order bits instead of ignoring those bits.  Important Bugfixes:  Code Generator: Fix...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.26 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/04/29/solidity-0.4.26-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/04/29/solidity-0.4.26-release-announcement</guid>
+            <pubDate>Mon, 29 Apr 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a bugfix release for the 0.4.x series that contains backported fixes for important bugs that affected code generation. It also contains a fix that makes the emscripten target compatible with newer browser versions.  Important Bugfixes:  Code Generator: Fix initialization routine of uninitialized internal function pointers in...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.7 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/03/26/solidity-0.5.7-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/03/26/solidity-0.5.7-release-announcement</guid>
+            <pubDate>Tue, 26 Mar 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release mainly fixes bugs in the optimizer and in the experimental ABI encoder. For details about the bug, please see the official announcement.  Furthermore, this release also allows you to use Yul as a language option (instead of "Solidity") in the standard-json-interface.  Important Bugfixes:  ABIEncoderV2: Fix...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/03/13/solidity-0.5.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/03/13/solidity-0.5.6-release-announcement</guid>
+            <pubDate>Wed, 13 Mar 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release mainly fixes an optimizer bug related to multiple shift opcodes that was introduced in the previous release. It is unlikely that any existing contracts are affected, but you should still not use Solidity 0.5.5.  Apart from that, the support for calldata structs and arrays by ABIEncoderV2 is...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/03/05/solidity-0.5.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/03/05/solidity-0.5.5-release-announcement</guid>
+            <pubDate>Tue, 05 Mar 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release focuses on the stabilization of the ABIEncoderV2 and the optimizer. We also prepared for the Petersburg release which is the default EVM now and improved the SMT checker, such that it now reports less false positives when using SafeMath. You can now activate the experimental Yul optimizer using...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/02/12/solidity-0.5.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/02/12/solidity-0.5.4-release-announcement</guid>
+            <pubDate>Tue, 12 Feb 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release adds support for calldata structs and packed encoding with ABIEncoderV2. We also introduced some changes to the C API and added support for continuous fuzzing via Google oss-fuzz. In addition to that, we added a new commandline option for improved (colorized) diagnostics formatting.  Language Features:  Allow...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2019/01/22/solidity-0.5.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2019/01/22/solidity-0.5.3-release-announcement</guid>
+            <pubDate>Tue, 22 Jan 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release adds support for accessing the code of a contract type, which will hopefully make the new CREATE2 opcode easier to use. We also added some static analysis features to the compiler, but most changes were done "under the hood" to pave the way for using the new Yul-based...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/12/19/solidity-0.5.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/12/19/solidity-0.5.2-release-announcement</guid>
+            <pubDate>Wed, 19 Dec 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release of the Solidity compiler includes several performance optimizations. These include faster compilation time but also cheaper contracts in some situations. This version also checks for all instances of uninitialized storage references, has some improved error messages and other checks.  You can now create complete contracts in Yul...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/12/03/solidity-0.5.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/12/03/solidity-0.5.1-release-announcement</guid>
+            <pubDate>Mon, 03 Dec 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release improves the usability of interfaces, fixes some bugs, extends the SMT checker and provides an early preview of the Yul optimizer.  A big thank you to all contributors who helped make this release possible!  Download the new version of Solidity here....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.5.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/11/13/solidity-0.5.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/11/13/solidity-0.5.0-release-announcement</guid>
+            <pubDate>Tue, 13 Nov 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a major breaking release of the Solidity language and compiler that includes many new safety features. In general, programmers have to be more explicit, some weird edge-cases are removed from the language and the low-level compiler interface is much simpler.  This release was long overdue and as...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.25 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/09/13/solidity-0.4.25-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/09/13/solidity-0.4.25-release-announcement</guid>
+            <pubDate>Thu, 13 Sep 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixed a cleanup error concerning the exponentiation operator. It is a bugfix-only release and does not contain any features. A more detailed description of the bugs fixed can be found on the ethereum blog.  Note that nightly builds of Solidity currently contain changes unrelated to this bugfix...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.24 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/05/16/solidity-0.4.24-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/05/16/solidity-0.4.24-release-announcement</guid>
+            <pubDate>Wed, 16 May 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[All remaining breaking changes planned for version 0.5.0 that can be implemented in a backwards-compatible way made it into this release. Solidity can now detect uninitialized storage pointers using control-flow analysis. It is again possible to assign multiple return values from a function to newly declared variables and the SMT...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.23 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/04/19/solidity-0.4.23-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/04/19/solidity-0.4.23-release-announcement</guid>
+            <pubDate>Thu, 19 Apr 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Bugfix release: In the previous release, it was possible to define two constructors (one using the new constructor-keyword syntax, another one with the old syntax) for a contract, but only one of them got used in the end. We also included other bugfixes.  A big thank you to all...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.22 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/04/17/solidity-0.4.22-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/04/17/solidity-0.4.22-release-announcement</guid>
+            <pubDate>Tue, 17 Apr 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release features several major and long-awaited changes:  It is now possible to access dynamic data (arrays, strings, etc) returned by function calls. You can specify error reason strings for revert and require (support by tooling is still pending). We added the global functions abi.encode(), abi.encodePacked(), abi.encodeWithSelector() and abi.encodeWithSignature()...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.21 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/03/08/solidity-0.4.21-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/03/08/solidity-0.4.21-release-announcement</guid>
+            <pubDate>Thu, 08 Mar 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[We again introduced several changes that are scheduled for version 0.5.0 and can be activated using pragma experimental "v0.5.0";. In this release, this pragma does not generate a warning anymore, so you can (and should) use it in production code.  In addition to that, you can now specify which...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.20 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2018/02/14/solidity-0.4.20-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2018/02/14/solidity-0.4.20-release-announcement</guid>
+            <pubDate>Wed, 14 Feb 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release includes some usability and security improvements and a further evolution of the SMT component. The var keyword has been deprecated for security reasons.  Significant steps were made in writing optimisation stages for the intermediate language, which will be used by the new ABI encoder to produce highly...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.19 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/11/30/solidity-0.4.19-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/11/30/solidity-0.4.19-release-announcement</guid>
+            <pubDate>Thu, 30 Nov 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[In the last weeks, we have mainly been working on big internal changes. One of them is the new ABI decoder, which is still in experimental mode, but will hopefully be production-usable soon. External contributions like allowing constant variables for array lengths and improved error messages should make your life...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.18 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/10/18/solidity-0.4.18-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/10/18/solidity-0.4.18-release-announcement</guid>
+            <pubDate>Wed, 18 Oct 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release adds further backwards-incompatible security measures enabled via pragma experimental "v0.5.0"; and contains another important feature: You can now select to compile only certain contracts using the outputSelection field of the standard-json-io compiler interface, which should speed up tools like truffle tremendously.  There are also two important bug...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.17 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/09/21/solidity-0.4.17-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/09/21/solidity-0.4.17-release-announcement</guid>
+            <pubDate>Thu, 21 Sep 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[As we are getting closer to the next breaking release, we want to give everyone a heads up by introducing pragma experimental "v0.5.0" which already enables some of the new safety features of the 0.5.0 release.  Furthermore, this release finally checks the modifiers view (used to be named constant)...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.16 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/08/24/solidity-0.4.16-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/08/24/solidity-0.4.16-release-announcement</guid>
+            <pubDate>Thu, 24 Aug 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release introduces several new features, some of which have to be explicitly activated using pragma experimental ;.  We split the constant keyword for functions into pure (neither reads from nor writes to the state) and view (does not modify the state). They are not enforced yet, but will...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.15 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/08/08/solidity-0.4.15-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/08/08/solidity-0.4.15-release-announcement</guid>
+            <pubDate>Tue, 08 Aug 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is mainly a bugfix release that corrects a problem with the return value of the low-level delegatecall function and removes some invalid warning messages.  Features:  Type Checker: Show unimplemented function if trying to instantiate an abstract class.  Bugfixes:  Code Generator: .delegatecall() should always return execution...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.14 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/07/31/solidity-0.4.14-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/07/31/solidity-0.4.14-release-announcement</guid>
+            <pubDate>Mon, 31 Jul 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release contains several new features and bugfixes and also an important security fix: The ecrecover function can be forced to return invalid data, which can be used to bypass authentication in very special circumstances.  Features:  C API (jsonCompiler): Export the license method. Code Generator: Optimise the fallback...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.13 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/07/06/solidity-0.4.13-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/07/06/solidity-0.4.13-release-announcement</guid>
+            <pubDate>Thu, 06 Jul 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a small bugfix release that fixes several trivial but very annoying bugs that were introduced with 0.4.12. We also deprecate some old features in preparation of the breaking release 0.5.0.  Features:  Syntax Checker: Deprecated throw in favour of require(), assert() and revert(). Type Checker: Warn if...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.12 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/07/03/solidity-0.4.12-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/07/03/solidity-0.4.12-release-announcement</guid>
+            <pubDate>Mon, 03 Jul 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release introduces the AST export, solidifies inline assembly, introduces some more warnings and fixes several bugs.  Manual jumps in assembly are deprecated in favour of the structured constructs switch, for and function calls also to provide better portability in the future.  Features:  Assembly: Add CREATE2 (EIP86),...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.11 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/05/03/solidity-0.4.11-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/05/03/solidity-0.4.11-release-announcement</guid>
+            <pubDate>Wed, 03 May 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes a bug in the optimizer (more about this on the blog), introduces the standard JSON interface, adds interface contracts and implements some additional safety checks.  The standard JSON interface provides a unified way to invoke the Solidity compiler in order to ease cross-platform adoption and compilation...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.10 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/03/15/solidity-0.4.10-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/03/15/solidity-0.4.10-release-announcement</guid>
+            <pubDate>Wed, 15 Mar 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release is focused on stability and also introduces some new smart contract safety features: require, assert and transfer. Note that the new revert function will only be gas-efficient starting from homestead.  Features:  Add assert(condition), which throws if condition is false (meant for internal errors). Add require(condition), which...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.9 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/01/31/solidity-0.4.9-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/01/31/solidity-0.4.9-release-announcement</guid>
+            <pubDate>Tue, 31 Jan 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release fixes quite some bugs and also adds several new features.  Things to look out for:  To disambiguate contracts and libraries of the same name in different files, everything is now prefixed by "filename:". This applies to the compiler output, the linker input and other things. Internal...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.8 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2017/01/13/solidity-0.4.8-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2017/01/13/solidity-0.4.8-release-announcement</guid>
+            <pubDate>Fri, 13 Jan 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  Optimiser: Performance improvements. Output: Print assembly in new standardized Solidity assembly format.  Bugfixes:  Remappings: Prefer longer context over longer prefix. Type checker, code generator: enable access to events of base contracts' names. Imports: import ".dir/a" is not a relative path. Relative paths begin with directory ....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.7 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/12/15/solidity-0.4.7-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/12/15/solidity-0.4.7-release-announcement</guid>
+            <pubDate>Thu, 15 Dec 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  Bitshift operators. Type checker: Warn when msg.value is used in non-payable function. Code generator: Inject the Swarm hash of a metadata file into the bytecode. Code generator: Replace expensive memcpy precompile by simple assembly loop. Optimizer: Some dead code elimination.  Bugfixes:  Code generator: throw if calling...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/11/22/solidity-0.4.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/11/22/solidity-0.4.6-release-announcement</guid>
+            <pubDate>Tue, 22 Nov 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[Bugfixes:  Optimizer: Knowledge about state was not correctly cleared for JUMPDESTs  Swarm hash of js compiler: bzzr:/b873fa122233c91b1531527c390f6ca49df4d2a2c5f75706f4b612a0c813cb6a  A big thank you to all contributors who helped make this release possible!  Download the new version of Solidity here....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/11/21/solidity-0.4.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/11/21/solidity-0.4.5-release-announcement</guid>
+            <pubDate>Mon, 21 Nov 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This Solidity release adds function types. Use-cases include supplying callbacks for asynchronous or off-chain operations or generic library features (for example map-reduce-style programming). This release also improves the safety of enums and sending Ether to a contract constructor.  Features:  Function types Do-while loops: support for a do ...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/11/01/solidity-0.4.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/11/01/solidity-0.4.4-release-announcement</guid>
+            <pubDate>Tue, 01 Nov 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a bugfix release that fixes a storage corruption that appears when multiple variables are stored in the same slot (details).  Bugfixes:  Type checker: forbid signed exponential that led to an incorrect use of EXP opcode. Code generator: properly clean higher order bytes before storing in storage....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/10/25/solidity-0.4.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/10/25/solidity-0.4.3-release-announcement</guid>
+            <pubDate>Tue, 25 Oct 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a real bugfix release as you can see from the changelog below. The most important fix concerns the optimizer which generated invalid code connected to the SHA3 opcode in certain situations.  Features:  Inline assembly: support both suicide and selfdestruct opcodes   (note: suicide is deprecated)....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/09/17/solidity-0.4.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/09/17/solidity-0.4.2-release-announcement</guid>
+            <pubDate>Sat, 17 Sep 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[Bugfixes:  Code Generator: Fix library functions being called from payable functions. Type Checker: Fixed a crash about invalid array types. Code Generator: Fixed a call gas bug that became visible after   version 0.4.0 for calls where the output is larger than the input.  A big thank...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/09/09/solidity-0.4.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/09/09/solidity-0.4.1-release-announcement</guid>
+            <pubDate>Fri, 09 Sep 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is a bugfix release that fixes an error when compiling libraries with the latest version 0.4.0.  A big thank you to all contributors who helped make this release possible!  Download the new version of Solidity here....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.4.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/09/08/solidity-0.4.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/09/08/solidity-0.4.0-release-announcement</guid>
+            <pubDate>Thu, 08 Sep 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[Note: Version 0.4.0 is unable to compile libraries. Please upgrade to 0.4.1.  This release deliberately breaks backwards compatibility mostly to enforce some safety features. The most important change is that you have to explicitly specify if functions can receive ether via the payable modifier. Furthermore, more situations cause exceptions...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/08/10/solidity-0.3.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/08/10/solidity-0.3.6-release-announcement</guid>
+            <pubDate>Wed, 10 Aug 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is the first release from the new "solidity-standalone" repository. It does not have dependencies to cpp-ethereum anymore and can be built just from the solidity github repository.  Note that the optimizer was disabled in some situations which could lead to larger (but correcter) code.  Features:  Formal...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/06/10/solidity-0.3.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/06/10/solidity-0.3.5-release-announcement</guid>
+            <pubDate>Fri, 10 Jun 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  Context-dependent path remappings (different modules can use the same library in different versions)  Bugfixes:  Type Checking: Dynamic return types were removed when fetching data from external calls, now they are replaced by an "unusable" type. Type Checking: Overrides by constructors were considered making a function non-abstract....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/05/31/solidity-0.3.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/05/31/solidity-0.3.4-release-announcement</guid>
+            <pubDate>Tue, 31 May 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release contains no changes outside of the documentation.  A big thank you to all contributors who helped make this release possible!  Download the new version of Solidity here....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/05/27/solidity-0.3.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/05/27/solidity-0.3.3-release-announcement</guid>
+            <pubDate>Fri, 27 May 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release mainly makes libraries more flexible in that it allows internal functions to be called.  Features  Allow internal library functions to be called (by "inlining") Fractional/rational constants (only usable with fixed point types, which are still in progress) Inline assembly has access to internal functions (as jump...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/04/18/solidity-0.3.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/04/18/solidity-0.3.2-release-announcement</guid>
+            <pubDate>Mon, 18 Apr 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is mainly a bugfix release. Under the hood, we are in the process of separating the Solidity source code from the rest of the cpp-ethereum source code so that it can soon be built (and released) in isolation.  Fixes:  Code generation: Dynamic arrays of structs were not...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/03/31/solidity-0.3.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/03/31/solidity-0.3.1-release-announcement</guid>
+            <pubDate>Thu, 31 Mar 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release mainly introduces inline assembly (documentation). Inline assembly provides a way to write low-level but still well readable code. Together with the coming features of inline library functions and templates, it allows to move much of the development that had to be done in the compiler itself into libraries...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.3.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/03/11/solidity-0.3.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/03/11/solidity-0.3.0-release-announcement</guid>
+            <pubDate>Fri, 11 Mar 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This version is synchronized to the Homestead changes on the main Ethereum network and introduces various breaking changes.  BREAKING CHANGES:  You should not rely on division for literals resulting in a (truncated) integer. This is still the case but will change once we implement fixed point types, i.e....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.2.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/02/17/solidity-0.2.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/02/17/solidity-0.2.2-release-announcement</guid>
+            <pubDate>Wed, 17 Feb 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  Index access for types bytes1, ..., bytes32 (only read access for now).  Bugfixes:  Type checker crash for wrong number of base constructor parameters.  A big thank you to all contributors who helped make this release possible!  Download the new version of Solidity here....]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.2.1 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2016/01/30/solidity-0.2.1-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2016/01/30/solidity-0.2.1-release-announcement</guid>
+            <pubDate>Sat, 30 Jan 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release includes three major features and one very important bugfix in the optimizer.  In some situations, the optimizer generated incorrect code. Please always test your code before you use it, unfortunately, we can never guarantee 100% correctness.  We are especially grateful about the many voluntary community contributions...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.2.0 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/12/01/solidity-0.2.0-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/12/01/solidity-0.2.0-release-announcement</guid>
+            <pubDate>Tue, 01 Dec 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  Allocation of memory arrays using new. Binding library functions to types via using x for y Breaking Change**: new ContractName.value(10)() has to be written as (new ContractName).value(10)() Added selfdestruct as an alias for suicide.  Bugfixes:  Constructor arguments of fixed array type were not read correctly. Memory...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.1.7 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/11/17/solidity-0.1.7-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/11/17/solidity-0.1.7-release-announcement</guid>
+            <pubDate>Tue, 17 Nov 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  Improved error messages for unexpected tokens. Proof-of-concept transcompilation to why3 for formal verification of contracts.  Bugfixes:  Writing to elements of bytes or string overwrite others. Arrays (also strings) as indexed parameters of events. "Successor block not found" on Windows. Using string literals in tuples. Cope with...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.1.6 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/10/16/solidity-0.1.6-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/10/16/solidity-0.1.6-release-announcement</guid>
+            <pubDate>Fri, 16 Oct 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Features:  .push() for dynamic storage arrays. Tuple expressions ((1,2,3) or return (1,2,3);) Declaration and assignment of multiple variables (var (x,y,) = (1,2,3,4,5); or var (x,y) = f();) Destructuring assignment ((x,y,) = (1,2,3)) Handling of multiple source files in the json compiler.  Bugfixes:  Internal error about usage of...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.1.5 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/10/07/solidity-0.1.5-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/10/07/solidity-0.1.5-release-announcement</guid>
+            <pubDate>Wed, 07 Oct 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Changes:  Breaking change in storage encoding: Encode short byte arrays and strings together with their length in storage. Report warnings. Allow storage reference types for public library functions. Access to types declared in other contracts and libraries via .. Version stamp at beginning of runtime bytecode of libraries. Bugfix:...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.1.4 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/09/30/solidity-0.1.4-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/09/30/solidity-0.1.4-release-announcement</guid>
+            <pubDate>Wed, 30 Sep 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Changes:  Bugfix: combined-json output of solc incorrectly returned the runtime binary instead of the binary. Bugfix: Accessing fixed-size array return values. Bugfix: Disallow assignment from literal strings to storage pointers. Refactoring: Move type checking into its own module.  A big thank you to all contributors who helped make...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.1.3 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/09/22/solidity-0.1.3-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/09/22/solidity-0.1.3-release-announcement</guid>
+            <pubDate>Tue, 22 Sep 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Changes:  throw statement. Libraries that contain functions which are called via CALLCODE. Linker stage for compiler to insert other contract's addresses (used for libraries). Compiler option to output runtime part of contracts. Compile-time out of bounds check for access to fixed-size arrays by integer constants. Version string includes libevmasm/libethereum's...]]></description>
+            <category>Releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Solidity 0.1.2 Release Announcement]]></title>
+            <link>https://soliditylang.org//blog/2015/08/21/solidity-0.1.2-release-announcement</link>
+            <guid>https://soliditylang.org//blog/2015/08/21/solidity-0.1.2-release-announcement</guid>
+            <pubDate>Fri, 21 Aug 2015 00:00:00 GMT</pubDate>
+            <description><![CDATA[Changes:  Improved commandline interface (breaking change). Explicit conversion between bytes and string. Bugfix: Value transfer used in clone contracts. Bugfix: Problem with strings as mapping keys. Bugfix: Prevent usage of some operators.  A big thank you to all contributors who helped make this release possible!  Download the...]]></description>
+            <category>Releases</category>
+        </item>
+    </channel>
+</rss>
