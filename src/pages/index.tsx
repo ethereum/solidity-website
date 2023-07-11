@@ -162,8 +162,9 @@ export default function Home({
           <ShowcaseSection startWithVisual px={0}>
             <ShowcaseContent title="Contribute to Solidity">
               <Text>
-                Solidity continues to improve with help from a global community. Check out these ways to get 
-                involved and contribute to the Solidity project.
+                Solidity continues to improve with help from a global community.
+                Check out these ways to get involved and contribute to the
+                Solidity project.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>

@@ -1,4 +1,9 @@
-import { BlogCategories, BlogPostPreview, ButtonLink, Section } from '@/components'
+import {
+  BlogCategories,
+  BlogPostPreview,
+  ButtonLink,
+  Section,
+} from '@/components'
 import type { BlogProps } from '@/interfaces'
 import { BLOG_PATH, BLOG_PAGE_PATH } from '@/constants'
 import { Flex, Grid, Icon, Text } from '@chakra-ui/react'
