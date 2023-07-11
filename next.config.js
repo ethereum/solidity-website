@@ -3,8 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   experimental: { esmExternals: true },
-  images: { unoptimized: true },
-  basePath: '',
 }
 
 const removeImports = require('next-remove-imports')()
