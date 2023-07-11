@@ -50,7 +50,6 @@ export type CategoryUrl = keyof typeof URL_CATEGORIES_MAP
 
 export interface BlogPostFrontmatter {
   layout?: string
-  published: string
   title: string
   date: string
   author: string

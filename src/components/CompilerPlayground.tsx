@@ -12,7 +12,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react'
 import '@uiw/react-textarea-code-editor/dist.css'
-import { examples } from '@/data'
+import { examples } from '@/constants'
 
 const CodeEditor = dynamic(
   () => import('@uiw/react-textarea-code-editor').then((mod) => mod.default),
