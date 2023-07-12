@@ -37,11 +37,11 @@ Run the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
 ## API keys (optional)
 
-This site used a GitHub read-only API key to fetch some data from the GitHub API. To enable this functionality, first create you `.env` file:
+This site used a GitHub read-only API key to fetch some data from the GitHub API. To enable this functionality, first create your `.env` file:
 
 ```bash
 cp .env.example .env
@@ -66,7 +66,7 @@ Go to [GitHub Personal Access Tokens](https://github.com/settings/tokens?type=be
 | `/src/constants.ts`      | Declares all constants that are used throughout the site.                                       |
 | `/src/interfaces.ts`     | Declared interfaces and types for to be used throughout the site                                |
 | `/public`                | Storage for assets that will be available at URL path after build                               |
-| `/public/assets`         | General image assets                                                                                    |
+| `/public/assets`         | General image assets                                                                            |
 | `/public/img`            | Image assets used in blog posts                                                                 |
 
 ## Events
@@ -111,9 +111,10 @@ Intro text
 
 ## Blog entries
 
-- Blog posts should be markdown files, stored in the `/src/post` folder
-- Filename must take the pattern of `YYYY-MM-DD-chosen-post-title.md`
+- Blog posts should be markdown files, stored in the `/src/posts` folder
+- Filename must take the pattern of `YYYY-MM-DD-lowercase-post-title.md`
 - Front matter should take the shape of the following interface:
+
   ```ts
   export interface BlogPostFrontmatter {
     layout?: string
@@ -123,13 +124,18 @@ Intro text
     category: Category
   }
   ```
+
   (See [src/interfaces.ts](src/interfaces.ts) for canonical `BlogPostFrontmatter` interface.)
+
 - `Category` must take one of the following values:
+
   - `Releases`
   - `Security Alerts`
   - `Announcements`
   - `Explainers`
-    (See [src/constants.ts](src/constants.ts) and [src/interfaces.ts](src/interfaces.ts) for canonical `Category` enum.)
+
+  (See [src/constants.ts](src/constants.ts) and [src/interfaces.ts](src/interfaces.ts) for canonical `Category` enum.)
+
 - `title` property will be displayed automatically as an `<h1>` (`#` in markdown), and should not be included in the markdown body—start document header levels from `<h2>` (`##`)
 - `date` property should be in `YYYY-MM-DD` format
 - MDX/JSX is not currently supported
