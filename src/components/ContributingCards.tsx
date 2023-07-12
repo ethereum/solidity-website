@@ -13,24 +13,24 @@ interface ContributingCard {
 }
 const cards: ContributingCard[] = [
   {
-    title: 'Reporting issues',
+    title: 'Reporting issues and vulnerabilities',
     description:
-      'Debugging and reporting issues on Solidity is a great way to learn and interact with the language',
+      'To report an issue, please use the GitHub issues tracker https://github.com/ethereum/solidity/issues/new?assignees=&labels=bug+%3Abug%3A&projects=&template=bug_report.md&title=. To report a vulnerability, please check out the instructions in the SECURITY.md https://github.com/ethereum/solidity/blob/develop/SECURITY.md#reporting-a-vulnerability.',
   },
   {
     title: 'Translating the documentation',
     description:
-      'Translating is a key factor that helps developers from all corners of the world to be able to access and learn Solidity',
+      'Translations help developers from all corners of the world to be able to read the documentation and learn Solidity.',
   },
   {
     title: 'Fixing and responding to issues',
     description:
-      'Contributing to discussion around issues and submitting fixes is a great way to learn more about the language',
+      'Fixing and responding to issues, especially those tagged as “good first issue”, is a great way to get started for external contributors.',
   },
   {
-    title: 'Getting involved in the Solidity forum',
+    title: 'Contributing to language design',
     description:
-      'The forum is where discussion around the future of Solidity and roadmap planning happen, be a part of it!',
+      'We welcome Solidity power users, auditors, security experts and tooling developers to get involved in the Solidity language design process. >Join the <a href="https://forum.soliditylang.org/">Solidity forum</a>, where existing properties of the language and proposals for new language features can be discussed.',
   },
 ]
 export const ContributingCards: React.FC<GridProps> = (props) => {

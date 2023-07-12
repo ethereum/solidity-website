@@ -79,7 +79,7 @@ export default function Home({
         {/* HERO */}
         <Hero
           header="Solidity"
-          cta={[{ name: 'Get into the docs', href: DOCS_URL }]}
+          cta={[{ name: 'Read the docs', href: DOCS_URL }]}
           stargazersCount={stargazersCount}
         >
           A statically-typed curly-braces programming language designed for
@@ -141,14 +141,14 @@ export default function Home({
               approximately one breaking release per year. You can follow the
               implementation status of new features in the{' '}
               <Link
-                href="https://github.com/ethereum/solidity/projects/43"
+                href="https://github.com/ethereum/solidity/projects/17"
                 fontWeight="bold"
               >
-                Solidity Github project
+                Solidity GitHub project
               </Link>
               .
             </Text>
-            <ButtonLink href={DOCS_URL} variant="solid" mt={8}>
+            <ButtonLink href="https://docs.soliditylang.org/en/latest/installing-solidity.html" variant="solid" mt={8}>
               Get started
             </ButtonLink>
           </ShowcaseContent>
@@ -162,7 +162,7 @@ export default function Home({
           <ShowcaseSection startWithVisual px={0}>
             <ShowcaseContent title="Contribute to Solidity">
               <Text>
-                Solidity continues to improve with help from a global community.
+                Solidity continues to improve with help from our global community.
                 Check out these ways to get involved and contribute to the
                 Solidity project.
               </Text>
@@ -185,20 +185,28 @@ export default function Home({
         <Section py={sectionPaddingY} gap={12}>
           <ShowcaseSection px={0}>
             <ShowcaseContent title="Stay Updated">
-              {/* TODO: Fix copy below; repeats from above */}
               <Text>
-                As a relatively young language, Solidity is advancing at a rapid
-                speed. We aim for a regular (non-breaking) release every month,
-                with approximately one breaking release per year. You can follow
-                the implementation status of new features in the Solidity Github
-                project.
+              Stay always up-to-date by following the {' '}
+              <Link
+                href="https://soliditylang.org/blog/"
+                fontWeight="bold"
+              >
+                Solidity blog
+              </Link>.
               </Text>
               <Text>
                 You can see the upcoming changes for the next breaking release
                 by switching from the default branch (<Code>develop</Code>) to
                 the <Code>breaking branch</Code>. You can actively shape
                 Solidity by providing your input and participating in the
-                language design.
+                language design in the {' '}
+              <Link
+                href="https://forum.soliditylang.org/"
+                fontWeight="bold"
+              >
+                Solidity forum
+              </Link>
+                and participating in the yearly Solidity developer surveys.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
@@ -226,9 +234,9 @@ export default function Home({
           <ShowcaseSection startWithVisual>
             <ShowcaseContent title="Playground">
               <Text>
-                Try solidity yourself in this simple compiler. for a more fully
-                featured browser based IDE, try using{' '}
-                <Link href="https://remix.ethereum.org">Remix</Link>
+                Try Solidity for yourself in this simple compiler. For a more fully
+                featured browser-based IDE, try using{' '}
+                <Link href="https://remix.ethereum.org">Remix</Link>.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual>
@@ -250,10 +258,10 @@ export default function Home({
                 ecosystem around it.
               </Text>
               <Text>
-                Enable useful (language-design related) discussions which result
+                Its goal is to enable useful (language-design related) discussions which result
                 in improvement proposals and actual implementations, foster
-                communication between teams working on similar topics and
-                Identify needs for the smart contract ecosystem for Ethereum.
+                communication between teams working on similar topics and 
+                to identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </ShowcaseContent>
             <ShowcaseVisual direction="column" flex={5} w="full">

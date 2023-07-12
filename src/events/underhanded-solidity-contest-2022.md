@@ -5,6 +5,6 @@ startDate: 2022-04-29
 endDate: 2022-04-30
 imageSrc: /assets/underhanded-solidity-contest-2022.png
 links:
-  - label: Event Recap
+  - label: Event Info
     href: https://underhanded.soliditylang.org/
 ---
