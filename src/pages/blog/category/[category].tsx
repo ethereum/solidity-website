@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   fs.mkdirSync(directory, { recursive: true })
   fs.writeFileSync(`${directory}/feed.xml`, fullFeed.rss2())
   const categoryFeed = await generateRssFeed(allPostsData, category)
-  const categoryDirectory = `./public/${category}/`
+  const categoryDirectory = `./public/${categoryUrl}/`
   fs.mkdirSync(categoryDirectory, { recursive: true })
   fs.writeFileSync(`${categoryDirectory}/feed.xml`, categoryFeed.rss2())
 

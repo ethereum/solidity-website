@@ -1,15 +1,15 @@
 import { Feed, Item } from 'feed'
 import removeMd from 'remove-markdown'
 import { BlogPostProps, Category } from '../interfaces'
-import { SITE_URL, URL_CATEGORIES_MAP } from '../constants'
-
+import { SITE_URL, CATEGORIES_URL_MAP } from '../constants'
 export const generateRssFeed = async (
   posts: BlogPostProps[],
   category?: Category
 ): Promise<Feed> => {
+  const categoryUrl = category && CATEGORIES_URL_MAP[category]
   const date = new Date()
   const feed = new Feed({
-    title: 'Solidity Lang Blog',
+    title: `Solidity Lang Blog${category ? ` - ${category}` : ''}`,
     description: '',
     id: SITE_URL,
     link: SITE_URL,
@@ -18,7 +18,7 @@ export const generateRssFeed = async (
     copyright: `All rights reserved ${date.getFullYear()}`,
     updated: date,
     feedLinks: {
-      rss2: `${SITE_URL}/feed.xml`,
+      rss2: `${SITE_URL}${category ? `/${categoryUrl}` : ''}/feed.xml`,
     },
   })
   posts

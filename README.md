@@ -112,7 +112,7 @@ Intro text
 ## Blog entries
 
 - Blog posts should be markdown files, stored in the `/src/posts` folder
-- Filename must take the pattern of `YYYY-MM-DD-lowercase-post-title.md`
+- Filename must take the pattern of `YYYY-MM-DD-chosen-post-title.md`
 - Front matter should take the shape of the following interface:
 
   ```ts
