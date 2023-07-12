@@ -254,27 +254,9 @@ export { VARIANT_PX_HEIGHT_NEEDED }
 export const ETHEREUM_ORG_URL = 'https://ethereum.org' as const
 export const USE_CASES: UseCase[] = [
   {
-    title: 'Decentralized Finance (DeFi)',
-    description:
-      'Solidity has played a pivotal role in the rise of DeFi applications built on the Ethereum blockchain. Projects such as Uniswap (decentralized exchange protocol), Aave (decentralized lending platform), and Compound (algorithmic money markets) have extensively used Solidity to create smart contracts that enable various financial services and functionalities.',
-    imageSrc: '/assets/use-case-glyph-1.svg',
-    learnMoreLink: `${ETHEREUM_ORG_URL}/defi`,
-    triangleVariant: 'defi',
-    mobileTriangleVariant: 'mobileDefi',
-  },
-  {
-    title: 'Non-Fungible Tokens (NFTs)',
-    description:
-      'Solidity has been instrumental in the development of NFTs, which have gained significant popularity for digital collectibles, artwork, and unique virtual assets. Projects like CryptoKitties, CryptoPunks, and Rarible have used Solidity to create the smart contracts that power the creation, ownership, and transfer of these one-of-a-kind digital assets.',
-    imageSrc: '/assets/use-case-glyph-2.svg',
-    learnMoreLink: `${ETHEREUM_ORG_URL}/nft`,
-    triangleVariant: 'swan',
-    mobileTriangleVariant: 'mobileSwan',
-  },
-  {
     title: 'Decentralized Autonomous Organizations (DAOs)',
     description:
-      'Solidity has enabled the creation of DAOs, which are self-governing organizations that operate on smart contracts. Projects like Aragon and DAOstack have utilized Solidity to build frameworks and tools for creating and managing decentralized organizations, allowing for transparent decision-making and governance.',
+      'Solidity has enabled the creation of DAOs, which are self-governing organizations that operate on smart contracts, allowing for transparent decision-making and governance.',
     imageSrc: '/assets/use-case-glyph-3.svg',
     learnMoreLink: `${ETHEREUM_ORG_URL}/dao`,
     triangleVariant: 'heap',
@@ -283,10 +265,28 @@ export const USE_CASES: UseCase[] = [
   {
     title: 'Gaming and Virtual Worlds',
     description:
-      'Solidity has been employed to develop blockchain-based games and virtual worlds with features like asset ownership, in-game economies, and provable scarcity. Projects like Axie Infinity, Decentraland, and Gods Unchained have leveraged Solidity to create immersive gaming experiences with unique digital assets and player interactions.',
+      'Solidity has been employed to develop blockchain-based games and virtual worlds with features like asset ownership, in-game economies, and provable scarcity. It opens up new possibilities for unique digital assets and player interactions.',
     imageSrc: '/assets/use-case-glyph-4.svg',
     triangleVariant: 'mountains',
     mobileTriangleVariant: 'mobileMountains',
+  },
+  {
+    title: 'Decentralized Finance (DeFi)',
+    description:
+      'Solidity has played a pivotal role in the rise of DeFi applications built on the Ethereum blockchain. Developers have created decentralized exchange logic, auction mechanisms, lending protocols, conditional payments, and more.',
+    imageSrc: '/assets/use-case-glyph-1.svg',
+    learnMoreLink: `${ETHEREUM_ORG_URL}/defi`,
+    triangleVariant: 'defi',
+    mobileTriangleVariant: 'mobileDefi',
+  },
+  {
+    title: 'Non-Fungible Tokens (NFTs)',
+    description:
+      'Solidity has been used to implement NFTs, which have gained significant popularity for digital collectibles, artwork, and unique virtual assets like decentralized domain names.',
+    imageSrc: '/assets/use-case-glyph-2.svg',
+    learnMoreLink: `${ETHEREUM_ORG_URL}/nft`,
+    triangleVariant: 'swan',
+    mobileTriangleVariant: 'mobileSwan',
   },
   {
     title: 'Supply Chain and Traceability',
