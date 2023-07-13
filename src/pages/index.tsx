@@ -100,12 +100,13 @@ export default function Home({
             alignItems="start"
             maxW="container.lg"
           >
-            <Box fontSize="2xl" maxW="8ch">
+            <Box fontSize="2xl">
               <Text
                 fontFamily="mono"
                 color="primary"
                 lineHeight="130%"
                 fontSize="inherit"
+                maxW="8ch"
               >
                 Solidity {versionNumber}
               </Text>
