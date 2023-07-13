@@ -85,7 +85,6 @@ export default function About() {
                 <Link href="https://ethereum.foundation/">Ethereum Foundation</Link>.
           </Text>
         </Section>
-        </Section>
       </Box>
     </>
   )
