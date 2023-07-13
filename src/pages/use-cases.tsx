@@ -14,9 +14,9 @@ export default function UseCases() {
           header="Use cases"
           cta={[{ name: 'Get started', href: DOCS_URL }]}
         >
-          The flexibility, security features, and integration with the Ethereum
-          blockchain make it a powerful tool for developing decentralized
-          applications across various industries.
+          With Solidity, you can create contracts for uses such as voting, crowdfunding,
+          blind auctions, and multi-signature wallets and much more! Below we list some of
+          the most popular use cases.
         </Hero>
         <Section
           direction="column"
@@ -34,12 +34,11 @@ export default function UseCases() {
             ... and much more
           </Text>
           <Text>
-            Solidity 0.8.20 includes a range of improvements in the via-IR
-            pipeline and improves the list of events exposed in the contract
-            ABI, and, most importantly, introduces support for the Shanghai hard
-            fork!
+          If you want to get started building your own applications, head to the 
+          {' '}
+                <Link href="https://docs.soliditylang.org/en/latest/solidity-by-example.html">Solidity by Example</Link>
+          section to see code examples of different contracts and understand the core concepts of the language.
           </Text>
-          <Text>We have also included 3 bug fixes in this release!</Text>
         </Section>
       </Box>
     </>
