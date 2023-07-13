@@ -43,11 +43,16 @@ export const Footer: React.FC = () => (
         ))}
       </Flex>
     </Flex>
-    <Text fontSize="lg" textAlign="center">
-      2023 Solidity Team •{' '}
-      <Link href="https://github.com/ethereum/solidity/blob/develop/CODE_OF_CONDUCT.md">
+    <Flex fontSize="lg" textAlign="center" flexWrap="wrap" columnGap={4}>
+      <Text>2023 Solidity Team</Text>
+      <Text>•</Text>
+      <Link href="https://github.com/ethereum/solidity/blob/develop/SECURITY.md" color="primary">
+        Security Policy
+      </Link>
+      <Text>•</Text>
+      <Link href="https://github.com/ethereum/solidity/blob/develop/CODE_OF_CONDUCT.md" color="primary">
         Code of Conduct
       </Link>
-    </Text>
+    </Flex>
   </Flex>
 )
