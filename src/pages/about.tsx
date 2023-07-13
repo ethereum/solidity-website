@@ -74,8 +74,8 @@ export default function About() {
             Versioning for Solidity was {' '}
                 <Link href="https://github.com/ethereum/solidity/commits/15dc5954c3a2e2a9ce96f2f77d41adef98a4cced">committed</Link>.
             into the codebase on July 9, 2015, marking Solidity Version 0.0.1. However, v0.1.0
-            wasn't an actual release yet, and builds of it are not available anymore.
-            You can read more about Solidity&apos;s history in the 5 year celebration post from 2020 {' '}
+            wasn&apos;t an actual release yet, and builds of it are not available anymore.
+            You can read more about Solidity&apos;s history in the 5 year celebration post from 2020 {' '} 
                 <Link href="https://soliditylang.org/blog/2020/07/08/solidity-turns-5/">here</Link>.
           </Text>
           <Text>
