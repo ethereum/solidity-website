@@ -1,5 +1,5 @@
 import { Box, Text } from '@chakra-ui/react'
-import { Hero, UseCaseCard, PageMetadata, Section } from '@/components'
+import { Hero, Link, UseCaseCard, PageMetadata, Section } from '@/components'
 import { DOCS_URL, MAIN_CONTENT_ID, USE_CASES } from '@/constants'
 
 export default function UseCases() {
