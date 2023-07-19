@@ -15,7 +15,7 @@ The legacy code generator was not evaluating complex expressions, like assignmen
 whose  `.selector` was being accessed.
 This led to the side-effects of such expressions not being executed, and therefore potentially incorrect behavior of
 contracts compiled using the legacy pipeline.
-The via IR code generator behaves as expected and evaluates such expressions.
+The via-IR code generator behaves as expected and evaluates such expressions.
 
 The bug has been present since version 0.6.2 of the compiler.
 However, to the best of our knowledge, it has never been exploited or reported externally.
