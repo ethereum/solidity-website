@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: 'Bug in Legacy Code Generation When Accessing the .selector Member on Expressions with Side-Effects'
+title: 'Bug in Legacy Code Generation When Accessing the .selector Member on Expressions with Side Effects'
 date: '2023-07-19'
 author: Solidity Team
 category: Security Alerts
