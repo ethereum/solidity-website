@@ -115,17 +115,14 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/"
+                    href="https://blog.soliditylang.org/2023/07/19/solidity-0.8.21-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.20
+                    Solidity 0.8.21
                   </Link>{' '}
-                  includes a range of improvements in the via-IR pipeline and
-                  improves the list of events exposed in the contract ABI, and,
-                  most importantly, introduces support for the Shanghai hard
-                  fork!
+                  Allows qualified access to events from other contracts, and we also relaxed restrictions on the initialization of immutable variables. 
                 </Text>
-                <Text>We have also included 3 bugfixes in this release!</Text>
+                <Text>We have also included 2 important bugfixes in this release!</Text>
               </Box>
             </Flex>
           </Flex>
