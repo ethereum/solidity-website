@@ -11,7 +11,7 @@ On June 26, 2023, a bug in the legacy code generation pipeline of the Solidity c
 investigation of a security report related to the use of `abi.decode` with a ternary
 expression that has side effects, as the type argument.
 
-The legacy code generator was not evaluating complex expressions, like assignments, function calls or conditionals,
+The legacy code generator was not evaluating complex expressions, like assignments, function calls, or conditionals,
 whose  `.selector` was being accessed.
 This led to the side-effects of such expressions not being executed, and therefore potentially incorrect behavior of
 contracts compiled using the legacy pipeline.
@@ -86,7 +86,7 @@ In contrast, the new IR-based code generator is primarily concerned with produci
 can defer the task of making it efficient to the Yul optimizer.
 This means that it does not have to rely on such assumptions.
 The whole expression is always visited and evaluated in the unoptimized code.
-It will only be removed by the optimizer if it is determined to actually be free of side effects.
+It will only be removed by the optimizer if it is determined actually to be free of side effects.
 
 Due to a related bug in the type checker, the bug would also impact
 certain expressions whose value could not be determined at compilation time.
