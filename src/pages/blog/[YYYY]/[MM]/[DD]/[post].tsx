@@ -54,7 +54,13 @@ const BlogPostPage: React.FC<BlogPostProps> = ({
       title={frontmatter.title}
       description={getBlogSubtitle(frontmatter.author, frontmatter.date)}
     />
-    <Box as="main" id={MAIN_CONTENT_ID} px={{ base: 4, md: 8 }}>
+    <Box
+      as="main"
+      id={MAIN_CONTENT_ID}
+      px={{ base: 4, md: 8 }}
+      maxW="container.md"
+      mx="auto"
+    >
       <BlogHero frontmatter={frontmatter} />
       <BlogPost content={content} maxW="container.md" />
       <PostNavigation availableURLs={availableURLs} />
