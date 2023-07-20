@@ -78,6 +78,7 @@ export const PAGE_PATH = '/page' as const
 export const BLOG_PAGE_PATH = `${BLOG_PATH}${PAGE_PATH}` as const
 export const CATEGORY_PATH = '/category' as const
 export const BLOG_CATEGORY_PATH = `${BLOG_PATH}${CATEGORY_PATH}` as const
+export const OLD_BLOG_SUBDOMAIN = 'https://blog.soliditylang.org/' as const
 
 // Blog categories and mappings
 export const RELEASES = 'Releases' as const
