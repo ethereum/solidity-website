@@ -4,7 +4,7 @@ import type {
   TriangleVariants,
   UseCase,
 } from '@/interfaces'
-import { FaGithub, FaGitter, FaMastodon, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaMastodon, FaTwitter } from 'react-icons/fa'
 import { SiMatrix } from 'react-icons/si'
 import yaml from 'js-yaml'
 
@@ -44,13 +44,11 @@ export const TWITTER_URL = `https://twitter.com/${
 export const MASTODON_URL = 'https://fosstodon.org/@solidity' as const
 export const MATRIX_URL =
   'https://matrix.to/#/#ethereum_solidity:gitter.im' as const
-export const GITTER_URL = 'https://gitter.im/ethereum/solidity' as const
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'GitHub', href: GITHUB_URL, Icon: FaGithub },
   { name: 'Twitter', href: TWITTER_URL, Icon: FaTwitter },
   { name: 'Mastodon', href: MASTODON_URL, Icon: FaMastodon },
   { name: 'Matrix', href: MATRIX_URL, Icon: SiMatrix },
-  { name: 'Gitter', href: GITTER_URL, Icon: FaGitter },
 ]
 
 // Data fetching constants
