@@ -37,7 +37,7 @@ export const Footer: React.FC = () => (
         direction={{ base: 'column', md: 'row' }}
       >
         {NAV_LINKS.map(({ name, href }) => (
-          <Link key={name} href={href} textDecoration="none" py={1} px={2}>
+          <Link key={name} href={href} textDecoration="none" py={1} px={{ base: 0, md: 2 }}>
             {name}
           </Link>
         ))}
