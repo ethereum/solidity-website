@@ -41,7 +41,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 ## API keys (optional)
 
-This site used a GitHub read-only API key to fetch some data from the GitHub API. To enable this functionality, first create your `.env` file:
+This site uses a read-only API key to fetch the latest version of the Solidity compiler, and the GitHub star count for the `ethereum/solidity` repo from the GitHub API. To enable this functionality locally, first create your `.env` file:
 
 ```bash
 cp .env.example .env
