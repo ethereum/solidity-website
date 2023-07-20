@@ -139,7 +139,7 @@ export default function Home({
               approximately one breaking release per year. You can follow the
               implementation status of new features in the{' '}
               <Link
-                href="https://github.com/ethereum/solidity/projects/17"
+                href="https://github.com/orgs/ethereum/projects/26"
                 fontWeight="bold"
               >
                 Solidity GitHub project
