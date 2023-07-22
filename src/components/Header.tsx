@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
   const desktopOpacity = useTransform(
     scrollY,
     [STARTING_NAV_HEIGHT - 50, STARTING_NAV_HEIGHT],
-    [0, mobileOpacity]
+    [0, endOpacity]
   )
   const desktopY = useTransform(scrollY, [0, Y_OFFSET], [Y_OFFSET, endY])
   const desktopScale = useTransform(
