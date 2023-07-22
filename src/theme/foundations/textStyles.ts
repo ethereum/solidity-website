@@ -38,6 +38,14 @@ export const textStyles = {
     lineHeight: '1.4',
     textWrap: 'balance',
   },
+  h5: {
+    fontFamily: 'heading',
+    fontWeight: '700',
+    fontSize: '2xl',
+    color: 'header',
+    lineHeight: '1.25',
+    textWrap: 'balance',
+  },
   'h2-mono': {
     fontFamily: 'mono',
     fontWeight: '700',

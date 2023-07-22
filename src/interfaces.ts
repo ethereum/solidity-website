@@ -37,6 +37,7 @@ export interface EventFrontmatter {
   endDate: string
   imageSrc?: string
   links?: EventLink[]
+  youtube?: string
 }
 
 export interface EventPost {
