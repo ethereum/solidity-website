@@ -22,7 +22,7 @@ export const BLOG_PATH = '/blog' as const
 export const DOCS_URL = 'https://docs.soliditylang.org' as const
 export const USE_CASES_PATH = '/use-cases' as const
 export const ABOUT_PATH = '/about' as const
-export const EVENTS_PATH = '/events' as const
+export const EVENTS_PATH = '/event' as const
 export const CONTRIBUTE_PATH =
   `${DOCS_URL}/en/latest/contributing.html` as const
 export const FORUM_URL = 'https://forum.soliditylang.org/' as const
