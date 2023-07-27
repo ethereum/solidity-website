@@ -10,9 +10,6 @@ links:
   - label: Talks
     href: https://www.youtube.com/watch?v=6m5EDuCjxgk&list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk
 youtube: https://youtu.be/6m5EDuCjxgk?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk
-latLong:
-  - 52.383563
-  - 4.904707
 ---
 
 The Solidity Summit is a collaborative event focusing on the future of Solidity.

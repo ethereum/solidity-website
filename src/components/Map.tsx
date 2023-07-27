@@ -8,10 +8,11 @@ const OpenStreetMap = dynamic(
 )
 
 interface MapProps extends BoxProps {
-  coords: Coordinates
+  coordsOverride?: Coordinates | null
+  location: string
 }
-export const Map: React.FC<MapProps> = ({ coords, ...boxProps }) => (
+export const Map: React.FC<MapProps> = ({ coordsOverride, location, ...boxProps }) => (
   <Box as="figure" sx={{ '&>div': { w: 'full', h: 'full' } }} {...boxProps}>
-    <OpenStreetMap coords={coords} />
+    <OpenStreetMap coordsOverride={coordsOverride} location={location} />
   </Box>
 )

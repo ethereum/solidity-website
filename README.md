@@ -83,12 +83,22 @@ export interface EventFrontmatter {
   endDate: string
   imageSrc?: string
   links?: EventLink[]
+  youtube?: string
+  coordsOverride?: [Lat, Long]
 }
 ```
 
 (See [src/interfaces.ts](src/interfaces.ts) for canonical `EventFrontmatter` interface.)
 
 The date properties are used to display recent events and next upcoming events on the homepage.
+
+### Location and embedded map
+
+The `location` property is used to display a map on the event page, fetched from [OpenStreetMap](https://www.openstreetmap.org/). If the resulting location is inaccurate or not precise enough, `coordsOverride` can optionally be provided to override this result. If no results are found, the map will not be displayed.
+
+For virtual/remote events, use `location: Remote`, and the map will not be displayed.
+
+_Note: Package `leaflet-geosearch` is being used for geocoding. Using older version `3.6.1` intentionally to avoid the addition of an unnecessary Google dependency added in later versions._
 
 ### Event example
 
@@ -110,6 +120,32 @@ Intro text
 
 ...
 ```
+
+### Event example using `coordsOverride`
+
+```md
+---
+title: Solidity Summit 2023
+location: Istanbul, Turkey
+startDate: 2023-11-16
+endDate: 2023-11-16
+imageSrc: /assets/solidity-summit-2023.png
+links:
+  - label: Join us
+    href: https://summit.soliditylang.org
+coordsOverride:
+  - 41.0082
+  - 28.9784
+---
+
+Intro text
+
+## First header as h2
+
+...
+```
+
+Note that `coordsOverride` is an array of two numbers, representing latitude and longitude, respectively.
 
 ## Blog entries
 

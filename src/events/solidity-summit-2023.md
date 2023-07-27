@@ -7,7 +7,4 @@ imageSrc: /assets/solidity_summit_2023.png
 links:
   - label: Join us
     href: https://devconnect.org/schedule
-latLong:
-  - 41.0082
-  - 28.9784
 ---
