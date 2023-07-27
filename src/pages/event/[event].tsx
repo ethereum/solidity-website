@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { Box, Image, Text } from '@chakra-ui/react'
-import { PageMetadata, YouTube } from '@/components'
+import { Map, PageMetadata, YouTube } from '@/components'
 import { EVENTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
 import { MDXStyles } from '@/styles'
 import type { EventPost } from '@/interfaces'
@@ -43,7 +43,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
-  const { title, location, startDate, endDate, imageSrc, youtube } = frontmatter
+  const { title, location, startDate, endDate, imageSrc, youtube, latLong } =
+    frontmatter
+  const [lat, lng] = latLong || [0, 0]
   const description = `${location} - ${formatDate(startDate)} - ${formatDate(
     endDate
   )}`
@@ -76,7 +78,15 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
             {location}
           </Text>
         </Box>
-        {/* TODO: Embed MAP */}
+        {latLong && (
+          <Map
+            coords={{ lat, lng }}
+            h="300px"
+            maxW="container.lg"
+            mx="auto"
+            my={12}
+          />
+        )}
         {/* Markdown content */}
         <Box as="article" px={6} maxW="container.lg" mx="auto" my={16}>
           <ReactMarkdown

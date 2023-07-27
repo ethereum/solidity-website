@@ -66,6 +66,9 @@ export const MATTER_OPTIONS = {
 
 // Events related constants
 export const EVENTS_DIR = 'src/events' as const
+export const MAP_ZOOM_LEVEL = 10 as const
+export const MARKER_ICON_PATH = '/marker.png' as const
+export const MARKER_SHADOW_PATH = '/marker-shadow.png' as const
 
 /**
  * Blog related constants
