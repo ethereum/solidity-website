@@ -66,7 +66,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         <Box textAlign="center" mt={8}>
           <Text>
             {isMultiDay
-              ? `${formatDate(startDate)} - {formatDate(endDate)}`
+              ? `${formatDate(startDate)} - ${formatDate(endDate)}`
               : formatDate(startDate, true)}
           </Text>
           <Text as="h1" textStyle="h2-mono" textAlign="center" mt={2} mb={4}>
