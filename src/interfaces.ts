@@ -30,6 +30,9 @@ export interface EventLink {
   href: string
 }
 
+type Lat = number
+type Long = number
+
 export interface EventFrontmatter {
   title: string
   location: string
@@ -38,12 +41,18 @@ export interface EventFrontmatter {
   imageSrc?: string
   links?: EventLink[]
   youtube?: string
+  latLong?: [Lat, Long]
 }
 
 export interface EventPost {
   frontmatter: EventFrontmatter
   content: string
   url: string
+}
+
+export interface Coordinates {
+  lat: Lat
+  lng: Long
 }
 
 export type Category = keyof typeof CATEGORIES_URL_MAP
