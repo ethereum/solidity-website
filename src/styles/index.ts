@@ -1,1 +1,1 @@
-export * from './MDXStyles'
+export * from './MDStyles'

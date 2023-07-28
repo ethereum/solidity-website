@@ -1,8 +1,17 @@
-import { Divider, Heading, Image, Stack, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Table,
+  Text,
+} from '@chakra-ui/react'
 import { Code, Link } from '@/components'
 // TODO: Debug tables
 
-export const MDXStyles = {
+export const MDStyles = {
   p: ({ children }: any) => (
     <Text fontSize="md" lineHeight="150%" mb={{ base: 4, md: 6 }}>
       {children}
@@ -74,5 +83,10 @@ export const MDXStyles = {
   },
   hr: ({ children }: any) => {
     return <Divider my={6}>{children}</Divider>
+  },
+  // Take in a table and return the exact same table
+  table: (props: any) => {
+    console.log(props)
+    return <table {...props} />
   },
 }

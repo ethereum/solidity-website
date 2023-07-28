@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import type { EventFrontmatter } from '@/interfaces'
-import { MDXStyles } from '../styles/MDXStyles'
+import { MDStyles } from '@/styles'
 
 interface EventListingProps {
   frontmatter: EventFrontmatter
@@ -31,7 +31,7 @@ export const EventListing: React.FC<EventListingProps> = ({
           )}
         </Box>
         <ReactMarkdown
-          components={ChakraUIRenderer(MDXStyles)}
+          components={ChakraUIRenderer(MDStyles)}
           remarkPlugins={[gfm]}
         >
           {content}
