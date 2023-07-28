@@ -6,7 +6,12 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
-import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID, EVENTS_PATH } from '@/constants'
+import {
+  NAV_LINKS,
+  NAV_HEIGHT,
+  MAIN_CONTENT_ID,
+  EVENTS_PATH,
+} from '@/constants'
 import {
   motion,
   useScroll,
@@ -50,9 +55,18 @@ export const Header: React.FC = () => {
     [1.1, endScale]
   )
 
-  const opacity = useBreakpointValue({ base: mobileOpacity, md: skipAnimation ? mobileOpacity : desktopOpacity })
-  const y = useBreakpointValue({ base: endY, md: skipAnimation ? endY : desktopY })
-  const scale = useBreakpointValue({ base: endScale, md: skipAnimation ? endScale : desktopScale })
+  const opacity = useBreakpointValue({
+    base: mobileOpacity,
+    md: skipAnimation ? mobileOpacity : desktopOpacity,
+  })
+  const y = useBreakpointValue({
+    base: endY,
+    md: skipAnimation ? endY : desktopY,
+  })
+  const scale = useBreakpointValue({
+    base: endScale,
+    md: skipAnimation ? endScale : desktopScale,
+  })
   return (
     <>
       <MotionDiv

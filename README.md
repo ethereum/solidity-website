@@ -164,9 +164,9 @@ Intro text
 
 When linking to content internal to this repo, relative paths should be used instead of absolute paths. This ensures proper routing with Next.js, and avoids unintentional page refreshes.
 
-This includes links to blog posts, which now live under https://soliditylang.org/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://soliditylang.org`. 
+This includes links to blog posts, which now live under https://soliditylang.org/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://soliditylang.org`.
 
-This does NOT include links to the docs, which are located at a different subdomain of https://docs.soliditylang.org. These should be referenced using their full URL, including `https://docs.soliditylang.org`. 
+This does NOT include links to the docs, which are located at a different subdomain of https://docs.soliditylang.org. These should be referenced using their full URL, including `https://docs.soliditylang.org`.
 
 ## Learn more about the stack
 

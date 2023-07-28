@@ -37,7 +37,13 @@ export const Footer: React.FC = () => (
         direction={{ base: 'column', md: 'row' }}
       >
         {NAV_LINKS.map(({ name, href }) => (
-          <Link key={name} href={href} textDecoration="none" py={1} px={{ base: 0, md: 2 }}>
+          <Link
+            key={name}
+            href={href}
+            textDecoration="none"
+            py={1}
+            px={{ base: 0, md: 2 }}
+          >
             {name}
           </Link>
         ))}
@@ -46,11 +52,17 @@ export const Footer: React.FC = () => (
     <Flex fontSize="lg" textAlign="center" flexWrap="wrap" columnGap={4}>
       <Text>2023 Solidity Team</Text>
       <Text>•</Text>
-      <Link href="https://github.com/ethereum/solidity/blob/develop/SECURITY.md" color="primary">
+      <Link
+        href="https://github.com/ethereum/solidity/blob/develop/SECURITY.md"
+        color="primary"
+      >
         Security Policy
       </Link>
       <Text>•</Text>
-      <Link href="https://github.com/ethereum/solidity/blob/develop/CODE_OF_CONDUCT.md" color="primary">
+      <Link
+        href="https://github.com/ethereum/solidity/blob/develop/CODE_OF_CONDUCT.md"
+        color="primary"
+      >
         Code of Conduct
       </Link>
     </Flex>

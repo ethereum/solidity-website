@@ -14,9 +14,9 @@ export default function UseCases() {
           header="Use cases"
           cta={[{ name: 'Get started', href: DOCS_URL }]}
         >
-          With Solidity, you can create contracts for uses such as voting, crowdfunding,
-          blind auctions, and multi-signature wallets and much more! Below we list some of
-          the most popular use cases.
+          With Solidity, you can create contracts for uses such as voting,
+          crowdfunding, blind auctions, and multi-signature wallets and much
+          more! Below we list some of the most popular use cases.
         </Hero>
         <Section
           direction="column"
@@ -34,10 +34,13 @@ export default function UseCases() {
             ... and much more
           </Text>
           <Text>
-          If you want to get started building your own applications, head to the 
-          {' '}
-                <Link href="https://docs.soliditylang.org/en/latest/solidity-by-example.html">Solidity by Example</Link>
-          section to see code examples of different contracts and understand the core concepts of the language.
+            If you want to get started building your own applications, head to
+            the{' '}
+            <Link href="https://docs.soliditylang.org/en/latest/solidity-by-example.html">
+              Solidity by Example
+            </Link>
+            section to see code examples of different contracts and understand
+            the core concepts of the language.
           </Text>
         </Section>
       </Box>
