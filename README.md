@@ -14,7 +14,7 @@ Note: This is the codebase for the Solidity **website** only. For the Solidity L
 - [Yarn package manager](https://yarnpkg.com/cli/install)
 - [React](https://reactjs.org/) - A JavaScript library for building component-based user interfaces
 - [Typescript](https://www.typescriptlang.org/) - TypeScript is a strongly typed programming language that builds on JavaScript
-- [Chakra UI](https://chakra-ui.com/) - A UI library (Migration in progress)
+- [Chakra UI](https://chakra-ui.com/) - A UI library
 - [GitHub Actions](https://github.com/features/actions) - Manages CI/CD, and issue tracking
 
 ## Local environment setup
@@ -200,9 +200,9 @@ Intro text
 
 When linking to content internal to this repo, relative paths should be used instead of absolute paths. This ensures proper routing with Next.js, and avoids unintentional page refreshes.
 
-This includes links to blog posts, which now live under https://soliditylang.org/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://soliditylang.org`. 
+This includes links to blog posts, which now live under https://soliditylang.org/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://soliditylang.org`.
 
-This does NOT include links to the docs, which are located at a different subdomain of https://docs.soliditylang.org. These should be referenced using their full URL, including `https://docs.soliditylang.org`. 
+This does NOT include links to the docs, which are located at a different subdomain of https://docs.soliditylang.org. These should be referenced using their full URL, including `https://docs.soliditylang.org`.
 
 ## Learn more about the stack
 
