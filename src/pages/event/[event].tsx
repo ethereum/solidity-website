@@ -8,7 +8,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next/types'
 import { Box, Image, Text } from '@chakra-ui/react'
 import { Map, PageMetadata, YouTube } from '@/components'
 import { EVENTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
-import { MDXStyles } from '@/styles'
+import { MDStyles } from '@/styles'
 import type { EventPost } from '@/interfaces'
 import { formatDate } from '@/utils'
 
@@ -90,7 +90,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         {/* Markdown content */}
         <Box as="article" px={6} maxW="container.lg" mx="auto" my={16}>
           <ReactMarkdown
-            components={ChakraUIRenderer(MDXStyles)}
+            components={ChakraUIRenderer(MDStyles)}
             remarkPlugins={[gfm]}
           >
             {content}
