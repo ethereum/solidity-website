@@ -78,17 +78,8 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
             {location}
           </Text>
         </Box>
-        {/* Embedded OpenStreetMap view */}
-        <Map
-          location={location}
-          coordsOverride={coordsOverride ? { lat, lng } : null}
-          h="300px"
-          maxW="container.lg"
-          mx="auto"
-          my={12}
-        />
         {/* Markdown content */}
-        <Box as="article" px={6} maxW="container.lg" mx="auto" my={16}>
+        <Box as="article" maxW="container.lg" mx="auto" my={36}>
           <ReactMarkdown
             components={ChakraUIRenderer(MDStyles)}
             remarkPlugins={[gfm]}
@@ -96,7 +87,17 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
             {content}
           </ReactMarkdown>
         </Box>
+        {/* Embedded YouTube video */}
         {youtube && <YouTube url={youtube} />}
+        {/* Embedded OpenStreetMap view */}
+        <Map
+          location={location}
+          coordsOverride={coordsOverride ? { lat, lng } : null}
+          h="300px"
+          maxW="container.lg"
+          mx="auto"
+          mb={16}
+        />
       </Box>
     </>
   )
