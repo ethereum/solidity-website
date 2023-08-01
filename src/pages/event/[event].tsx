@@ -119,6 +119,8 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         bg="highlight"
         direction={{ base: 'column', md: 'row' }}
         mb={12}
+        px={{ base: 0, md: 8 }}
+        py={{ base: 0, md: 6 }}
       >
         <Flex flex={1} justify="center" alignItems="center" px={{ base: 4, md: 8 }} py={16}>
           <Text textStyle="h5" color="text">
@@ -128,7 +130,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         <Map
           location={location}
           coordsOverride={coordsOverride ? { lat, lng } : null}
-          h="full"
+          h="300px"
           w="full"
           flex={1}
         />
