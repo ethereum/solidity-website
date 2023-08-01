@@ -6,7 +6,7 @@ endDate: 2023-11-16
 imageSrc: /assets/solidity_summit_2023.png
 links:
   - label: Join us
-    href: https://summit.soliditylang.org/
+    href: /event/solidity-summit-2023/
 ---
 
 ## The Solidity Summit is a collaborative event focusing on the future of [Solidity](/).
