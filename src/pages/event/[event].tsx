@@ -43,8 +43,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
-  const { title, location, startDate, endDate, imageSrc, youtube, coordsOverride } =
-    frontmatter
+  const {
+    title,
+    location,
+    startDate,
+    endDate,
+    imageSrc,
+    youtube,
+    coordsOverride,
+    registrationLink,
+  } = frontmatter
   const [lat, lng] = coordsOverride || [0, 0]
   const description = `${location} - ${formatDate(startDate)} - ${formatDate(
     endDate
@@ -100,6 +108,12 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           </ReactMarkdown>
         </Box>
       </Box>
+      {/* Registration button */}
+      {registrationLink && (
+        <Flex mb={12} justify="center">
+          <ButtonLink href={registrationLink}>Register</ButtonLink>
+        </Flex>
+      )}
       {/* Embedded OpenStreetMap view */}
       <Flex
         bg="highlight"

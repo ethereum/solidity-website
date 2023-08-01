@@ -42,6 +42,7 @@ export interface EventFrontmatter {
   links?: EventLink[]
   youtube?: string
   coordsOverride?: [Lat, Long]
+  registrationLink?: string
 }
 
 export interface EventPost {
