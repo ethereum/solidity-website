@@ -5,10 +5,10 @@ import { ParsedUrlQuery } from 'querystring'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
-import { Box, Image, Text } from '@chakra-ui/react'
-import { Map, PageMetadata, YouTube } from '@/components'
+import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import { ButtonLink, Map, PageMetadata, YouTube } from '@/components'
 import { EVENTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
-import { MDStyles } from '@/styles'
+import { EventMDStyles } from '@/styles'
 import type { EventPost } from '@/interfaces'
 import { formatDate } from '@/utils'
 
@@ -65,7 +65,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           mx="auto"
         />
         {/* Event hero */}
-        <Box textAlign="center" mt={8}>
+        <Box textAlign="center" mt={8} mb={24}>
           <Text>
             {isMultiDay
               ? `${formatDate(startDate)} - ${formatDate(endDate)}`
@@ -78,27 +78,49 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
             {location}
           </Text>
         </Box>
+        {/* Embedded YouTube video */}
+        {youtube && (
+          <Box bg="#44C2" py={{ base: 4, md: 16 }}>
+            <YouTube url={youtube} />
+          </Box>
+        )}
         {/* Markdown content */}
-        <Box as="article" maxW="container.lg" mx="auto" my={36}>
+        <Box
+          as="article"
+          maxW="container.lg"
+          mx="auto"
+          mb={12}
+          px={{ base: 4, md: 8 }}
+        >
           <ReactMarkdown
-            components={ChakraUIRenderer(MDStyles)}
+            components={ChakraUIRenderer(EventMDStyles)}
             remarkPlugins={[gfm]}
           >
             {content}
           </ReactMarkdown>
         </Box>
-        {/* Embedded YouTube video */}
-        {youtube && <YouTube url={youtube} />}
-        {/* Embedded OpenStreetMap view */}
+      </Box>
+      {/* Embedded OpenStreetMap view */}
+      <Flex
+        bg="highlight"
+        gap={8}
+        direction={{ base: 'column', md: 'row' }}
+        p={8}
+        mb={12}
+      >
+        <Flex flex={1} justify="center" alignItems="center">
+          <Text textStyle="h5" color="text">
+            {location}
+          </Text>
+        </Flex>
         <Map
           location={location}
           coordsOverride={coordsOverride ? { lat, lng } : null}
           h="300px"
-          maxW="container.lg"
-          mx="auto"
-          mb={16}
+          w="full"
+          flex={1}
         />
-      </Box>
+      </Flex>
     </>
   )
 }
