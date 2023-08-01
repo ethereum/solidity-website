@@ -110,19 +110,17 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
       </Box>
       {/* Registration button */}
       {registrationLink && (
-        <Flex mb={12} justify="center">
+        <Flex mb={12} justify="center" px={4}>
           <ButtonLink href={registrationLink}>Register</ButtonLink>
         </Flex>
       )}
       {/* Embedded OpenStreetMap view */}
       <Flex
         bg="highlight"
-        gap={8}
         direction={{ base: 'column', md: 'row' }}
-        p={8}
         mb={12}
       >
-        <Flex flex={1} justify="center" alignItems="center">
+        <Flex flex={1} justify="center" alignItems="center" px={{ base: 4, md: 8 }} py={16}>
           <Text textStyle="h5" color="text">
             {location}
           </Text>
@@ -130,7 +128,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         <Map
           location={location}
           coordsOverride={coordsOverride ? { lat, lng } : null}
-          h="300px"
+          h="full"
           w="full"
           flex={1}
         />
