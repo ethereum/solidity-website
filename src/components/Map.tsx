@@ -15,18 +15,14 @@ export const Map: React.FC<MapProps> = ({
   coordsOverride,
   location,
   ...boxProps
-}) => {
-  const filter = useColorModeValue('', 'invert(100%) hue-rotate(180deg) brightness(1.5)')
-  return (
-    <Box
-      as="figure"
-      sx={{
-        '&>div': { w: 'full', h: 'full', filter },
-        '&>div svg': { filter }
-      }}
-      {...boxProps}
-    >
-      <OpenStreetMap coordsOverride={coordsOverride} location={location} />
-    </Box>
-  )
-}
+}) => (
+  <Box
+    as="figure"
+    sx={{
+      '&>div': { w: 'full', h: 'full', minH: '300px' },
+    }}
+    {...boxProps}
+  >
+    <OpenStreetMap coordsOverride={coordsOverride} location={location} />
+  </Box>
+)
