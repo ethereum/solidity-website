@@ -5,7 +5,7 @@ import { ParsedUrlQuery } from 'querystring'
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import type { GetStaticPaths, GetStaticProps } from 'next/types'
-import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, FlexProps, Image, Text } from '@chakra-ui/react'
 import { ButtonLink, Map, PageMetadata, YouTube } from '@/components'
 import { EVENTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
 import { EventMDStyles } from '@/styles'
@@ -42,13 +42,27 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { frontmatter, content } }
 }
 
-interface CtaButtonGroupProps {
+interface CtaButtonGroupProps extends FlexProps {
   links: Link[]
 }
-const CtaButtonGroup: React.FC<CtaButtonGroupProps> = ({ links }) => (
-  <Flex justify="center" mb={12} px={4} gap={4} direction={{ base: 'column', sm: 'row' }}>
-    {links.map(({ href, label}, idx) => (
-      <ButtonLink key={label} href={href} variant={idx === 0 ? 'solid' : 'outline'}>
+const CtaButtonGroup: React.FC<CtaButtonGroupProps> = ({
+  links,
+  ...flexProps
+}) => (
+  <Flex
+    justify="center"
+    mb={12}
+    px={4}
+    gap={4}
+    direction={{ base: 'column', sm: 'row' }}
+    {...flexProps}
+  >
+    {links.map(({ href, label }, idx) => (
+      <ButtonLink
+        key={label}
+        href={href}
+        variant={idx === 0 ? 'solid' : 'outline'}
+      >
         {label}
       </ButtonLink>
     ))}
@@ -64,7 +78,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
     imageSrc,
     youtube,
     coordsOverride,
-    ctaLinks
+    ctaLinks,
   } = frontmatter
   const [lat, lng] = coordsOverride || [0, 0]
   const description = `${location} - ${formatDate(startDate)} - ${formatDate(
@@ -98,6 +112,8 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           <Text textStyle="h5" color="text">
             {location}
           </Text>
+          {/* CTA button(s) */}
+          {ctaLinks?.length && <CtaButtonGroup links={ctaLinks} mt={10} />}
         </Box>
         {/* Markdown content */}
         <Box
@@ -116,9 +132,9 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
             {content}
           </ReactMarkdown>
         </Box>
+        {/* CTA button(s) */}
+        {ctaLinks?.length && <CtaButtonGroup links={ctaLinks} />}
       </Box>
-      {/* CTA button(s) */}
-      {ctaLinks?.length && <CtaButtonGroup links={ctaLinks} />}
       {/* Embedded OpenStreetMap view */}
       <Flex
         bg="highlight"
@@ -127,7 +143,13 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         px={{ base: 0, md: 8 }}
         py={{ base: 0, md: 6 }}
       >
-        <Flex flex={1} justify="center" alignItems="center" px={{ base: 4, md: 8 }} py={16}>
+        <Flex
+          flex={1}
+          justify="center"
+          alignItems="center"
+          px={{ base: 4, md: 8 }}
+          py={16}
+        >
           <Text textStyle="h5" color="text">
             {location}
           </Text>

@@ -16,4 +16,15 @@ export const EventMDStyles = {
       {children}
     </Heading>
   ),
+  h3: ({ children, id }: any) => (
+    <Heading
+      as="h3"
+      id={id}
+      textStyle="h3"
+      color="text"
+      my={{ base: 4, md: 6 }}
+    >
+      {children}
+    </Heading>
+  ),
 }
