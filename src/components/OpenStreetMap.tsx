@@ -72,7 +72,7 @@ const OpenStreetMap: React.FC<OpenStreetMapProps> = ({
         {mapLabel}
       </Heading>
 
-      <MapContainer center={coords} zoom={MAP_ZOOM_LEVEL} ref={ref}>
+      <MapContainer center={coords} zoom={MAP_ZOOM_LEVEL} ref={ref} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
