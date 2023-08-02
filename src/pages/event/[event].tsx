@@ -141,7 +141,6 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         location={location}
         coordsOverride={coordsOverride ? { lat, lng } : null}
         mapLabel={mapLabel ?? "Map location"}
-        h="300px"
         w="full"
         flex={1}
       />
