@@ -4,7 +4,7 @@ location: Remote
 startDate: 2022-04-29
 endDate: 2022-04-30
 imageSrc: /assets/usc_2022.png
-links:
+previewLinks:
   - label: Event Info
     href: https://underhanded.soliditylang.org/
 ---

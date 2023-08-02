@@ -4,7 +4,12 @@ location: Istanbul, Turkey
 startDate: 2023-11-16
 endDate: 2023-11-16
 imageSrc: /assets/solidity_summit_2023.png
-links:
+ctaLinks:
+  - label: Speak
+    href: /
+  - label: Attend
+    href: /
+previewLinks:
   - label: Join us
     href: /event/solidity-summit-2023/
 ---

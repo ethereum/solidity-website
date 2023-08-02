@@ -9,7 +9,7 @@ import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import { ButtonLink, Map, PageMetadata, YouTube } from '@/components'
 import { EVENTS_DIR, MAIN_CONTENT_ID, MATTER_OPTIONS } from '@/constants'
 import { EventMDStyles } from '@/styles'
-import type { EventPost } from '@/interfaces'
+import type { EventPost, Link } from '@/interfaces'
 import { formatDate } from '@/utils'
 
 // Generate the paths for each event
@@ -42,6 +42,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return { props: { frontmatter, content } }
 }
 
+interface CtaButtonGroupProps {
+  links: Link[]
+}
+const CtaButtonGroup: React.FC<CtaButtonGroupProps> = ({ links }) => (
+  <Flex justify="center" mb={12} px={4} gap={4} direction={{ base: 'column', sm: 'row' }}>
+    {links.map(({ href, label}, idx) => (
+      <ButtonLink key={label} href={href} variant={idx === 0 ? 'solid' : 'outline'}>
+        {label}
+      </ButtonLink>
+    ))}
+  </Flex>
+)
+
 const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
   const {
     title,
@@ -51,7 +64,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
     imageSrc,
     youtube,
     coordsOverride,
-    registrationLink,
+    ctaLinks
   } = frontmatter
   const [lat, lng] = coordsOverride || [0, 0]
   const description = `${location} - ${formatDate(startDate)} - ${formatDate(
@@ -108,12 +121,8 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           </ReactMarkdown>
         </Box>
       </Box>
-      {/* Registration button */}
-      {registrationLink && (
-        <Flex mb={12} justify="center" px={4}>
-          <ButtonLink href={registrationLink}>Register</ButtonLink>
-        </Flex>
-      )}
+      {/* CTA button(s) */}
+      {ctaLinks?.length && <CtaButtonGroup links={ctaLinks} />}
       {/* Embedded OpenStreetMap view */}
       <Flex
         bg="highlight"

@@ -25,7 +25,7 @@ export interface BlogCardInfo {
   href: string
 }
 
-export interface EventLink {
+export interface Link {
   label: string
   href: string
 }
@@ -39,10 +39,10 @@ export interface EventFrontmatter {
   startDate: string
   endDate: string
   imageSrc?: string
-  links?: EventLink[]
+  previewLinks?: Link[]
+  ctaLinks?: Link[]
   youtube?: string
   coordsOverride?: [Lat, Long]
-  registrationLink?: string
 }
 
 export interface EventPost {
