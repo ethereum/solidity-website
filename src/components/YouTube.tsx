@@ -29,7 +29,7 @@ export const YouTube: React.FC<IProps> = ({ url, title = 'YouTube Video' }) => {
   const baseUrl = 'https://www.youtube.com/embed/'
   const src = baseUrl + vid
   return (
-    <AspectRatio as="figure" maxW="container.md" ratio={16 / 9} mx="auto">
+    <AspectRatio as="figure" w="full" ratio={16 / 9} mx="auto">
       <iframe
         src={src}
         title={title}

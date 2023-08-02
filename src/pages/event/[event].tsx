@@ -99,12 +99,6 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
             {location}
           </Text>
         </Box>
-        {/* Embedded YouTube video */}
-        {youtube && (
-          <Box bg="#44C2" py={{ base: 4, md: 16 }}>
-            <YouTube url={youtube} />
-          </Box>
-        )}
         {/* Markdown content */}
         <Box
           as="article"
@@ -113,6 +107,8 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           mb={12}
           px={{ base: 4, md: 8 }}
         >
+          {/* Embedded YouTube video */}
+          {youtube && <YouTube url={youtube} />}
           <ReactMarkdown
             components={ChakraUIRenderer(EventMDStyles)}
             remarkPlugins={[gfm]}
