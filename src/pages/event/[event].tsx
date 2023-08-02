@@ -79,6 +79,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
     youtube,
     coordsOverride,
     ctaLinks,
+    mapLabel,
   } = frontmatter
   const [lat, lng] = coordsOverride || [0, 0]
   const description = `${location} - ${formatDate(startDate)} - ${formatDate(
@@ -136,32 +137,14 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
         {ctaLinks?.length && <CtaButtonGroup links={ctaLinks} />}
       </Box>
       {/* Embedded OpenStreetMap view */}
-      <Flex
-        bg="highlight"
-        direction={{ base: 'column', md: 'row' }}
-        mb={12}
-        px={{ base: 0, md: 8 }}
-        py={{ base: 0, md: 6 }}
-      >
-        <Flex
-          flex={1}
-          justify="center"
-          alignItems="center"
-          px={{ base: 4, md: 8 }}
-          py={16}
-        >
-          <Text textStyle="h5" color="text">
-            {location}
-          </Text>
-        </Flex>
-        <Map
-          location={location}
-          coordsOverride={coordsOverride ? { lat, lng } : null}
-          h="300px"
-          w="full"
-          flex={1}
-        />
-      </Flex>
+      <Map
+        location={location}
+        coordsOverride={coordsOverride ? { lat, lng } : null}
+        mapLabel={mapLabel ?? "Map location"}
+        h="300px"
+        w="full"
+        flex={1}
+      />
     </>
   )
 }

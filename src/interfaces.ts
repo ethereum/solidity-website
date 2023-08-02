@@ -43,6 +43,7 @@ export interface EventFrontmatter {
   ctaLinks?: Link[]
   youtube?: string
   coordsOverride?: [Lat, Long]
+  mapLabel?: string
 }
 
 export interface EventPost {
