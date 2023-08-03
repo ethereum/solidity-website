@@ -76,21 +76,44 @@ Go to [GitHub Personal Access Tokens](https://github.com/settings/tokens?type=be
 Front matter from markdown files contained within `/src/events` is used to populate event cards, using the following interface:
 
 ```ts
-export interface EventFrontmatter {
+interface EventFrontmatter {
   title: string
   location: string
   startDate: string
   endDate: string
   imageSrc?: string
-  links?: EventLink[]
+  previewLinks?: Link[]
+  ctaLinks?: Link[]
   youtube?: string
   coordsOverride?: [Lat, Long]
+  mapLabel?: string
 }
+
+// where...
+interface Link {
+  label: string
+  href: string
+}
+type Lat = number
+type Long = number
 ```
 
 (See [src/interfaces.ts](src/interfaces.ts) for canonical `EventFrontmatter` interface.)
 
-The date properties are used to display recent events and next upcoming events on the homepage.
+The date properties `startDate` and `endDate` are used to display recent events and next upcoming events on the homepage.
+
+### Optional front matter properties for events
+
+- `imageSrc` is the relative path to the image asset to be used as the hero banner.
+- `previewLinks` are used to display button links on the event _preview_ cards shown on the homepage. It accepts a list of `Link` objects, each with a `label` and `href`.
+- `ctaLinks` are call-to-action button links displayed in the hero and bottom of an event _page_. The first one listed will be styled as a primary solid button; any additional will be styled as a secondary outline button. It accepts a list of `Link` objects, each with a `label` and `href`.
+- `youtube` accepts a YouTube video link or video ID, and embeds it below the hero of the event page. It accepts any of the following formats:
+  - Standard format: `https://youtube.com/watch?v=1234567890`
+  - Embed format: `https://www.youtube.com/embed/1234567890`
+  - Shortened format: `https://youtu.be/1234567890`
+  - Just the video ID: `1234567890`
+- `coordsOverride` can be used to provide a latitude and longitude to override the map location being rendered. See below for more info.
+- `mapLabel` can be provided to customize the `<h2>` label shown before an embedded map.
 
 ### Location and embedded map
 
@@ -108,10 +131,15 @@ title: Solidity Summit 2023
 location: Istanbul, Turkey
 startDate: 2023-11-16
 endDate: 2023-11-16
-imageSrc: /assets/solidity-summit-2023.png
-links:
+imageSrc: /assets/solidity_summit_2023.png
+ctaLinks:
+  - label: Speak
+    href: https://link.to.speaker.application
+  - label: Attend
+    href: https://link.to.attendee.application
+previewLinks:
   - label: Join us
-    href: https://summit.soliditylang.org
+    href: /event/solidity-summit-2023/
 ---
 
 Intro text
@@ -129,10 +157,15 @@ title: Solidity Summit 2023
 location: Istanbul, Turkey
 startDate: 2023-11-16
 endDate: 2023-11-16
-imageSrc: /assets/solidity-summit-2023.png
-links:
+imageSrc: /assets/solidity_summit_2023.png
+ctaLinks:
+  - label: Speak
+    href: https://link.to.speaker.application
+  - label: Attend
+    href: https://link.to.attendee.application
+previewLinks:
   - label: Join us
-    href: https://summit.soliditylang.org
+    href: /event/solidity-summit-2023/
 coordsOverride:
   - 41.0082
   - 28.9784
@@ -145,7 +178,7 @@ Intro text
 ...
 ```
 
-Note that `coordsOverride` is an array of two numbers, representing latitude and longitude, respectively.
+Note that `coordsOverride` is a tuple of two numbers, representing latitude and longitude, respectively. Positive numbers represent north and east, while negative represent south and west.
 
 ## Blog entries
 
@@ -154,7 +187,7 @@ Note that `coordsOverride` is an array of two numbers, representing latitude and
 - Front matter should take the shape of the following interface:
 
   ```ts
-  export interface BlogPostFrontmatter {
+  interface BlogPostFrontmatter {
     layout?: string
     title: string
     date: string
