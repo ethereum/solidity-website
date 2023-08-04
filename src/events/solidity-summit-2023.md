@@ -6,9 +6,9 @@ endDate: 2023-11-16
 imageSrc: /assets/solidity_summit_2023.png
 ctaLinks:
   - label: Speak
-    href: 
+    href: https://cryptpad.fr/form/#/2/form/view/GMGhskSUobJs5pg5ZZ-l0I75kfVKdvIR0L-B0DSDxRk/
   - label: Attend
-    href: 
+    href: https://cryptpad.fr/form/#/2/form/view/xfCGeeNLIlraxzc46U2fLxAGpbTnlVakiM+18kZJcuI/
 previewLinks:
   - label: Join us
     href: /event/solidity-summit-2023/
