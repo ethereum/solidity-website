@@ -6,7 +6,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
-import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID, EVENTS_PATH } from '@/constants'
+import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID } from '@/constants'
 import {
   motion,
   useScroll,
@@ -30,7 +30,7 @@ const MotionDiv = chakra(motion.div, {
 
 export const Header: React.FC = () => {
   const { pathname } = useRouter()
-  const skipAnimation = pathname.includes(EVENTS_PATH)
+  const skipAnimation = pathname.includes('[event]')
   const { scrollY } = useScroll()
 
   const endOpacity = 0.95
