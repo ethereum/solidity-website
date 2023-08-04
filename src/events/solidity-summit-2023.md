@@ -16,7 +16,7 @@ previewLinks:
 
 ## The Solidity Summit is a collaborative event focusing on the future of [Solidity](/).
 
-Ticket & speaker applications for 2023 will open soon!
+Speaker applications for 2023 are open!
 
 We're excited to bring back Solidity Summit for another edition! More information on the speaker application process as well as general attendee applications will be shared here shortly.
 
@@ -42,15 +42,15 @@ The Solidity Summit focuses on advanced Solidity users and other stakeholders of
 
 ### Solidity Language Shapers
 
-You are a Solidity pro and interested in shaping the language? Join the Solidity Summit to present language improvement proposals and exchange ideas.
+Experts in Solidity, or other EVM smart contract languages, can share updates, or present improvement ideas and their thoughts.
 
 ### Tooling Builders & Auditors
 
-You build an IDE, debugger, analysis tool or audit Solidity code? Use the opportunity to share your tools and what you've been working on with the audience.
+IDE developers, debuggers, analysis tools, or testing frameworks can use this occasion to share updates with the audience.
 
 ### Solidity Enthusiasts
 
-You are a heavy Solidity user? We welcome all Solidity power users and code aficionados to join, learn, network and share their best Solidity tips, hacks and feedback.
+Big Solidity users can share their finest Solidity hacks, tips, and comments!
 
 ## What will we talk about?
 
@@ -68,9 +68,12 @@ This year, presentations and discussions will evolve around the following topics
 - Layer 2 support, cross-chain support
 - Mechanisms / programming patterns (on the EVM) like mutexes, state machines, upgradeable contracts, libraries, create2, etc.
 
-## Registrations will open soon.
+## Registrations are open!
 
-Tickets for the Solidity Summit 2023 are free and given out on an application basis. Applications will open soon.
+Tickets for the Solidity Summit 2023 are free and given out on an application basis.
+Applications are open.
 
-The event will be live-streamed and recorded. You don't need to sign up to watch the livestream. The link for the livestream will be added to the event page closer to the event.
+### Can't attend?
+
+Can't make it to Istanbul in person? No worries, the event will be live-streamed and recorded. Before the event, we'll send out instructions on how to join us online. To view the live stream, you do not need to sign up.
 
