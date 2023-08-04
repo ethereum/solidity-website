@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
         insetInline={0}
         h={`${NAV_HEIGHT}px`}
         bg="bg"
-        zIndex={1}
+        zIndex="sticky"
         transition="background 200ms linear !important"
         boxShadow="md"
         style={{ opacity }}
