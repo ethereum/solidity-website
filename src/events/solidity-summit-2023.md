@@ -6,9 +6,9 @@ endDate: 2023-11-16
 imageSrc: /assets/solidity_summit_2023.png
 ctaLinks:
   - label: Speak
-    href: /
+    href: 
   - label: Attend
-    href: /
+    href: 
 previewLinks:
   - label: Join us
     href: /event/solidity-summit-2023/
