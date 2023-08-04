@@ -27,7 +27,7 @@ export interface BlogCardInfo {
 
 export interface Link {
   label: string
-  href: string
+  href?: string
 }
 
 type Lat = number

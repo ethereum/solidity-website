@@ -57,15 +57,21 @@ const CtaButtonGroup: React.FC<CtaButtonGroupProps> = ({
     direction={{ base: 'column', sm: 'row' }}
     {...flexProps}
   >
-    {links.map(({ href, label }, idx) => (
-      <ButtonLink
-        key={label}
-        href={href}
-        variant={idx === 0 ? 'solid' : 'outline'}
-      >
-        {label}
-      </ButtonLink>
-    ))}
+    {links.map(({ label, href }, idx) => {
+      if (!href) {
+        console.warn(`Missing href for CTA button "${label}"`)
+        return null
+      }
+      return (
+        <ButtonLink
+          key={label}
+          href={href}
+          variant={idx === 0 ? 'solid' : 'outline'}
+        >
+          {label}
+        </ButtonLink>
+      )
+    })}
   </Flex>
 )
 
@@ -129,6 +135,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           <ReactMarkdown
             components={ChakraUIRenderer(EventMDStyles)}
             remarkPlugins={[gfm]}
+            skipHtml
           >
             {content}
           </ReactMarkdown>
@@ -140,7 +147,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
       <Map
         location={location}
         coordsOverride={coordsOverride ? { lat, lng } : null}
-        mapLabel={mapLabel ?? "Map location"}
+        mapLabel={mapLabel ?? 'Map location'}
         w="full"
         flex={1}
       />
