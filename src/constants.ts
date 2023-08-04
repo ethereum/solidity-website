@@ -69,6 +69,7 @@ export const MAP_ZOOM_LEVEL = 10 as const
 export const MARKER_ICON_PATH = '/marker.png' as const
 export const MARKER_SHADOW_PATH = '/marker-shadow.png' as const
 export const REMOTE_EVENTS_LOCATION = 'remote' as const
+export const EVENT_PAGE_DYNAMIC_ROUTE = '[event]' as const
 
 /**
  * Blog related constants

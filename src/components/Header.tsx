@@ -6,7 +6,12 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
-import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID } from '@/constants'
+import {
+  NAV_LINKS,
+  NAV_HEIGHT,
+  MAIN_CONTENT_ID,
+  EVENT_PAGE_DYNAMIC_ROUTE,
+} from '@/constants'
 import {
   motion,
   useScroll,
@@ -30,7 +35,7 @@ const MotionDiv = chakra(motion.div, {
 
 export const Header: React.FC = () => {
   const { pathname } = useRouter()
-  const skipAnimation = pathname.includes('[event]')
+  const skipAnimation = pathname.includes(EVENT_PAGE_DYNAMIC_ROUTE)
   const { scrollY } = useScroll()
 
   const endOpacity = 0.95
@@ -50,9 +55,18 @@ export const Header: React.FC = () => {
     [1.1, endScale]
   )
 
-  const opacity = useBreakpointValue({ base: mobileOpacity, md: skipAnimation ? mobileOpacity : desktopOpacity })
-  const y = useBreakpointValue({ base: endY, md: skipAnimation ? endY : desktopY })
-  const scale = useBreakpointValue({ base: endScale, md: skipAnimation ? endScale : desktopScale })
+  const opacity = useBreakpointValue({
+    base: mobileOpacity,
+    md: skipAnimation ? mobileOpacity : desktopOpacity,
+  })
+  const y = useBreakpointValue({
+    base: endY,
+    md: skipAnimation ? endY : desktopY,
+  })
+  const scale = useBreakpointValue({
+    base: endScale,
+    md: skipAnimation ? endScale : desktopScale,
+  })
   return (
     <>
       <MotionDiv
