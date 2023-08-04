@@ -18,10 +18,12 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     fontSize: 'md',
     _groupHover: { bg: 'primary' },
   }
+  const borderWidth = '2px'
   const outline = {
     color: 'text',
     bg: 'transparent',
-    border: '2px',
+    border: borderWidth,
+    my: `-${borderWidth}`,
     borderColor: 'border',
     fontSize: 'md',
     _groupHover: {

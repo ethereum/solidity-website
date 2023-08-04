@@ -25,10 +25,13 @@ export interface BlogCardInfo {
   href: string
 }
 
-export interface EventLink {
+export interface Link {
   label: string
-  href: string
+  href?: string
 }
+
+type Lat = number
+type Long = number
 
 export interface EventFrontmatter {
   title: string
@@ -36,13 +39,22 @@ export interface EventFrontmatter {
   startDate: string
   endDate: string
   imageSrc?: string
-  links?: EventLink[]
+  previewLinks?: Link[]
+  ctaLinks?: Link[]
+  youtube?: string
+  coordsOverride?: [Lat, Long]
+  mapLabel?: string
 }
 
 export interface EventPost {
   frontmatter: EventFrontmatter
   content: string
   url: string
+}
+
+export interface Coordinates {
+  lat: Lat
+  lng: Long
 }
 
 export type Category = keyof typeof CATEGORIES_URL_MAP

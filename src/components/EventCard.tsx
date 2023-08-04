@@ -11,7 +11,7 @@ export const EventCard: React.FC<EventCardProps> = ({
   frontmatter,
   ...flexProps
 }) => {
-  const { title, location, startDate, endDate, links, imageSrc } = frontmatter
+  const { title, location, startDate, endDate, previewLinks, imageSrc } = frontmatter
   const start = new Date(startDate)
   const end = new Date(endDate)
   const date = `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
@@ -35,8 +35,8 @@ export const EventCard: React.FC<EventCardProps> = ({
         </Box>
         <Spacer />
         <Flex gap={4} mt={6}>
-          {links &&
-            links.map(({ href, label }) => (
+          {previewLinks &&
+            previewLinks.map(({ href, label }) => (
               <ButtonLink
                 href={href}
                 key={href}

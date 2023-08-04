@@ -4,7 +4,7 @@ location: Remote
 startDate: 2020-04-29
 endDate: 2020-04-30
 imageSrc: /assets/solidity_summit_2020.png
-links:
+previewLinks:
   - label: Event Recap
     href: https://blog.soliditylang.org/2020/06/09/solidity-summit-recap/
   - label: Talks

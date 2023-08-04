@@ -1,1 +1,2 @@
-export * from './MDXStyles'
+export * from './MDStyles'
+export * from './EventMDStyles'

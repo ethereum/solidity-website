@@ -6,7 +6,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { ColorModeToggle, Link, MobileMenu, SolidityLogo } from '@/components'
-import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID } from '@/constants'
+import { NAV_LINKS, NAV_HEIGHT, MAIN_CONTENT_ID, EVENTS_PATH } from '@/constants'
 import {
   motion,
   useScroll,
@@ -30,24 +30,29 @@ const MotionDiv = chakra(motion.div, {
 
 export const Header: React.FC = () => {
   const { pathname } = useRouter()
+  const skipAnimation = pathname.includes(EVENTS_PATH)
   const { scrollY } = useScroll()
 
-  const opacity = useTransform(
+  const endOpacity = 0.95
+  const mobileOpacity = useTransform(scrollY, [0, 16], [0, endOpacity])
+  const endY = 0
+  const endScale = 0.25
+
+  const desktopOpacity = useTransform(
     scrollY,
     [STARTING_NAV_HEIGHT - 50, STARTING_NAV_HEIGHT],
-    [0, 0.95]
+    [0, endOpacity]
   )
-
-  const desktopY = useTransform(scrollY, [0, Y_OFFSET], [Y_OFFSET, 0])
+  const desktopY = useTransform(scrollY, [0, Y_OFFSET], [Y_OFFSET, endY])
   const desktopScale = useTransform(
     scrollY,
     [NAV_PADDING, FINAL_SCROLL_DISTANCE],
-    [1.1, 0.25]
+    [1.1, endScale]
   )
-  const mobileY = useTransform(scrollY, [0, 1], [0, 0])
-  const mobileScale = useTransform(scrollY, [0, 1], [0.25, 0.25])
-  const y = useBreakpointValue({ base: mobileY, md: desktopY })
-  const scale = useBreakpointValue({ base: mobileScale, md: desktopScale })
+
+  const opacity = useBreakpointValue({ base: mobileOpacity, md: skipAnimation ? mobileOpacity : desktopOpacity })
+  const y = useBreakpointValue({ base: endY, md: skipAnimation ? endY : desktopY })
+  const scale = useBreakpointValue({ base: endScale, md: skipAnimation ? endScale : desktopScale })
   return (
     <>
       <MotionDiv
@@ -56,7 +61,7 @@ export const Header: React.FC = () => {
         insetInline={0}
         h={`${NAV_HEIGHT}px`}
         bg="bg"
-        zIndex={1}
+        zIndex="sticky"
         transition="background 200ms linear !important"
         boxShadow="md"
         style={{ opacity }}

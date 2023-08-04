@@ -14,7 +14,7 @@ Note: This is the codebase for the Solidity **website** only. For the Solidity L
 - [Yarn package manager](https://yarnpkg.com/cli/install)
 - [React](https://reactjs.org/) - A JavaScript library for building component-based user interfaces
 - [Typescript](https://www.typescriptlang.org/) - TypeScript is a strongly typed programming language that builds on JavaScript
-- [Chakra UI](https://chakra-ui.com/) - A UI library (Migration in progress)
+- [Chakra UI](https://chakra-ui.com/) - A UI library
 - [GitHub Actions](https://github.com/features/actions) - Manages CI/CD, and issue tracking
 
 ## Local environment setup
@@ -76,19 +76,52 @@ Go to [GitHub Personal Access Tokens](https://github.com/settings/tokens?type=be
 Front matter from markdown files contained within `/src/events` is used to populate event cards, using the following interface:
 
 ```ts
-export interface EventFrontmatter {
+interface EventFrontmatter {
   title: string
   location: string
   startDate: string
   endDate: string
   imageSrc?: string
-  links?: EventLink[]
+  previewLinks?: Link[]
+  ctaLinks?: Link[]
+  youtube?: string
+  coordsOverride?: [Lat, Long]
+  mapLabel?: string
 }
+
+// where...
+interface Link {
+  label: string
+  href: string
+}
+type Lat = number
+type Long = number
 ```
 
 (See [src/interfaces.ts](src/interfaces.ts) for canonical `EventFrontmatter` interface.)
 
-The date properties are used to display recent events and next upcoming events on the homepage.
+The date properties `startDate` and `endDate` are used to display recent events and next upcoming events on the homepage.
+
+### Optional front matter properties for events
+
+- `imageSrc` is the relative path to the image asset to be used as the hero banner.
+- `previewLinks` are used to display button links on the event _preview_ cards shown on the homepage. It accepts a list of `Link` objects, each with a `label` and `href`.
+- `ctaLinks` are call-to-action button links displayed in the hero and bottom of an event _page_. The first one listed will be styled as a primary solid button; any additional will be styled as a secondary outline button. It accepts a list of `Link` objects, each with a `label` and `href`.
+- `youtube` accepts a YouTube video link or video ID, and embeds it below the hero of the event page. It accepts any of the following formats:
+  - Standard format: `https://youtube.com/watch?v=1234567890`
+  - Embed format: `https://www.youtube.com/embed/1234567890`
+  - Shortened format: `https://youtu.be/1234567890`
+  - Just the video ID: `1234567890`
+- `coordsOverride` can be used to provide a latitude and longitude to override the map location being rendered. See below for more info.
+- `mapLabel` can be provided to customize the `<h2>` label shown before an embedded map.
+
+### Location and embedded map
+
+The `location` property is used to display a map on the event page, fetched from [OpenStreetMap](https://www.openstreetmap.org/). If the resulting location is inaccurate or not precise enough, `coordsOverride` can optionally be provided to override this result. If no results are found, the map will not be displayed.
+
+For virtual/remote events, use `location: Remote`, and the map will not be displayed.
+
+_Note: Package `leaflet-geosearch` is being used for geocoding. Using older version `3.6.1` intentionally to avoid the addition of an unnecessary Google dependency added in later versions._
 
 ### Event example
 
@@ -98,10 +131,15 @@ title: Solidity Summit 2023
 location: Istanbul, Turkey
 startDate: 2023-11-16
 endDate: 2023-11-16
-imageSrc: /assets/solidity-summit-2023.png
-links:
+imageSrc: /assets/solidity_summit_2023.png
+ctaLinks:
+  - label: Speak
+    href: https://link.to.speaker.application
+  - label: Attend
+    href: https://link.to.attendee.application
+previewLinks:
   - label: Join us
-    href: https://summit.soliditylang.org
+    href: /event/solidity-summit-2023/
 ---
 
 Intro text
@@ -111,6 +149,37 @@ Intro text
 ...
 ```
 
+### Event example using `coordsOverride`
+
+```md
+---
+title: Solidity Summit 2023
+location: Istanbul, Turkey
+startDate: 2023-11-16
+endDate: 2023-11-16
+imageSrc: /assets/solidity_summit_2023.png
+ctaLinks:
+  - label: Speak
+    href: https://link.to.speaker.application
+  - label: Attend
+    href: https://link.to.attendee.application
+previewLinks:
+  - label: Join us
+    href: /event/solidity-summit-2023/
+coordsOverride:
+  - 41.0082
+  - 28.9784
+---
+
+Intro text
+
+## First header as h2
+
+...
+```
+
+Note that `coordsOverride` is a tuple of two numbers, representing latitude and longitude, respectively. Positive numbers represent north and east, while negative represent south and west.
+
 ## Blog entries
 
 - Blog posts should be markdown files, stored in the `/src/posts` folder
@@ -118,7 +187,7 @@ Intro text
 - Front matter should take the shape of the following interface:
 
   ```ts
-  export interface BlogPostFrontmatter {
+  interface BlogPostFrontmatter {
     layout?: string
     title: string
     date: string
@@ -164,9 +233,9 @@ Intro text
 
 When linking to content internal to this repo, relative paths should be used instead of absolute paths. This ensures proper routing with Next.js, and avoids unintentional page refreshes.
 
-This includes links to blog posts, which now live under https://soliditylang.org/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://soliditylang.org`. 
+This includes links to blog posts, which now live under https://soliditylang.org/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://soliditylang.org`.
 
-This does NOT include links to the docs, which are located at a different subdomain of https://docs.soliditylang.org. These should be referenced using their full URL, including `https://docs.soliditylang.org`. 
+This does NOT include links to the docs, which are located at a different subdomain of https://docs.soliditylang.org. These should be referenced using their full URL, including `https://docs.soliditylang.org`.
 
 ## Learn more about the stack
 
