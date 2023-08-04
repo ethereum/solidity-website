@@ -131,7 +131,7 @@ const EventPage: React.FC<EventPost> = ({ frontmatter, content }) => {
           px={{ base: 4, md: 8 }}
         >
           {/* Embedded YouTube video */}
-          {youtube && <YouTube url={youtube} />}
+          {youtube && <YouTube url={youtube} mb={20} mx="auto" />}
           <ReactMarkdown
             components={ChakraUIRenderer(EventMDStyles)}
             remarkPlugins={[gfm]}

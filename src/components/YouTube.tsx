@@ -1,4 +1,4 @@
-import { AspectRatio } from '@chakra-ui/react'
+import { AspectRatio, AspectRatioProps } from '@chakra-ui/react'
 
 /**
  * @param {url} YouTube video URL, or ID of the YouTube video
@@ -8,12 +8,16 @@ import { AspectRatio } from '@chakra-ui/react'
  * @returns Embedded YouTube video component
  */
 
-export interface IProps {
+export interface IProps extends AspectRatioProps {
   url: string
   title?: string
 }
 
-export const YouTube: React.FC<IProps> = ({ url, title = 'YouTube Video' }) => {
+export const YouTube: React.FC<IProps> = ({
+  url,
+  title = 'YouTube Video',
+  ...aspectRatioProps
+}) => {
   let vid = ''
   const u = new URL(url)
   // Parse out the video ID from the different YouTube URL formats
@@ -29,7 +33,12 @@ export const YouTube: React.FC<IProps> = ({ url, title = 'YouTube Video' }) => {
   const baseUrl = 'https://www.youtube.com/embed/'
   const src = baseUrl + vid
   return (
-    <AspectRatio as="figure" w="full" ratio={16 / 9} mx="auto">
+    <AspectRatio
+      as="figure"
+      w="full"
+      ratio={16 / 9}
+      {...aspectRatioProps}
+    >
       <iframe
         src={src}
         title={title}
