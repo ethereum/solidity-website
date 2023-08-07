@@ -1,7 +1,7 @@
 ---
 title: Solidity Summit 2023
 location: Istanbul, Turkey
-mapLabel?: Map
+mapLabel: Map
 startDate: 2023-11-16
 endDate: 2023-11-16
 imageSrc: /assets/solidity_summit.png
