@@ -11,7 +11,7 @@ ctaLinks:
     href: https://cryptpad.fr/form/#/2/form/view/xfCGeeNLIlraxzc46U2fLxAGpbTnlVakiM+18kZJcuI/
 previewLinks:
   - label: Join us
-    href: /event/solidity-summit-2023/
+    href: /summit/
 ---
 
 ## The Solidity Summit is a collaborative event focusing on the future of [Solidity](/).
