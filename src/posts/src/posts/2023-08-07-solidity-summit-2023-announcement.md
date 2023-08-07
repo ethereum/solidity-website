@@ -6,7 +6,7 @@ date: '2023-08-07'
 author: Solidity Team
 category: Announcements
 ---
-The [Solidity Summit](https://summit.soliditylang.org/) has returned! Following the popularity of the [Solidity Summit in 2022](https://soliditylang.org/blog/2022/05/03/solidity-summit-2022-recap/), we are pleased to announce a live event for 2023!
+The [Solidity Summit](https://soliditylang.org/event/solidity-summit-2023/) has returned! Following the popularity of the [Solidity Summit in 2022](https://soliditylang.org/blog/2022/05/03/solidity-summit-2022-recap/), we are pleased to announce a live event for 2023!
 
 Solidity Summit 2023 is part of [DevConnect](https://devconnect.org/) and will take place in Istanbul, Turkey, on Wednesday, November 16, 2023.
 
