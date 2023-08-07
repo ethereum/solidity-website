@@ -70,8 +70,7 @@ This year, presentations and discussions will evolve around the following topics
 
 ## Registrations are open!
 
-Tickets for the Solidity Summit 2023 are free and given out on an application basis.
-Applications are open.
+Tickets for the Solidity Summit 2023 are free and given out on an application basis. Applications are open.
 
 ### Can't attend?
 
