@@ -84,4 +84,19 @@ export const MDStyles = {
   hr: ({ children }: any) => {
     return <Divider my={6}>{children}</Divider>
   },
+  table: ({ children }: any) => (
+    <Flex overflowX='auto'>
+      <Table
+        variant='striped'
+        // colorScheme='blueAlpha'
+        border='1px'
+        borderColor='blackAlpha.50'
+        my='6 !important'
+        size={{ base: 'sm', lg: 'md' }}
+        w='auto'
+      >
+        {children}
+      </Table>
+    </Flex>
+  ),
 }
