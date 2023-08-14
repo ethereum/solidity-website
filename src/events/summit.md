@@ -1,6 +1,6 @@
 ---
 title: Solidity Summit 2023
-location: Istanbul, Turkey
+location: Istanbul Congress Center, Istanbul, Turkey
 mapLabel: Location
 startDate: 2023-11-16
 endDate: 2023-11-16
