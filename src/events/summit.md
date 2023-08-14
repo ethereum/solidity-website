@@ -1,7 +1,7 @@
 ---
 title: Solidity Summit 2023
 location: Istanbul, Turkey
-mapLabel: Map
+mapLabel: Location
 startDate: 2023-11-16
 endDate: 2023-11-16
 imageSrc: /assets/solidity_summit.png
@@ -65,12 +65,12 @@ This year, presentations and discussions will revolve around the following topic
 - Language changes or extension proposals
 - Long-term future of Solidity (Verkle tree support, experimental Solidity, etc.)
 - Feedback on recently introduced features
-- Unification / extension of the ABI
+- Unification/extension of the ABI
 - Tooling, debuggers and debugging data output
 - Testing frameworks
 - Source verification
 - Layer 2 support, cross-chain support
-- Mechanisms / programming patterns (on the EVM) like mutexes, state machines, upgradeable contracts, libraries, create2, etc.
+- Mechanisms/programming patterns (on the EVM) like mutexes, state machines, upgradeable contracts, libraries, create2, etc.
 
 ## Registrations are open!
 
@@ -78,7 +78,7 @@ Tickets for the Solidity Summit 2023 are free and given out on an application ba
 
 The Solidity Summit is focused on an advanced audience and is not suitable for beginners who are just getting started with (Solidity) programming.
 
-### Can't attend?
+## Can't attend?
 
 Can't make it to Istanbul in person? No worries, the event will be live-streamed and recorded. Before the event, we'll send out instructions on how to join us online. To view the live stream, you do not need to sign up.
 
