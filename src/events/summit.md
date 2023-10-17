@@ -5,11 +5,6 @@ mapLabel: Location
 startDate: 2023-11-16
 endDate: 2023-11-16
 imageSrc: /assets/solidity_summit.png
-ctaLinks:
-  - label: Speak
-    href: https://cryptpad.fr/form/#/2/form/view/GMGhskSUobJs5pg5ZZ-l0I75kfVKdvIR0L-B0DSDxRk/
-  - label: Attend
-    href: https://cryptpad.fr/form/#/2/form/view/xfCGeeNLIlraxzc46U2fLxAGpbTnlVakiM+18kZJcuI/
 previewLinks:
   - label: Join us
     href: /summit/
@@ -19,11 +14,7 @@ previewLinks:
 
 We're excited to bring back Solidity Summit for another edition, again as part of the [Devconnect](https://devconnect.org/schedule) week! 
 
-Speaker and attendee applications for 2023 are open!
-
-To apply for a speaking opportunity, please complete the [speaker form](https://cryptpad.fr/form/#/2/form/view/GMGhskSUobJs5pg5ZZ-l0I75kfVKdvIR0L-B0DSDxRk/).
-
-Keep in mind that the Solidity Summit is geared towards an experienced audience, which means you can get deep into the (Solidity) technicalities quickly!
+Speaker and attendee applications for 2023 are now closed and ticket vouchers have been distributed.
 
 You can follow Solidity on [Twitter](https://twitter.com/solidity_lang) or monitor the [Solidity blog](/blog) not to miss any updates about the event.
 
@@ -72,13 +63,14 @@ This year, presentations and discussions will revolve around the following topic
 - Layer 2 support, cross-chain support
 - Mechanisms/programming patterns (on the EVM) like mutexes, state machines, upgradeable contracts, libraries, create2, etc.
 
-## Registrations are open!
+## Registrations are now closed!
 
-Tickets for the Solidity Summit 2023 are free and given out on an application basis. Applications are [open](https://cryptpad.fr/form/#/2/form/view/xfCGeeNLIlraxzc46U2fLxAGpbTnlVakiM+18kZJcuI/).
+Tickets for the Solidity Summit 2023 are free and were given out on an application basis. Applications are now closed.
+
+If you received a ticket voucher via the application process, please make sure to redeem it in our [ticket shop](https://ticketh.xyz/solidity/summit/) as soon as possible to ensure a spot at the event.
 
 The Solidity Summit is focused on an advanced audience and is not suitable for beginners who are just getting started with (Solidity) programming.
 
 ## Can't attend?
 
 Can't make it to Istanbul in person? No worries, the event will be live-streamed and recorded. Before the event, we'll send out instructions on how to join us online. To view the live stream, you do not need to sign up.
-
