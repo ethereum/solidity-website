@@ -36,7 +36,7 @@ export default function UseCases() {
           <Text>
           If you want to get started building your own applications, head to the 
           {' '}
-                <Link href="https://docs.soliditylang.org/en/latest/solidity-by-example.html">Solidity by Example</Link>
+                <Link href="https://docs.soliditylang.org/en/latest/solidity-by-example.html">Solidity by Example</Link>{' '}
           section to see code examples of different contracts and understand the core concepts of the language.
           </Text>
         </Section>
