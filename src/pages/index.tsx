@@ -115,14 +115,14 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2023/07/19/solidity-0.8.21-release-announcement/"
+                    href="/blog/2023/10/25/solidity-0.8.22-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.21
+                    Solidity 0.8.22
                   </Link>{' '}
-                  Allows qualified access to events from other contracts, and we also relaxed restrictions on the initialization of immutable variables. 
+                  Includes improvements such as file-level event definitions, optimizations for unchecked loop increments, experimental support for importing EVM assembly JSON, & more.
                 </Text>
-                <Text>We have also included 2 important bugfixes in this release!</Text>
+                <Text>This release also deprecates support for EVM versions older than Constantinople. Read more in the release announcement!</Text>
               </Box>
             </Flex>
           </Flex>
