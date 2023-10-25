@@ -1,0 +1,7 @@
+{
+  "build": {
+    "image": "node:lts",
+    "command": "yarn && yarn build",
+    "publicDir": "docs"
+  }
+}
