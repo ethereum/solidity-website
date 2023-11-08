@@ -115,14 +115,13 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2023/10/25/solidity-0.8.22-release-announcement/"
+                    href="/blog/2023/11/08/solidity-0.8.23-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.22
+                    Solidity 0.8.23
                   </Link>{' '}
-                  Includes improvements such as file-level event definitions, optimizations for unchecked loop increments, experimental support for importing EVM assembly JSON, & more.
+                  A pure bugfix release that includes the fix for an important bug of low severity.
                 </Text>
-                <Text>This release also deprecates support for EVM versions older than Constantinople. Read more in the release announcement!</Text>
               </Box>
             </Flex>
           </Flex>
