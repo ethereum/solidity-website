@@ -120,7 +120,7 @@ export default function Home({
                   >
                     Solidity 0.8.23
                   </Link>{' '}
-                  Includes an important bug fix from the previous version as well as some new compiler improvements.
+                  A pure bugfix release that includes the fix for an important bug of low severity.
                 </Text>
               </Box>
             </Flex>
