@@ -86,7 +86,7 @@ You can find a more detailed agenda here.
 | 15:10 | Beyond Fuzzing: Symbolic Testing in Practice                                 | Daniel "karmacoma" Reynaud (a16z crypto)|
 | 15:40 | +++ Short Break +++        |                                                 |
 | 15:55 | Branching Tree Technique: Writing structured Solidity tests                  | Paul Razvan Berg (Sablier)           |
-| 16:10 | The State of EVM Languages: Panel Discussion                                 | Harikrishnan (Spearbit), Sean Cheetham (Aztec, Huff contributor), Grant (Fe)                                         |
+| 16:10 | The State of EVM Languages: Panel Discussion                                 | Harikrishnan (Spearbit), maddiaa (Aztec, Huff contributor), Grant (Fe)                                         |
 | 16:50 | Slang: Building Solidity Compiler APIs from a Declarative Language Specification                          | Omar Tawfik (Nomic Foundation)                              |
 | 17:20 | How we built MUD: An onchain kernel for complex applications on Ethereum     | Alvarius (Lattice Labs)                  |
 | 17:50 | Experimental Solidity      | Daniel Kirchner (Solidity team, EF)                                |
