@@ -65,7 +65,7 @@ This year, presentations and discussions will revolve around the following topic
 
 ## What does the program look like this year?
 
-You can find a more detailed agenda here.
+You can find the agenda for this year's summit below.
 
 | Time  | Title                                                                        | Speaker (Affiliation)      |
 | ----- | ---------------------------------------------------------------------------- | -------------------------- |
