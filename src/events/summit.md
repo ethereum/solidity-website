@@ -5,6 +5,11 @@ mapLabel: Location
 startDate: 2023-11-16
 endDate: 2023-11-16
 imageSrc: /assets/solidity_summit.png
+ctaLinks:
+  - label: Livestream
+    href: https://app.streameth.org/devconnect/solidity_summit
+  - label: Tickets
+    href: https://ticketh.xyz/solidity/summit/
 previewLinks:
   - label: Join us
     href: /summit/
@@ -101,6 +106,8 @@ If you received a ticket voucher via the application process, please make sure t
 
 The Solidity Summit is focused on an advanced audience and is not suitable for beginners who are just getting started with (Solidity) programming.
 
-## Can't attend?
+## Can't attend? Watch the live stream!
 
-Can't make it to Istanbul in person? No worries, the event will be live-streamed and recorded. Before the event, we'll send out instructions on how to join us online. To view the live stream, you do not need to sign up.
+Can't make it to Istanbul in person? No worries, the event will be live-streamed and recorded using the StreamETH platform! The live stream page can be found [here](https://app.streameth.org/devconnect/solidity_summit).
+
+To view the live stream, you do not need to sign up.
