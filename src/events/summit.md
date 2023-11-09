@@ -67,30 +67,30 @@ This year, presentations and discussions will revolve around the following topic
 
 You can find a more detailed agenda here.
 
-| Time  | Title                                                                                                        | Speaker                                         |
-| ----- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| Time  | Title                                                                        | Speaker (Affiliation)      |
+| ----- | ---------------------------------------------------------------------------- | -------------------------- |
 | 9:00  | +++ Registrations Open +++ |                                                 |
-| 10:00 | Opening & Welcome Note     | Franziska Heintel                               |
-| 10:10 | Solidity in 2023: Recent and Planned Features                                | Daniel Kirchner            |
-| 10:25 | Decoding the EVM: A New Debugging Format for Smart Contracts                 | gnidan                     |
-| 10:55 | via-IR speedrun            | Nikola Matić                                    |
-| 11:10 | How Good Is Your Formal Specification? Mutation Testing To The Rescue!       | Chandrakana Nandi          |
-| 11:40 | Test your tests: The dos and don'ts of testing                               | Kurt Willis                |
-| 12:10 | The Art of Huff            | jtriley                                         |
+| 10:00 | Opening & Welcome Note     | Franziska Heintel (Solidity team, EF)                              |
+| 10:10 | Solidity in 2023: Recent and Planned Features                                | Daniel Kirchner (Solidity team, EF)            |
+| 10:25 | Decoding the EVM: A New Debugging Format for Smart Contracts                 | gnidan (Ethereum Foundation)                   |
+| 10:55 | via-IR speedrun            | Nikola Matić (Solidity team, EF)                                   |
+| 11:10 | How Good Is Your Formal Specification? Mutation Testing To The Rescue!       | Chandrakana Nandi (Certora)         |
+| 11:40 | Test your tests: The dos and don'ts of testing                               | Kurt Willis (Trail of Bits)               |
+| 12:10 | The Art of Huff            | jtriley (Independent Huff Contributor)                                        |
 | 12:40 | +++ Lunch Break +++        |                                                 |
-| 13:25 | Solidity's most common security pitfalls (and its best safeguards)           | gmhacker                   |
-| 13:55 | Deep dive into L2 deployed contracts                                         | Ren Crypto Fish            |
-| 14:10 | Documenting Solidity with diagrams                                           | Nick Addison               |
-| 14:25 | Namespace storage (for now and for a verkle EVM)                             | Hadrien Croubois           |
-| 14:40 | Differential Fuzzing with Foundry for Gas Optimization                       | Anna Carroll               |
-| 15:10 | Beyond Fuzzing: Symbolic Testing in Practice                                 | Daniel "karmacoma" Reynaud |
+| 13:25 | Solidity's most common security pitfalls (and its best safeguards)           | gmhacker (Immunefi)                  |
+| 13:55 | Deep dive into L2 deployed contracts                                         | Ren Crypto Fish (Electric Capital)           |
+| 14:10 | Documenting Solidity with diagrams                                           | Nick Addison (sol2uml, Origin Protocol)              |
+| 14:25 | Namespace storage (for now and for a verkle EVM)                             | Hadrien Croubois (OpenZepplin)          |
+| 14:40 | Differential Fuzzing with Foundry for Gas Optimization                       | Anna Carroll (Independent)              |
+| 15:10 | Beyond Fuzzing: Symbolic Testing in Practice                                 | Daniel "karmacoma" Reynaud (a16z crypto)|
 | 15:40 | +++ Short Break +++        |                                                 |
-| 15:55 | Branching Tree Technique: Writing structured Solidity tests                  | Paul Razvan Berg           |
+| 15:55 | Branching Tree Technique: Writing structured Solidity tests                  | Paul Razvan Berg (Sablier)           |
 | 16:10 | The State of EVM Languages: Panel Discussion                                 | Harikrishnan (Spearbit), Sean Cheetham (Aztec, Huff contributor), Grant (Fe)                                         |
-| 16:50 | Slang: Building Solidity Compiler APIs from a Declarative Language Specification                          | Omar Tawfik                               |
-| 17:20 | How we built MUD: An onchain kernel for complex applications on Ethereum     | Alvarius                   |
-| 17:50 | Experimental Solidity      | Daniel Kirchner                                 |
-| 18:20 | Thank you note             |  Vishwa Mehta                                   |
+| 16:50 | Slang: Building Solidity Compiler APIs from a Declarative Language Specification                          | Omar Tawfik (Nomic Foundation)                              |
+| 17:20 | How we built MUD: An onchain kernel for complex applications on Ethereum     | Alvarius (Lattice Labs)                  |
+| 17:50 | Experimental Solidity      | Daniel Kirchner (Solidity team, EF)                                |
+| 18:20 | Thank you note             |  Vishwa Mehta (Solidity team, EF)                                  |
 | 18:30 | +++ End of Conference +++  |                                                 |
 
 ## Registrations are now closed!
