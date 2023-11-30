@@ -82,7 +82,7 @@ Sorted by topic, here are all talks with links to the recordings and slides.
 - Panel Discussion: State of EVM Languages - Hari (Solidity contributor), maddiaa (Huff contributor), Grant (Fe lang), jtriley (Edge), zee eighty (Vyper)
     - [Recording](https://www.youtube.com/watch?v=uklnNmtdxSM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=14)
 
-## Yul, IR, Inline Assembly
+### Yul, IR, Inline Assembly
 
 - via-IR - Nikola Matić
     - [Recording](https://www.youtube.com/watch?v=3ljewa1__UM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=4)
