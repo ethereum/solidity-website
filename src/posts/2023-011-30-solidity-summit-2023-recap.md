@@ -37,7 +37,7 @@ Sorted by topic, here are all talks with links to the recordings and slides.
     - [Recording](https://www.youtube.com/watch?v=jX5VJ4wcJXM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=17)
     - [Slides](https://docs.google.com/presentation/d/1Xx6CAWoAX8-8J8X_GfHPkGc4EvZjyhWi/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
 
-## Tooling
+## Tooling & Security
 
 - Decoding the EVM: A New Debugging Format for Smart Contracts - gnidan
     - [Recording](https://www.youtube.com/watch?v=Qe3e3yg3S2A&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=3)
@@ -45,6 +45,9 @@ Sorted by topic, here are all talks with links to the recordings and slides.
 - How Good Is Your Formal Specification? Mutation Testing To The Rescue! - Chandrakana Nandi
     - [Recording](https://www.youtube.com/watch?v=g3dxF7XfBWk&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=5)
     - [Slides](https://docs.google.com/presentation/d/15x46mKmXrv_zFGp6I5VYf7PaW-UTT1Px/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
+- Solidity's most common security pitfalls (and its best safeguards) - gmhacker
+    - [Recording](https://www.youtube.com/watch?v=e1W639-fdZw&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=8)
+    - [Slides](https://docs.google.com/presentation/d/1tU75RSto5Ta7jpFRkjHIrsjBDZ3KmJcz/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
 - Documenting Solidity with diagrams - Nick Addison
     - [Recording](https://www.youtube.com/watch?v=NAbTnPiVFWY&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=10)
     - [Slides](https://docs.google.com/presentation/d/1d5q1_phApORhdF9MlicQUxu725qH-Sem/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
@@ -62,6 +65,9 @@ Sorted by topic, here are all talks with links to the recordings and slides.
 - The Art of Huff - jtriley
     - [Recording](https://www.youtube.com/watch?v=FxsQE6uJKI0&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=7)
     - [Slides](https://docs.google.com/presentation/d/1-TAgs3DJDEDaVDRWbWFQLhSm1MGBh0YD/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
+- Deep dive into L2 deployed contracts - Ren Crypto Fish
+    - [Recording](https://www.youtube.com/watch?v=tj-K5MoOJ7Y&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=9)
+    - [Slides](https://docs.google.com/presentation/d/1zM0OcAfNYoseTxJ1wHQyHVe6I2g6any4/edit#slide=id.p1)
 - Namespace storage (for now and for a verkle EVM) - Hadrien Croudbois
     - [Recording](https://youtu.be/sAcBfEIxqu8?si=7q8wzaWH6Ey6Yg-j)
     - [Slides](https://docs.google.com/presentation/d/1xyxC5_35phPiH9VrLGHE_T7Kc1WpdpV8/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
