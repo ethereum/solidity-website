@@ -59,7 +59,7 @@ Sorted by topic, here are all talks with links to the recordings and slides.
     - [Recording](https://www.youtube.com/watch?v=0-EmbNVgFA4&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=14)
     - [Slides](https://prberg.com/presentations/solidity-summit-2023/)
 
-## EVM Languages, L2s & Mechanisms
+### EVM Languages, L2s & Mechanisms
 
 - Test your tests: The dos and don'ts of testing - Kurt Willis
     - [Recording](https://www.youtube.com/watch?v=7TcnUZGuk_s&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=6)
