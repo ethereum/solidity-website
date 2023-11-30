@@ -11,7 +11,7 @@ category: Announcements
 
 We can't believe it's already been two weeks since we met in Istanbul, Türkiye, for the third edition of Solidity Summit!
 
-Solidity Summit 2023 was part of the Devconnect week and took place on Thursday, November 16, 2023. With roughly 300 participants, the event was well attended.
+Solidity Summit 2023 was part of the [Devconnect week](https://devconnect.org/) and took place on Thursday, November 16, 2023. With roughly 300 participants, the event was well attended.
 
 The day was packed with 15+ sessions on:
 
