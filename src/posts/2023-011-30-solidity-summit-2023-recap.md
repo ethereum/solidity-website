@@ -25,7 +25,7 @@ The full agenda of the day can be found [here](https://soliditylang.org/summit/)
 
 Sorted by topic, here are all talks with links to the recordings and slides.
 
-## Solidity 
+### Solidity 
 
 - Keynote: Solidity in 2023 - Daniel Kirchner
     - [Recording](https://www.youtube.com/watch?v=ngOIcYDdwvk&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=2)
