@@ -124,7 +124,7 @@ Sorted by topic, here are all talks with links to the recordings and slides.
 
 
 
-# Thanks for joining & see you at the next summit!
+## See you at the next summit!
 
 Lastly, we want to extend a big thank you to all speakers for making the day so interesting by contributing excellent content and to all attendees for their eager participation and questions!
 
