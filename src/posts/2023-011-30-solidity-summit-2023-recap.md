@@ -39,7 +39,7 @@ Sorted by topic, here are all talks with links to the recordings and slides.
     - [Recording](https://www.youtube.com/watch?v=jX5VJ4wcJXM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=17)
     - [Slides](https://docs.google.com/presentation/d/1Xx6CAWoAX8-8J8X_GfHPkGc4EvZjyhWi/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
 
-## Tooling & Security
+### Tooling & Security
 
 - Decoding the EVM: A New Debugging Format for Smart Contracts - gnidan
     - [Recording](https://www.youtube.com/watch?v=Qe3e3yg3S2A&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=3)
@@ -121,8 +121,6 @@ Sorted by topic, here are all talks with links to the recordings and slides.
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-342](https://github.com/ethereum/solidity-website/assets/32997409/e4342027-9c33-4b68-9cbb-63d77e08026d)
 
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-403](https://github.com/ethereum/solidity-website/assets/32997409/6bcb3516-d19b-4861-a8c6-df61cf4f18b9)
-
-
 
 ## See you at the next summit!
 
