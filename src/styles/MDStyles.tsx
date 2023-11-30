@@ -40,7 +40,7 @@ export const MDStyles = {
       id={id}
       textStyle="h3"
       color="text"
-      mt={{ base: 12, md: 16 }}
+      mt={{ base: 10, md: 14 }}
       mb={{ base: 4, md: 6 }}
     >
       {children}
