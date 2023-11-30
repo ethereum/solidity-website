@@ -23,6 +23,8 @@ The day was packed with 15+ sessions on:
 
 The full agenda of the day can be found [here](https://soliditylang.org/summit/). You can watch all talks by browsing through the individual videos in the [YouTube playlist](https://youtube.com/playlist?list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&si=0j2Nr6x1UKu6A-MU) or in the [StreamETH archive](https://app.streameth.org/devconnect/solidity_summit/archive).
 
+## Recordings and slides
+
 Sorted by topic, here are all talks with links to the recordings and slides.
 
 ### Solidity 
