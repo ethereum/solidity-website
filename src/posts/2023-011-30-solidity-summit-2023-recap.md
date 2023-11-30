@@ -88,7 +88,7 @@ Sorted by topic, here are all talks with links to the recordings and slides.
     - [Recording](https://www.youtube.com/watch?v=3ljewa1__UM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=4)
     - [Slides](https://docs.google.com/presentation/d/1p0-tWokrkwoEBrzq2-xjutcKPF_ubiHn/edit?usp=drive_link&ouid=105241612343296292788&rtpof=true&sd=true)
 
-## Some highlights from the summit
+## Summit impressions
 
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-003](https://github.com/ethereum/solidity-website/assets/32997409/1439a20c-43d4-4fbf-9e9f-00f045c05ef6)
 
