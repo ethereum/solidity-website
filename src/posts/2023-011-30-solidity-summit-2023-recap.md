@@ -88,17 +88,11 @@ Sorted by topic, here are all talks with links to the recordings and slides.
 
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-018](https://github.com/ethereum/solidity-website/assets/32997409/c5cbd8fa-612e-40fc-93bc-b4e6c8fddad2)
 
-![DEVCONNECT-IST-ICC-20231116-Mehmet-316](https://github.com/ethereum/solidity-website/assets/32997409/560f42dc-f95e-4627-a1ab-acb414b53bc2)
-
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-027](https://github.com/ethereum/solidity-website/assets/32997409/4cf4fb24-c636-4316-952c-f620a25823d4)
 
 ![photo_6246920964872976526_y](https://github.com/ethereum/solidity-website/assets/32997409/23347d77-aed5-4995-8ef9-bac3c870547c)
 
 ![photo_6246920964872976525_y](https://github.com/ethereum/solidity-website/assets/32997409/63325582-35c6-4c34-ae54-84f8975d68f8)
-
-![photo_6246920964872976527_y](https://github.com/ethereum/solidity-website/assets/32997409/e36f1998-bcb7-474d-9d1e-b33648c4cdd2)
-
-![DEVCONNECT-IST-ICC-20231116-Mehmet-320](https://github.com/ethereum/solidity-website/assets/32997409/018a831f-74cd-41fa-8d4b-50f80df45647)
 
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-084](https://github.com/ethereum/solidity-website/assets/32997409/29f0d302-add4-42fa-ae83-165f6811b385)
 
