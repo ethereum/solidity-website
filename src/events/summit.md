@@ -15,15 +15,25 @@ previewLinks:
     href: /summit/
 ---
 
-## The Solidity Summit is a collaborative event focusing on the future of [Solidity](/).
+The Solidity Summit is a collaborative event focusing on the future of [Solidity](/).
 
-We're excited to bring back Solidity Summit for another edition, again as part of the [Devconnect](https://devconnect.org/schedule) week! 
+## Thank you for joining Solidity Summit 2023!
 
-Speaker and attendee applications for 2023 are now closed and ticket vouchers have been distributed.
+We can't believe it's already been two weeks since we met in Istanbul, Türkiye, for the third edition of Solidity Summit!
 
-You can follow Solidity on [Twitter](https://twitter.com/solidity_lang) or monitor the [Solidity blog](/blog) not to miss any updates about the event.
+Solidity Summit 2023 was part of the [Devconnect week](https://devconnect.org/) and took place on Thursday, November 16, 2023. With roughly 300 participants, the event was well attended.
 
-## Keep up with the newest developments in the Solidity space.
+The day was packed with 15+ sessions on:
+
+- Solidity internals and tips & tricks
+- Solidity tooling
+- Smart contract testing & security best practices
+- EVM Languages and mechanisms
+... and more!
+
+The full agenda of the day can be found [here](https://soliditylang.org/summit/). You can watch all talks by browsing through the individual videos in the [YouTube playlist](https://youtube.com/playlist?list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&si=0j2Nr6x1UKu6A-MU) or in the [StreamETH archive](https://app.streameth.org/devconnect/solidity_summit/archive).
+
+## More about Solidity Summit
 
 The Solidity Summit is a free interactive forum with discussions and talks on Solidity, Yul, language design, security, and tooling.
 
@@ -35,9 +45,9 @@ During the event, you can expect to:
 
 We aim to have useful discussions that result in language improvement proposals and, ultimately in actual implementations. Furthermore, we want to foster communication between teams working on similar topics and identify needs for the smart contract ecosystem of Ethereum.
 
-Solidity Summit 2023 is part of [Devconnect Istanbul](https://devconnect.org/) and will be a one-day forum for the Solidity ecosystem. It is for all people involved and interested in the Solidity language and the tooling around it.
+This year, Solidity Summit was a part of [Devconnect Istanbul](https://devconnect.org/) and a one-day forum for the Solidity ecosystem. It is for all people involved and interested in the Solidity language and the tooling around it.
 
-## Who can join?
+## Who joined?
 
 The Solidity Summit focuses on advanced Solidity users and other stakeholders of the Solidity ecosystem, such as tool builders, auditors, and security researchers.
 
@@ -53,22 +63,7 @@ IDE developers, debuggers, analysis tools, or testing frameworks can use this oc
 
 Seasoned Solidity users can share their finest Solidity hacks, tips, and comments!
 
-## What will we talk about?
-
-This year, presentations and discussions will revolve around the following topics:
-
-- Solidity and Yul
-- Language changes or extension proposals
-- Long-term future of Solidity (Verkle tree support, experimental Solidity, etc.)
-- Feedback on recently introduced features
-- Unification/extension of the ABI
-- Tooling, debuggers and debugging data output
-- Testing frameworks
-- Source verification
-- Layer 2 support, cross-chain support
-- Mechanisms/programming patterns (on the EVM) like mutexes, state machines, upgradeable contracts, libraries, create2, etc.
-
-## What does the program look like this year?
+## What did the program look like this year?
 
 You can find the agenda for this year's summit below.
 
@@ -91,23 +86,51 @@ You can find the agenda for this year's summit below.
 | 15:10 | Beyond Fuzzing: Symbolic Testing in Practice                                 | Daniel "karmacoma" Reynaud (a16z crypto)|
 | 15:40 | +++ Short Break +++        |                                                 |
 | 15:55 | Branching Tree Technique: Writing structured Solidity tests                  | Paul Razvan Berg (Sablier)           |
-| 16:10 | The State of EVM Languages: Panel Discussion                                 | Harikrishnan (Spearbit), maddiaa (Aztec, Huff contributor), Grant (Fe)                                         |
+| 16:10 | The State of EVM Languages: Panel Discussion                                 | Harikrishnan (Spearbit), maddiaa (Aztec, Huff contributor), Grant (Fe), zee eighty (Vyper), jtriley (Edge)                                         |
 | 16:50 | Slang: Building Solidity Compiler APIs from a Declarative Language Specification                          | Omar Tawfik (Nomic Foundation)                              |
 | 17:20 | How we built MUD: An onchain kernel for complex applications on Ethereum     | Alvarius (Lattice Labs)                  |
 | 17:50 | Experimental Solidity      | Daniel Kirchner (Solidity team, EF)                                |
 | 18:20 | Thank you note             |  Vishwa Mehta (Solidity team, EF)                                  |
-| 18:30 | +++ End of Conference +++  |                                                 |
+| 18:30 | +++ End of Conference +++  |   |
 
-## Registrations are now closed!
+## Summit impressions
 
-Tickets for the Solidity Summit 2023 are free and were given out on an application basis. Applications are now closed.
+![DEVCONNECT-IST-ICC-20231116-Mehmet-003](https://github.com/ethereum/solidity-website/assets/32997409/1439a20c-43d4-4fbf-9e9f-00f045c05ef6)
 
-If you received a ticket voucher via the application process, please make sure to redeem it in our [ticket shop](https://ticketh.xyz/solidity/summit/) as soon as possible to ensure a spot at the event.
+![DEVCONNECT-IST-ICC-20231116-Mehmet-116](https://github.com/ethereum/solidity-website/assets/32997409/20ed3fd2-8461-4785-9a3a-e35a618fe111)
 
-The Solidity Summit is focused on an advanced audience and is not suitable for beginners who are just getting started with (Solidity) programming.
+![DEVCONNECT-IST-ICC-20231116-Mehmet-018](https://github.com/ethereum/solidity-website/assets/32997409/c5cbd8fa-612e-40fc-93bc-b4e6c8fddad2)
 
-## Can't attend? Watch the live stream!
+![DEVCONNECT-IST-ICC-20231116-Mehmet-027](https://github.com/ethereum/solidity-website/assets/32997409/4cf4fb24-c636-4316-952c-f620a25823d4)
 
-Can't make it to Istanbul in person? No worries, the event will be live-streamed and recorded using the StreamETH platform! The live stream page can be found [here](https://app.streameth.org/devconnect/solidity_summit).
+![photo_6246920964872976526_y](https://github.com/ethereum/solidity-website/assets/32997409/23347d77-aed5-4995-8ef9-bac3c870547c)
 
-To view the live stream, you do not need to sign up.
+![photo_6246920964872976525_y](https://github.com/ethereum/solidity-website/assets/32997409/63325582-35c6-4c34-ae54-84f8975d68f8)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-084](https://github.com/ethereum/solidity-website/assets/32997409/29f0d302-add4-42fa-ae83-165f6811b385)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-323](https://github.com/ethereum/solidity-website/assets/32997409/4d269928-fcef-4f82-92bb-08d5c02519ac)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-093](https://github.com/ethereum/solidity-website/assets/32997409/76345c13-8522-4902-a3bb-07cff02200cd)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-329](https://github.com/ethereum/solidity-website/assets/32997409/1386b483-ceb3-4219-ad87-acfdafb8f864)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-319](https://github.com/ethereum/solidity-website/assets/32997409/88dce92d-ae6b-4f97-8c14-0863df3d13b3)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-318](https://github.com/ethereum/solidity-website/assets/32997409/4fddbfd2-8471-4048-8e17-13ee1805cd2b)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-155](https://github.com/ethereum/solidity-website/assets/32997409/5998c464-1418-437b-82e0-3d217850440c)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-350](https://github.com/ethereum/solidity-website/assets/32997409/288fac04-e7a5-49ec-8481-4b03d1e975bf)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-342](https://github.com/ethereum/solidity-website/assets/32997409/e4342027-9c33-4b68-9cbb-63d77e08026d)
+
+![DEVCONNECT-IST-ICC-20231116-Mehmet-403](https://github.com/ethereum/solidity-website/assets/32997409/6bcb3516-d19b-4861-a8c6-df61cf4f18b9)
+
+## See you at the next summit!
+
+Lastly, we want to extend a big thank you to all speakers for making the day so interesting by contributing excellent content and to all attendees for their eager participation and questions!
+
+We hope you enjoyed the day as much as we did and are looking forward to the next Solidity Summit already.
+
+In the meantime, feel free to send feedback and ideas for the upcoming summits our way (solidity-summit[at]ethereum.org) and see you all at the next Solidity Summit!
