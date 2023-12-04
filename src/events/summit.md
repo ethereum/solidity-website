@@ -6,20 +6,16 @@ startDate: 2023-11-16
 endDate: 2023-11-16
 imageSrc: /assets/solidity_summit.png
 ctaLinks:
-  - label: Livestream
-    href: https://app.streameth.org/devconnect/solidity_summit
-  - label: Tickets
-    href: https://ticketh.xyz/solidity/summit/
+  - label: Recordings
+    href: https://www.youtube.com/playlist?list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE
+  - label: Event Recap
+    href: https://soliditylang.org/blog/2023/11/30/solidity-summit-2023-recap/
 previewLinks:
-  - label: Join us
+  - label: Event Info
     href: /summit/
 ---
 
-The Solidity Summit is a collaborative event focusing on the future of [Solidity](/).
-
 ## Thank you for joining Solidity Summit 2023!
-
-We can't believe it's already been two weeks since we met in Istanbul, Türkiye, for the third edition of Solidity Summit!
 
 Solidity Summit 2023 was part of the [Devconnect week](https://devconnect.org/) and took place on Thursday, November 16, 2023. With roughly 300 participants, the event was well attended.
 
@@ -31,11 +27,12 @@ The day was packed with 15+ sessions on:
 - EVM Languages and mechanisms
 ... and more!
 
-The full agenda of the day can be found [here](https://soliditylang.org/summit/). You can watch all talks by browsing through the individual videos in the [YouTube playlist](https://youtube.com/playlist?list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&si=0j2Nr6x1UKu6A-MU) or in the [StreamETH archive](https://app.streameth.org/devconnect/solidity_summit/archive).
+
+The full agenda of the day is displayed below. You can watch all talks by browsing through the individual videos in the [YouTube playlist](https://youtube.com/playlist?list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&si=0j2Nr6x1UKu6A-MU) or in the [StreamETH archive](https://app.streameth.org/devconnect/solidity_summit/archive).
 
 ## More about Solidity Summit
 
-The Solidity Summit is a free interactive forum with discussions and talks on Solidity, Yul, language design, security, and tooling.
+The Solidity Summit is a collaborative event focusing on the future of [Solidity](/), featuring discussions and talks on Solidity, Yul, language design, security, tooling, and more.
 
 During the event, you can expect to:
 
@@ -43,11 +40,12 @@ During the event, you can expect to:
 - Hear updates from Solidity tooling and security experts.
 - Learn from Solidity power users.
 
+
 We aim to have useful discussions that result in language improvement proposals and, ultimately in actual implementations. Furthermore, we want to foster communication between teams working on similar topics and identify needs for the smart contract ecosystem of Ethereum.
 
-This year, Solidity Summit was a part of [Devconnect Istanbul](https://devconnect.org/) and a one-day forum for the Solidity ecosystem. It is for all people involved and interested in the Solidity language and the tooling around it.
+The Solidity Summit is a one-day forum for the Solidity ecosystem. It is for all people involved and interested in the Solidity language and the tooling around it.
 
-## Who joined?
+## Who is Solidity Summit for?
 
 The Solidity Summit focuses on advanced Solidity users and other stakeholders of the Solidity ecosystem, such as tool builders, auditors, and security researchers.
 
@@ -63,9 +61,9 @@ IDE developers, debuggers, analysis tools, or testing frameworks can use this oc
 
 Seasoned Solidity users can share their finest Solidity hacks, tips, and comments!
 
-## What did the program look like this year?
+## 2023 Event Schedule
 
-You can find the agenda for this year's summit below.
+You can find the agenda for Solidity Summit 2023 below.
 
 | Time  | Title                                                                        | Speaker (Affiliation)      |
 | ----- | ---------------------------------------------------------------------------- | -------------------------- |
@@ -93,7 +91,7 @@ You can find the agenda for this year's summit below.
 | 18:20 | Thank you note             |  Vishwa Mehta (Solidity team, EF)                                  |
 | 18:30 | +++ End of Conference +++  |   |
 
-## Summit impressions
+## Solidity Summit 2023 Impressions
 
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-003](https://github.com/ethereum/solidity-website/assets/32997409/1439a20c-43d4-4fbf-9e9f-00f045c05ef6)
 
@@ -127,10 +125,8 @@ You can find the agenda for this year's summit below.
 
 ![DEVCONNECT-IST-ICC-20231116-Mehmet-403](https://github.com/ethereum/solidity-website/assets/32997409/6bcb3516-d19b-4861-a8c6-df61cf4f18b9)
 
-## See you at the next summit!
+## See you soon!
 
-Lastly, we want to extend a big thank you to all speakers for making the day so interesting by contributing excellent content and to all attendees for their eager participation and questions!
+To stay up-to-date about future Solidity Summits, follow Solidity on [Twitter](https://twitter.com/solidity_lang) or [Mastodon](https://fosstodon.org/@solidity), or monitor the [Solidity blog](/blog) for announcements.
 
-We hope you enjoyed the day as much as we did and are looking forward to the next Solidity Summit already.
-
-In the meantime, feel free to send feedback and ideas for the upcoming summits our way (solidity-summit[at]ethereum.org) and see you all at the next Solidity Summit!
+Feel free to send feedback and ideas for the upcoming summits our way (solidity-summit[at]ethereum.org) and see you all soon at the next Solidity Summit!
