@@ -245,6 +245,7 @@ export default function Home({
           <CompilerPlayground />
         </Section>
 
+        */
         {/* Upcoming solidity events */}
         <Section py={sectionPaddingY} gap={12}>
           <ShowcaseSection px={0} reverseMobile alignItems="start">
@@ -269,6 +270,7 @@ export default function Home({
               )}
             </ShowcaseVisual>
           </ShowcaseSection>
+          */
 
           {/* Past events */}
           <Section gap={6} px={0}>
