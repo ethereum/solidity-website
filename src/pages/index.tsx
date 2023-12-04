@@ -245,11 +245,11 @@ export default function Home({
           <CompilerPlayground />
         </Section>
 
-        {/* Upcoming solidity events
+        {/* Upcoming solidity events */}
         <Section py={sectionPaddingY} gap={12}>
           <ShowcaseSection px={0} reverseMobile alignItems="start">
             <ShowcaseContent title="Solidity Events" flex={4}>
-              <Text>
+              {/* <Text>
                 The Solidity Summit is a free interactive forum for people
                 involved and interested in the Solidity language and the
                 ecosystem around it.
@@ -259,16 +259,16 @@ export default function Home({
                 in improvement proposals and actual implementations, foster
                 communication between teams working on similar topics and 
                 to identify needs for the smart contract ecosystem for Ethereum.
-              </Text>
+              </Text> */}
             </ShowcaseContent>
-            <ShowcaseVisual direction="column" flex={5} w="full">
+            {/* <ShowcaseVisual direction="column" flex={5} w="full">
               {nextEvent ? (
                 <EventCard frontmatter={nextEvent.frontmatter} />
               ) : (
                 <Text>No upcoming events</Text>
               )}
-            </ShowcaseVisual>
-          </ShowcaseSection> */}
+            </ShowcaseVisual> */}
+          </ShowcaseSection>
 
           {/* Past events */}
           <Section gap={6} px={0}>
