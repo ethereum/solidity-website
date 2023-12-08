@@ -11,7 +11,7 @@ We recently wrapped up Solidity Summit with a bang and have one last announcemen
 
 The [Solidity Developer Survey](https://cryptpad.fr/form/#/2/form/view/pV-DdryeJoYUWvW+gXsFaMNynEY7t5mUsgeD1urgwSE/) for the year 2023 is live! We would love to collect your feedback and insights regarding Solidity!
 
-**📝 [TAKE THE SURVEY!]() 📝**
+**📝 [TAKE THE SURVEY!](https://cryptpad.fr/form/#/2/form/view/pV-DdryeJoYUWvW+gXsFaMNynEY7t5mUsgeD1urgwSE/) 📝**
 
 You can find the previous results of the Solidity Developer Survey 2022 [here](https://soliditylang.org/blog/2023/03/10/solidity-developer-survey-2022-results/). In 2022, a total of 1401 developers from 100 different countries participated in the survey out of which 41% used Solidity daily, and 37.3% weekly.
 
