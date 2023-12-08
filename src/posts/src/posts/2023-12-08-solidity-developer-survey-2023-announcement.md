@@ -24,8 +24,8 @@ Your response is invaluable for the Solidity project to understand your needs an
 The survey consists of several questions that can be categorised based on the following:
 
 - Demographics
-- Developer Profile
-- Solidity User Profile
+- Developer & User Profile
+- Solidity Background
 - Solidity Developer Experience
 - Language Design
 - Solidity Developer Community
