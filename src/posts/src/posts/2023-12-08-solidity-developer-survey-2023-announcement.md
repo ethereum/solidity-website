@@ -36,7 +36,7 @@ And last but not the least, we made a conscious choice for our survey last year 
 
 ## Spread the Word! 📯
 
-This marks the fourth time we are conducting a structured developer survey for Solidity devs and users. We would love to reach more developers this year, so **please help us share the survey in your networks and reach the right audience!**
+This marks the fourth time we are conducting a structured developer survey for Solidity devs and users. We would love to reach even more developers this year, so **please help us share the survey in your networks and reach the right audience!**
 
 Stay tuned on [Solidity Twitter](https://twitter.com/solidity_lang)/[Mastodon](https://fosstodon.org/@solidity) for the announcement regarding the survey results that will be shared on this blog in Q1 of 2024.
 
