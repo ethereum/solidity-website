@@ -9,7 +9,7 @@ category: Announcements
 
 We recently wrapped up Solidity Summit with a bang and have one last announcement before the end of the year!
 
-The [Solidity Developer Survey]() for the year 2023 is live! We would love to collect your feedback and insights regarding Solidity!
+The [Solidity Developer Survey](https://cryptpad.fr/form/#/2/form/view/pV-DdryeJoYUWvW+gXsFaMNynEY7t5mUsgeD1urgwSE/) for the year 2023 is live! We would love to collect your feedback and insights regarding Solidity!
 
 **📝 [TAKE THE SURVEY!]() 📝**
 
@@ -27,7 +27,7 @@ The survey consists of several questions that can be categorised based on the fo
 - Developer Profile
 - Solidity User Profile
 - Solidity Developer Experience
-- Language Design & Upcoming Features
+- Language Design
 - Solidity Developer Community
 
 Completing the survey will roughly require 10 minutes of your time.
@@ -42,4 +42,4 @@ Stay tuned on [Solidity Twitter](https://twitter.com/solidity_lang)/[Mastodon](h
 
 Thank you for your support!
 
-**🏁 [START THE SURVEY!]() 🏁**
+**🏁 [START THE SURVEY!](https://cryptpad.fr/form/#/2/form/view/pV-DdryeJoYUWvW+gXsFaMNynEY7t5mUsgeD1urgwSE/) 🏁**
