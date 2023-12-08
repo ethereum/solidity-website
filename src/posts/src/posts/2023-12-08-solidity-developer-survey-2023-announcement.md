@@ -7,11 +7,9 @@ author: Vishwa Mehta
 category: Announcements
 ---
 
-We recently wrapper up Solidity Summit with a bang and have one last announcement before the end of the year!
+We recently wrapped up Solidity Summit with a bang and have one last announcement before the end of the year!
 
-_Drumroll, please! 🥁🥁🥁_
-
-The [Solidity Developer Survey]() for the year 2023 is live! Before we wrap up 2023 for good, we would love to collect your feedback and insights regarding Solidity!
+The [Solidity Developer Survey]() for the year 2023 is live! We would love to collect your feedback and insights regarding Solidity!
 
 **📝 [TAKE THE SURVEY!]() 📝**
 
