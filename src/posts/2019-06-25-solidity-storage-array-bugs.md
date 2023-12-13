@@ -25,9 +25,9 @@ Both bugs should be easily visible in tests that touch the relevant code paths.
 
 Details about the two bugs can be found below.
 
-# Signed Integer Array Bug
+## Signed Integer Array Bug
 
-## Who should be concerned
+### Who should be concerned
 
 If you have deployed contracts which use signed integer arrays in storage and either directly assign
 
@@ -38,21 +38,21 @@ to it, this will lead to data corruption in the storage array.
 
 Contracts that only assign individual array elements (i.e. with `x[2] = -1;`) are not affected.
 
-## How to check if contract is vulnerable
+### How to check if contract is vulnerable
 
 If you use signed integer arrays in storage, try to run tests where you use negative values. The effect should be that the actual value stored is positive instead of negative.
 
 If you have a contract that meets these conditions, and want to verify whether the contract is indeed vulnerable, you can reach out to us via security@ethereum.org.
 
-## Technical details
+### Technical details
 
 Storage arrays can be assigned from arrays of different type. During this copy and assignment operation, a type conversion is performed on each of the elements. In addition to the conversion, especially if the signed integer type is shorter than 256 bits, certain bits of the value have to be zeroed out in preparation for storing multiple values in the same storage slot.
 
 Which bits to zero out was incorrectly determined from the source and not the target type. This leads to too many bits being zeroed out. In particular, the sign bit will be zero which makes the value positive.
 
-# ABIEncoderV2 Array Bug
+## ABIEncoderV2 Array Bug
 
-## Who should be concerned
+### Who should be concerned
 
 If you have deployed contracts which use the experimental ABI encoder V2, then those might be affected. This means that only contracts which use the following directive within the source code can be affected:
 
@@ -60,7 +60,7 @@ If you have deployed contracts which use the experimental ABI encoder V2, then t
 
 Additionally, there are a number of requirements for the bug to trigger. See technical details further below for more information.
 
-## How to check if contract is vulnerable
+### How to check if contract is vulnerable
 
 The bug only manifests itself when all of the following conditions are met:
 
@@ -71,13 +71,13 @@ In addition to that, in the following situation, your code is NOT affected:
 
 - if you only return such data and do not use it in `abi.encode`, external calls or event data.
 
-## Possible consequences
+### Possible consequences
 
 Naturally, any bug can have wildly varying consequences depending on the program control flow, but we expect that this is more likely to lead to malfunction than exploitability.
 
 The bug, when triggered, will under certain circumstances send corrupt parameters on method invocations to other contracts.
 
-## Technical details
+### Technical details
 
 During the encoding process, the experimental ABI encoder does not properly advance to the next element in an array in case the elements occupy more than a single slot in storage.
 
