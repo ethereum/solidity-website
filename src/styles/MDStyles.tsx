@@ -27,6 +27,7 @@ export const MDStyles = {
       as="h2"
       id={id}
       textStyle="h2"
+      fontSize="5xl"
       color="text"
       mt={{ base: 12, md: 16 }}
       mb={{ base: 4, md: 6 }}
@@ -39,6 +40,7 @@ export const MDStyles = {
       as="h3"
       id={id}
       textStyle="h3"
+      fontSize="4xl"
       color="text"
       mt={{ base: 10, md: 14 }}
       mb={{ base: 4, md: 6 }}
@@ -51,6 +53,7 @@ export const MDStyles = {
       as="h4"
       id={id}
       textStyle="h4"
+      fontSize="3xl"
       color="text"
       mt={{ base: 8, md: 12 }}
       mb={{ base: 4, md: 6 }}
@@ -59,12 +62,12 @@ export const MDStyles = {
     </Heading>
   ),
   h5: ({ children }: any) => (
-    <Heading as="h5" textStyle="h5-mono" color="text">
+    <Heading as="h5" textStyle="h5-mono" fontSize="2xl" color="text">
       {children}
     </Heading>
   ),
   h6: ({ children }: any) => (
-    <Heading as="h6" textStyle="h6-mono" color="text">
+    <Heading as="h6" textStyle="h6-mono" fontSize="xl" color="text">
       {children}
     </Heading>
   ),
