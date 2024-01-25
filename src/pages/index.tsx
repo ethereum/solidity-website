@@ -115,13 +115,14 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2023/11/08/solidity-0.8.23-release-announcement/"
+                    href="/blog/2024/01/25/solidity-0.8.24-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.23
+                    Solidity 0.8.24
                   </Link>{' '}
-                  A pure bugfix release that includes the fix for an important bug of low severity.
+                  This newest version of the compiler includes the support for the EVM version "Cancun" and full support for various EIPs of Cancun                   such as support for transient storage, MCOPY, BLOBHASH, changes in the SELFDESTRUCT opcode, & more.
                 </Text>
+                <Text>Read more in the release announcement!</Text>
               </Box>
             </Flex>
           </Flex>
