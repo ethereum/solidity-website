@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2024/01/25/solidity-0.8.24-release-announcement/"
+                    href="/blog/2024/01/26/solidity-0.8.24-release-announcement/"
                     fontWeight="bold"
                   >
                     Solidity 0.8.24
                   </Link>{' '}
-                  This newest version of the compiler includes the support for the EVM version "Cancun" and full support for various EIPs of Cancun                   such as support for transient storage, MCOPY, BLOBHASH, changes in the SELFDESTRUCT opcode, & more.
+                  We are excited to announce the release of the Solidity Compiler v0.8.24. This newest version of the compiler brings readiness for the "Cancun" network upgrade, including support for transient storage (EIP-1153), shard blob transactions (EIP-4844) & more. The release binaries for macOS are now also compatible with Apple silicon chips.
                 </Text>
                 <Text>Read more in the release announcement!</Text>
               </Box>
