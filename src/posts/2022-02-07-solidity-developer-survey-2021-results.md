@@ -57,7 +57,7 @@ Several respondents also speak Spanish (2.8%), French (2.1%), Russian (1.6%) or 
 
 Of the respondents who didn't name English as their native language, more than 90% are okay with reading the Solidity documentation in English. 8.6% would prefer to read it in their native language, the most mentioned ones being Mandarin and Traditional Chinese, Spanish and Portuguese.
 
-![Preferred Documentation Lanugage](/img/2022/02/docs_lang.png)
+![Preferred Documentation Language](/img/2022/02/docs_lang.png)
 
 _ℹ️ Bear in mind that this survey has only been conducted in English, which may have an impact on the outcome of this question. We still believe internationalization of resources like the Solidity documentation is a crucial factor to lower the barriers of entry and we aim to support community efforts to translate with a new, clearer structured [translation guide](https://github.com/solidity-docs/translation-guide)._
 
@@ -181,7 +181,7 @@ A more efficient optimizer and the ability to catch custom errors are ranked as 
 
 Moreover, support for fractional numbers, better array management and fixing stack too deep are among the most mentioned anticipated features.
 
-_⚠️ We noted that respondents were using various different terms like "floats", "floating point arithmetic", "floating point number", "fixed point numbers", "fixed point math". We categorized those as "factional numbers" and assume that all of the above ultimatively aims to describe "fixed point math"._
+_⚠️ We noted that respondents were using various different terms like "floats", "floating point arithmetic", "floating point number", "fixed point numbers", "fixed point math". We categorized those as "factional numbers" and assume that all of the above ultimately aims to describe "fixed point math"._
 
 Most mentioned anticipated features in descending order:
 

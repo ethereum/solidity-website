@@ -50,7 +50,7 @@ Judges are presented with anonymised submissions. This year, the submissions wil
 
 ### Judging Criteria ☑️
 
-Rember to consider the following aspects and properties for your submissions:
+Remember to consider the following aspects and properties for your submissions:
 
 - **Simplicity & Conciseness**: Since it's much easier to hide a vulnerability in complex and poorly written code, short and clean submissions will be scored higher than those that are lengthy and complicated.
 - **Plausibility**: Code that drops down to inline assembly without any clear reason why will look immediately suspicious, no matter how cleverly written the assembly-level flaw is.

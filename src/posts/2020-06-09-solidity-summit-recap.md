@@ -41,9 +41,9 @@ _Solidity Summit Agenda - Day 2_
 
 ## What did we learn? 💡
 
-Organizing an online conference for the first time was an exciting and challanging task. Here are a few learnings and takeways, which we would like to share:
+Organizing an online conference for the first time was an exciting and challenging task. Here are a few learnings and takeaways, which we would like to share:
 
-- **Finding the right tools is essential.** Which tools can best facilitate an open and interactive discussion online? How many tools are needed for a truly interactive expereience? If possible, can we support open source tooling without sacrificing good UX?
+- **Finding the right tools is essential.** Which tools can best facilitate an open and interactive discussion online? How many tools are needed for a truly interactive experience? If possible, can we support open source tooling without sacrificing good UX?
 - **Online conferencing can be quite exhausting.** Next time we'll do more breaks!
 - **Open discussions on language design questions are hard.** Good collaboration tools, preparation and moderation are important to facilitate the sessions and help structure them.
 
@@ -79,7 +79,7 @@ Still room for improvement was detected especially in the open discussion format
 - Enhance collaboration possibilities via an easier chat or interaction interface (chatting via Gitter got messy at some point)
 - Clearly state the goals or preferred outcomes of each discussion round beforehand
 
-Furthermore, participants wished for more breaks and some prefered a conference to take place on the weekend instead of during the week.
+Furthermore, participants wished for more breaks and some preferred a conference to take place on the weekend instead of during the week.
 
 Last but not least, we asked if you would attend Solidity Summit again: **100% said yes!**
 

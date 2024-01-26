@@ -28,7 +28,7 @@ The storage corruption bug is exploitable if it can be used to modify a variable
 
 - The same account would be able to overwrite the variable in the same state of the contract by regular means.
 - Overwriting can only happen at construction time (note that we did not check whether overwriting occurred at that time).
-- Overwriting is only triggered in unlikely situations where the contract logic was broken anyway (for example, a 32-bit counter that is incremented once per block, oveflows).
+- Overwriting is only triggered in unlikely situations where the contract logic was broken anyway (for example, a 32-bit counter that is incremented once per block, overflows).
 - Variables can be overwritten that are unused in the smart contract and look non-critical, but may be part of the public interface.
 
 **Why is this critical bug only exploitable in so few cases?**

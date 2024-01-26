@@ -13,7 +13,7 @@ You might remember the small feedback survey we did this year as part of the Sol
 
 ## Help shape the future of Solidity 🔮
 
-So why should you care and take 10 mins of your time to repsond to this survey? Easy: Your replies will help the Solidity project understand your needs, the current strengths and weaknesses of the language and will contribute towards establishing development priorities for the future. This will ultimatively result in improving the Solidity developer experience as a whole.
+So why should you care and take 10 mins of your time to respond to this survey? Easy: Your replies will help the Solidity project understand your needs, the current strengths and weaknesses of the language and will contribute towards establishing development priorities for the future. This will ultimately result in improving the Solidity developer experience as a whole.
 
 The survey consists of several chapters:
 

@@ -659,7 +659,7 @@
   
   
   /**
-   * Echos the value of a value. Trys to print the value out
+   * Echos the value of a value. Tries to print the value out
    * in the best way possible given the different types.
    *
    * @param {Object} obj The object to print out.
@@ -1515,7 +1515,7 @@
     if (fill !== undefined) {
       // Only pay attention to encoding if it's a string. This
       // prevents accidentally sending in a number that would
-      // be interpretted as a start offset.
+      // be interpreted as a start offset.
       return typeof encoding === 'string'
         ? createBuffer(size).fill(fill, encoding)
         : createBuffer(size).fill(fill)
@@ -1807,7 +1807,7 @@
       return ''
     }
   
-    // Force coersion to uint32. This will also coerce falsey/NaN values to 0.
+    // Force coercion to uint32. This will also coerce false/NaN values to 0.
     end >>>= 0
     start >>>= 0
   
@@ -7578,7 +7578,7 @@
   } ())
   function runTimeout(fun) {
       if (cachedSetTimeout === setTimeout) {
-          //normal enviroments in sane situations
+          //normal environments in sane situations
           return setTimeout(fun, 0);
       }
       // if setTimeout wasn't available but was latter defined
@@ -7587,14 +7587,14 @@
           return setTimeout(fun, 0);
       }
       try {
-          // when when somebody has screwed with setTimeout but no I.E. maddness
+          // when when somebody has screwed with setTimeout but no I.E. madness
           return cachedSetTimeout(fun, 0);
       } catch(e){
           try {
               // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
               return cachedSetTimeout.call(null, fun, 0);
           } catch(e){
-              // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+              // same as above but when it's a version of I.E. that must have the global object for 'this', hopefully our context correct otherwise it will throw a global error
               return cachedSetTimeout.call(this, fun, 0);
           }
       }
@@ -7603,7 +7603,7 @@
   }
   function runClearTimeout(marker) {
       if (cachedClearTimeout === clearTimeout) {
-          //normal enviroments in sane situations
+          //normal environments in sane situations
           return clearTimeout(marker);
       }
       // if clearTimeout wasn't available but was latter defined
@@ -7612,14 +7612,14 @@
           return clearTimeout(marker);
       }
       try {
-          // when when somebody has screwed with setTimeout but no I.E. maddness
+          // when when somebody has screwed with setTimeout but no I.E. madness
           return cachedClearTimeout(marker);
       } catch (e){
           try {
               // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
               return cachedClearTimeout.call(null, marker);
           } catch (e){
-              // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+              // same as above but when it's a version of I.E. that must have the global object for 'this', hopefully our context correct otherwise it will throw a global error.
               // Some versions of I.E. have different rules for clearTimeout vs setTimeout
               return cachedClearTimeout.call(this, marker);
           }
@@ -7685,7 +7685,7 @@
       }
   };
   
-  // v8 likes predictible objects
+  // v8 likes predictable objects
   function Item(fun, array) {
       this.fun = fun;
       this.array = array;
@@ -10057,7 +10057,7 @@
   src[GTLT] = '((?:<|>)?=?)'
   
   // Something like "2.*" or "1.2.x".
-  // Note that "x.x" is a valid xRange identifer, meaning "any version"
+  // Note that "x.x" is a valid xRange identifier, meaning "any version"
   // Only the first item is strictly required.
   var XRANGEIDENTIFIERLOOSE = R++
   src[XRANGEIDENTIFIERLOOSE] = src[NUMERICIDENTIFIERLOOSE] + '|x|X|\\*'
@@ -11331,7 +11331,7 @@
         throw new TypeError('Must provide a hilo val of "<" or ">"')
     }
   
-    // If it satisifes the range it is not outside
+    // If it satisfies the range it is not outside
     if (satisfies(version, range, options)) {
       return false
     }
@@ -17085,7 +17085,7 @@
   
   
   /**
-   * Echos the value of a value. Trys to print the value out
+   * Echos the value of a value. Tries to print the value out
    * in the best way possible given the different types.
    *
    * @param {Object} obj The object to print out.
