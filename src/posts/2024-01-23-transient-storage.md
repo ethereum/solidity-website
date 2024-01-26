@@ -2,12 +2,12 @@
 layout: post
 published: true
 title: 'Transient Storage Opcodes in Solidity 0.8.24'
-date: '2024-01-25'
+date: '2024-01-26'
 author: Solidity Team
 category: Explainers
 ---
 
-[Solidity 0.8.24](https://soliditylang.org/blog/2024/01/25-solidity-0.8.24-release-announcement) supports the opcodes included in the upcoming Cancun hardfork and, in particular, the transient storage opcodes `TSTORE` and `TLOAD` as per [EIP-1153](https://eips.ethereum.org/EIPS/eip-1153).
+[Solidity 0.8.24](https://soliditylang.org/blog/2024/01/26-solidity-0.8.24-release-announcement) supports the opcodes included in the upcoming Cancun hardfork and, in particular, the transient storage opcodes `TSTORE` and `TLOAD` as per [EIP-1153](https://eips.ethereum.org/EIPS/eip-1153).
 
 Transient storage is a long-awaited feature on the EVM level that introduces another data location besides `memory`, `storage`, `calldata` (and return-data and code).
 The new data location behaves as a key-value store similar to storage with the main difference being that data in transient storage is not permanent, but is scoped to the current transaction only, after which it will be reset to zero.
