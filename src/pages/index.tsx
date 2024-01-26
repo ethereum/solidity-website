@@ -115,13 +115,14 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2023/11/08/solidity-0.8.23-release-announcement/"
+                    href="/blog/2024/01/26/solidity-0.8.24-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.23
+                    Solidity 0.8.24
                   </Link>{' '}
-                  A pure bugfix release that includes the fix for an important bug of low severity.
+                  We are excited to announce the release of the Solidity Compiler v0.8.24. This newest version of the compiler brings readiness for the "Cancun" network upgrade, including support for transient storage (EIP-1153), shard blob transactions (EIP-4844) & more. The release binaries for macOS are now also compatible with Apple silicon chips.
                 </Text>
+                <Text>Read more in the release announcement!</Text>
               </Box>
             </Flex>
           </Flex>
