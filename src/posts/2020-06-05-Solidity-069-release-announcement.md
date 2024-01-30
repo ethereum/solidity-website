@@ -168,7 +168,7 @@ paths starting from the base path.
 
 ## Bugfixes
 
-This release comes with many minor, non-security relevant bugfixes. The correspoding bugs do not affect (the correctness of) the generated
+This release comes with many minor, non-security relevant bugfixes. The corresponding bugs do not affect (the correctness of) the generated
 bytecode.
 
 You can track all important, security-relevant bugs in the [Solidity bug json file](https://github.com/ethereum/solidity/blob/develop/docs/bugs.json).

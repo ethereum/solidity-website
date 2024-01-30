@@ -114,7 +114,7 @@ makes use of the Keccak-256 hash. For example,
 
 Most usages of `keccak256` fall under one of the unaffected cases mentioned in the previous section.
 In particular, this can only affect pairs of `keccak256` opcodes without an intermediate jump or an
-external call, which makes the likelyhood of the bug being present in existing code very low. This
+external call, which makes the likelihood of the bug being present in existing code very low. This
 is also be validated by the fact that the bug has been present in the optimizer for so long without
 being detected. Therefore, we assigned the bug a "medium" severity level.
 

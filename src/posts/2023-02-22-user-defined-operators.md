@@ -656,4 +656,4 @@ these changes are behind us.
 
 Due to concerns about the safety of the feature, there are some key elements that are very unlikely to ever change regarding operators.
 Operators will likely always be global and defined at file level with free functions.
-It will not be possible to replace built-in opertors or redefine already defined user-defined operators.
+It will not be possible to replace built-in operators or redefine already defined user-defined operators.

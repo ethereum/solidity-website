@@ -23,7 +23,7 @@ In particular, a sufficiently large length during the allocation of the memory a
 will result in subsequent memory allocations to overlap with the memory region of the array.
 However, the length of the array is correctly stored, so copying or iterating over the array
 (which is what all contracts we screened do just after the allocation)
-will terminate and revert the transation with out-of-gas in these cases.
+will terminate and revert the transaction with out-of-gas in these cases.
 
 ## How to check if contract is vulnerable
 

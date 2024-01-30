@@ -47,7 +47,7 @@ If you want to fix or respond to Solidity’s GitHub issues, we recommend to get
 
 ### (2) Test New Solidity Versions
 
-You can help us finding issues by testing out new compiler versions, preferrably the nightly development builds, on your code and reporting any issues you might encounter.
+You can help us finding issues by testing out new compiler versions, preferably the nightly development builds, on your code and reporting any issues you might encounter.
 
 You can find all information on how to access the nightly builds in the ["Installing the Solidity Compiler"](https://docs.soliditylang.org/en/latest/installing-solidity.html) chapter of the documentation.
 

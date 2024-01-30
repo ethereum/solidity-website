@@ -26,7 +26,7 @@ If you provide any of the tags (`@param`, `@dev`, ...), then nothing will be inh
 The next release will provide a feature to explicitly inherit from a certain base also in that case,
 so stay tuned!
 
-Furhermore, NatSpec is now supported on events.
+Furthermore, NatSpec is now supported on events.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -73,7 +73,7 @@ The derived contract `MyGathering` in the example code above will produce the fo
 You can now use `gwei` as a unit denomination alongside `wei`, `szabo`, `finney` and `ether`:
 
 ```solidity
-reqire(msg.value >= 10 gwei);
+require(msg.value >= 10 gwei);
 ```
 
 ## Full Changelog

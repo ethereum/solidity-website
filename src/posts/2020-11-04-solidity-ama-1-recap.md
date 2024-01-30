@@ -23,7 +23,7 @@ In general, the biggest difficulty is often getting proper feedback about langua
 
 #### Users: What things/features do you wish people would stop doing/using with Solidity?
 
-Regarding the usage of language features, people are free to do whatever they want as long as they know what they are doing. What is unfortunate is that source flattening for source verification is so popular. The flattened source is less structured and it prevents you from using the modularity of imports and other features. The [sourcify validation script](https://www.npmjs.com/package/@ethereum-sourcify/validation) can be used to extract all you need from a truffle or buidler/hardhat project directory to re-compile your smart contracts in a non-flattened form.
+Regarding the usage of language features, people are free to do whatever they want as long as they know what they are doing. What is unfortunate is that source flattening for source verification is so popular. The flattened source is less structured and it prevents you from using the modularity of imports and other features. The [sourcify validation script](https://www.npmjs.com/package/@ethereum-sourcify/validation) can be used to extract all you need from a truffle or builder/hardhat project directory to re-compile your smart contracts in a non-flattened form.
 
 #### Stack too deep: Is it possible to ever change the way the stack is accessed in order to get rid of the "Stack too deep" issues?
 
@@ -128,7 +128,7 @@ Let's tackle the mentioned issues step-by-step:
 1. **Reentrancy**: The Ethereum community has no clear consensus over whether reentrancy is a feature or not. Over the years, many tools have evolved to flag code that has issues with reentrancy and blocking reentrant calls altogether is not only expensive, it also creates a new class of bugs.
 2. **Access Control**: Visibility has been solved years ago by making it explicit. In recent Solidity versions, you can even move functions to the file level (outside of contracts) where it is obvious that they cannot be called from outside and that they cannot access storage variables (unless explicitly provided as arguments).
 
-3. **Overflow and Underflow**: Safe math as a languge feature is already done and is going to become the default in the next breaking release (see [Solidity 0.8.x Preview Release](https://blog.soliditylang.org/2020/10/28/solidity-0.8.x-preview/)).
+3. **Overflow and Underflow**: Safe math as a language feature is already done and is going to become the default in the next breaking release (see [Solidity 0.8.x Preview Release](https://blog.soliditylang.org/2020/10/28/solidity-0.8.x-preview/)).
 4. **Unchecked Return Values For Low Level Calls**: The compiler has been flagging unchecked low-level calls for years.
 
 5. **Denial of Service**: With each breaking release, we are limiting more and more what can be done with objects of unlimited size. The biggest change in that direction is [making the semantics of copying more visible](https://github.com/ethereum/solidity/issues/2435) but we have not yet received much feedback whether this feature would be more annoying that helpful.

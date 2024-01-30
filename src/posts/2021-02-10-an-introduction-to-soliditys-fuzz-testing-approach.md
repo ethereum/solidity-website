@@ -113,7 +113,7 @@ This helps us determine if a bug was introduced into the optimiser.
 
 #### Example bug found by back-end fuzzer
 
-The redundant assignment eliminator is a Yul optimiser step that (surpise!) removes redundant assignments to a variable.
+The redundant assignment eliminator is a Yul optimiser step that (surprise!) removes redundant assignments to a variable.
 The back-end fuzzer generated the following example that demonstrated an error in this step:
 
 ```
