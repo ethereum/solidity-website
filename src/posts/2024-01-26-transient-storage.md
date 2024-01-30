@@ -55,7 +55,7 @@ contract Generosity {
         require(success);
 
         // In a reentrant function, doing this last would open up the vulnerability
-        sentGifts[msg.sender] = false;
+        sentGifts[msg.sender] = true;
     }
 }
 ```
