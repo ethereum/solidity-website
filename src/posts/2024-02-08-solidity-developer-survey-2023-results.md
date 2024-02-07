@@ -27,7 +27,7 @@ Without further ado, let’s dig into the 2023 results!
 
 ## Summary & Notable Insights
 
-- **Survey Audience**: In total, 474 developers from 74 different countries participated in the 2023 survey. About 18.5% stated to be residing in the US, followed by India (10.5%) and Germany (5.5%). This remains consistent with last year's insights except for Germany replacing France as the 3rd country where the highest respondents live.
+- **Survey Audience**: In total, 474 developers from 74 different countries participated in the 2023 survey. About 18.5% stated to be residing in the US, followed by India (10.5%) and Nigeria (6.1%). This remains consistent with last year's insights except for Nigeria replacing France as the 3rd country where the highest respondents live.
 - **Developer Profiles**: The level of coding experience remains at a medium to a high level, with the majority (26%) of respondents having coded professionally for 3+ years, with 9% of the respondents for even 15+ years.
 - **Solidity Experience**: More than half of all respondents have been using Solidity for more than 2 years. 42% use Solidity daily and 30% weekly.
 - **Solidity Expertise**: Many deem themselves Solidity experts, with a self-rating in the expertise of 7 or higher (out of 10). 7.8% rate their expertise as a 10 out of 10.
@@ -43,28 +43,27 @@ _⚠️ Be aware that this survey has only been shared in English when interpret
 
 As usual, we begin by looking at the developers who participated in this survey: In this first chapter, we cover general information on the survey audience, which includes residency and spoken languages.
 
-In total, 1401 developers from 100 different countries participated in the 2022 survey. Compared to the previous survey, this represents a 222% increase in responses.
+In total, 474 developers from 74 different countries participated in the 2023 survey. 
 
-The coverage of different geographies increased from 73 countries in 2021 to 100 countries in 2022.
+The coverage of different geographies increased from 73 countries in 2021 to 100 countries in 2022 and back to 74 in 2023.
 
 #### Residency
 
-Roughly 18% of respondents stated to be residing in the US, followed by India (10%), France (5%), and Nigeria (4.5%).
+Roughly 18.5% of respondents stated to be residing in the US, followed by India (10.5%), Nigeria (6.1%), and Germany (5.5%).
 
-![Survey Participants World Map](/img/2023/02/geo.png)
+![Survey Participants World Map]()
 
-![Survey Participants List of Countries with 20+](/img/2023/02/geo2.png)
+![Survey Participants List of Countries with 20+]()
 
 #### Language
 
-The diversity of respondents did not only increase in terms of countries of residency but also in terms of the native language. In total, 70 different languages were mentioned as their native languages.
-That’s a 40% increase compared to the previous year.
+In total, 60 different languages were mentioned as their native languages in 2023.
 
-31.5% state English as their native language, followed by Indian languages (12.4%), Spanish (8.4%), French (6.9%), Russian (6.4%), and German (4.7%).
+31.85% stated English as their native language, followed by Indian languages (14.5%), Spanish (7.3%), French (6.3%), Chinese languages (4.8%), and German (4.6%).
 
-_ℹ️Hindi, Urdu, Telugu, Bengali, Tamil, Malayalam, Gujarati, Marathi, Kannada, and Odia were clustered as “Indian languages”. Chinese, Cantonese, and Mandarin were clustered as “Chinese languages”. Persian, Pashto, and Ossetian were clustered as “Iranian languages”._
+_ℹ️ Hindi, Bengali, Telugu, Gujarati, Marathi, Odia, Punjabi, Tamil were clustered as “Indian languages”. Chinese, Cantonese, and Mandarin were clustered as “Chinese languages”. Runyankole, Swahili, Yoruba, Igbo, Kinyarwanda, and Kiswahili were clustered as African languages._ 
 
-![Survey Participants Native Language](/img/2023/02/lang.png)
+![Survey Participants Native Language]()
 
 With almost 80%, the majority of respondents predominantly speak English at work.
 Other languages that are spoken at work: French (3.2%), Russian (3.1%), and Chinese languages (2.3%).
