@@ -193,6 +193,7 @@ Note that `coordsOverride` is a tuple of two numbers, representing latitude and 
     date: string
     author: string
     category: Category
+    image?: string
   }
   ```
 
@@ -211,6 +212,10 @@ Note that `coordsOverride` is a tuple of two numbers, representing latitude and 
 - `date` property should be in `YYYY-MM-DD` format
 - MDX/JSX is not currently supported
 - Images can be placed in a corresponding folder within `/public/img` and references using `![alt text](/img/chosen-folder/image-name.png)`
+- A custom Open Graph (OG) image can be provided for share links:
+  - Save the image to the `/public/assets/` directory
+  - Add `image: /assets/filename.png` to the front matter of your blog post
+  - `.svg` files are not supported for OG images
 
 ### Blog post example
 
