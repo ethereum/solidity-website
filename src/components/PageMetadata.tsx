@@ -29,8 +29,12 @@ export const PageMetadata: React.FC<Props> = ({
   const router = useRouter()
   const { href: url } = new URL(router.asPath, SITE_URL)
   const fullTitle = `${title} | ${SITE_NAME}`
-  const { href: defaultOgImage } = new URL(DEFAULT_IMAGE_PATH, SITE_URL)
-  const ogImage = !image ? defaultOgImage : new URL(image, SITE_URL).href
+  
+  const ogImage = (() => {
+    if (!image) return new URL(DEFAULT_IMAGE_PATH, SITE_URL).href
+    if (image.startsWith('http')) return image
+    return new URL(image, SITE_URL).href
+  })()
 
   const metadata: MetadataItem[] = [
     { name: 'title', content: fullTitle },
