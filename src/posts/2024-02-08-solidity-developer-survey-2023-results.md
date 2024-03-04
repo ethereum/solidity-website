@@ -2,7 +2,7 @@
 layout: post
 published: true
 title: 'Solidity Developer Survey 2023 Results'
-date: '2024-02-08'
+date: '2024-03-10'
 author: Vishwa Mehta
 category: Announcements
 ---
@@ -35,7 +35,7 @@ Without further ado, let’s dig into the 2023 results!
 - **Future Features**: Support for Generics, `Require` with custom error types, Transient Storage were mentioned most often as the “most anticipated Solidity features”.
 - **Liked & Dreaded Features**: Respondents most like Solidity's syntax, the simplicity of learning, reading, coding, and compiling, and the static typing. The most significant pain point is “stack-too-deep”, with 33.6% of all votes, followed by missing memory optimizations (waste of memory) (24.4%) and redundant checks (e.g. in checked arithmetic) (11.8%). 9.9% say that compiler performance is their biggest issue.
 
-![Demographics Header]()
+<img width="1024" alt="Screenshot 2024-03-04 at 2 41 12 PM" src="https://github.com/ethereum/solidity-website/assets/32997409/095b0d1a-7ecd-4735-931b-6347515790d5">
 
 ## Demographics of the Survey Audience
 
@@ -335,77 +335,57 @@ We will try to phrase this question more precisely in the next survey.
 
 ## Language Design & Upcoming Features
 
-### Favorite Feature / Solidity Aspect
+### Most Anticipated Feature(s)
 
-Respondents most like Solidity's syntax, the simplicity with regards to learning, reading, coding and compiling and static typing.
+Support for generics (23.2%) and `Require` with custom error types (17.4%) was mentioned most often as the “most anticipated Solidity feature”.
 
-The most mentioned liked features in descending order were:
-
-- Syntax
-- Easy to... read/code/compile/learn
-- Simplicity
-- Static/strong/strict typing
-- Similarity to other languages (most mentioned JS/TS and object-orientedness, also mentioned: Rust, C++, Python)
-- Modifiers
-- Inline assembly
-- Mappings
-- Inheritance
-- (User-defined) types
-- SafeMath / checked and unchecked
-- Yul
-
-### Most Dreaded Aspect
-
-This year, we asked the survey audience a slightly different question: “If you could change one thing about Solidity, what would it be?”
-
-Most mentioned “change requests” in descending order were:
-
-- Fix stack-too-deep
-- Better array handling
-- Gas optimizations
-- Add fractional numbers (fixed point types / floating types)
-- Better error handling, descriptions
-- Better debugging
-- Higher contact bytecode size limit
-
-### Future Features
-
-#### Most Anticipated Feature
-
-Support for fractional numbers and generics was mentioned most often as the “most anticipated Solidity feature”.
-
-_⚠️ Similar to the previous year, we noted that respondents were using various different terms like "floats", "floating point arithmetic", "floating point number", "fixed point numbers", and "fixed point math". We categorized those as "fractional numbers"._
+_⚠️ Similar to the previous year, we noted that respondents were using various different terms like "floats", "floating point arithmetic", "floating point number", "fixed point numbers", and "fixed point math". We categorized those as "decimal numbers"._
 
 Most mentioned anticipated features in descending order:
 
-- Support for fractional numbers (fixed point types / floating points)
 - Generics
-- Better optimization
-- No stack-too-deep
-- Better debugging
+- Require with custom error types
 - Transient storage
-- Standard library
-- Better error messages
+- Solving stack-too-deep errors
+- Better gas optimizations & debugging tools
+- Support for decimal numbers (fixed point types / floating points) & Dynamic Memory Arrays
 
-#### EIP Support
+### Feedback on New Features/Improvements
 
-We also wanted to know what Solidity-related EIPs the survey respondents think need support in the compiler.
+We asked a few questions about how the respondents feel about postfix types and functional elements in Solidity. Here's what we found out:
 
-EIP-2535 “‘Diamonds, Multi-Facet Proxy” was mentioned most often, followed by EIP-1153 “Transient Storage” and EIP-3540 “EOF - EVM Object Format”.
+- While 72.5% explicitly said that they either don't like postfix types or don't care, only 27.5% said that they like them.
+- Almost 60% users said that they like the idea of more functional elements in Solidity such as Lamda functions. 15.4% said they don't like them and 24.7% are indifferent towards it.
 
-![Solidity-related EIPs](/img/2023/02/EIP_support.png)
+### EIP Support
+
+We also wanted to know what Solidity-related EIPs the survey respondents know about or look forward to using and why.
+
+- EIP-1153 “Transient Storage”: Roughly 46.2% respondents know about it, whereas 53.8% do not know about the Transient Storage EIP. More than 40% said that they would need complex types in Transient Storage, such as mappings and arrays. 
+- EIP-3540 “EOF - EVM Object Format”: It was interesting to see that only 28.7% respondents know about EOF in contrast to the 71.3% majority that doesn't know about it. Out of which, 65.4% feel positively about it and only 4.5% feel negatively about the EOF.
 
 ### Restrictiveness
 
-Regarding language restrictiveness, roughly 43% of respondents wish that Solidity stays “as is”. 41% tend towards more restrictive/explicit, having more checks, while approximately 16% would like Solidity to be less restrictive.
+Regarding language restrictiveness, roughly 44.7% of respondents wish that Solidity stays “as is” which is comparable to last year's results. 24% tend towards more restrictive/explicit which got reduced compared to last year, while approximately 10% would like Solidity to be less restrictive.
 
 ![Solidity Restrictiveness Ranking]()
 
 ![Solidity Developer Community Header](/img/2023/02/header6.png)
 
+### Language Design Related Efforts
+
+When asked whether the respondents have or continue to participate in the language design efforts, here's what we found:
+- A majority of almost 68% respondents said that they do not participate because they are either too busy to do so or do not know how to participate.
+- About 14.5% said that they regularly participate in language design efforts either by joining the calls, the forum discussions, or by proposing new features or language changes on GitHub.
+- 18.5% said that they are either not interested or do not feel that they are qualified to participate in these efforts.
+
+At Solidity, we have and would like to continue to make it easier to our community to participate more actively in these discussions and feel empowered enough to contribute to the language design decisions.
+
+![Solidity-related EIPs](/img/2023/02/EIP_support.png)
+
 ## Solidity Developer Community
 
-### Language Design Community Participation
+### Community Participation in Language Design Discussions
 
 Less than 10% of all respondents ever participated in Solidity language design related efforts.
 
@@ -417,13 +397,13 @@ Roughly 30% say that they are not interested in or qualified for the discussions
 
 ![Language Design Participation]()
 
-### Staying Informed
+### Staying up-to-date
 
-Similar to the previous years, most people like to stay up-to-date about Solidity versions, security alerts, and announcements by following Solidity on [Twitter](https://twitter.com/solidity_lang) or [Mastodon](https://fosstodon.org/@solidity).
+A slightly new trend from previous years is that this year, most people reported that they like to stay up-to-date about Solidity versions, security alerts, and announcements by following the [Solidity GitHub Releases page](https://github.com/ethereum/solidity/releases), followed by Solidity [Twitter](https://twitter.com/solidity_lang) or [Mastodon](https://fosstodon.org/@solidity).
 
-Other often used means for information are the [Solidity blog](https://blog.soliditylang.org/) and [Solidity GitHub release page](https://github.com/ethereum/solidity/releases).
+Other often used means of information is the [Solidity blog](https://blog.soliditylang.org/).
 
-Interestingly, almost 30% claim to not be doing any of the above.
+Interestingly, about 21.2% claim to not be doing any of the above.
 
 As part of “other”, respondents specified several community based means to stay up-to-date:
 
@@ -441,41 +421,39 @@ As part of “other”, respondents specified several community based means to s
 - [Solidity website](https://soliditylang.org/)
 - Reddit
 
-![Means To Stay Up-To-Date](/img/2023/02/stay_informed.png)
+![Means To Stay Up-To-Date]()
 
 ### Interaction with Other Solidity Developers
 
-More than half of respondents interact with other Solidity developers.
+More than half of respondents (56.8%) interact with other Solidity developers.
 
-16.7% don’t interact with other Solidity developers at all.
+17.5% don’t interact with other Solidity developers at all.
 
 ![Developer Interaction]()
 
 Like in the previous years, as the last part of the survey, we wanted to hear how many participants agree or disagree with several statements regarding the Solidity community and the work of the Solidity team.
 
-- 66% of respondents feel (somewhat) welcome in the Solidity developer community.
-- Roughly 77% agree or somewhat agree that they feel confident in the work of the Solidity team.
-- More than half feel welcome to contribute to Solidity, however, only less than 40% say that they know how to contribute ideas or feedback to Solidity.
-- Roughly 25% are confident that the Solidity team understands their needs as a developer. Another 35% somewhat agree, while approximately 9% disagree or strongly disagree.
+- 46.8% of respondents feel welcome in the Solidity developer community.
+- Roughly 80% agree or somewhat agree that they feel confident in the work of the Solidity team.
+- About 46.9% feel welcome to contribute to Solidity and understand clearly how to do so. However, 25% aren't clear.
+- Roughly 68% are (fully or somewaht) confident that the Solidity team understands their needs as a developer, while approximately 9% disagree or strongly disagree.
+- About 40% respondents are satisfied with the feedback and inputs they get from the Solidity team regarding their contributions. Whereas 10% disagree or strongly disagree to this.
 
-The results of this “community and Solidity team confidence ranking” are very comparable to the previous year.
+The results of this “community and Solidity team confidence ranking” are quite consistent with the results from the previous year.
 
 One can derive that while the community seems confident in the competency/qualification of the Solidity team, the communications around ways to contribute as well as understanding of the community’s needs, can be improved.
+
 Those are things that we have been working on improving throughout the last years and will continue to do so.
 
 ![Community and Solidity Team Confidence Ranking]()
 
-## Thank You & See You Next Year!
+## Thank You!
 
-Lastly, we want to take the opportunity to thank you for all your lovely and motivating messages and the feedback received.
+Lastly, we want to take the opportunity to thank you for all your survey responses and feedbacka. We hope to continue this tradition annualy!
 
-We were overwhelmed by the sheer number of survey responses and hope to continue this trend in the coming years!
+We hope that the insights from this survey continue to be valuable to the Solidity ecosystem and community as they are to us!
 
-We hope the insights from this survey were useful to you, as they certainly are for us!
-
-We will continue to collect feedback on an ongoing basis.
-
-To not miss anything, make sure to:
+To stay up-to-date with all Solidity related announcements and updates, make sure to:
 
 - Follow Solidity on [Twitter](https://twitter.com/solidity_lang) or [Mastodon](https://fosstodon.org/@solidity).
 - Join the language design discussions in the [Solidity forum](https://forum.soliditylang.org/) or provide us feedback there.
@@ -484,4 +462,4 @@ To not miss anything, make sure to:
 
 ---
 
-_All graphs can be found [here](https://docs.google.com/presentation/d/1xH5pGZ6rrAP_jzRQobf0Mn1XYquyg8bD17DBQyrErMo/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1A5iF3aKhFv9wTTJ10ko_uxgoflc8oEpVe3gqAAWoC2w/edit?usp=sharing)._
+_All graphs can be found [here](https://docs.google.com/presentation/d/1W49GWlhdxC_I1dxqzFIf1e9bFf8O_QH2kT_T_nfenA0/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1R8EBUryePhiJwl14IXNm2RDwqA8sEBdxrKuFKvfj0wY/edit?usp=sharing)._
