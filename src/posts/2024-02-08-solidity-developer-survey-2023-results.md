@@ -37,7 +37,7 @@ Without further ado, let’s dig into the 2023 results!
 
 <img width="1024" alt="Screenshot 2024-03-04 at 2 41 12 PM" src="https://github.com/ethereum/solidity-website/assets/32997409/095b0d1a-7ecd-4735-931b-6347515790d5">
 
-## Demographics of the Survey Audience
+## Demographics
 
 _⚠️ Be aware that this survey has only been shared in English when interpreting results regarding the distribution of countries of residency and language preferences._
 
@@ -65,14 +65,13 @@ _ℹ️ Hindi, Bengali, Telugu, Gujarati, Marathi, Odia, Punjabi, Tamil were clu
 
 ![Survey Participants Native Language]()
 
-With almost 80%, the majority of respondents predominantly speak English at work.
-Other languages that are spoken at work: French (3.2%), Russian (3.1%), and Chinese languages (2.3%).
+A majority of 96.8% respondents reported that they predominantly speak English at work.
+
+Other languages that are spoken at work are French (0.9%), Russian (0.9%), Italian, Spanish, and Indonesian.
 
 ![Survey Participants Work Language](/img/2023/02/lang_work.png)
 
-Of the respondents who didn't name English as their native language, 87% are okay with reading the Solidity documentation in English.
-
-12.9% would prefer to read it in their native language, the most mentioned ones being Spanish, Indian languages, and Russian.
+Out of all the respondents, 73.4% are okay with reading the Solidity documentation in English and 26.6% would prefer to read it in their native language. The number of respondents who would prefer it in their native language are higher this year than the previous year.
 
 ![Preferred Documentation Language](/img/2023/02/lang_docs.png)
 
@@ -82,70 +81,67 @@ _ℹ️ Note: This survey has only been conducted in English, which may have imp
 
 ![Developer Profile Header](/img/2023/02/header2.png)
 
-### Developer Profile
+### Developer & User Profile
 
 In the second section of the Solidity Developer Survey, we learn more about the professional experience and coding preferences of the survey audience.
 
 #### Work Experience & Employment
 
-Roughly 71% of respondents were employed at the time of the survey, while roughly 12% stated they were students, and 17% said they were currently not working professionally.
+65.2% of respondents were employed at the time of the survey, while 13.4% stated they were students, and 21.4% said they were currently not working professionally.
 
 Compared to the previous survey, there is a slight increase in both the number of students and currently unemployed developers.
 
 ![Employment Status](/img/2023/02/employment.png)
 
-The employed respondents predominantly work in the “crypto” (58.2%) and technology (21.6%) and financial services (5.4%) sector.
+The employed respondents predominantly work in the “crypto” (69.6.2%), technology (14.7%) and financial services (4.5%) sector. This trend is quite comparable to the results from the previous year with just a slight change in the individual precentages.
 
 ![Industry Sector Breakdown](/img/2023/02/sector.png)
 
-37,1% of all respondents are seniors and have been coding professionally for 6 years or more, 12.5% of them even for 15+ years.
+36% of all respondents are seniors and have been coding professionally for 6 years or more, 9.7% of them even for 15+ years.
 
-On the other side, roughly 12% are coding newbies and have only coded professionally for less than a year.
+On the other side, roughly 9.2% are coding newbies and have only coded professionally for less than a year.
 
-With approximately 22%, the biggest group sits in the middle of the distribution and has professional coding experience of 3-5 years.
+With approximately 28.1%, the biggest group sits in the middle of the distribution and has professional coding experience of 3-5 years.
 
-Overall, the level of coding experience is medium to high with the majority of respondents (59.2%) having coded professionally for 3 or more years.
-7.7% have never coded as part of their job, 37% of which are students.
+Overall, the level of coding experience is medium to high with the majority of respondents (64.1%) having coded professionally for 3 or more years.
+
+And 6.5% have never coded as part of their job.
 
 ![Professional Coding Experience](/img/2023/02/coding_xp.png)
 
 #### Touch Points with Solidity
 
-As in the previous survey, the majority of respondents (75.7%) still use Solidity for their personal projects.
-
-Roughly 64% of all respondents use Solidity at work.
-
-More than 20% state they are leading a programming team.
+The majority of respondents (75.3%) still use Solidity either at work or personal projects. Almost 25% said that they use Solidity for their personal projects only.
 
 ![Survey Participants Touch Points with Solidity](/img/2023/02/touchpoints.png)
 
-Only 23.4% of respondents contribute to open-source projects written in Solidity on a daily or weekly basis. The rest states to do so monthly (27.4%) or never (47.1%).
+Only 32% of respondents contribute to open-source projects written in Solidity on a daily or weekly basis. The rest states to do so monthly (27.1%) or never (40.9%). The number of users who never contribute has slightly lowered this year with a small increase in those who contribute daily or weekly.
 
 ![Survey Participants Open Source Contributions](/img/2023/02/open_source.png)
 
 #### Programming Language Preferences
 
-Solidity marks the most used programming language for the survey audience (28.6%), closely followed by JavaScript (25.6%) and TypeScript (20.5%).
+Solidity marks the most used programming language for the survey audience (42.9%), closely followed by JavaScript (15.4%) and TypeScript (16.7%).
 
-Other less frequently mentioned languages are Python (8.7%), Rust (2.7%), and Go (2.5%).
+Other less frequently mentioned languages are Python (9.5%), Rust (3.5%), and C# (2.4%).
 
 ![Most Used Programming Language](/img/2023/02/progr_lang_use.png)
 
-Similar to the previous year, the respondents' favorite programming languages are distributed more evenly across various languages.
+Similar to the previous year, the respondents' favorite programming languages are as follows:
 
-Solidity is the most popular, scoring 18.8% of all entries, followed by JavaScript (17.3%), Python (15.2%), TypeScript (15.0%), and Rust (8.6%).
+Solidity is the most popular, scoring 29.1% of all entries, followed by Python (15.6%), JavaScript (12.4%), TypeScript (12%), and Rust (10%).
 
 ![Favorite Programming Language](/img/2023/02/progr_lang_fav.png)
 
 #### Operating System
 
-Most respondents use MacOS as their primary Operating System (41.8%). Windows and Linux seem comparatively popular, with 30.5 and 27.7%, respectively.
+Most respondents use MacOS as their primary Operating System (40.5%). Windows and Linux are equally popular, with 29.7 and 29.9% respectively.
 
 ![Operating System](/img/2023/02/os.png)
 
 ![Solidity User Profile Header](/img/2023/02/header3.png)
 
-### Solidity User Profile
+### Solidity Background
 
 In this section of the survey, we asked respondents about their Solidity-specific development experience and usage habits.
 
@@ -301,8 +297,8 @@ _ℹ️On the topic of debugging issues, we'd like to use the opportunity to hig
 
 ### Getting Started & Documentation
 
-Most respondents considered it easy or “okay” to get started using the Solidity compiler.
-4.2% (55 people) stated that it was difficult for them. When asked what made it difficult to get started, some mentioned a previous lack of technical background or development experience, and others also pointed out a lack of good learning resources or outdated learning resources.
+Most respondents considered it very easy (44.8%) or “okay” (50.9%) to get started using the Solidity compiler.
+4.3% (19 people) stated that it was difficult for them. When asked what made it difficult to get started, some mentioned lack of good docs and examples.
 
 ![Getting Started]()
 
@@ -314,22 +310,22 @@ Ideas for improvement most prominently ask for more code examples but also a bet
 
 ### Biggest Pain Points
 
-Different from the previous years, this year, we tried to structure the question around the “biggest pain points” better and clustered the first step into several prominent categories: Stack-to-deep, gas related issues, compiler performance, and “other”.
+The biggest pain point is “stack-too-deep”, with 41.7% of all votes, followed by missing memory optimizations (waste of memory) (21%) and compiler performance 13.1%.
 
-The biggest pain point is “stack-too-deep”, with 33.6% of all votes, followed by missing memory optimizations (waste of memory) (24.4%) and redundant checks (e.g. in checked arithmetic) (11.8%).
-9.9% say that compiler performance is their biggest issue.
+8.6% say that redundant checks (e.g. in checked arithmetic) is their biggest issue.
 
-15.8% selected “other” and were able to specify their most significant pain point in a free text field. Most prominently mentioned: Contract size limit, error messages, and issues with debugging.
-
+11% selected “other” and were able to specify their most significant pain point in a free text field. Most prominently mentioned: Bytecode and contract size limit and errors.
 ![Solidity Pain Points]()
 
 ### High-Impact Compiler Bugs
 
-As part of this year’s study, we were also curious to find out whether Solidity developers had been affected by any of the high-impact compiler bugs (codegen bugs that are announced with [Security Alerts](https://blog.soliditylang.org/category/security-alerts/) on the Solidity blog).
+We were curious to find out whether Solidity developers had been affected by any of the high-impact compiler bugs (codegen bugs that are announced with [Security Alerts](https://blog.soliditylang.org/category/security-alerts/) on the Solidity blog).
 
-Initially, 4.7% said yes. However, when asked which one they were affected by, only two out of the 63 people were able to point to actual Solidity vulnerabilities in the follow-up question.
-This gives room to assume the actual number of affected developers from this survey is significantly lower than 4.7%, and some respondents may have simply misunderstood the question.
-We will try to phrase this question more precisely in the next survey.
+While 95.7% said they haven't been affected, 4.3% said yes. 
+
+When asked which one they were affected by, here's what we found out:
+
+(double check if reported bugs are genuine and list accordingly)
 
 ![High Impact Bugs]()
 
