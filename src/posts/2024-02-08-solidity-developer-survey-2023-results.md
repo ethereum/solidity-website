@@ -222,36 +222,32 @@ _⚠️ Reminder: Please make sure to frequently update your code (and compiler)
 
 #### Solidity Usage Details
 
-This year, we also asked specific questions about Solidity usage habits.
+Just like last year, we also asked our users specific questions about Solidity usage trends.
 
 For charts and figures on those, please refer to the [presentation with all graphs](https://docs.google.com/presentation/d/1xH5pGZ6rrAP_jzRQobf0Mn1XYquyg8bD17DBQyrErMo/edit?usp=sharing) and the [raw data file](https://docs.google.com/spreadsheets/d/1A5iF3aKhFv9wTTJ10ko_uxgoflc8oEpVe3gqAAWoC2w/edit?usp=sharing).
 
 To summarize:
 
-- Command line: Roughly two thirds of respondents do not use the Solidity compiler directly via the command line. 37.5% do.
-- Command line: When using the compiler on the command line, 61.3% still use Standard JSON.
-- Optimizer: 93.6% do not disable the optimizer. The 6.4% that enabled the optimizer, stated that they would do so due to contract size limits, slow compilation, in order to pass EtherScan verification, for gas testing purposes or because of security concerns.
-- Gas estimator: 23.4% use the gas estimator that is built into the compiler. 25% have tried it, but don’t use it regularly, while 41.5% never use it.
-- SMTChecker: 81% of all respondents never use the SMTChecker. 13.7% have tried it and 5.4% use it frequently. You can learn more about the SMTChecker [here](https://docs.soliditylang.org/en/latest/smtchecker.html).
-- `via-IR` compilation pipeline: 70.8% do not know what `via-IR` is. 18.6% use the `via-IR` pipeline already. In the following weeks, we will share more context about why you should switch from the legacy compilation pipeline to `via-IR` and what this means.
-- Metadata publication: 53.5% publish the metadata of their smart contracts. 27.8% don’t, while 18.7% don’t know what this means.
-- Sourcify: 11% of all respondents use Sourcify for smart contract verification, while 21.2% claim to not need it. 67.8% don’t know what Sourcify is. If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
-
-#### Fixed-Point Types
-
-Approximately 91% of all survey respondents don’t use fixed-point types.
-
-The 9% (100 people) that do primarily use [PRB Math](https://github.com/PaulRBerg/prb-math), [solmate’s FixedPointMathLib](https://github.com/transmissions11/solmate/blob/main/src/utils/FixedPointMathLib.sol), and custom implementations.
-
-![Fixed-Point Types Usage](/img/2023/02/fixed_point_types.png)
-
-![Fixed-Point Types Libraries](/img/2023/02/fixed_point_types_libs.png)
+- CLI: Roughly 60% of respondents do not use the Solidity compiler directly via the command line, while 40.1% do. This is quite consistent with last year.
+- CLI: When using the compiler on the command line, 58.9% still use Standard JSON.
+- CLI: When asked how disruptive are changes in CLI options and outputs for respondents, 64.1% responded with "okay" and 26.5% with "Not disruptive at all". Only 9.4% deem these changes as disruptive.
+- Old EVM versions: 28.8% of the overall respondents still rely on old EVM versions, among which 11.1% rely on deprecated EVM versions.
+- Unoptimised code: 20.8% said that they never use unoptimised code. 27.9% use unoptimised code only because of their framework's defauly settings, whereas 20.1% do so due to debugging or unit testing (19.4%).
+- ABIEncoderV1: While 63.9% do not use ABIEncoderV1, only 6.5% know about it and use it. 29.6$ do not know about it at all.
+- SMTChecker: 74.5% of all respondents never use the SMTChecker. 20.1% have tried it and 5.4% use it frequently. You can learn more about the SMTChecker [here](https://docs.soliditylang.org/en/latest/smtchecker.html). The number of users who have tried it has increased this year.
+- `via-IR` compilation pipeline: 51.9% do not know what `via-IR` is. This number has significantly reduced from last year. 25.9% use the `via-IR` pipeline already. In the following weeks, we intend to write a blog post about what `via-IR` is and why you should switch from the legacy compilation pipeline to `via-IR`. When asked what users are most concerned about regarding the use of `via-IR`, 27.4% said compilation times, 21.4% said not enough knowledge, 17.9% said stability/security concerns, and 13.5% said lack of tooling.
+- Metadata publication: 55.2% publish the metadata of their smart contracts which has slightly increased from last year. 30.3.5% don’t, while 14.5% don’t know what this means and both these numbers have significantly improved from last year.
+- Sourcify: 14.2% of all respondents use Sourcify for smart contract verification (increased from last year), while 30.7% claim to not need it. 55% don’t know what Sourcify is, which has reduced from last year. A staggering 79% users use Sourcify via Foundry and 16.1% use it via Sourcify directly. If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
+- `appendCBOR: false` or `bytecodeHash: none`: 55% users do not know what that is, whereas 30.8% know but do not need it. Only about 13.7% either use it frequently or sometimes.
+- Flattening contracts: 53.9% of total respondents do not flatten their contracts, whereas only 22.5% do. 23.6% do not know what that is or how to do it. Most of the users who flatten their contracts mentioned that they do so for the purpose of verification.
 
 #### Other EVM Networks
 
-More than half of all respondents use Solidity outside of [Ethereum Mainnet](https://ethereum.org/en/glossary/#mainnet) and [testnets](https://ethereum.org/en/glossary/#testnet).
-When asked which other networks they deploy their smart contracts on, the most popular chain was by far Polygon (formerly Matic Network).
-Other often mentioned blockchains include Binance Smart Chain, Arbitrum, Avalanche and Optimism.
+More than half of all respondents (65.1%) use Solidity outside of [Ethereum Mainnet](https://ethereum.org/en/glossary/#mainnet) and [testnets](https://ethereum.org/en/glossary/#testnet).
+
+When asked which other networks they deploy their smart contracts on, 20.8% responded with Polygon (formerly Matic Network).
+
+Other often mentioned blockchains including Arbitrum (15.6%), Optimism (13.2%),  Binance Smart Chain (10.6%), and Avalanche (8.1%).
 
 ![Deployment To Other Chains](/img/2023/02/solidity_other_chains.png)
 
@@ -259,10 +255,11 @@ Other often mentioned blockchains include Binance Smart Chain, Arbitrum, Avalanc
 
 #### Other Smart Contract Languages
 
-Half of all respondents use other smart contract languages alongside Solidity.
-The most used other smart contract language is [Yul](https://docs.soliditylang.org/en/latest/yul.html), an intermediate language for Solidity, with 17.2%, followed by [Vyper](https://docs.vyperlang.org), a pythonic EVM language, with 10.5%.
-[Cairo](https://www.cairo-lang.org/docs/) (7.1%), a STARK based language targeting StarkNet, and [Huff](https://docs.huff.sh) (6.2%), a low-level assembly language for the EVM, are also mentioned several times.
-Other “newcomers” like [Sway](https://fuellabs.github.io/sway/) (2.4%) and [Fe](https://fe-lang.org/docs/) (1.5%) also make it into the chart.
+The most used other smart contract language is [Yul](https://docs.soliditylang.org/en/latest/yul.html), an intermediate language for Solidity, with 23.9% which got increased from the previous year, followed by [Vyper](https://docs.vyperlang.org), a pythonic EVM language, with 11.9%.
+
+[Huff](https://docs.huff.sh) (9.3%), a low-level assembly language for the EVM and [Cairo](https://www.cairo-lang.org/docs/) (5.8%), a STARK based language targeting StarkNet are also mentioned several times.
+
+Other “newcomers” like [Sway](https://fuellabs.github.io/sway/) (2.1%) and [Fe](https://fe-lang.org/docs/) (1.8%) also make it into the chart.
 
 ![Other Smart Contract Languages](/img/2023/02/smart_contr_langs.png)
 
@@ -270,11 +267,11 @@ Other “newcomers” like [Sway](https://fuellabs.github.io/sway/) (2.4%) and [
 
 ## Solidity Developer Experience
 
-76.5% of all respondents believe that the Solidity developer experience generally improved throughout the last year. 25.1% are of the opinion that they noticed a big improvement compared to the previous year.
+77% of all respondents believe that the Solidity developer experience generally improved throughout the last year. 20.2% are of the opinion that they noticed a big improvement compared to the previous year.
 
-7.8% say that nothing has changed in their experience, while 0.9% of the respondents think it got worse.
+10.3% say that nothing has changed in their experience, while 1.6% of the respondents think it got worse.
 
-Compared to the previous year’s results, the share of “got worse” and “I don’t know” decreased, while “no change” slightly increased. Overall, the picture is very comparable.
+Compared to the previous year’s results, the share of “got worse” and “no change” slightly increased. Overall, the picture is very comparable.
 
 ![Solidity Developer Experience](/img/2023/02/dev_ex.png)
 
@@ -285,9 +282,9 @@ Many also ask their coworkers for help or watch tutorial videos.
 
 ### Recurring Issues
 
-60% of respondents don't encounter the same or similar issues multiple times when developing in Solidity.
+53.3% of respondents don't encounter the same or similar issues multiple times when developing in Solidity.
 
-Amongst the 40% that do, debugging issues are encountered most frequently, followed by stack-too-deep errors and bytecode size limitations.
+Among the 46.7% that do, "Stack too deep" issues are encountered most frequently, followed by bytecode size limitations and debugging issues.
 
 _ℹ️On the topic of debugging issues, we'd like to use the opportunity to highlight a new initiative aimed at defining a common debugging data format for languages built on top of the EVM: [ethdebug](https://github.com/ethdebug/format/). The end result will be a specification that will allow debuggers, analyzers, and other tools to reliably map between the EVM bytecode produced by compilers and the high-level language features. This has been a common pain point across the ecosystem for years and is becoming more pressing with the introduction of the new IR-based code generator (i.e. the `via-IR` pipeline) in Solidity, which often breaks implicit assumptions tools made based on how the legacy pipeline worked. We encourage all developers working on such tools to join the working group. The group has regular bi-weekly meetings and coordinates via the [ethdebug channel](https://matrix.to/#/#ethdebug:matrix.org) on Matrix._
 
@@ -302,9 +299,9 @@ Most respondents considered it very easy (44.8%) or “okay” (50.9%) to get st
 
 ![Getting Started]()
 
-Almost 64% of survey respondents consider the Solidity documentation helpful, followed by 33% who deem it “somewhat” useful. Only 3.3% don’t find it useful at all.
+Almost 68% of survey respondents consider the Solidity documentation helpful, followed by 29.1% who deem it “somewhat” useful. Only 2.9% don’t find it useful at all.
 
-Ideas for improvement most prominently ask for more code examples but also a better high-level overview of syntax, better in-docs search, better SEO, and easier wording.
+Ideas for improvement most prominently ask for more code examples but also a better high-level overview of syntax, better in-docs search, and overall better UI/UX.
 
 ![Solidity Documentation Usefulness]()
 
