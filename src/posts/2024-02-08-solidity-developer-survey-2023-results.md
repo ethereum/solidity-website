@@ -35,7 +35,7 @@ Without further ado, let’s dig into the 2023 results!
 - **Future Features**: Support for Generics, `Require` with custom error types, Transient Storage were mentioned most often as the “most anticipated Solidity features”.
 - **Liked & Dreaded Features**: Respondents most like Solidity's syntax, the simplicity of learning, reading, coding, and compiling, and the static typing. The most significant pain point is “stack-too-deep”, with 33.6% of all votes, followed by missing memory optimizations (waste of memory) (24.4%) and redundant checks (e.g. in checked arithmetic) (11.8%). 9.9% say that compiler performance is their biggest issue.
 
-<img width="1024" alt="Screenshot 2024-03-04 at 2 41 12 PM" src="https://github.com/ethereum/solidity-website/assets/32997409/095b0d1a-7ecd-4735-931b-6347515790d5">
+<img width="1024" alt="1  Demographics" src="https://github.com/ethereum/solidity-website/assets/32997409/adbae4f6-b49d-4628-86e3-b4bbd44e6dad">
 
 ## Demographics
 
@@ -47,7 +47,7 @@ In total, 474 developers from 74 different countries participated in the 2023 su
 
 The coverage of different geographies increased from 73 countries in 2021 to 100 countries in 2022 and back to 74 in 2023.
 
-#### Residency
+### Residency
 
 Roughly 18.5% of respondents stated to be residing in the US, followed by India (10.5%), Nigeria (6.1%), and Germany (5.5%).
 
@@ -55,7 +55,7 @@ Roughly 18.5% of respondents stated to be residing in the US, followed by India 
 
 ![Survey Participants List of Countries with 20+]()
 
-#### Language
+### Language
 
 In total, 60 different languages were mentioned as their native languages in 2023.
 
@@ -79,9 +79,9 @@ Out of all the respondents, 73.4% are okay with reading the Solidity documentati
 
 _ℹ️ Note: This survey has only been conducted in English, which may have impacted the outcome of this question. We still believe internationalization of resources like the Solidity documentation is a crucial factor in lowering the barriers of entry, and we aim to support by helping coordinate the community-driven [translation efforts](https://github.com/solidity-docs)._
 
-![Developer Profile Header](/img/2023/02/header2.png)
+<img width="1021" alt="2  Dev   User Profile" src="https://github.com/ethereum/solidity-website/assets/32997409/f70abfce-6628-4626-b2a9-9be1a1345b5f">
 
-### Developer & User Profile
+## Dev & User Profile
 
 In the second section of the Solidity Developer Survey, we learn more about the professional experience and coding preferences of the survey audience.
 
@@ -109,7 +109,7 @@ And 6.5% have never coded as part of their job.
 
 ![Professional Coding Experience](/img/2023/02/coding_xp.png)
 
-#### Touch Points with Solidity
+### Touch Points with Solidity
 
 The majority of respondents (75.3%) still use Solidity either at work or personal projects. Almost 25% said that they use Solidity for their personal projects only.
 
@@ -119,7 +119,7 @@ Only 32% of respondents contribute to open-source projects written in Solidity o
 
 ![Survey Participants Open Source Contributions](/img/2023/02/open_source.png)
 
-#### Programming Language Preferences
+### Programming Language Preferences
 
 Solidity marks the most used programming language for the survey audience (42.9%), closely followed by JavaScript (15.4%) and TypeScript (16.7%).
 
@@ -133,19 +133,19 @@ Solidity is the most popular, scoring 29.1% of all entries, followed by Python (
 
 ![Favorite Programming Language](/img/2023/02/progr_lang_fav.png)
 
-#### Operating System
+### Operating System
 
 Most respondents use MacOS as their primary Operating System (40.5%). Windows and Linux are equally popular, with 29.7 and 29.9% respectively.
 
 ![Operating System](/img/2023/02/os.png)
 
-![Solidity User Profile Header](/img/2023/02/header3.png)
+<img width="1022" alt="3  Solidity Background" src="https://github.com/ethereum/solidity-website/assets/32997409/c537f263-0fe9-41d3-91d5-30b7801ed2bc">
 
-### Solidity Background
+## Solidity Background
 
 In this section of the survey, we asked respondents about their Solidity-specific development experience and usage habits.
 
-#### Solidity Experience
+### Solidity Experience
 
 Almost 50% of all respondents deem themselves Solidity experts, with a self rating in expertise of 7 or higher (scale of 10).
 
@@ -173,7 +173,7 @@ As in previous years, Solidity appears rather easy to learn, with 21.2% of respo
 
 ![Time to Productiveness](/img/2023/02/sol_productivity.png)
 
-#### Solidity User Profile and Usage Habits
+### Solidity User Profile and Usage Habits
 
 With regards to usage frequency, more than 40% of respondents use Solidity on a daily basis!
 
@@ -220,7 +220,7 @@ With roughly 90%, 0.8.x Solidity versions remain to be the by far most used ones
 
 _⚠️ Reminder: Please make sure to frequently update your code (and compiler) to the latest Solidity version. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json) are added in the newer versions!_
 
-#### Solidity Usage Details
+### Solidity Usage Details
 
 Just like last year, we also asked our users specific questions about Solidity usage trends.
 
@@ -241,7 +241,7 @@ To summarize:
 - `appendCBOR: false` or `bytecodeHash: none`: 55% users do not know what that is, whereas 30.8% know but do not need it. Only about 13.7% either use it frequently or sometimes.
 - Flattening contracts: 53.9% of total respondents do not flatten their contracts, whereas only 22.5% do. 23.6% do not know what that is or how to do it. Most of the users who flatten their contracts mentioned that they do so for the purpose of verification.
 
-#### Other EVM Networks
+### Other EVM Networks
 
 More than half of all respondents (65.1%) use Solidity outside of [Ethereum Mainnet](https://ethereum.org/en/glossary/#mainnet) and [testnets](https://ethereum.org/en/glossary/#testnet).
 
@@ -253,7 +253,7 @@ Other often mentioned blockchains including Arbitrum (15.6%), Optimism (13.2%), 
 
 ![Deployment To Other Chains Breakdown](/img/2023/02/solidity_other_chains_breakdown.png)
 
-#### Other Smart Contract Languages
+### Other Smart Contract Languages
 
 The most used other smart contract language is [Yul](https://docs.soliditylang.org/en/latest/yul.html), an intermediate language for Solidity, with 23.9% which got increased from the previous year, followed by [Vyper](https://docs.vyperlang.org), a pythonic EVM language, with 11.9%.
 
@@ -263,7 +263,7 @@ Other “newcomers” like [Sway](https://fuellabs.github.io/sway/) (2.1%) and [
 
 ![Other Smart Contract Languages](/img/2023/02/smart_contr_langs.png)
 
-![Solidity Developer Experience Header](/img/2023/02/header4.png)
+<img width="1022" alt="4  Solidity Developer Experience" src="https://github.com/ethereum/solidity-website/assets/32997409/b48d2bed-9c16-4f1b-a6d4-7b4a96d5a3c0">
 
 ## Solidity Developer Experience
 
@@ -324,7 +324,7 @@ When asked which one they were affected by, here's what we found out:
 
 (double check if reported bugs are genuine and list accordingly)
 
-![High Impact Bugs]()
+<img width="1021" alt="5  Language Design" src="https://github.com/ethereum/solidity-website/assets/32997409/12a70766-1ac1-4ca3-bcdd-782cfcde6ef7">
 
 ## Language Design & Upcoming Features
 
@@ -374,7 +374,7 @@ When asked whether the respondents have or continue to participate in the langua
 
 At Solidity, we have and would like to continue to make it easier to our community to participate more actively in these discussions and feel empowered enough to contribute to the language design decisions.
 
-![Solidity-related EIPs](/img/2023/02/EIP_support.png)
+<img width="1010" alt="6  Solidity Developer Community" src="https://github.com/ethereum/solidity-website/assets/32997409/bd59f1b9-64e3-4412-978b-3200d45fedcc">
 
 ## Solidity Developer Community
 
