@@ -35,7 +35,7 @@ Without further ado, let’s dig into the 2023 results!
 - **Future Features**: Support for Generics, `Require` with custom error types, Transient Storage were mentioned most often as the “most anticipated Solidity features”.
 - **Liked & Dreaded Features**: Respondents most like Solidity's syntax, the simplicity of learning, reading, coding, and compiling, and the static typing. The most significant pain point is “stack-too-deep”, with 33.6% of all votes, followed by missing memory optimizations (waste of memory) (24.4%) and redundant checks (e.g. in checked arithmetic) (11.8%). 9.9% say that compiler performance is their biggest issue.
 
-<img width="1024" alt="1  Demographics" src="https://github.com/ethereum/solidity-website/assets/32997409/adbae4f6-b49d-4628-86e3-b4bbd44e6dad">
+![header 1](/img/2024/survey/[1]Demographics.png)
 
 ## Demographics
 
