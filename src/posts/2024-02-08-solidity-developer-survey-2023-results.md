@@ -35,7 +35,7 @@ Without further ado, let’s dig into the 2023 results!
 - **Future Features**: Support for Generics, `Require` with custom error types, Transient Storage were mentioned most often as the “most anticipated Solidity features”.
 - **Liked & Dreaded Features**: Respondents most like Solidity's syntax, the simplicity of learning, reading, coding, and compiling, and the static typing. The most significant pain point is “stack-too-deep”, with 33.6% of all votes, followed by missing memory optimizations (waste of memory) (24.4%) and redundant checks (e.g. in checked arithmetic) (11.8%). 9.9% say that compiler performance is their biggest issue.
 
-![header 1](/img/2024/survey/[1]Demographics.png)
+![header 1](/img/2024/survey/header1.png)
 
 ## Demographics
 
@@ -79,7 +79,7 @@ Out of all the respondents, 73.4% are okay with reading the Solidity documentati
 
 _ℹ️ Note: This survey has only been conducted in English, which may have impacted the outcome of this question. We still believe internationalization of resources like the Solidity documentation is a crucial factor in lowering the barriers of entry, and we aim to support by helping coordinate the community-driven [translation efforts](https://github.com/solidity-docs)._
 
-<img width="1021" alt="2  Dev   User Profile" src="https://github.com/ethereum/solidity-website/assets/32997409/f70abfce-6628-4626-b2a9-9be1a1345b5f">
+![header 2](/img/2024/survey/header2.png)
 
 ## Dev & User Profile
 
@@ -139,7 +139,7 @@ Most respondents use MacOS as their primary Operating System (40.5%). Windows an
 
 ![Operating System](/img/2023/02/os.png)
 
-<img width="1022" alt="3  Solidity Background" src="https://github.com/ethereum/solidity-website/assets/32997409/c537f263-0fe9-41d3-91d5-30b7801ed2bc">
+![header 3](/img/2024/survey/header3.png)
 
 ## Solidity Background
 
@@ -263,7 +263,7 @@ Other “newcomers” like [Sway](https://fuellabs.github.io/sway/) (2.1%) and [
 
 ![Other Smart Contract Languages](/img/2023/02/smart_contr_langs.png)
 
-<img width="1022" alt="4  Solidity Developer Experience" src="https://github.com/ethereum/solidity-website/assets/32997409/b48d2bed-9c16-4f1b-a6d4-7b4a96d5a3c0">
+![header 4](/img/2024/survey/header4.png)
 
 ## Solidity Developer Experience
 
@@ -324,7 +324,7 @@ When asked which one they were affected by, here's what we found out:
 
 (double check if reported bugs are genuine and list accordingly)
 
-<img width="1021" alt="5  Language Design" src="https://github.com/ethereum/solidity-website/assets/32997409/12a70766-1ac1-4ca3-bcdd-782cfcde6ef7">
+![header 5](/img/2024/survey/header5.png)
 
 ## Language Design & Upcoming Features
 
@@ -363,8 +363,6 @@ Regarding language restrictiveness, roughly 44.7% of respondents wish that Solid
 
 ![Solidity Restrictiveness Ranking]()
 
-![Solidity Developer Community Header](/img/2023/02/header6.png)
-
 ### Language Design Related Efforts
 
 When asked whether the respondents have or continue to participate in the language design efforts, here's what we found:
@@ -374,7 +372,7 @@ When asked whether the respondents have or continue to participate in the langua
 
 At Solidity, we have and would like to continue to make it easier to our community to participate more actively in these discussions and feel empowered enough to contribute to the language design decisions.
 
-<img width="1010" alt="6  Solidity Developer Community" src="https://github.com/ethereum/solidity-website/assets/32997409/bd59f1b9-64e3-4412-978b-3200d45fedcc">
+![header 6](/img/2024/survey/header6.png)
 
 ## Solidity Developer Community
 
