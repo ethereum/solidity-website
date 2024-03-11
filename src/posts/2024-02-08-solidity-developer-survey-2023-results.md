@@ -188,73 +188,158 @@ When asked how long it took the respondents to start feeling productive with Sol
 
 ![Time to Productiveness](slide24)
 
-### Solidity User Profile and Usage Habits
+### Solidity User Profile & Usage Habits
 
-With regards to usage frequency, more than 40% of respondents use Solidity on a daily basis!
+A majority of 46.5% users use Solidity on a daily basis, followed by 33.2% who use it weekly and only 11.9% who use it on a monthly basis.
 
-37.3% use it weekly, and 13.9% on a monthly basis.
+As low as 1.9% said that they never use Solidity. 6.5% users reported that they still use it rarely.
 
-Roughly 8% indicated to be using Solidity "rarely" or "never".
+![Solidity Usage Frequency](slide25)
 
-Most of them indicated before that they use Solidity for personal projects and code in a different programming language at work.
+We asked the survey audience about the sources they use for getting the Solidity binaries. Below are most mentioned sources:
 
-![Solidity Usage Frequency](/img/2023/02/sol_frequency.png)
+- via a framework / IDE (38.8%)
+- using npm (18.6%)
+- GitHub Releases (9.6%)
+- Build from source (9.3%)
+- solc-bin (6.8%)
+- Homebrew (6.1%)
 
-A striking 81.8% of all respondents use Visual Studio Code as their editor when writing Solidity code.
-Vim and IntelliJ follow in the second and third ranks with 3.7 and 3.4% usage, respectively.
+Other lesser prominent sources were Ethereum PPA for Ubuntu, Package Manager for Linux Distros, and Dockerhub.
 
-Compared to the previous survey in 2021, Visual Studio code gained significantly in popularity (from roughly 50% to 81.8%).
+![Sources for Solidity Binaries](slide26)
 
-![Editor Overview](/img/2023/02/editor.png)
+A striking 77.2% of all respondents use Visual Studio Code as their editor when writing Solidity code. This number is quite lower than last year.
 
-Depending on the chosen IDE, we also asked respondents which Solidity-related plugins they use, if any.
+Vim and IntelliJ follow in the second and third ranks with 4.7 and 3.7% usage, respectively. The overall trend in usage of prominent editors continues to remain comparable.
 
-“HardHat VSCode” by Nomic Foundation and the “Solidity” extension by Juan Blanco (both for Visual Studio Code) are the most popular.
+![Editor Overview](slide27)
 
-![Editor Plugins Overview](/img/2023/02/editor_plugins.png)
+Depending on the chosen editor, we also asked respondents which Solidity-related plugins they use, if any.
 
-Hardhat remains the most popular Ethereum-specific development environment, with roughly 75% of all respondents using Hardhat.
+Just like last year, the “Solidity” extension by Juan Blanco (both for Visual Studio Code) and “HardHat VSCode” by Nomic Foundation were yet again found to be the most popular among Solidity developers.
 
-Remix follows with 42%. Foundry has significantly increased its share from 1.6% in 2021 to 30% in 2022.
+![Editor Plugins Overview](slide28)
 
-Truffle continues to move more into the background, with 17% of respondents indicating that they use it.
+We wanted to know which Ethereum specific development environment our survey participants use.
 
-Rather "niche" Ethereum-specific development environments are Brownie (6.7%), Ape (3.3%), Dapptools (2.3%), and Embark (0.8%).
+It was indicated by a majority of 33.3% that Hardhat remains the most popular Ethereum-specific development environment similar to last year.
 
-4.4% of respondents are not using any Ethereum-specific development environment.
+However, this percentage is significantly lower than in 2022 results, with roughly 75% of all respondents using Hardhat. It is interesting to note that the trend seems to follow that of 2021 results instead, with 30% Hardhat users.
 
-It’s worth noting that this question was a checkbox question, allowing respondents to select multiple answers.
+Not too far behind, Foundry ranks second with 32% and Remix follows closely with 25.8%. After rising in popularity from 1.6% in 2021 to 30% in 2022, Foundry seems to have been comparable in usage since last year.
 
-_⚠️ Comparing the results from 2020, 2021, to 2022 may offer some insights like Truffle losing a significant share (2020: 59.3% -> 2021: 26.2% -> 2022: 17%), while Hardhat, and newcomers like Foundry increased their share in users. However, it's important to consider that the previous surveys had significantly fewer responses (2020: 194, 2021: 435, 2022: 1401). A year-on-year comparison can only be interpreted as a loose trend and it’s not the intent of this study to analyze user splits between IDEs in detail._
+Truffle moves further into the "OTHER" list with only 3 respondents indicating its usage.
 
-![Ethereum IDE Overview](/img/2023/02/eth_ide.png)
+While Dapp rises slightly higher in usage with 3.1% users, Brownie (1.6%) and Embark (0.3%) seem to be the less popular choices this year ranking even lower in usage than the previous year.
 
-With roughly 90%, 0.8.x Solidity versions remain to be the by far most used ones. The usage share of both the 0.7.x (10.2%) and the 0.6.x (7.7%) series continues to decrease since the previous survey. Everything older than that is hardly in use anymore.
+As low as 2% of respondents do not use any Ethereum-specific development environment at all.
 
-![Used Solidity Versions](/img/2023/02/versions.png)
+![Ethereum IDE Overview](slide29)
 
-_⚠️ Reminder: Please make sure to frequently update your code (and compiler) to the latest Solidity version. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json) are added in the newer versions!_
+Similar in trend as last year, the 0.8.x Solidity versions remain to be most used versions with a majority of 397 out of 485 total votes (81.8%).
+
+Please note that this is a multiple response type question allowing for participants to choose more than one version series.
+
+The usage share of both the 0.7.x (4.7%) and the 0.6.x (5.5%) series continues to decrease consistently since the previous survey. The rest of the older versions are rarely in use.
+
+![Used Solidity Versions](slide30)
+
+_⚠️ **Important Reminder:** Please make sure to frequently update your code (and compiler) to the latest Solidity version. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json) are added in the newer versions!_
 
 ### Solidity Usage Details
 
 Just like last year, we also asked our users specific questions about Solidity usage trends.
 
-For charts and figures on those, please refer to the [presentation with all graphs](https://docs.google.com/presentation/d/1xH5pGZ6rrAP_jzRQobf0Mn1XYquyg8bD17DBQyrErMo/edit?usp=sharing) and the [raw data file](https://docs.google.com/spreadsheets/d/1A5iF3aKhFv9wTTJ10ko_uxgoflc8oEpVe3gqAAWoC2w/edit?usp=sharing).
+#### CLI
 
-To summarize:
+With 59.9% majority of respondents who do not use the Solidity compiler directly via the command line and 40.1% who do, the trend is quite consistent with last year.
 
-- CLI: Roughly 60% of respondents do not use the Solidity compiler directly via the command line, while 40.1% do. This is quite consistent with last year.
-- CLI: When using the compiler on the command line, 58.9% still use Standard JSON.
-- CLI: When asked how disruptive are changes in CLI options and outputs for respondents, 64.1% responded with "okay" and 26.5% with "Not disruptive at all". Only 9.4% deem these changes as disruptive.
-- Old EVM versions: 28.8% of the overall respondents still rely on old EVM versions, among which 11.1% rely on deprecated EVM versions.
-- Unoptimised code: 20.8% said that they never use unoptimised code. 27.9% use unoptimised code only because of their framework's defauly settings, whereas 20.1% do so due to debugging or unit testing (19.4%).
-- ABIEncoderV1: While 63.9% do not use ABIEncoderV1, only 6.5% know about it and use it. 29.6$ do not know about it at all.
-- SMTChecker: 74.5% of all respondents never use the SMTChecker. 20.1% have tried it and 5.4% use it frequently. You can learn more about the SMTChecker [here](https://docs.soliditylang.org/en/latest/smtchecker.html). The number of users who have tried it has increased this year.
-- `via-IR` compilation pipeline: 51.9% do not know what `via-IR` is. This number has significantly reduced from last year. 25.9% use the `via-IR` pipeline already. In the following weeks, we intend to write a blog post about what `via-IR` is and why you should switch from the legacy compilation pipeline to `via-IR`. When asked what users are most concerned about regarding the use of `via-IR`, 27.4% said compilation times, 21.4% said not enough knowledge, 17.9% said stability/security concerns, and 13.5% said lack of tooling.
-- Metadata publication: 55.2% publish the metadata of their smart contracts which has slightly increased from last year. 30.3.5% don’t, while 14.5% don’t know what this means and both these numbers have significantly improved from last year.
-- Sourcify: 14.2% of all respondents use Sourcify for smart contract verification (increased from last year), while 30.7% claim to not need it. 55% don’t know what Sourcify is, which has reduced from last year. A staggering 79% users use Sourcify via Foundry and 16.1% use it via Sourcify directly. If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
-- `appendCBOR: false` or `bytecodeHash: none`: 55% users do not know what that is, whereas 30.8% know but do not need it. Only about 13.7% either use it frequently or sometimes.
-- Flattening contracts: 53.9% of total respondents do not flatten their contracts, whereas only 22.5% do. 23.6% do not know what that is or how to do it. Most of the users who flatten their contracts mentioned that they do so for the purpose of verification.
+![Using the compiler directly](slide31)
+
+When using the compiler on the command line, 58.9% still use Standard JSON.
+
+![Standard JSON vs CLI](slide32)
+
+When asked how disruptive are changes in CLI options and outputs for respondents, 64.1% responded with "okay" and 26.5% with "Not disruptive at all". Only 9.4% deem these changes as disruptive.
+
+![Disruptiveness of CLI changes](slide33)
+
+#### Old EVM versions
+
+While 28.8% of the overall respondents still rely on old EVM versions, a majority of 71.2% do not need compiler support for older EVM versions anymore.
+
+![Support for older EVM versions](slide34)
+
+Among those who rely on older version, 11.1% still rely on deprecated EVM versions.
+
+![EVM version usage breakdown](slide35)
+
+#### Unoptimised code
+
+20.8% said that they never use unoptimised code. On the other hand, 27.9% use unoptimised code only because of their framework's default settings, whereas 48.8% users do so for the purpose of debugging, unit testing, or deploying on chain.
+
+![Usage of unoptimised code](slide36)
+
+#### ABIEncoderV1
+
+While 63.9% do not use ABIEncoderV1, only 6.5% know about it and use it. 29.6% do not know about it at all.
+
+![Usage of ABIEncoderV1](slide37)
+
+#### SMTChecker
+
+74.5% of all respondents have never used the SMTChecker. 20.1% have tried it and 5.4% use it frequently. You can learn more about the SMTChecker [here](https://docs.soliditylang.org/en/latest/smtchecker.html). The number of users who have tried it has increased significantly this year.
+
+![Usage of SMTChecker](slide38)
+
+#### The `via-IR` compilation pipeline
+
+51.9% do not know what `via-IR` is. This number has significantly reduced from last year. 25.9% use the `via-IR` pipeline already. In the following weeks, we intend to write a blog post about what `via-IR` is and why you should switch from the legacy compilation pipeline to `via-IR`.
+
+![Usage of via-zIR](slide39)
+
+When asked about the time taken to compile the contract's code using via-IR pipepline, the majority of the respondents indicated that it takes anywhere between 1 to 10 minutes.
+
+Some users also reported that it can also take anywhere from 15 minutes to upto 60 minutes.
+
+Some outliers in the responses also indicated as long as `300` and `200000` minutes. However, we do not consider these responses to be accurate and hence, the chart does not account for those responses.
+
+![Compilation times using via-IR](slide40)
+
+When asked what users are most concerned about regarding the use of `via-IR`, 27.4% said compilation times, 21.4% said not enough knowledge, 17.9% said stability/security concerns, and 13.5% said lack of tooling.
+
+![via-IR concerns](slide41)
+
+#### Metadata publication
+
+55.2% publish the metadata of their smart contracts which has slightly increased from last year. 30.3.5% don’t, while 14.5% don’t know what this means and both these numbers have significantly improved from last year.
+
+![Metadata publication](slide42)
+
+#### Sourcify
+
+When asked about Sourcify usage, 14.2% of all respondents use Sourcify for smart contract verification (increased from last year), while 30.7% claim to not need it. 55% don’t know what Sourcify is, which has reduced from last year.
+
+![Sourcify](slide43)
+
+A majority of 79% users use Sourcify via Foundry and 16.1% use it via Sourcify directly. If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
+
+![May way of using Sourcify](slide44)
+
+#### `appendCBOR: false` or `bytecodeHash: none`
+
+55% users do not know what that is, whereas 30.8% know but do not need it. Only about 13.7% either use it frequently or sometimes.
+
+![appendCBOR or bytecodeHash](slide45)
+
+#### Flattening contracts
+
+53.9% of total respondents do not flatten their contracts, whereas only 22.5% do. 23.6% do not know what that is or how to do it.
+
+Most of the users who flatten their contracts mentioned that they do so for the purpose of verification.
+
+![Flattening of contracts](slide46)
 
 ### Other EVM Networks
 
@@ -528,6 +613,11 @@ To stay up-to-date with all Solidity related announcements and updates, make sur
 - Join the language design discussions in the [Solidity forum](https://forum.soliditylang.org/) or provide us feedback there.
 - Follow announcements and security alerts on the [Solidity blog](https://blog.soliditylang.org/).
 - Follow and ⭐ the [Solidity repo on Github](https://github.com/ethereum/solidity).
+
+---
+
+_All graphs can be found [here](https://docs.google.com/presentation/d/1W49GWlhdxC_I1dxqzFIf1e9bFf8O_QH2kT_T_nfenA0/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1R8EBUryePhiJwl14IXNm2RDwqA8sEBdxrKuFKvfj0wY/edit?usp=sharing)._
+
 
 ---
 
