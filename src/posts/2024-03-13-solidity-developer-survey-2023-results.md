@@ -28,11 +28,15 @@ The survey consists of 6 sections, namely: **[1]** Demographics, **[2]** Dev & U
 Let's look at some key insights from and the summary of these various sections from the 2023 survey.
 
 - **Demographics**: In total, 474 developers from 71 different countries participated in the 2023 survey. The highest number of respondents hail from the **USA (18.8%)**, followed by **India (10.5%)**, and **Nigeria (6.2%)**. This remains consistent with last year's insights except for Nigeria replacing France as the 3rd country where the highest respondents live.
-- **Dev & User Profiles**: 
-- **Solidity Background**: 
-- **Solidity Developer Experience**: 
-- **Language Design**: 
-- **Solidity Developer Community**: 
+This year, we saw newer native African languages such as  Kinyarwanda, Kiswahili, Runyankole, and Luganda.
+- **Dev & User Profiles**: JavaScript and TypeScript continue to rank as the most used programming languages after Solidity.
+A majority of Solidity experts (self-rating of 10) have been using the language for 2+ years, some even more than 5 years. 
+- **Solidity Background**: 36.7% users admitted that it took them less than 6 months to feel productive with Solidity. It is interesting to note that among these users, majority of the respondents use Solidity daily or weekly and most of those who don't feel productive with Solidity have been using the language for less than 3 months.
+- **Solidity Developer Experience**: Generally a majority of the participants feel that the Solidity developer experience has improved in the last year.
+33.8% users indicated that mappings is their favourite feature followed by contracts as objects (23.2%) and modifiers (16.1%).
+- **Language Design**: Generics (23.2%), require with custom error types (17.4%), and transient storage (13%) were found to be the most anticipated features this year.
+28.6% participants know what Ethereum Object Format (EOF)  is among whom 63.5% are confident that it will positively impact them.
+- **Solidity Developer Community**: GitHub Releases rises in ranking among the list of sources used for staying up-to-date with Solidity announcements.
 
 ![header 1](/img/2024/survey/header1.png)
 
