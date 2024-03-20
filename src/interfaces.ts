@@ -66,6 +66,7 @@ export interface BlogPostFrontmatter {
   date: string
   author: string
   category: Category
+  image?: string
 }
 
 export interface BlogPostProps extends BoxProps {

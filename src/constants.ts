@@ -12,7 +12,7 @@ import yaml from 'js-yaml'
 export const SITE_NAME = 'Solidity Programming Language' as const
 export const SITE_URL =
   process.env.SITE_URL || ('https://soliditylang.org/' as const)
-export const DEFAULT_IMAGE_PATH = '/assets/siteicon.svg' as const
+export const DEFAULT_IMAGE_PATH = '/assets/logo-og-image.png' as const
 export const FAVICON_IMAGE_PATH = '/assets/favicon.ico' as const
 export const TWITTER_HANDLE = '@solidity_lang' as const
 
