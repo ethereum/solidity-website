@@ -44,7 +44,7 @@ export const Footer: React.FC = () => (
       </Flex>
     </Flex>
     <Flex fontSize="lg" textAlign="center" flexWrap="wrap" columnGap={4}>
-      <Text>2023 Solidity Team</Text>
+      <Text>2024 Solidity Team</Text>
       <Text>•</Text>
       <Link href="https://github.com/ethereum/solidity/blob/develop/SECURITY.md" color="primary">
         Security Policy
