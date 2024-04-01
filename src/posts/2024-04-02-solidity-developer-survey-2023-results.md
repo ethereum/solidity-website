@@ -2,7 +2,7 @@
 layout: post
 published: true
 title: 'Solidity Developer Survey 2023 Results'
-date: '2024-04-03'
+date: '2024-04-02'
 author: Vishwa Mehta
 category: Announcements
 ---
@@ -56,9 +56,9 @@ From the 2023 survey, 18.8% of respondents mentioned that they live in the USA, 
 
 This is quite consistent with the previous year with the exception of Nigeria and Germany ranking higher than France with more number of responses.
 
-![Participants World Map](slide3)
+![Participants World Map](/img/2024/survey/Slide3.png)
 
-![List of Countries with 9+ responses](slide4)
+![List of Countries with 9+ responses](/img/2024/survey/Slide4.png)
 
 ### Language
 
@@ -70,23 +70,23 @@ _ℹ️ **Note:** Bengali, Gujarati, Hindi, Marathi, Nepali, Odia, Punjabi, Tami
 
 It is interesting to note new African languages such as  Kinyarwanda, Kiswahili, Runyankole, and Luganda have entered the survey results this year.
 
-![Participants Native Languages](slide5)
+![Participants Native Languages](/img/2024/survey/Slide5.png)
 
-![Participants Native Languages](slide6)
+![Participants Native Languages](/img/2024/survey/Slide6.png)
 
 More than half of the of respondents (54.2%) predominantly speak their native language at work, whereas 45.8% still speak another language at work.
 
 A total of 75.4% respondents reported that they predominantly speak English at work, followed by Chinese Languages, Indian Languages, Spanish, and French distributed almost equally.
 
-![Participants Work Language](slide7)
+![Participants Work Language](/img/2024/survey/Slide7.png)
 
 A total of 84.8% participants stated that they are okay with reading the Solidity documentation in English.
 
 However, 15.2% participants prefer to read the documentation in their native language. The number of respondents who would prefer it in their native language is slightly higher this year than the previous year (12.9%).
 
-![Preferred Language for Docs](slide8)
+![Preferred Language for Docs](/img/2024/survey/Slide8.png)
 
-![Preferred Language for Docs Breakdown](slide9)
+![Preferred Language for Docs Breakdown](/img/2024/survey/Slide9.png)
 
 _ℹ️ Note: This survey has only been conducted in English, which may have impacted the outcome of this question. We still believe internationalization of resources like the Solidity documentation is a crucial factor in lowering the barrier of entry, and we aim to support this by helping coordinate the community-driven [translation efforts](https://github.com/solidity-docs)._
 
@@ -102,13 +102,13 @@ In the second section of the Solidity Developer Survey, we gather insights about
 
 Compared to the previous survey, there is a slight increase in both the number of students and currently unemployed developers or users.
 
-![Employment Status](slide12)
+![Employment Status](/img/2024/survey/Slide12.png)
 
 69.6% of the total participants who were employed at the time work in the “crypto”, whereas 14.7% work in technology in general and 4.5% work in financial services.
 
 This trend is quite comparable to the results from the previous year with just a slight change in the individual precentages.
 
-![Industry Sector Breakdown](slide13)
+![Industry Sector Breakdown](/img/2024/survey/Slide13.png)
 
 Roughly 36% of all respondents are considered seniors in their field and have been coding professionally for 6+ years, out of which 9.7% have even been coding for 15+ years.
 
@@ -118,7 +118,7 @@ As a majority, 28.3% of repondents are mid-level programmers with 3-5 years of e
 
 Overall, the level of professional coding experience is medium to high with the majority of respondents (64.5%) having coded professionally for 3+ years.
 
-![Professional Coding Experience](slide14)
+![Professional Coding Experience](/img/2024/survey/Slide14.png)
 
 ### Developer Profiles
 
@@ -126,17 +126,17 @@ When asked which developer profile best describes the participants, the majority
 
 Rouhgly 5.3% are  tooling developers, followed by 4.4% auditor / security experts, and only 1.3% stated that they are academic researchers.
 
-![Dev Profiles](slide15)
+![Dev Profiles](/img/2024/survey/Slide15.png)
 
 A majority of 48.9% of the participants use Solidity both at work and for personal projects. The rest of the respondents are almost equally distributed between using Solidity at work or using Solidity for personal projects.
 
-![Solidity usage](slide16)
+![Solidity usage](/img/2024/survey/Slide16.png)
 
 A cummulative of 43.7% users contribute to open source projects on a regular basis (daily and weekly), whereas 27.1% only contribute on a monthly basis. Almost 41% users reported that they never contribute to open source projects written in Solidity.
 
 The number of users who never contribute has reduced this year with an increase in the number of daily or weekly contributors.
 
-![Open Source Contributions](slide17)
+![Open Source Contributions](/img/2024/survey/Slide17.png)
 
 ### Programming Language Preferences
 
@@ -146,19 +146,19 @@ We observed a big hike in survey participants who use Solidity the most going fr
 
 Other less frequently mentioned languages are Python (9.5%), Rust (3.5%), and C# (2.4%), and C++ (2.2%).
 
-![Most Used Programming Language](slide18)
+![Most Used Programming Language](/img/2024/survey/Slide18.png)
 
 When asked about the favourite language of the participants, Solidity ranks the highest with 29.1% of the votes, followed by Python (15.6%), JavaScript (12.4%), TypeScript (12%), and Rust (10%).
 
 Other lesser mentioned languages in this list were Go (4.1%), C++ (3.4%), Java (3%), C# (2.8%), and C (1.5%).
 
-![Favorite Programming Language](slide19)
+![Favorite Programming Language](/img/2024/survey/Slide19.png)
 
 ### Preferred Operating System
 
 Majority of the participants use MacOS as their primary Operating System (40.5%). Linux and Windows are equally popular, with 29.9 and 29.7% respectively.
 
-![Operating System](slide20)
+![Operating System](/img/2024/survey/Slide20.png)
 
 ![header 3](/img/2024/survey/header3.png)
 
@@ -174,7 +174,7 @@ Almost 60% of all respondents deem themselves Solidity experts, with a self rati
 
 Roughly 20% of all who responded are beginners with a self-rating of 4 or less.
 
-![Solidity Expertise](slide22)
+![Solidity Expertise](/img/2024/survey/Slide22.png)
 
 We asked the participants about how long have they been using Solidity for. Almost 30% of all respondents have been using Solidity for less than a year, with 10% with less than three months of experience using Solidity.
 
@@ -182,7 +182,7 @@ The highest number of respondents (24.5%) are users who have 2-3 years of experi
 
 About 24% of users can be considered seniors in the ecosystem since they stated that they have been using Solidity for 3+ years.
 
-![Solidity Experience Level](slide23)
+![Solidity Experience Level](/img/2024/survey/Slide23.png)
 
 When asked how long it took the respondents to start feeling productive with Solidity, the majority of them (36.7%) reported that it took them less than 6 months.
 
@@ -192,7 +192,7 @@ When asked how long it took the respondents to start feeling productive with Sol
 
 17.4% don't feel productive yet, out of which 76.7% are beginners and have been using Solidity for 6 months or less, and 45% even less than three months.
 
-![Time to Productiveness](slide24)
+![Time to Productiveness](/img/2024/survey/Slide24.png)
 
 ### Solidity User Profile & Usage Habits
 
@@ -200,7 +200,7 @@ A majority of 46.5% users use Solidity on a daily basis, followed by 33.2% who u
 
 As low as 1.9% said that they never use Solidity. 6.5% users reported that they use it rarely.
 
-![Solidity Usage Frequency](slide25)
+![Solidity Usage Frequency](/img/2024/survey/Slide25.png)
 
 This year, we also wnated to learn how the survey audience gets the Solidity binaries. The most mentioned sources were:
 
@@ -213,19 +213,19 @@ This year, we also wnated to learn how the survey audience gets the Solidity bin
 
 Other lesser prominent sources were Ethereum PPA for Ubuntu, Package Manager for Linux Distros, and Dockerhub.
 
-![Sources for Solidity Binaries](slide26)
+![Sources for Solidity Binaries](/img/2024/survey/Slide26.png)
 
 77.2% of all respondents use Visual Studio Code as their editor when writing Solidity code. However, this number is still lower than last year.
 
 Vim and IntelliJ follow in the second and third ranks with 4.7 and 3.7% usage, respectively. The overall trend in usage of prominent editors continues to remain comparable.
 
-![Editor Overview](slide27)
+![Editor Overview](/img/2024/survey/Slide27.png)
 
 Depending on the chosen editor, we also asked respondents which Solidity-related plugins they use, if any.
 
 Just like last year, the “Solidity” extension by Juan Blanco and “HardHat VSCode” by Nomic Foundation were once again found to be the most popular among Solidity developers.
 
-![Editor Plugins Overview](slide28)
+![Editor Plugins Overview](/img/2024/survey/Slide28.png)
 
 We wanted to know which Ethereum specific development environment our survey participants use.
 
@@ -241,7 +241,7 @@ While Dapp rises slightly higher in usage with 3.1% users, Brownie (1.6%) and Em
 
 As low as 2% of respondents do not use any Ethereum-specific development environment at all.
 
-![Ethereum IDE Overview](slide29)
+![Ethereum IDE Overview](/img/2024/survey/Slide29.png)
 
 Similar in trend as last year, the 0.8.x Solidity versions remain to be most used versions with a majority of 397 out of 485 total votes (81.8%).
 
@@ -249,7 +249,7 @@ Please note that this is a multiple response type question allowing for particip
 
 The usage share of both the 0.7.x (4.7%) and the 0.6.x (5.5%) series continues to decrease consistently since the previous survey. The rest of the older versions are rarely in use.
 
-![Used Solidity Versions](slide30)
+![Used Solidity Versions](/img/2024/survey/Slide30.png)
 
 _⚠️ **Important Reminder:** Please make sure to frequently update your code (and compiler) to the latest Solidity version. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json) are added in the newer versions!_
 
@@ -261,49 +261,49 @@ Just like last year, we also asked our users specific questions about Solidity u
 
 59.9% of respondents do not use the Solidity compiler directly via the command line, whereas 40.1% do. This trend is consistent with last year.
 
-![Using the compiler directly](slide31)
+![Using the compiler directly](/img/2024/survey/Slide31.png)
 
 When using the compiler on the command line, 58.9% still use Standard JSON.
 
-![Standard JSON vs CLI](slide32)
+![Standard JSON vs CLI](/img/2024/survey/Slide32.png)
 
 When asked how disruptive changes in CLI options and outputs would be for respondents, 64.1% responded with "okay" and 26.5% with "Not disruptive at all". Only 9.4% deem these changes as disruptive.
 
-![Disruptiveness of CLI changes](slide33)
+![Disruptiveness of CLI changes](/img/2024/survey/Slide33.png)
 
 #### Old EVM versions
 
 While 28.8% of the overall respondents still rely on old EVM versions, a majority of 71.2% do not need compiler support for older EVM versions anymore.
 
-![Support for older EVM versions](slide34)
+![Support for older EVM versions](/img/2024/survey/Slide34.png)
 
 Among those who rely on older version, 11.1% still rely on deprecated EVM versions.
 
-![EVM version usage breakdown](slide35)
+![EVM version usage breakdown](/img/2024/survey/Slide35.png)
 
 #### Unoptimised code
 
 20.8% said that they never use unoptimised code. On the other hand, 27.9% use unoptimised code only because of their framework's default settings, whereas 48.8% users do so for the purpose of debugging, unit testing, or deploying on chain.
 
-![Usage of unoptimised code](slide36)
+![Usage of unoptimised code](/img/2024/survey/Slide36.png)
 
 #### ABIEncoderV1
 
 While 63.9% do not use ABIEncoderV1, only 6.5% know about it and use it. 29.6% do not know about it at all.
 
-![Usage of ABIEncoderV1](slide37)
+![Usage of ABIEncoderV1](/img/2024/survey/Slide37.png)
 
 #### SMTChecker
 
 74.5% of all respondents have never used the SMTChecker. 20.1% have tried it and 5.4% use it frequently. You can learn more about the SMTChecker [here](https://docs.soliditylang.org/en/latest/smtchecker.html). The percentage of users who have tried it has increased significantly this year.
 
-![Usage of SMTChecker](slide38)
+![Usage of SMTChecker](/img/2024/survey/Slide38.png)
 
 #### The `via-IR` compilation pipeline
 
 51.9% do not know what `via-IR` is. This number has significantly reduced from last year. 25.9% use the `via-IR` pipeline already. In the following weeks, we intend to write a blog post about what `via-IR` is and why you should switch from the legacy compilation pipeline to `via-IR`.
 
-![Usage of via-zIR](slide39)
+![Usage of via-zIR](/img/2024/survey/Slide39.png)
 
 When asked about the time taken to compile the contract's code using via-IR pipepline, the majority of the respondents indicated that it takes anywhere between 1 to 10 minutes.
 
@@ -311,11 +311,11 @@ Some users also reported that it can also take anywhere from 15 minutes to upto 
 
 Some outliers in the responses also indicated as long as `300` and `200000` minutes. However, we do not consider these responses to be accurate and hence, the chart does not account for those responses.
 
-![Compilation times using via-IR](slide40)
+![Compilation times using via-IR](/img/2024/survey/Slide40.png)
 
 When asked what users are most concerned about regarding the use of `via-IR`, 27.4% said compilation times, 21.4% said not enough knowledge, 17.9% said stability/security concerns, and 13.5% said lack of tooling.
 
-![via-IR concerns](slide41)
+![via-IR concerns](/img/2024/survey/Slide41.png)
 
 #### Metadata publication
 
@@ -323,23 +323,23 @@ When asked what users are most concerned about regarding the use of `via-IR`, 27
 
 30.3% don’t publish the metadata of their smart contracts while 14.5% don’t know what this means. Both these numbers have significantly improved from last year.
 
-![Metadata publication](slide42)
+![Metadata publication](/img/2024/survey/Slide42.png)
 
 #### Sourcify
 
 When asked about Sourcify usage, 14.2% of all respondents use Sourcify for smart contract verification (increased from last year), while 30.7% claim to not need it. 55% don’t know what Sourcify is, which has reduced from last year.
 
-![Sourcify](slide43)
+![Sourcify](/img/2024/survey/Slide43.png)
 
 A majority of 79% users use Sourcify via Foundry and 16.1% use it via Sourcify directly. If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
 
-![May way of using Sourcify](slide44)
+![May way of using Sourcify](/img/2024/survey/Slide44.png)
 
 #### `appendCBOR: false` or `bytecodeHash: none`
 
 55% users do not know what `appendCBOR: false` or `bytecodeHash: none` is, whereas 30.8% know but do not need it. Only about 13.7% either use it frequently or sometimes.
 
-![appendCBOR or bytecodeHash](slide45)
+![appendCBOR or bytecodeHash](/img/2024/survey/Slide45.png)
 
 #### Flattening contracts
 
@@ -347,7 +347,7 @@ A majority of 79% users use Sourcify via Foundry and 16.1% use it via Sourcify d
 
 Most of the users who flatten their contracts mentioned that they do so for the purpose of verification.
 
-![Flattening of contracts](slide46)
+![Flattening of contracts](/img/2024/survey/Slide46.png)
 
 ### Other EVM Networks
 
@@ -357,9 +357,9 @@ When asked which other networks they deploy their smart contracts on, 20.8% resp
 
 Other often mentioned blockchains include Arbitrum (15.6%), Optimism (13.2%),  Binance Smart Chain (10.6%), and Avalanche (8.1%).
 
-![Deployment To Other Chains](slide47)
+![Deployment To Other Chains](/img/2024/survey/Slide47.png)
 
-![Deployment To Other Chains Breakdown](slide48)
+![Deployment To Other Chains Breakdown](/img/2024/survey/Slide48.png)
 
 ### Other Smart Contract Languages
 
@@ -373,7 +373,7 @@ This trend is similar to last year so far with just a small increase in the perc
 
 [Fe](https://fe-lang.org/docs/) (1.8%) also makes it into the chart again this year. However, Rust was not mentioned often.
 
-![Other Smart Contract Languages](slide49)
+![Other Smart Contract Languages](/img/2024/survey/Slide49.png)
 
 ![header 4](/img/2024/survey/header4.png)
 
@@ -385,7 +385,7 @@ When asked about the overall improvement in the Solidity developer experience, 7
 
 As low as 1.6% of the respondents are of the opinion that the developer experience has gotten worse.
 
-![Solidity Developer Experience](slide51)
+![Solidity Developer Experience](/img/2024/survey/Slide51.png)
 
 ### Recurring Issues
 
@@ -393,9 +393,9 @@ When asked if the participants encounter recurring issues, 53.3% of the total re
 
 Among the 46.7% that encounter recurring issues, Stack too deep issues are encountered most frequently, followed by Bytecode size limit and Debugging issues.
 
-![Recurring issues](slide52)
+![Recurring issues](/img/2024/survey/Slide52.png)
 
-![Recurring issues](slide53)
+![Recurring issues](/img/2024/survey/Slide53.png)
 
 _ℹ️ **Note:** On the topic of debugging issues, we would to remind you about the ethdebug standards development working group, an initiative aimed at defining a common debugging data format for languages built on top of the EVM: [ethdebug](https://github.com/ethdebug/format/).
 
@@ -407,7 +407,7 @@ When asked how easy was it to get started with the Solidity compiler, most respo
 
 As less as 4.3% shared that it was difficult for them to get started with the compiler. When asked what made it difficult to get started, some mentioned lack of good docs and examples.
 
-![Getting Started](slide54)
+![Getting Started](/img/2024/survey/Slide54.png)
 
 ### Most liked Aspects/Features & Pain Points
 
@@ -417,7 +417,7 @@ Others like it is easy to learn (17.4%), statically typed (16.3%), simple (15.4%
 
 Some also consider its syntax (12.7%) and the ease of reading (10.4%) as the most likeable aspects.
 
-![Most liked aspect](slide55)
+![Most liked aspect](/img/2024/survey/Slide55.png)
 
 33.8% of the respondents consider mappings as their most liked feature, followed by contracts as objects (23.2%).
 
@@ -425,7 +425,7 @@ Modifiers (16.1%) and Inline Assembly (12.6%) were often mentioned as well.
 
 Some users reported user defined types (6%), dynamic arrays (3.4%), and `using for` (2.5%) as their most liked features. 
 
-![Most liked feature](slide56)
+![Most liked feature](/img/2024/survey/Slide56.png)
 
 When we asked the participants about their biggest pain points with Solidity, Stack too deep errors ranked the highest with 42% of all votes, followed by missing memory optimizations (21.6%) and compiler performance (13%).
 
@@ -433,7 +433,7 @@ When we asked the participants about their biggest pain points with Solidity, St
 
 Almost 11% selected “OTHER” and specified some of their most significant pain points, namely: Bytecode and contract size limit and errors.
 
-![Solidity Pain Points](slide57)
+![Solidity Pain Points](/img/2024/survey/Slide57.png)
 
 ### Documentation
 
@@ -443,7 +443,7 @@ As low as 2.9% voted that they do not find the docs useful at all.
 
 Ideas for improvement most prominently ask for more code examples but also a better high-level overview of syntax, better in-docs search, and overall better UI/UX.
 
-![Solidity Documentation Usefulness](slide58)
+![Solidity Documentation Usefulness](/img/2024/survey/Slide58.png)
 
 ### High-Impact Compiler Bugs
 
@@ -455,7 +455,7 @@ When asked which one they were affected by, here's what we found out:
 
 (double check if reported bugs are genuine and list accordingly)
 
-![High impact compiler bugs](slide59)
+![High impact compiler bugs](/img/2024/survey/Slide59.png)
 
 ### External Libraries
 
@@ -465,9 +465,9 @@ However, 42.7% reported that they use it and specified use-cases such as contrac
 
 Only 9.5% users do not know what external libraries are (or what they are being used for).
 
-![External libraries](slide60)
+![External libraries](/img/2024/survey/Slide60.png)
 
-![External libraries: use cases](slide61)
+![External libraries: use cases](/img/2024/survey/Slide61.png)
 
 ![header 5](/img/2024/survey/header5.png)
 
@@ -488,7 +488,7 @@ Other most anticipated features in descending order:
 - Better gas optimizations & debugging tools (10.1%)
 - Support for decimal numbers & Dynamic Memory Arrays (7.2%)
 
-![Most anticipated features](slide63)
+![Most anticipated features](/img/2024/survey/Slide63.png)
 
 ### Restrictiveness
 
@@ -498,7 +498,7 @@ About 35.6% would generally prefer more restrictive/explicit behaviour, while ap
 
 The overall results of this question are comparable across the previous year and this year.
 
-![Solidity Restrictiveness Ranking](slide64)
+![Solidity Restrictiveness Ranking](/img/2024/survey/Slide64.png)
 
 ### Feedback on New Features/Improvements
 
@@ -508,11 +508,11 @@ Here's what we found out about:
 
 1. **Postfix Types:** While 72.5% respondents that formed a majority explicitly said that they either don't like postfix types or don't care, 27.5% said that they like them.
 
-    ![Postfix types](slide65)
+    ![Postfix types](/img/2024/survey/Slide65.png)
 
 2. **Functional Elements:** Almost 60% users said that they like the idea of more functional elements in Solidity such as Lamda functions. 15.4% said they don't like them and 24.7% are indifferent towards it.
 
-    ![Functional Elements](slide66)
+    ![Functional Elements](/img/2024/survey/Slide66.png)
 
 ### EIP Support
 
@@ -522,14 +522,14 @@ Let's look at some useful insights about:
 
 1. **EIP-1153 “Transient Storage”:** 40.1% respondents know about the Transient Storage EIP, whereas 59.9% do not. 40.4% said that they would need complex types in Transient Storage, such as mappings and arrays, and the rest of the audience was equally divided between not needing complex types and being indifferent/unaware of it.
 
-    ![Transient Storage](slide67)
+    ![Transient Storage](/img/2024/survey/Slide67.png)
     
-    ![Transient Storage: complex types](slide68)
+    ![Transient Storage: complex types](/img/2024/survey/Slide68.png)
 
 2. **EIP-3540 “EOF - EVM Object Format”:** It was interesting to see that only 28.6% respondents know about EOF. Among the 28.6%, 63.5% feel positively about it and only 4.8% are of the opinion that it will negatively impact them as developers.
 
-    ![EOF](slide69)
-    ![EOF impact](slide70)
+    ![EOF](/img/2024/survey/Slide69.png)
+    ![EOF impact](/img/2024/survey/Slide70.png)
 
 ### Language Design Related Efforts
 
@@ -541,7 +541,7 @@ When asked whether the respondents have or continue to participate in the langua
 
 At Solidity, we have and would like to continue to make it easier to our community to participate more actively in these discussions and feel empowered enough to contribute to the language design decisions.
 
-![Language design efforts](slide71)
+![Language design efforts](/img/2024/survey/Slide71.png)
 
 ![header 6](/img/2024/survey/header6.png)
 
@@ -569,7 +569,7 @@ As part of “other”, respondents specified several community based means to s
 - Reddit
 - ["Week in Ethereum News" Newsletter](https://www.weekinethereumnews.com/)
 
-![Means To Stay Up-To-Date](slide73)
+![Means To Stay Up-To-Date](/img/2024/survey/Slide73.png)
 
 ### Interaction with Other Solidity Developers
 
@@ -577,7 +577,7 @@ More than half of respondents (56.8%) interact with other Solidity developers wh
 
 A smaller portion of that chart 17.5% does not interact with other Solidity developers at all.
 
-![Developer Interaction](slide74)
+![Developer Interaction](/img/2024/survey/Slide74.png)
 
 Like in the previous years, as the last part of the survey, we wanted to hear how many participants agree or disagree with certain statements regarding the Solidity community and the work of the Solidity team.
 
@@ -605,7 +605,7 @@ However, about 40% respondents are generally satisfied with the feedback and inp
 
 The results of this “community and Solidity team confidence ranking” are consistent with the results from the previous year.
 
-![Community and Solidity Team Confidence Ranking](slide75)
+![Community and Solidity Team Confidence Ranking](/img/2024/survey/Slide75.png)
 
 ## Thank You!
 
