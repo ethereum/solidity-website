@@ -140,7 +140,7 @@ The number of users who never contribute has reduced this year with an increase 
 
 ### Programming Language Preferences
 
-Yet again this year, Solidity ranks as the most used programming language among the participants (42.9%), closely followed by TypeScript (16.7%), and JavaScript (15.4%).
+Yet again this year, Solidity ranks as the most used programming language among the participants (42.9%), followed by TypeScript (16.7%), and JavaScript (15.4%).
 
 We observed a big hike in survey participants who use Solidity the most going from 28.9% last year to 42.9% this year. JavaScript and TypeScript seem to have swapped places this year.
 
