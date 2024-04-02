@@ -622,4 +622,4 @@ To stay up-to-date with all Solidity related announcements and updates, make sur
 
 ---
 
-_All graphs can be found [here](https://docs.google.com/presentation/d/1W49GWlhdxC_I1dxqzFIf1e9bFf8O_QH2kT_T_nfenA0/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1R8EBUryePhiJwl14IXNm2RDwqA8sEBdxrKuFKvfj0wY/edit?usp=sharing)._
+_All graphs can be found [here](https://docs.google.com/presentation/d/17TeWEvaVGgSHYYxIoLiTjLSf0QvbmOr3n3GJuHnSdHs/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1W0kadnT0uQoIuuYZQdj9-vFH0DSr2GJ0mFoL4qTqSUg/edit?usp=sharing)._
