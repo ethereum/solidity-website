@@ -56,7 +56,7 @@ From the 2023 survey, 18.8% of respondents mentioned that they live in the USA, 
 
 This is quite consistent with the previous year with the exception of Nigeria and Germany ranking higher than France with more number of responses.
 
-![Participants World Map](/img/2024/survey/Slide3.png)
+![Participants World Map](/img/2024/survey/Slide1.png)
 
 ![List of Countries with 9+ responses](/img/2024/survey/Slide4.png)
 
