@@ -502,7 +502,7 @@ The overall results of this question are comparable across the previous year and
 
 ### Feedback on New Features/Improvements
 
-Just like last year, we asked the participants about their thoughts on postfix types and functional elements in Solidity.
+We asked the participants about their thoughts on postfix types and functional elements in Solidity.
 
 Here's what we found out about:
 
