@@ -529,6 +529,7 @@ Let's look at some useful insights about:
 2. **EIP-3540 “EOF - EVM Object Format”:** It was interesting to see that only 28.6% respondents know about EOF. Among the 28.6%, 63.5% feel positively about it and only 4.8% are of the opinion that it will negatively impact them as developers.
 
     ![EOF](/img/2024/survey/Slide69.png)
+   
     ![EOF impact](/img/2024/survey/Slide70.png)
 
 ### Language Design Related Efforts
@@ -568,6 +569,7 @@ As part of “other”, respondents specified several community based means to s
 - Tutorials on YouTube
 - Reddit
 - ["Week in Ethereum News" Newsletter](https://www.weekinethereumnews.com/)
+
 
 ![Means To Stay Up-To-Date](/img/2024/survey/Slide73.png)
 
