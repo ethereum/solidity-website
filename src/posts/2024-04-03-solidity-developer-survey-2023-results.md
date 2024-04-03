@@ -132,7 +132,7 @@ A majority of 48.9% of the participants use Solidity both at work and for person
 
 ![Solidity usage](/img/2024/survey/Slide16.png)
 
-A cummulative of 43.7% users contribute to open source projects on a regular basis (daily and weekly), whereas 27.1% only contribute on a monthly basis. Almost 41% users reported that they never contribute to open source projects written in Solidity.
+A cummulative of 32% users contribute to open source projects on a regular basis (daily and weekly), whereas 27.1% only contribute on a monthly basis. Almost 41% users reported that they never contribute to open source projects written in Solidity.
 
 The number of users who never contribute has reduced this year with an increase in the number of daily or weekly contributors.
 
