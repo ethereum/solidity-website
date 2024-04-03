@@ -2,7 +2,7 @@
 layout: post
 published: true
 title: 'Solidity Developer Survey 2023 Results'
-date: '2024-04-02'
+date: '2024-04-03'
 author: Vishwa Mehta
 category: Announcements
 ---
