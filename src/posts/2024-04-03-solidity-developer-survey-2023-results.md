@@ -7,6 +7,8 @@ author: Vishwa Mehta
 category: Announcements
 ---
 
+EDIT REMARK: We noticed a minor error in the graphical representation of popular Ethereum-specific IDEs. The results in this blog post and corresponding graphical data in the slide deck has been updated to reflect this rectification that represents the survey data accurately.
+
 We are thrilled to share with you the [Solidity Developer Survey 2023](https://blog.soliditylang.org/2023/12/08/solidity-developer-survey-2023-announcement/) results! In this blog post, we will be going over key insights and detailed analysis of the various sections of the survey.
 
 Before we dive in, we would like to thank everyone who submitted a response to the survey as well as helped us reach the right audience for it! Your inputs are invaluable to us and are pivotal in driving important language design decisions and improving Solidity as an open source project.
@@ -237,7 +239,9 @@ Not too far behind, Foundry ranks second with 32% and Remix follows closely with
 
 Truffle moves further into the "OTHER" list with only 3 respondents indicating its usage.
 
-While Dapp rises slightly higher in usage with 3.1% users, Brownie (1.6%) and Embark (0.3%) seem to be the less popular choices this year ranking even lower in usage than the previous year.
+While Dapp rises slightly higher in usage with 3.1% users, Brownie (1.6%), Truffle (0.3%), Ape (0.3%), and Embark (0.3%) seem to be the less popular choices this year ranking even lower in usage than the previous year.
+
+With 0.5% of votes, Wake made it into the graph this year as a new choice of IDE.
 
 As low as 2% of respondents do not use any Ethereum-specific development environment at all.
 
