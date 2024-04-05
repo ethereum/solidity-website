@@ -7,7 +7,7 @@ author: Vishwa Mehta
 category: Announcements
 ---
 
-EDIT REMARK: We noticed a minor error in the graphical representation of popular Ethereum-specific IDEs. The results in this blog post and corresponding graphical data in the slide deck has been updated to reflect this rectification that represents the survey data accurately.
+EDIT REMARK: We noticed a minor error in the graphical representation of [1] popular Ethereum-specific IDEs and [2] Sourcify usage. The results in this blog post and corresponding graphical data in the slide deck has been updated to reflect this rectification that represents the survey data accurately.
 
 We are thrilled to share with you the [Solidity Developer Survey 2023](https://blog.soliditylang.org/2023/12/08/solidity-developer-survey-2023-announcement/) results! In this blog post, we will be going over key insights and detailed analysis of the various sections of the survey.
 
@@ -335,7 +335,7 @@ When asked about Sourcify usage, 14.2% of all respondents use Sourcify for smart
 
 ![Sourcify](/img/2024/survey/Slide43.png)
 
-A majority of 79% users use Sourcify via Foundry and 16.1% use it via Sourcify directly. If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
+A majority of 37.1% users use Sourcify via Hardhat, followed by via Foundry (27.4%), via Sourcify directly (16.1%), and via Remix (14.5%). If you want to learn more about Sourcify, visit [sourcify.dev](https://sourcify.dev/).
 
 ![May way of using Sourcify](/img/2024/survey/Slide44.png)
 
