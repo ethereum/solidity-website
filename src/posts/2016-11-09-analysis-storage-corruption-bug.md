@@ -35,7 +35,7 @@ The storage corruption bug is exploitable if it can be used to modify a variable
 
 It is a combination of the following factors that together multiply and dramatically reduce the probability of exploitability.
 
-1. Since small types only provide an advantage in very rare cases, they are seldomly used.
+1. Since small types only provide an advantage in very rare cases, they are seldom used.
 2. Small types must be adjacent to each other in storage – a single large type in between them prevents the bug from being triggered.
 3. State variables are often assigned one after the other, which removes the corruption at the second assignment.
 4. The combination of "address" and "bool" is most common among the cases that are left, but here, the address variable is often an "owner" that is assigned from `msg.sender` and thus not exploitable. Even if the owner can be changed, the flag is often a flag that can be still be set by the owner through other means.
