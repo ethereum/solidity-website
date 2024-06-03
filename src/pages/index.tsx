@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2024/03/14/solidity-0.8.25-release-announcement/"
+                    href="/blog/2024/05/21/solidity-0.8.26-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.25
+                    Solidity 0.8.26
                   </Link>{' '}
-                  Introducing the newest version of the Solidity Compiler: v0.8.25. This is a minor release following the Dencun hard-fork on Ethereum mainnet that occurred on March 13, 2024 at 13:55 UTC.
+                  Introducing the newest version of the Solidity Compiler: v0.8.26. This is a minor release following the Dencun hard-fork on Ethereum mainnet that occurred on March 13, 2024 at 13:55 UTC.
                 </Text>
               </Box>
             </Flex>
