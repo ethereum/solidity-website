@@ -120,7 +120,7 @@ export default function Home({
                   >
                     Solidity 0.8.26
                   </Link>{' '}
-                  Introducing the newest version of the Solidity Compiler: v0.8.26. This is a minor release following the Dencun hard-fork on Ethereum mainnet that occurred on March 13, 2024 at 13:55 UTC.
+                  Introducing the newest version of the Solidity Compiler: v0.8.26. This newest version of the compiler brings support for custom errors in require, improved default Yul Optimizer sequence that will speed up compilation via IR, several bugfixes, and more!
                 </Text>
               </Box>
             </Flex>
