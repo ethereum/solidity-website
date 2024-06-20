@@ -53,6 +53,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({
     <PageMetadata
       title={frontmatter.title}
       description={getBlogSubtitle(frontmatter.author, frontmatter.date)}
+      image={frontmatter.image}
     />
     <Box
       as="main"
