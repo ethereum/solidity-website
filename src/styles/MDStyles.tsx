@@ -1,18 +1,14 @@
 import {
+  Box,
   Divider,
+  Flex,
   Heading,
   Image,
   Stack,
-  Tbody,
-  Td,
+  Table,
   Text,
-  Th,
-  Thead,
-  type ThemingProps,
-  Tr,
 } from '@chakra-ui/react'
-import { Code, Link, Table } from '@/components'
-
+import { Code, Link } from '@/components'
 // TODO: Debug tables
 
 export const MDStyles = {
@@ -91,10 +87,4 @@ export const MDStyles = {
   hr: ({ children }: any) => {
     return <Divider my={6}>{children}</Divider>
   },
-  table: (props: ThemingProps<'Table'>) => <Table {...props} />,
-  thead: Thead,
-  th: Th,
-  tbody: Tbody,
-  tr: Tr,
-  td: Td,
 }
