@@ -70,7 +70,7 @@ The default compilation pipeline for Solidity source code currently consists of 
 In order to enable the via-IR pipeline for compilation, you can turn it on the command-line using ``--via-ir``  or with the option ``{"viaIR": true}`` in standard-json.
 
 The compilation via intermediate representation (Yul) happens in the following steps:
-1. As in the legacy pipeline, the compiler parses the Solidity source files.
+1. The compiler parses the Solidity source files.
 2. Instead of compiling Solidity source code directly to EVM assembly, the new IR code generator will first transform the code into Yul code.
 3. After this intermediary code transform, the Yul optimizer will repeatedly perform optimizations on the Yul code.
 4. The optimized Yul code is then transformed into EVM assembly using Yul→evmasm code transform.
