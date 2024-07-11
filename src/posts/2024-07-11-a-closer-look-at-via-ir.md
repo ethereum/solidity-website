@@ -67,7 +67,7 @@ The default compilation pipeline for Solidity source code currently consists of 
 
 ### Compilation via IR
 
-In order to enable the via-IR pipeline for compilation, you can enable it on the command-line using ``--via-ir`` on the command line or with the option ``{"viaIR": true}`` in standard-json.
+In order to enable the via-IR pipeline for compilation, you can turn it on the command-line using ``--via-ir``  or with the option ``{"viaIR": true}`` in standard-json.
 
 The compilation via intermediate representation (Yul) happens in the following steps:
 1. As in the legacy pipeline, the compiler parses the Solidity source files.
