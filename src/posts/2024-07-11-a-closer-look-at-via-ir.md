@@ -12,7 +12,7 @@ On a high level, the compilation steps of the two pipelines look like the follow
 
 ![compilation-pipelines](/img/2024/compilation-pipelines.png)
 
-In this blog post, we will be taking a closer look at the details of via-IR, understand each of the above compilation steps better and discuss the plans for making via-IR default.
+In this blog post, we will be taking a closer look at the details of via-IR, understand each of the above compilation steps better, and discuss the plans for making via-IR default.
 
 ## A quick refresher
 
