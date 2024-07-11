@@ -81,7 +81,7 @@ The compilation via intermediate representation (Yul) happens in the following s
 
 ### Challenges and considerations
 
-One of the main challenges with via-IR remains to be the slower compilation times as a result of the extra optimization steps that are run on the Yul code.
+While there are a lot of advantages to choosing an IR, it does not come without its own set of problems. One of the main challenges of via-IR are longer compilation times as a result of the extra optimization steps that are run on the Yul code.
 
 Additionally, the via-IR code generation unconditionally generates code for every expression without codegen shortcuts.
 Hence, it is considered to be less error-prone than the Solidity source files. However, this also makes the unoptimized IR code more verbose and inefficient. The Yul optimizer which comprises individual, easy-to-verify, and modular steps can be used to compensate for this.
