@@ -91,7 +91,7 @@ Apart from this, there are also some important semantic changes. You can read mo
 
 We shared our plan of making the new via-IR pipeline the default compilation pipeline for Solidity at the [Solidity Summit 2023]((https://www.youtube.com/watch?v=jX5VJ4wcJXM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=18)). Making via-IR default would make the current default pipeline the legacy pipeline.
 
-via-IR is thoroughly tested and is considered to be at par in terms of security with the current default compilation pipeline.
+via-IR is thoroughly tested and is considered to be at par in terms of security with the legacy compilation pipeline.
 The IR pipeline is good at running optimizations and eliminating stack too deep errors in most cases.
 It also generates better gas-optimized code than the default pipeline. Further optimizations are possible after stabilizing the performance. This can make the resultant EVM code more gas-efficient in the longer term.
 
