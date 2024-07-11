@@ -100,7 +100,7 @@ In order to make via-IR the default, we are dedicated to reducing the compilatio
 The original plan was to make via-IR the default pipeline in June 2024.
 However, we believe that it makes most sense to tie the via-IR-default update to the EOF upgrade for two main reasons:
 1. The unlimited swaps and dups in EOF make the Yul→EVM transform significantly simpler and more efficient. This will help us in removing additional cases of stack-too-deep errors.
-2. Since both the via-IR and the EOF upgrade involve minor semantic changes: the updates will require it to be a breaking change. Combining the releases will help us reduce the release efforts and upgrade burden by limiting the breaking changes to minor changes.
+2. Since both the via-IR and the EOF upgrade involve minor semantic changes, the update will require it to be a breaking change. Combining the release of both features will help us reduce the effort and upgrade burden by limiting the breaking changes to minor changes.
 
 ## What’s next?
 
