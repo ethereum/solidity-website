@@ -24,15 +24,14 @@ Let’s first break down what via-IR stands for.
 It is a new compilation pipeline in Solidity that introduces an intermediate step by first translating the Solidity code into an intermediate representation (Yul) instead of directly compiling Solidity code into EVM bytecode.
 This intermediate code can then be further optimized before being converted into final EVM bytecode.
 
-The IR-based pipeline was introduced with the aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions and/or complex control flows.
+The IR-based pipeline was introduced with the aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions and complex control flows.
 
 ## Motivation & characteristics
 
 Before we dive into how via-IR works, it may be useful to understand the motivation behind developing Yul and the resultant IR pipeline.
 
-As briefly introduced above, the goal of an intermediate representation language is to generate code that lies somewhere between the source code and the target machine code, i.e.
-EVM assembly in the case of Solidity. This code is supposed to be more conducive for further processing and optimisations before it is finally ready for bytecode generation from assembly.
-The concept of an intermediate representation is rather common in various language compilers such as Java bytecode for Java and LLVM IR for C++. 
+As briefly introduced above, the goal of an intermediate representation language is to generate code that lies somewhere between the source code and the target machine code. This code is supposed to be more conducive for further processing and optimisations before it is finally ready for bytecode generation from assembly.
+The concept of an intermediate representation is rather common in various language compilers such as Java bytecode for Java and LLCM IR for Clang (a compiler for C++). 
 
 Yul (previously also called JULIA or IULIA) is an intermediate language that was developed as an IR for various backends.
 The compiler uses Yul as an intermediate language in the via-IR code generator.
@@ -42,10 +41,10 @@ Yul was designed with the following goals in mind:
 * To maintain the readability of code produced by the IR code generator
 * To enable more efficient manual inspection, formal verification and optimization of the code.
 * To make Yul→EVM transform as straightforward as possible.
-* To be suitable for whole-program and high-level optimizations for various target platforms
-* To serve as a backend for various languages other than Solidity, for instance, [Fe](https://fe-lang.org/).
+* To be suitable for whole-program and high-level optimizations.
+* To serve as a backend for various compilers, for instance, for [Fe](https://fe-lang.org/).
 
-To conclude, the core motivation of designing an IR for the Solidity compiler, a codegen, and a compilation pipeline is to generate a more optimized bytecode and reduce gas costs as well as enable better security audits.
+To conclude, the core motivation of designing an IR for the Solidity compiler is to generate a more optimized bytecode and reduce gas costs as well as enable better security audits.
 
 Let’s look at some important characteristics of both Yul as an IR and the new via-IR pipeline:
 * The Yul optimizer operates across arbitrary control flows and does not only perform optimizations within basic control flow blocks such as branches and loops. In certain cases, Yul can also retain knowledge about memory/storage over complex control flows.
