@@ -75,7 +75,7 @@ The compilation via intermediate representation (Yul) happens in the following s
 1. As in the legacy pipeline, the compiler parses the Solidity source files.
 2. Instead of compiling Solidity source code directly to EVM assembly, the new IR code generator will first transform the code into Yul code.
 3. After this intermediary code transform, the Yul optimizer will repeatedly perform optimizations on the Yul code.
-4. The Yul code is then transformed into EVM assembly using Yul→evmasm code transform.
+4. The optimized Yul code is then transformed into EVM assembly using Yul→evmasm code transform.
 5. This code is very close to the actual bytecode, but is still suitable for further optimizations by the evmasm optimizer. Hence, the default optimizer is run as in the legacy pipeline steps until the code is sufficiently optimized.
 6. Finally, the EVM bytecode is generated as in the legacy pipeline.
 
