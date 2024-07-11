@@ -47,8 +47,7 @@ Yul was designed with the following goals in mind:
 
 To conclude, the core motivation of designing an IR for the Solidity compiler, a codegen, and a compilation pipeline is to generate a more optimized bytecode and reduce gas costs as well as enable better security audits.
 
-Let’s look at the current characteristics of both Yul as an IR and the new via-IR pipeline.
-Below are a few important ones:
+Let’s look at some important characteristics of both Yul as an IR and the new via-IR pipeline:
 * The Yul optimizer operates across arbitrary control flows and does not only perform optimizations within basic control flow blocks such as branches and loops. In certain cases, Yul can also retain knowledge about memory/storage over complex control flows.
 * Yul provides more opportunities for inlining. Inlining is a method that allows to improve the runtime performance of a compiled language by eliminating the function call overhead by replacing the function call by the machine code that represents the source code in the function definition.
 * Yul is an IR that targets multiple backends, initially EVM and EWASM. Today it additionally serves as the IR for the legacy EVM and [Ethereum Object Format (EOF)](https://evmobjectformat.org/) upgrade.
