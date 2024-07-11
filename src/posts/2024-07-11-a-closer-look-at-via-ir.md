@@ -60,7 +60,7 @@ Let’s look at some important characteristics of both Yul as an IR and the new 
 It helps to understand how the default compilation works without via-IR.
 
 The default compilation pipeline for Solidity source code currently consists of the following steps:
-1. The Solidity compiler takes the Solidity smart contract source code as input and parses the source files.
+1. The compiler takes each Solidity smart contract source code as input and parses the source files.
 2. The compiler then analyzes the source code and generates the EVM assembly directly using the legacy codegen.
 3. It then runs the optimizer on the code until the code is considered sufficiently optimized.
 4. Finally, the compiler generates bytecode for each contract.
