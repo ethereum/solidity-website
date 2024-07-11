@@ -24,7 +24,7 @@ Let’s first break down what via-IR stands for.
 It is a new compilation pipeline in Solidity that introduces an intermediate step by first translating the Solidity code into an intermediate representation (Yul) instead of directly compiling Solidity code into EVM bytecode.
 This intermediate code can then be further optimized before being converted into final EVM bytecode.
 
-The IR-based code generator was introduced with the aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions and/or complex control flows.
+The IR-based pipeline was introduced with the aim to not only allow code generation to be more transparent and auditable but also to enable more powerful optimization passes that span across functions and/or complex control flows.
 
 ## Motivation & characteristics
 
