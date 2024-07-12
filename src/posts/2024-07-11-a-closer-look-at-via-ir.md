@@ -30,7 +30,7 @@ The IR-based pipeline was introduced with the aim to not only allow code generat
 Before we dive into how via-IR works, it may be useful to understand the motivation behind developing Yul and the resultant IR pipeline.
 
 As briefly introduced above, the goal of an intermediate representation language is to generate code that lies somewhere between the source code and the target machine code. This code is supposed to be more conducive for further processing and optimisations before it is finally ready for bytecode generation from assembly.
-The concept of an intermediate representation is rather common in various language compilers such as Java bytecode for Java and LLCM IR for Clang (a compiler for C++). 
+The concept of an intermediate representation is rather common in various language compilers such as Java bytecode for Java and LLVM IR for Clang (a compiler for C++). 
 
 Yul (previously also called JULIA or IULIA) is an intermediate language that was developed as an IR for various backends.
 The compiler uses Yul as an intermediate language in the via-IR code generator.
