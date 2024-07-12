@@ -2,7 +2,7 @@
 title: 'A Closer Look at Via-IR'
 date: '2024-07-12'
 author: Solidity Team
-category: Releases
+category: Explainers
 ---
 
 In its current default settings, the Solidity compiler does not transform the code into any intermediate representation (IR) for generating EVM bytecode but does it in a direct fashion. There is, however, the more recently developed via-IR compilation pipeline , which employs the Yul programming language as an intermediate representation.
