@@ -36,8 +36,8 @@ Yul (previously also called JULIA or IULIA) is an intermediate language that was
 The compiler uses Yul as an intermediate language in the via-IR code generator.
 
 Yul was designed with the following goals in mind:
-* To enable simpler and more regular code generation for Solidity
-* To maintain the readability of code produced by the IR code generator
+* To enable simpler and more regular code generation for Solidity.
+* To maintain the readability of code produced by the IR code generator.
 * To enable more efficient manual inspection, formal verification and optimization of the code.
 * To make the Yul to EVM transformation as straightforward as possible.
 * To be suitable for whole-program and high-level optimizations.
