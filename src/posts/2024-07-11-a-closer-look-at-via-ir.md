@@ -95,7 +95,7 @@ via-IR is thoroughly tested and is considered to be at par in terms of security 
 The IR pipeline is good at running optimizations and eliminating stack too deep errors in most cases.
 It also generates better gas-optimized code than the default pipeline. Further optimizations are possible after stabilizing the performance. This can make the resultant EVM code more gas-efficient in the longer term.
 
-In order to make via-IR the default, we are dedicated to reducing the compilation time while keeping the optimization quality high, i.e., achieving low gas costs, and removing additional cases of stack-too-deep errors by making the Yul→EVM code transform more efficient.
+In order to make via-IR the default, we are dedicated to reducing the compilation time while keeping the optimization quality high, i.e., achieving low gas costs, and removing additional cases of stack-too-deep errors by making the transformation from Yul to EVM code more efficient.
 
 The original plan was to make via-IR the default pipeline in June 2024.
 However, we believe that it makes most sense to tie the via-IR-default update to the EOF upgrade for two main reasons:
