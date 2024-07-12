@@ -1,6 +1,6 @@
 ---
 title: 'A Closer Look at Via-IR'
-date: '2024-07-11'
+date: '2024-07-12'
 author: Solidity Team
 category: Releases
 ---
