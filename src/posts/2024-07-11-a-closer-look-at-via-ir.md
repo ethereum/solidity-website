@@ -103,6 +103,6 @@ However, we believe that it makes most sense to tie the via-IR-default update to
 
 ## What’s next?
 
-The long-term aim for the via-IR pipeline is to allow moving from a more hardcoded compiler implementation to a standard library in the next iteration of Solidity and make the new compilation pipeline including the optimiser as future-proof and efficient as possible.
+The long-term aim for the via-IR pipeline is to allow moving from a less flexible underlying model to a standard library in the next iteration of Solidity and make the new compilation pipeline including the optimiser as future-proof and efficient as possible. This would enable the compiler to graciously encompass the rapid changes in the language requirements and EVM architecture.
 
 Stay tuned for more updates regarding via-IR by [following us on Twitter](https://x.com/solidity_lang) and participating in the community discussions on the official [Solidity forum](https://forum.soliditylang.org/).
