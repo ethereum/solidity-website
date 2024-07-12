@@ -40,7 +40,7 @@ Yul was designed with the following goals in mind:
 * To enable simpler and more regular code generation for Solidity
 * To maintain the readability of code produced by the IR code generator
 * To enable more efficient manual inspection, formal verification and optimization of the code.
-* To make Yul→EVM transform as straightforward as possible.
+* To make the Yul to EVM transformation as straightforward as possible.
 * To be suitable for whole-program and high-level optimizations.
 * To serve as a backend for various compilers, for instance, for [Fe](https://fe-lang.org/).
 
