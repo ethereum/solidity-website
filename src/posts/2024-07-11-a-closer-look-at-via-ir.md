@@ -81,7 +81,7 @@ The compilation via intermediate representation (Yul) happens in the following s
 While there are a lot of advantages to choosing an IR, it does not come without its own set of problems. One of the main challenges of via-IR are longer compilation times as a result of the extra optimization steps that are run on the Yul code.
 
 Additionally, the via-IR code generation unconditionally generates code for every expression without codegen shortcuts.
-Hence, it is considered to be less error-prone than the Solidity source files. However, this also makes the unoptimized IR code more verbose and inefficient. The Yul optimizer which comprises individual, easy-to-verify, and modular steps can be used to compensate for this.
+Although, it is considered to be less error-prone than the Solidity source files, this also makes the unoptimized IR code more verbose and inefficient. The Yul optimizer which comprises individual, easy-to-verify, and modular steps can be used to compensate for this.
 The Yul optimizer can be enabled using ``--via-ir --optimize`` on the command line and ``viaIR: true, optimize: {enabled: true}`` using the standard JSON input/output interface.
 
 Apart from this, there are also some important semantic changes. You can read more about these changes in [official Solidity docs](https://docs.soliditylang.org/en/v0.8.26/ir-breaking-changes.html#semantic-only-changes).
