@@ -5,8 +5,7 @@ author: Solidity Team
 category: Releases
 ---
 
-The Solidity compiler generates EVM bytecode either directly from Solidity or through the intermediate representation (IR) Yul.
-The former is the current default pipeline for compiling Solidity smart contracts and the latter is called the via-IR pipeline.
+In its current default settings, the Solidity compiler does not transform the code into any intermediate representation (IR) for generating EVM bytecode but does it in a direct fashion. There is, however, the more recently developed via-IR compilation pipeline , which employs the Yul programming language as an intermediate representation.
 
 On a high level, the compilation steps of the two pipelines look like the following:
 
