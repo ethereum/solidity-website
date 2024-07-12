@@ -88,7 +88,7 @@ Apart from this, there are also some important semantic changes. You can read mo
 
 ## Making via-IR default
 
-We shared our plan of making the new via-IR pipeline the default compilation pipeline for Solidity at the [Solidity Summit 2023]((https://www.youtube.com/watch?v=jX5VJ4wcJXM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=18)). Making via-IR default would make the current default pipeline the legacy pipeline.
+We shared our plan of making the new via-IR pipeline the default compilation pipeline for Solidity at the [Solidity Summit 2023](https://www.youtube.com/watch?v=jX5VJ4wcJXM&list=PLX8x7Zj6VeznJuVkZtRyKwseJdrr4mNsE&index=18). Making via-IR default would make the current default pipeline the legacy pipeline.
 
 via-IR is thoroughly tested and is considered to be at par in terms of security with the legacy compilation pipeline.
 The IR pipeline is good at running optimizations and eliminating stack too deep errors in most cases.
