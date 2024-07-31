@@ -21,7 +21,7 @@ The Underhanded Solidity Contest is about writing seemingly innocent code that h
 - Highlight anti-patterns in smart contact development
 - Establish new best practices for secure smart contract development
 
-With that said, let's dive head first into this year’s contest info, coding brief, deadlines, judges, prizes and more!
+With that said, let's dive head first into this year’s contest info, coding brief, deadlines, judges, prizes, and more!
 
 ## Theme: Transient Storage 💾
 
