@@ -29,7 +29,7 @@ Based on this year’s theme, the participants are tasked with the challenge to 
 
 Transient storage is as cheap as warm storage access with both reads and writes priced at 100 gas. It is well-suited for use-cases such as cheap re-entrancy locks.
 
-The aim of USC 2024 is to showcase a transient storage use-case in a way that looks legitimate but contains a hidden vulnerability or manipulation mechanism in the implementation that is exposed because of transient Storage.
+The aim of USC 2024 is to showcase a transient storage use-case in a way that looks legitimate but contains a hidden vulnerability or manipulation mechanism in the implementation facilitated by the use of transient storage.
 
 *Note:* The compiler does not yet allow using transient as a data location in high-level Solidity code. For the time being, data stored in this location can only be accessed using the `TSTORE` and `TLOAD` opcodes in inline assembly.
 
