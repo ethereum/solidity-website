@@ -7,7 +7,7 @@ author: Vishwa Mehta
 category: Announcements
 ---
 
-The [Underhanded Solidity Contest](https://underhanded.soliditylang.org/) is back with bang in 2024!
+The [Underhanded Solidity Contest](https://underhanded.soliditylang.org/) is back with a bang in 2024!
 
 After two successful seasons of the contest in [2020](https://underhanded.soliditylang.org/2020) and [2022](https://underhanded.soliditylang.org/2022/) inspired by the first edition in [2017](https://weka.medium.com/announcing-the-winners-of-the-first-underhanded-solidity-coding-contest-282563a87079), we’re back with an exciting challenge for this year.
 
