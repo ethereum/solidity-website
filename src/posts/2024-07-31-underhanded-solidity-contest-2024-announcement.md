@@ -52,7 +52,7 @@ Our judges award scores to the submissions that especially shine in the followin
 
 - **Simplicity & Conciseness**: Since it's much easier to hide a vulnerability in complex and poorly written code, short and clean submissions will be scored higher than those that are lengthy and complicated.
 - **Plausibility**: Code that contains backdoors without any clear reason why will look immediately suspicious, no matter how cleverly written the flaw is. Consider using creative yet realistic scenarios.
-- **Originality**: We value uniqueness and originality. Truly original ideas will receive more points than making use of already well known vulnerabilities.
+- **Originality**: We value uniqueness and originality. Truly original ideas will receive more points than submissions that make use of already well known vulnerabilities.
 
 ## The Prizes 🏆
 
