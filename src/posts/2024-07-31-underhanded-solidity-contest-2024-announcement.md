@@ -15,7 +15,7 @@ Before we dive into the 2024 theme, let's do a quick refresher on what the Under
 
 The Underhanded Solidity Contest is about writing seemingly innocent code that has malicious mechanisms or hidden backdoors. Through this contest, we aim to:
 
-- Raise awareness about smart contract security.
+- Raise awareness about smart contract security
 - Uncover language design faults
 - Battle-test recently introduced language features and restrictions
 - Highlight anti-patterns in smart contact development
