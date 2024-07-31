@@ -1,6 +1,4 @@
 ---
-layout: post
-published: false
 title: 'Underhanded Solidity Contest 2024'
 date: '2024-07-31'
 author: Vishwa Mehta
@@ -57,10 +55,11 @@ Our judges award scores to the submissions that especially shine in the followin
 ## The Prizes 🏆
 
 As a token of appreciation for the hard work and creativity that goes into the submissions, we have prepared a few prizes for the winners and participants:
-The first place will receive a ticket to [Devcon SEA 2024](https://devcon.org/en/).
-The top 3 submissions will receive a ticket to the next Solidity Summit (date & location TBA).
-Furthermore, the three winners will be added to the Board of Fame.
-All qualified submissions receive a custom USC 2024 t-shirt.
+
+* The first place will receive a ticket to [Devcon SEA 2024](https://devcon.org/en/).
+* The top 3 submissions will receive a ticket to the next Solidity Summit (date & location TBA).
+* Furthermore, the three winners will be added to the Board of Fame.
+* All qualified submissions receive a custom USC 2024 t-shirt.
 
 ## The Submission 📨
 
@@ -83,7 +82,7 @@ Winners will be announced in time before [Devcon South-east Asia 2024](https://d
 
 ## The Board of Fame ⭐
 
-We maintain a [Board of Fame](https://underhanded.soliditylang.org/#board-of-fame) in order to honor all our winners of previous Underhanded Solidity Contests. Consider checking out previous submissions (especially the top 3) for inspiration and submission best practices.
+We maintain a [Board of Fame](https://underhanded.soliditylang.org/#board-of-fame) in order to honor all our winners of previous Underhanded Solidity Contests. Consider checking out previous submissions from [2022](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2022/submissions_2022) and [2020](https://github.com/ethereum/solidity-underhanded-contest/tree/master/2020/submissions_2020) (especially the top 3) for inspiration and submission best practices.
 
 ## The Supporters 💖
 
