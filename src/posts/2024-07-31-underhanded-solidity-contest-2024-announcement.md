@@ -60,7 +60,7 @@ As a token of appreciation for the hard work and creativity that goes into the s
 The first place will receive a ticket to [Devcon SEA 2024](https://devcon.org/en/).
 The top 3 submissions will receive a ticket to the next Solidity Summit (date & location TBA).
 Furthermore, the three winners will be added to the Board of Fame.
-The winners and all qualified submissions receive a custom USC 2024 t-shirt.
+All qualified submissions receive a custom USC 2024 t-shirt.
 
 ## The Submission 📨
 
