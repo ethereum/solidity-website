@@ -1,5 +1,5 @@
 ---
-title: 'Underhanded Solidity Contest 2024'
+title: 'Underhanded Solidity Contest 2024 Announcement'
 date: '2024-07-31'
 author: Vishwa Mehta
 category: Announcements
