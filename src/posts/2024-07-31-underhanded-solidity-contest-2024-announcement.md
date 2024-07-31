@@ -25,7 +25,7 @@ With that said, let's dive head first into this year’s contest info, coding br
 
 ## Theme: Transient Storage 💾
 
-Based on this year’s theme, the participants are tasked with the challenge to develop smart contracts that leverage transient storage ([EIP-1153](https://eips.ethereum.org/EIPS/eip-1153)), i.e. the `TSTORE` and `TLOAD` opcodes.
+Based on this year’s theme, the participants are tasked with the challenge to develop smart contracts that leverage transient storage ([EIP-1153](https://eips.ethereum.org/EIPS/eip-1153)).
 
 Transient storage is as cheap as warm storage access with both reads and writes priced at 100 gas. It is well-suited for use-cases such as cheap re-entrancy locks.
 
