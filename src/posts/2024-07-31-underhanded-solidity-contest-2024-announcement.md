@@ -35,6 +35,7 @@ The aim of USC 2024 is to showcase a transient storage use-case in a way that lo
 
 Like every year, judges will be presented with anonymised submissions. This year, the submissions will be assessed by:
 
+* [aleph_v](https://x.com/alpeh_v) - Independent Security Researcher
 * [Anton Permenev](https://twitter.com/a_permenev) - Senior Engineer at ChainSecurity
 * [Goncalo Magalhaes](https://x.com/realgmhacker) - Head of Security at Immunefi
 * [Gonçalo Sá](https://twitter.com/GNSPS) - Co-founder, ConsenSys Diligence & Creed
@@ -42,7 +43,6 @@ Like every year, judges will be presented with anonymised submissions. This year
 * [Harikrishnan Mulackal](https://x.com/_hrkrshnn) - Co-founder, Spearbit
 * [Patrick Collins](https://x.com/PatrickAlphaC) - Co-founder, Cyfrin Audits
 * [samczsun](https://twitter.com/samczsun) - Research Partner at Paradigm
-* [aleph_v](https://x.com/alpeh_v) - Independent Security Researcher
 
 ### Judging Criteria ☑️
 
