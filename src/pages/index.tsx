@@ -115,7 +115,7 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="https://soliditylang.org/blog/2024/09/04/solidity-0.8.27-release-announcement"
+                    href="/blog/2024/09/04/solidity-0.8.27-release-announcement/"
                     fontWeight="bold"
                   >
                     Solidity 0.8.27
