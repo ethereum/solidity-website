@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2024/09/04/solidity-0.8.27-release-announcement/"
+                    href="/blog/2024/10/09/solidity-0.8.28-release-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.27
+                    Solidity 0.8.28
                   </Link>{' '}
-                  Introducing the newest version of the compiler which brings support for custom errors in require to the legacy pipeline, optimizer improvements such as caching of optimized IR that will speed up compilation via IR, several bugfixes, and more!
+                  Introducing the newest version of the compiler which brings full support for transient storage state variables of value types, improvements to speed up compilation via IR and lower RAM usage, bugfixes, and more!
                 </Text>
               </Box>
             </Flex>
