@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: 'Announcing the Winners of the Underhanded Solidity Contest 2022'
+title: 'Announcing the Winners of the Underhanded Solidity Contest 2024'
 date: '2024-10-14'
 author: Vishwa Mehta & USC Judges
 category: Announcements
