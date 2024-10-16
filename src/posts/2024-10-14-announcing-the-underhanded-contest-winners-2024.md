@@ -37,9 +37,10 @@ With that being said, let’s look at the winning submission and our takeaways f
 *commentary by [Hari Mulackal](https://twitter.com/_hrkrshnn)*
 
 In recent years, the number of Layer-2 blockchains and other L1s has exploded. This has led to subtle yet important differences in the execution environment (EVM) than the Ethereum mainnet. One such difference is in the EVM version, specifically, which EVM changes are included in the chain. Here are some examples of such differences:
-Chains that take longer to support the newest mainnet-EVM updates, for example several L2s didn’t support push0 for a long time, despite it being a trivial instruction to implement.
-Chains that proactively add upcoming changes to the mainnet-EVM
-Chains that cannot support specific instructions or precompiles due to technical limitations, such as traditional hashing algorithms, are hard to implement in zkEVMs.
+
+* Chains that take longer to support the newest mainnet-EVM updates, for example several L2s didn’t support push0 for a long time, despite it being a trivial instruction to implement.
+* Chains that proactively add upcoming changes to the mainnet-EVM.
+* Chains that cannot support specific instructions or precompiles due to technical limitations, such as traditional hashing algorithms, are hard to implement in zkEVMs.
 
 Writing Solidity code that works across multiple chains while using specific EVM features is challenging. The submission highlighted one such challenge in transient storage. 
 
