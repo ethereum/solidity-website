@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2024/10/09/solidity-0.8.28-release-announcement/"
+                    href="/blog/2024/12/27/solidity-developer-survey-2024-announcement/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.28
+                    Solidity Developer Survey 2024
                   </Link>{' '}
-                  Introducing the newest version of the compiler which brings full support for transient storage state variables of value types, improvements to speed up compilation via IR and lower RAM usage, bugfixes, and more!
+                  The annual Solidity Developer Survey for the year 2024 is live! Take the survey to give us insights and feedback to help us design the Solidity compiler better.
                 </Text>
               </Box>
             </Flex>
