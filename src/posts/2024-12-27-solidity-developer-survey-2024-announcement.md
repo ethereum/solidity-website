@@ -9,11 +9,11 @@ category: Announcements
 
 Before we wrap up the 2024 season, we have one last announcement! 🚀
 
-The annual [Solidity Developer Survey](https://cryptpad.fr/form/#/2/form/view/9xjPVmdv8z0Cyyh1ejseMQ0igmx-TedH5CPST3PhRUk/) for the year 2024 is live! Our survey helps us to further improve the language & compiler and shape the future roadmap of Solidity. We are curious to hear your feedback on Solidity and learn about your personal coding preferences!
+The annual [Solidity Developer Survey](https://cryptpad.fr/form/#/2/form/view/9xjPVmdv8z0Cyyh1ejseMQ0igmx-TedH5CPST3PhRUk/) for the year 2024 is live! Take the survey to give us insights and feedback to help us design the Solidity compiler better.
 
 **📝 [TAKE THE SURVEY!](https://cryptpad.fr/form/#/2/form/view/9xjPVmdv8z0Cyyh1ejseMQ0igmx-TedH5CPST3PhRUk/) 📝**
 
-You can find the previous results of the Solidity Developer Survey 2023 [here](https://soliditylang.org/blog/2024/04/03/solidity-developer-survey-2023-results/). In 2023, a total of 474 developers from 71 different countries participated in the survey out of which 46.5% used Solidity daily, and 33.2% weekly.
+You can find the results of the previous Solidity Developer Survey [here](https://soliditylang.org/blog/2024/04/03/solidity-developer-survey-2023-results/). In 2023, a total of 474 developers from 71 different countries participated in the survey out of which 46.5% used Solidity daily, and 33.2% weekly.
 
 ## About the Survey 🪄
 
