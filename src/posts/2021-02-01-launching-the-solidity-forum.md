@@ -50,7 +50,7 @@ Examples of topics that could fit the Language Design category:
 - "Change the way inheritance works"
 - "Introduce a `switch` statement"
 
-ℹ️ You can follow the implementation status of new features in the [Solidity Github project](https://github.com/ethereum/solidity/projects/43). Issues in the design backlog need further specification and will either be discussed in a language design call or in a regular team call. You can see the upcoming changes for the next breaking release by changing from the default branch (develop) to the [breaking branch](https://github.com/ethereum/solidity/tree/breaking).
+ℹ️ You can follow the implementation status of new features in the [Solidity Github project](https://github.com/orgs/ethereum/projects/17). Issues in the design backlog need further specification and will either be discussed in a language design call or in a regular team call. You can see the upcoming changes for the next breaking release by changing from the default branch (develop) to the [breaking branch](https://github.com/ethereum/solidity/tree/breaking).
 
 #### → Tools & Infrastructure
 
