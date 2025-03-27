@@ -8,9 +8,9 @@ category: Explainers
 [The EVM Object Format](https://evmobjectformat.org) is a long awaited upgrade that modernizes
 the EVM and removes obstacles that have wide-ranging effects on the entire language, tooling and
 application ecosystem on Ethereum.
-Solidity is in full support of the proposal and in this post I would like to explain why.
-I will address the benefits it brings and the reasons why alternatives proposed so far fall short
-of achieving the same goals.
+Solidity is in full support of the proposal and in this post we would like to explain why.
+We will address the benefits it brings and the reasons why alternatives proposed so far fall short
+of achieving its goals.
 
 ## Benefits of EOF
 
@@ -24,7 +24,7 @@ This makes developing tools harder and EOF is a significant step towards lowerin
 Exposing more structure is critical for formal verification and static analysis tools,
 which are becoming ever more indispensable.
 As soon as the contract gets compiled, it loses a lot useful of high-level information
-that cannot be perfectly reconstructed after the fact.
+that cannot be perfectly reconstructed.
 For example, something as conceptually simple as distinguishing functions from loops becomes non-trivial without additional debugging information that is not present on chain.
 Dynamic jumps and lack of clear separation between data and code are also obstacles to correct analysis.
 
@@ -76,7 +76,7 @@ Having a healthy competition in this space is very important as no language can 
 
 #### Why is it so hard?
 Why is it so hard for new languages to catch on in this space?
-I think it has a lot to do with the EVM itself.
+We think it has a lot to do with the EVM itself.
 Gas optimization is a major factor.
 The existing compilers already have complex optimizers built up and while advanced developers can
 still easily beat them with hand-crafted assembly, the fact of the matter is that getting
@@ -138,10 +138,11 @@ For example one of the early benchmarks ([Measurable benefits of EOF](https://no
 While this may seem underwhelming, note that these values come from an incomplete prototype,
 with most components of the opcode-based optimizer still unimplemented on EOF.
 With block deduplicator, `EXCHANGE` for stack shuffling, tail-call optimization, relaxed inlining,
-and relaxed optimizer restrictions with respect to `RETURNDATACOPY`, there is potential for higher savings.
+and the ability to remove unused `RETURNDATACOPY`, there is potential for higher savings.
 
-I also want to emphasize that gas savings are not the main point of EOF.
-In the design, emphasis was simply on ensuring that existing contracts do not become more expensive, as any increase in cost would have posed a major disincentive to adoption.
+We also want to emphasize that gas savings are not the main point of EOF.
+In the design, emphasis was simply on ensuring that existing contracts do not become more expensive,
+as any increase in cost would have posed a major disincentive to adoption.
 EOF already exceeded our expectations in that regard and any gains are just the icing on the top.
 
 ### L2s
@@ -157,7 +158,7 @@ We strongly believe that waiting for L2s to take the lead will lead to complete 
 EOF must be first adopted on the mainnet, which will make it very likely to be eventually picked
 up by L2s at their own pace.
 
-And the important aspect is that, like compilers, L2s can be satisfied with a sensible subset
+And the important aspect is that, like compilers, L2s can be satisfied with a sensible and self-contained subset
 of the EVM rather than its entirety with all the legacy and quirks, as long as such a subset exists.
 That subset being a part of L1 will mean that they are still EVM-compatible.
 And they are less burdened by backwards-compatibility at the bytecode level, as it is
@@ -171,7 +172,7 @@ as they will have to support both EOF and the legacy EVM for the foreseeable fut
 The benefits to clients of adopting EOF are also much less obvious.
 For example performance gains in bytecode execution can easily be overshadowed by other factors.
 
-However, I suspect that the burden is largely overstated.
+However, we suspect that the burden is largely overstated.
 EOF is not a completely new VM design.
 It shares a lot more with the legacy EVM than it differs.
 
@@ -187,9 +188,8 @@ For the ecosystem above the clients, EOF is an improvement across the board.
 Universal adoption will make the legacy EVM irrelevant there.
 
 ### Too early to ossify the execution layer
-One or the complaints complaint leveled against EOF is that it is unnecessary, because Ethereum
-should focus only on
-improving its consensus layer.
+One of the complaints leveled against EOF is that it is unnecessary, because Ethereum
+should focus only on improving its consensus layer.
 That scaling is the only thing that matters and we will still survive regardless of what kind of
 warts the current EVM has.
 This seems very short-sighted to me and ignores the relative scale of things.
@@ -243,8 +243,8 @@ one thing needs clarifying.
 While it is an important problem, it is largely incidental to EOF and not one of its explicit goals.
 [EIP-663](https://eips.ethereum.org/EIPS/eip-663) predates EOF and is simply one of the EIPs
 that were always held back the inability to safely add opcodes with immediates.
-We asked the Ipsilon team to include it in EOF for three reasons: it depends on it, it is
-extremely simple and getting it quite directly translates to a lot of saved engineering effort.
+We asked the Ipsilon team to include it in EOF for three reasons: EIP-663 depends on EOF, is
+extremely simple and its quick delivery directly translates to a lot of saved engineering effort.
 We would still be in full support of EOF if the EIP was not a part of it, but we see no
 compelling reason for why it would need to be, while the upside is huge.
 
