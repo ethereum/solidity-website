@@ -175,7 +175,7 @@ However, I suspect that the burden is largely overstated.
 EOF is not a completely new VM design.
 It shares a lot more with the legacy EVM than it differs.
 
-Long-term the legacy EVM will also matter much less, even to the clients.
+Long-term, the maintenance burden to the clients and, more generally, the importance of the legacy EVM will decrease.
 There will be no reason to target it in EIPs that add new features other than to make sure
 it is still sound and preserves the behavior of existing contracts.
 When nearly all contracts are deployed to EOF, the number of contracts
