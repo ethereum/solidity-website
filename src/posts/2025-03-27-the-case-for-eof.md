@@ -36,7 +36,7 @@ For a long time a [zkEVM](https://ethereum.org/developers/docs/scaling/zk-rollup
 
 Full emulation of the EVM within another VM, even when possible, comes with a considerable overhead in terms of performance.
 Bytecode transpilation, i.e. direct translation to a different underlying set of instructions,
-while preserving the same semantics can be a better solution and of the EOF's ambitious goals
+while preserving the same semantics can be a better solution and one of EOF's ambitious goals
 is to make it easier to achieve.
 
 The fact that contracts can currently inspect their own implementation details, such as the
@@ -114,7 +114,7 @@ While a mature compiler will already have its own mechanisms in place to deal wi
 the option to rely on them in the early stages of a project to simplify development should not be underestimated.
 
 Finally, a major upside for a compiler is that it only needs to compile contracts into a form that 
-can, be executed, not generate every possible form of bytecode there is.
+can be executed, not generate every possible form of bytecode there is.
 It can easily decide to only support EOF without hurting its users, which is why we expect
 new projects to do just that.
 Solidity is also looking forwared to dropping support for legacy EVM as soon as possible,
@@ -384,7 +384,7 @@ degrading the design of the EVM in the long term.
 EOF will benefit the whole stack that depends on the execution layer: compilers, tooling, 
 applications, even L2s.
 It simplifies the surface of contact with the EVM while also providing the necessary prerequisites 
-to make future extensions less of a struggle.
+to make future extensions easier to implement.
 We can't completely get rid of legacy EVM, but a large part of the ecosystem will still be able to 
 more or less forget about it.
 
