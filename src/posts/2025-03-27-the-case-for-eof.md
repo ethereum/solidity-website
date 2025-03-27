@@ -138,7 +138,7 @@ For example one of the early benchmarks ([Measurable benefits of EOF](https://no
 While this may seem underwhelming, note that these values come from an incomplete prototype,
 with most components of the opcode-based optimizer still unimplemented on EOF.
 With block deduplicator, `EXCHANGE` for stack shuffling, tail-call optimization, relaxed inlining, 
-and `RETURNDATACOPY` removal there is potential for higher savings.
+and relaxed optimizer restrictions with respect to `RETURNDATACOPY`, there is potential for higher savings.
 
 I also want to emphasize that gas savings are not the main point of EOF.
 In the design, emphasis was simply on ensuring that existing contracts do not become more expensive, as any increase in cost would have posed a major disincentive to adoption.
