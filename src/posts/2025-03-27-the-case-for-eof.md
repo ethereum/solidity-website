@@ -25,14 +25,16 @@ Exposing more structure is critical for formal verification and static analysis 
 which are becoming ever more indispensable.
 As soon as the contract gets compiled, it loses a lot useful of high-level information
 that cannot be perfectly reconstructed.
-For example, something as conceptually simple as distinguishing functions from loops becomes non-trivial without additional debugging information that is not present on chain.
+For example, something as conceptually simple as distinguishing functions from loops becomes non-trivial
+without additional debugging information that is not present on chain.
 Dynamic jumps and lack of clear separation between data and code are also obstacles to correct analysis.
 
 #### Transpilation
 The ability to execute EVM code outside of its native environment has many applications.
 An obvious one is running it on a chain that uses a completely different virtual machine.
 Or in a SNARK.
-For a long time a [zkEVM](https://ethereum.org/developers/docs/scaling/zk-rollups/#zk-rollups-and-evm-compatibility) was the holy grail of L2s and is just such an application.
+For a long time a [zkEVM](https://ethereum.org/developers/docs/scaling/zk-rollups/#zk-rollups-and-evm-compatibility)
+was the holy grail of L2s and is just such an application.
 
 Full emulation of the EVM within another VM, even when possible, comes with a considerable overhead in terms of performance.
 Bytecode transpilation, i.e. direct translation to a different underlying set of instructions,
@@ -133,7 +135,8 @@ patterns for contract splitting, such as the diamond proxy, which will become un
 #### Gas savings
 As our current EOF prototype shows, contracts compiled to EOF are generally a little smaller
 and cheaper.
-For example one of the early benchmarks ([Measurable benefits of EOF](https://notes.ethereum.org/@ipsilon/solidity_eof_poc)) indicates an improvement in the range of 10-15% for some real contracts.
+For example one of the early benchmarks ([Measurable benefits of EOF](https://notes.ethereum.org/@ipsilon/solidity_eof_poc))
+indicates an improvement in the range of 10-15% for some real contracts.
 
 While this may seem underwhelming, note that these values come from an incomplete prototype,
 with most components of the opcode-based optimizer still unimplemented on EOF.
@@ -295,7 +298,8 @@ This happens even if the function is never called in the current transaction, si
 possible for all
 function frames to coexist in memory at the same time.
 
-Vyper is simply affected by different limitations - it trades stack issues for being much more sensitive to the memory pricing model, which is not ideal either.
+Vyper is simply affected by different limitations - it trades stack issues for being much more
+sensitive to the memory pricing model, which is not ideal either.
 Neither approach is really more correct than the other.
 It is an opinionated choice with trade-offs.
 Vyper decides to limit its expressivity in certain ways, but there is no good reason why
@@ -310,7 +314,8 @@ to arrive quickly.
 It is a fine solution, but not to the same problem.
 
 ### Why not EIP-615/EIP-2315?
-[EIP-2315](https://eips.ethereum.org/EIPS/eip-2315) was a simplified version of [EIP-615](https://eips.ethereum.org/EIPS/eip-615) and was [loudly rejected for very good reasons](https://github.com/ethereum/pm/issues/263#issuecomment-790423785).
+[EIP-2315](https://eips.ethereum.org/EIPS/eip-2315) was a simplified version of [EIP-615](https://eips.ethereum.org/EIPS/eip-615)
+and was [loudly rejected for very good reasons](https://github.com/ethereum/pm/issues/263#issuecomment-790423785).
 Follow the link for details, but the main issues were that it was using
 dynamic jumps (i.e. not only not solving the same problem EOF does but aggravating it)
 and that it did not provide any protection against jumping inside or across functions.
@@ -330,7 +335,8 @@ The value is embedded directly in the code and known ahead of time, unlike value
     - Referencing functions or containers inside the bytecode is pretty much the same use case.
 - The `DUPN`/`SWAPN` EIP stumbled into this problem long before EOF was even a thing.
 - Outside of EOF, even EIP-615/EIP-2315 did this.
-- `ADDMODX`, `SUBMODX` and `MULMODX` opcodes in EVMMAX ([EIP-6690](https://eips.ethereum.org/EIPS/eip-6690)) require 7 constant arguments, all of which are realized as immediates.
+- `ADDMODX`, `SUBMODX` and `MULMODX` opcodes in EVMMAX ([EIP-6690](https://eips.ethereum.org/EIPS/eip-6690))
+ require 7 constant arguments, all of which are realized as immediates.
 
 Introduction of immediates has been a known problem for a long time now.
 Arguing that there are few proposals that require them is confusing the cause with the effect, given that doing this would require solving that problem first.
@@ -356,7 +362,8 @@ EOF does not preclude it, it simply provides an alternative.
 #### The `PUSH` hack
 There actually is one way to safely hack around the `JUMPDEST` problem: using a forced `PUSH` opcode.
 If, instead of adding an immediate, we require that the opcode is always preceded by pushing a
-value to the stack, we avoid the `JUMPDEST` problem and guarantee that the value is known and constant, just like an immediate. Essentially, we simulate opcodes like this:
+value to the stack, we avoid the `JUMPDEST` problem and guarantee that the value is known and constant, just like an immediate.
+Essentially, we simulate opcodes like this:
 ```
 RJUMP 0x42
 ```
