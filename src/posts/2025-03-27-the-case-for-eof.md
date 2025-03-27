@@ -141,8 +141,7 @@ With block deduplicator, `EXCHANGE` for stack shuffling, tail-call optimization,
 and `RETURNDATACOPY` removal there is potential for higher savings.
 
 I also want to emphasize that gas savings are not the main point of EOF.
-In the design, emphasis was simply on not making existing contracts more expensive, since that
-would provide a big disincentive to switching to it.
+In the design, emphasis was simply on ensuring that existing contracts do not become more expensive, as any increase in cost would have posed a major disincentive to adoption.
 EOF already exceeded our expectations in that regard and any gains are just the icing on the top.
 
 ## L2s
