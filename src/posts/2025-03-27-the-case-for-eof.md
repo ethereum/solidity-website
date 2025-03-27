@@ -90,7 +90,7 @@ On the one hand, jump instructions are relatively expensive, making it imperativ
 much as possible.
 On the other hand, inlining functions increases the number of local variables and the required
 stack space, so it cannot always be done.
-This is a fine line to thread and EOF with its cheaper relative jumps simply provides
+This is a fine line to tread and EOF with its cheaper relative jumps simply provides
 much more leeway to a fresh compiler.
 
 The limited stack is another big obstacle that every new project runs into.
@@ -113,14 +113,14 @@ There are also many smaller and indirect benefits of EOF's features.
 For example, the up-front validation provides some guardrails against generating invalid code.
 And EOF's functions make translation from a high-level language much more straightforward.
 While a mature compiler will already have its own mechanisms in place to deal with those,
-the option to rely on them in the early stages of a project to simplify development should not be underestimated.
+the option not to have them in the early stages of a project to simplify development should not be underestimated.
 
 Finally, a major upside for a compiler is that it only needs to compile contracts into a form that
 can be executed, not generate every possible form of bytecode there is.
 It can easily decide to only support EOF without hurting its users, which is why we expect
 new projects to do just that.
-Solidity is also looking forwared to dropping support for legacy EVM as soon as possible,
-taking advantage of the mechanisms and reducing the overall maintenance burden.
+Solidity is also looking forward to dropping support for legacy EVM as soon as possible,
+taking advantage of the new mechanisms and reducing the overall maintenance burden.
 Tooling and applications will likely follow.
 
 ### Applications
@@ -153,11 +153,11 @@ A common argument is that [layer 2](https://ethereum.org/developers/docs/scaling
 where innovation like EOF should be taking place since L2s are much more free to experiment with
 the execution layer.
 Unfortunately, this not really what is currently happening.
-The high value placed on EVM-compatibility means that L2s closely follow L1, and more often lag
+The high value placed on EVM compatibility means that L2s closely follow L1, and more often lag
 behind it than extend it.
 It is still the Ethereum mainnet that drives EVM evolution.
 
-We strongly believe that waiting for L2s to take the lead will lead to complete stagnation of the execution layer.
+We strongly believe that waiting for L2s to take the lead will result in complete stagnation of the execution layer.
 EOF must be first adopted on the mainnet, which will make it very likely to be eventually picked
 up by L2s at their own pace.
 
@@ -245,15 +245,16 @@ As Solidity, we have been so vocal about the need to solve the "Stack Too Deep" 
 one thing needs clarifying.
 While it is an important problem, it is largely incidental to EOF and not one of its explicit goals.
 [EIP-663](https://eips.ethereum.org/EIPS/eip-663) predates EOF and is simply one of the EIPs
-that were always held back the inability to safely add opcodes with immediates.
+that were always held back by the inability to safely add opcodes with immediates.
 We asked the Ipsilon team to include it in EOF for three reasons: EIP-663 depends on EOF, is
 extremely simple and its quick delivery directly translates to a lot of saved engineering effort.
-We would still be in full support of EOF if the EIP was not a part of it, but we see no
-compelling reason for why it would need to be, while the upside is huge.
+We would still be in full support of EOF if the EIP was not a part of it, but we see no downsides,
+while the upside is huge.
 
 Why do we want it so badly?
-It has been suggested [that solving "Stack Too Deep"](https://hackmd.io/@pcaversaccio/eof-when-complexity-outweighs-necessity#Compiler-Complexity-Reduction)
-is merely a compiler design challenge and can be solved without modifying the EVM.
+It has been suggested that solving "Stack Too Deep"
+[is merely a compiler design challenge](https://hackmd.io/@pcaversaccio/eof-when-complexity-outweighs-necessity#Compiler-Complexity-Reduction)
+and can be solved without modifying the EVM.
 Or that it can be done simpler by adjusting the memory pricing.
 Is this true?
 
@@ -269,7 +270,7 @@ We are exploring multiple paths to our goal and EIP-663 is frankly just the simp
 ### The 16-slot limit is an artificial limitation
 The thing is... the challenge is largely artificial.
 The 16-slot limit does not come from any inherent limitation of the EVM,
-while potential downsides to adding more are unproven and highly speculative.
+and potential downsides to increasing it are unproven and highly speculative.
 As far as we are aware, the limit is simply an arbitrary trade-off between the number of
 addressable stack items and the number of possible 1-byte opcodes (there can be only 256).
 `DUP1`..`DUP16` and `SWAP1`..`SWAP16` took up 32 spots and that had been deemed enough.
@@ -285,9 +286,9 @@ Still, why does Solidity have to solve this problem and Vyper is seemingly unaff
 The difference lies in the memory model.
 Solidity uses stack for all function parameters and local variables,
 while Vyper stores them at fixed locations in memory.
-Vyper's approach significantly decreases stack pressure and makes the access to no more than
+Vyper's approach significantly decreases stack pressure and makes the access to only
 16 top elements more than sufficient.
-However, it does not come without some restrictions.
+However, this approach does not come without restrictions.
 Using fixed locations means that a function can only be present once on the call stack, effectively
 preventing recursion (other than via an expensive external call) and requires
 every variable to have the upper bound on its size declared up front.
@@ -323,9 +324,9 @@ The issue with dynamic jumps was eventually addressed by making the instructions
 but still without fixing the inherent `JUMPDEST` problem.
 
 It has to be stated that EIP-2315 was not rejected due to ["insufficient gas benefits"](https://hackmd.io/@pcaversaccio/eof-when-complexity-outweighs-necessity#Static-Analysis-Improvement).
-The supposed gas benefits were stated by the EIP's author to be its main goal and we did show
+The supposed gas benefits were stated by the EIP's author to be its main goal and we simply showed
 that it does not even achieve it.
-This might even be enough to make its adoption unlikely, but the reasons for the eventual
+This may have been enough to make its adoption unlikely, but the reasons for the eventual
 rejection were much more fundamental.
 
 ### Do we really need immediate arguments?
@@ -373,7 +374,7 @@ PUSH1 0x42
 RJUMP
 ```
 
-Hacks of these kind were already proposed in the past and never taken seriously so far.
+Hacks of this kind were already proposed in the past and never taken seriously so far.
 
 One of the downsides is that the sequence is 50% longer, which may be an acceptable trade-off for
 rarely used opcodes, but would only aggravate the problem if used e.g. with jumps, which are
