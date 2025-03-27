@@ -92,8 +92,7 @@ This is a fine line to thread and EOF with its cheaper relative jumps simply pro
 much more leeway to a fresh compiler.
 
 The limited stack is another big obstacle that every new project runs into.
-Optimal stack scheduling under constrained access to stack space is an unsolved problem,
-with no optimal algorithm.
+Optimal stack scheduling under constrained access to stack space is an unsolved problem.
 We fund long-standing research projects on that topic, but this should not be a prerequisite
 to even start.
 Removing the limitation would go a long way towards making naive initial approaches viable.
