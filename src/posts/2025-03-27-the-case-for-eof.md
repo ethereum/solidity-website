@@ -12,15 +12,15 @@ Solidity is in full support of the proposal and in this post I would like to exp
 I will address the benefits it brings and the reasons why alternatives proposed so far fall short 
 of achieving the same goals.
 
-# Benefits of EOF
+## Benefits of EOF
 
-## Tooling
+### Tooling
 Development tooling is the area where the benefits of EOF are the most evident.
 The biggest flaw of the current EVM in that regard is that the bytecode is not structured enough to be 
 effectively analyzed.
 This makes developing tools harder and EOF is a significant step towards lowering the entry barrier.
 
-### Formal verification and static analysis
+#### Formal verification and static analysis
 Exposing more structure is critical for formal verification and static analysis tools, 
 which are becoming ever more indispensable.
 As soon as the contract gets compiled, it loses a lot useful of high-level information
@@ -28,7 +28,7 @@ that cannot be perfectly reconstructed after the fact.
 For example, something as conceptually simple as distinguishing functions from loops becomes non-trivial without additional debugging information that is not present on chain.
 Dynamic jumps and lack of clear separation between data and code are also obstacles to correct analysis.
 
-### Transpilation
+#### Transpilation
 The ability to execute EVM code outside of its native environment has many applications.
 An obvious one is running it on a chain that uses a completely different virtual machine.
 Or in a SNARK.
@@ -47,7 +47,7 @@ Banning code and gas introspection means that EOF contracts will be much more am
 Having only static jumps is another important simplifying restriction, and makes it feasible
 to predetermine and validate all code paths through the contract.
 
-### Code verification
+#### Code verification
 The bytecode emitted by Solidity and existing compilers already has a well defined internal 
 structure, but lacking a proper container, it is unmarked, which means that it is not 
 discoverable on its own.
@@ -61,7 +61,7 @@ This particular problem is actually solvable by having the compiler emit additio
 but the solution has to be implemented separately for every language.
 A universal container format makes the tool much more independent of the workings of the compiler.
 
-## Compilers and languages
+### Compilers and languages
 EVM, as it exists today, is not the easiest platform to develop for, which over the years has severely 
 stunted the diversity of available languages.
 The ecosystem is dominated by Solidity with [Vyper](https://vyperlang.org) still being a distant 
@@ -74,7 +74,7 @@ rather than a thriving ecosystem.
 Despite the success of Solidity, this is not something we are happy about.
 Having a healthy competition in this space is very important as no language can be one-size-fits-all.
 
-### Why is it so hard?
+#### Why is it so hard?
 Why is it so hard for new languages to catch on in this space?
 I think it has a lot to do with the EVM itself.
 Gas optimization is a major factor.
@@ -121,16 +121,16 @@ Solidity is also looking forwared to dropping support for legacy EVM as soon as 
 taking advantage of the mechanisms and reducing the overall maintenance burden.
 Tooling and applications will likely follow.
 
-## Applications
+### Applications
 dApps will primarily benefit indirectly, from improved compilers and tooling, however, there are
 still some smaller directly observable improvements in store for them.
 
-### Relaxing bytecode size limits
+#### Relaxing bytecode size limits
 One of them is the potential for lifting bytecode size limits ([EIP-7830](https://eips.ethereum.org/EIPS/eip-7830)).
 The fact that the size of deployed bytecode cannot exceed ~24 kB has led to multiple complicated
 patterns for contract splitting, such as the diamond proxy, which will become unnecessary.
 
-### Gas savings
+#### Gas savings
 As our current EOF prototype shows, contracts compiled to EOF are generally a little smaller 
 and cheaper.
 For example one of the early benchmarks ([Measurable benefits of EOF](https://notes.ethereum.org/@ipsilon/solidity_eof_poc)) indicates an improvement in the range of 10-15% for some real contracts.
@@ -144,7 +144,7 @@ I also want to emphasize that gas savings are not the main point of EOF.
 In the design, emphasis was simply on ensuring that existing contracts do not become more expensive, as any increase in cost would have posed a major disincentive to adoption.
 EOF already exceeded our expectations in that regard and any gains are just the icing on the top.
 
-## L2s
+### L2s
 A common argument is that [layer 2](https://ethereum.org/developers/docs/scaling/) is the place
 where innovation like EOF should be taking place since L2s are much more free to experiment with 
 the execution layer.
@@ -165,7 +165,7 @@ reasonable to require contracts to be recompiled before deployment.
 
 The potential for easy transpilation is also a feature that may be helpful to L2s that are not EVM-based.
 
-## Clients
+### Clients
 It is undeniable that the Ethereum clients bear most of the maintenance burden of this change
 as they will have to support both EOF and the legacy EVM for the foreseeable future.
 The benefits to clients of adopting EOF are also much less obvious.
@@ -186,7 +186,7 @@ The question is if the cost is justified.
 For the ecosystem above the clients, EOF is an improvement across the board.
 Universal adoption will make the legacy EVM irrelevant there.
 
-## Too early to ossify the execution layer 
+### Too early to ossify the execution layer 
 One or the complaints complaint leveled against EOF is that it is unnecessary, because Ethereum 
 should focus only on
 improving its consensus layer.
@@ -215,7 +215,7 @@ Arguing over them over and over again will be a massive waste that will take awa
 dev time than just merging EOF would.
 EOF is simply the most efficient way to just get done with it already.
 
-# Is EOF the only way?
+## Is EOF the only way?
 EOF is a coherent set of changes that build on each other.
 The versioned container format enables code validation and separation of data from code.
 Code validation allows for safe introduction of new opcodes with immediate arguments.
@@ -237,7 +237,7 @@ It already has a compiler implementation showing that it's feasible.
 In theory it can be done differently, but it is not likely that the other approaches,
 when perfected, will yield something that is in any way less complex than EOF.
 
-## Can we solve "Stack Too Deep" without EOF?
+### Can we solve "Stack Too Deep" without EOF?
 As Solidity, we have been so vocal about the need to solve the "Stack Too Deep" issue that
 one thing needs clarifying.
 While it is an important problem, it is largely incidental to EOF and not one of its explicit goals.
@@ -277,7 +277,7 @@ the challenge of it.
 Or we can be pragmatic, finally remove the unnecessary handicap by raising the limit
 (with minimal, if any, consequences) and focus on more important things.
 
-### Memory model differences
+#### Memory model differences
 Still, why does Solidity have to solve this problem and Vyper is seemingly unaffected? 
 The difference lies in the memory model.
 Solidity uses stack for all function parameters and local variables,
@@ -309,7 +309,7 @@ Repricing memory, on the other hand, requires much more careful evaluation and i
 to arrive quickly.
 It is a fine solution, but not to the same problem.
 
-## Why not EIP-615/EIP-2315?
+### Why not EIP-615/EIP-2315?
 [EIP-2315](https://eips.ethereum.org/EIPS/eip-2315) was a simplified version of [EIP-615](https://eips.ethereum.org/EIPS/eip-615) and was [loudly rejected for very good reasons](https://github.com/ethereum/pm/issues/263#issuecomment-790423785).
 Follow the link for details, but the main issues were that it was using
 dynamic jumps (i.e. not only not solving the same problem EOF does but aggravating it)
@@ -323,7 +323,7 @@ that it does not even achieve it.
 This might even be enough to make its adoption unlikely, but the reasons for the eventual 
 rejection were much more fundamental.
 
-## Do we really need immediate arguments?
+### Do we really need immediate arguments?
 Immediates are a natural solution to some types of problems.
 The value is embedded directly in the code and known ahead of time, unlike values placed on the stack.
 - Jumping to static locations is exactly such a problem.
@@ -336,7 +336,7 @@ Introduction of immediates has been a known problem for a long time now.
 Arguing that there are few proposals that require them is confusing the cause with the effect, given that doing this would require solving that problem first.
 EOF provides great value by turning that so far unsolvable dependency into a non-issue.
 
-### The `JUMPDEST` problem
+#### The `JUMPDEST` problem
 [The problem with multi-byte opcodes](https://ethereum-magicians.org/t/eip-663-unlimited-swap-and-dup-instructions/3346/10)
 is essentially that they may contain the value of the `JUMPDEST` opcode.
 If such sequences already appeared in existing contracts, the upgrade will change their behavior.
@@ -379,7 +379,7 @@ the problem.
 It completely misses the point and aims to patch a single issue in the short-term, while
 degrading the design of the EVM in the long term.
 
-# Summary
+## Summary
 EOF will benefit the whole stack that depends on the execution layer: compilers, tooling, 
 applications, even L2s.
 It simplifies the surface of contact with the EVM while also providing the necessary prerequisites 
