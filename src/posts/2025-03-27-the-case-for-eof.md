@@ -270,7 +270,7 @@ We are exploring multiple paths to our goal and EIP-663 is frankly just the simp
 ### The 16-slot limit is an artificial limitation
 The thing is... the challenge is largely artificial.
 The 16-slot limit does not come from any inherent limitation of the EVM,
-and potential downsides to increasing it are unproven and highly speculative.
+and potential downsides to increasing this limit are unproven and highly speculative.
 As far as we are aware, the limit is simply an arbitrary trade-off between the number of
 addressable stack items and the number of possible 1-byte opcodes (there can be only 256).
 `DUP1`..`DUP16` and `SWAP1`..`SWAP16` took up 32 spots and that had been deemed enough.
