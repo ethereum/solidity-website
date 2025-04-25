@@ -60,6 +60,7 @@ For reference, see the world map and chart with a list of countries of residence
 ![Participants World Map](/img/2025/survey/Slide3.png)
 
 ![List of Countries with 13+ responses](/img/2025/survey/Slide4.png)
+
 ### Language
 
 In the 2024 survey, a total of 75 languages were submitted as the native languages of the respondents.
