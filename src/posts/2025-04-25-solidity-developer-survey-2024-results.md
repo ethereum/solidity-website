@@ -155,7 +155,7 @@ Other less frequently mentioned languages are Python (10.3%), Rust (4.4%), Go (2
 
 Since Go was specified as an "Other" response, almost as many times as Java last year, it was introduced as a choice in the list of languages and ranked higher than C# and Java.
 
-Please note that there are missing labels of other languages that did not show up in the chart due to space constraints. You can find the [full list in the analysis sheet](link).
+Please note that there are missing labels of other languages that did not show up in the chart due to space constraints. You can find the [full list in the analysis sheet](https://docs.google.com/spreadsheets/d/1ptivw3pC-IMJ9Bhl6lViyKd-NTEDZGhE3-bwBFtMwtE/edit?usp=sharing).
 
 ![Most Used Programming Language](/img/2025/survey/Slide18.png)
 
