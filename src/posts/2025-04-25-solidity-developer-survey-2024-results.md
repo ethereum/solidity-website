@@ -17,8 +17,8 @@ This year, we received a total of 684 responses. Let's start with some useful li
 - This is our fifth annual survey. You can compare the 2024 results with the previous years by checking our blog posts below:
     - [2023](https://soliditylang.org/blog/2024/04/03/solidity-developer-survey-2023-results/)
     - [2022](https://soliditylang.org/blog/2023/03/10/solidity-developer-survey-2022-results/)
-    - [2021](https://blog.soliditylang.org/2022/02/07/solidity-developer-survey-2021-results/)
-    - [2020](https://blog.soliditylang.org/2021/01/26/solidity-developer-survey-2020-results/)
+    - [2021](https://soliditylang.org/blog/2022/02/07/solidity-developer-survey-2021-results/)
+    - [2020](https://soliditylang.org/blog/2021/01/26/solidity-developer-survey-2020-results/)
 
 Without further ado, let’s dig into the 2024 results!
 
