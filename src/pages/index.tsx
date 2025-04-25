@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2025/03/12/solidity-0.8.29-release-announcement/"
+                    href="/blog/2025/04/25/solidity-developer-survey-2024-results/"
                     fontWeight="bold"
                   >
-                    Solidity 0.8.29 is out!
+                   Results of the fifth annual Solidity Developer Survey for the year 2024 are live on the blog!
                   </Link>{' '}
-                  This version of the compiler brings support for EVM Object Format (experimental), custom storage layouts, ethdebug, and more. Read the announcement for full feature list and descriptions.
+                  In this blog post, we will be going over key insights and a detailed analysis of the various sections of the survey.
                 </Text>
               </Box>
             </Flex>
