@@ -61,7 +61,6 @@ For reference, see the world map and chart with a list of countries of residence
 
 ![List of Countries with 13+ responses](/img/2025/survey/Slide4.png)
 
-Alt-text: List of countries of residence with 13+ responses
 
 ### Language
 
