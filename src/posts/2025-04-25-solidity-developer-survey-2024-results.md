@@ -13,7 +13,7 @@ Before diving in, we would like to thank everyone who submitted a response to th
 
 This year, we received a total of 684 responses. Let's start with some useful links:
 
-- In the spirit of open source, you can find all raw data of the survey results [here]([link](https://docs.google.com/spreadsheets/d/1ptivw3pC-IMJ9Bhl6lViyKd-NTEDZGhE3-bwBFtMwtE/edit?usp=sharing)) and all graphs [here](https://docs.google.com/presentation/d/16eAwMso-t8fJma-4sxUglD5Xkqrj7uO_aoIbFVwfojs/edit?usp=sharing).
+- In the spirit of open source, you can find all raw data of the survey results [here](https://docs.google.com/spreadsheets/d/1ptivw3pC-IMJ9Bhl6lViyKd-NTEDZGhE3-bwBFtMwtE/edit?usp=sharing) and all graphs [here](https://docs.google.com/presentation/d/16eAwMso-t8fJma-4sxUglD5Xkqrj7uO_aoIbFVwfojs/edit?usp=sharing).
 - This is our fifth annual survey. You can compare the 2024 results with the previous years by checking our blog posts below:
     - [2023](https://soliditylang.org/blog/2024/04/03/solidity-developer-survey-2023-results/)
     - [2022](https://soliditylang.org/blog/2023/03/10/solidity-developer-survey-2022-results/)
