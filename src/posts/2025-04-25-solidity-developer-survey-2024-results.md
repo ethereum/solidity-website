@@ -28,7 +28,7 @@ The survey consists of 6 sections, namely: **[1]** Demographics, **[2]** Dev & U
 
 Let's look at some key insights from the summary of these various sections from the 2024 survey.
 
-- **Demographics**: In total, 684 developers from 91 different countries participated in the 2023 survey. The highest number of respondents hail from the **USA (10.8%)**, followed by **India and Nigeria at 7.8% each**. This remains consistent with last year's insights, except for Nigeria sharing the second place alongside India this year.
+- **Demographics**: In total, 684 developers from 91 different countries participated in the 2024 survey. The highest number of respondents hail from the **USA (10.8%)**, followed by **India and Nigeria at 7.8% each**. This remains consistent with last year's insights, except for Nigeria sharing the second place alongside India this year.
 - **Dev & User Profiles**: Solidity continues to be the most used language by the respondents, followed by TypeScript and JavaScript.
 A majority of Solidity experts (self-rating of 10) have been using the language for 5+ years.
 - **Solidity Background**: 76.6% of users use Solidity as regularly as daily or weekly. Additionally, Foundry climbs to the highest used Ethereum IDEs this year with 51.1% votes.
