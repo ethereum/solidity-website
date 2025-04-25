@@ -69,7 +69,7 @@ In the 2024 survey, a total of 75 languages were submitted as the native languag
 
 Note that this year, Russian has climbed up the ranks to 4th position, African languages also climbing up a bit higher than last year, whereas Chinese languages have fallen back in votes compared to 2023.
 
-_ℹ️ **Note:** Hindi, Urdu, Bengali, Telugu, Kannada, Tamil, Gujarati, Malayalam, and Marathi are clustered as “Indian languages”. Swahili, Hausa, Igbo, Yoruba, Luganda, Afrikaans, Kamba, Kiswahili, Malagasy, Mina, Shona, and Siswati are clustered as "African languages". And Cantonese, Chinese, and Mandarin are clustered as “Chinese languages”._
+ℹ️ **Note:** Hindi, Urdu, Bengali, Telugu, Kannada, Tamil, Gujarati, Malayalam, and Marathi are clustered as “Indian languages”. Swahili, Hausa, Igbo, Yoruba, Luganda, Afrikaans, Kamba, Kiswahili, Malagasy, Mina, Shona, and Siswati are clustered as "African languages". And Cantonese, Chinese, and Mandarin are clustered as “Chinese languages”.
 
 It is interesting to note that even more African languages have entered the survey results this year.
 
@@ -91,7 +91,7 @@ However, 12% of participants prefer to read the documentation in their native la
 
 ![Preferred Language for Docs Breakdown](/img/2025/survey/Slide9.png)
 
-_ℹ️ Note: This survey has only been conducted in English, which may have impacted the outcome of this question. We still believe internationalization of resources like the Solidity documentation is a crucial factor in lowering the barrier of entry, and we aim to support this by helping coordinate the community-driven [translation efforts](https://github.com/solidity-docs)._
+ℹ️ Note: This survey has only been conducted in English, which may have impacted the outcome of this question. We still believe internationalization of resources like the Solidity documentation is a crucial factor in lowering the barrier of entry, and we aim to support this by helping coordinate the community-driven [translation efforts](https://github.com/solidity-docs).
 
 ![header 2](/img/2024/survey/header2.png)
 
@@ -285,7 +285,7 @@ While the usage share of the 0.7.x (4.8%) version series has more or less remain
 
 ![Used Solidity Versions](/img/2025/survey/Slide34.png)
 
-_⚠️ **Important Reminder:** Please make sure to frequently update your code (and compiler) to the latest Solidity version. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json) are added in the newer versions!_
+⚠️ **Important Reminder:** Please make sure to frequently update your code (and compiler) to the latest Solidity version. [Several important bug fixes and security improvements](https://github.com/ethereum/solidity/blob/develop/docs/bugs_by_version.json) are added in the newer versions!
 
 ### Solidity Usage Details
 
@@ -451,9 +451,9 @@ Among the 39.3% that encounter recurring issues, Stack too deep issues are encou
 
 ![Recurring issues breakdown](/img/2025/survey/Slide57.png)
 
-_ℹ️ **Note:** On the topic of debugging issues, we would like to remind you about the ethdebug standards development working group, an initiative aimed at defining a common debugging data format for languages built on top of the EVM: [ethdebug](https://github.com/ethdebug/format/).
+ℹ️ **Note:** On the topic of debugging issues, we would like to remind you about the ethdebug standards development working group, an initiative aimed at defining a common debugging data format for languages built on top of the EVM: [ethdebug](https://github.com/ethdebug/format/).
 
-We encourage all developers working on such tools to join the working group. The group has regular bi-weekly meetings and coordinates via the [ethdebug Matrix channel](https://matrix.to/#/#ethdebug:matrix.org)._
+We encourage all developers working on such tools to join the working group. The group has regular bi-weekly meetings and coordinates via the [ethdebug Matrix channel](https://matrix.to/#/#ethdebug:matrix.org).
 
 ### Getting Started with the Compiler
 
@@ -712,4 +712,4 @@ To stay up-to-date with all Solidity-related announcements and updates, make sur
 
 ---
 
-_All graphs can be found [here](https://docs.google.com/presentation/d/16eAwMso-t8fJma-4sxUglD5Xkqrj7uO_aoIbFVwfojs/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1ptivw3pC-IMJ9Bhl6lViyKd-NTEDZGhE3-bwBFtMwtE/edit?usp=sharing)._
+All graphs can be found [here](https://docs.google.com/presentation/d/16eAwMso-t8fJma-4sxUglD5Xkqrj7uO_aoIbFVwfojs/edit?usp=sharing). The raw and analyzed data can be found [here](https://docs.google.com/spreadsheets/d/1ptivw3pC-IMJ9Bhl6lViyKd-NTEDZGhE3-bwBFtMwtE/edit?usp=sharing).
