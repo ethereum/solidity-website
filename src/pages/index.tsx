@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2025/04/25/solidity-developer-survey-2024-results/"
+                    href="/blog/2025/05/07/solidity-0.8.30-release-announcement/"
                     fontWeight="bold"
                   >
-                   Results of the fifth annual Solidity Developer Survey for the year 2024 are live on the blog!
+                   We just released the Solidity Compiler v0.8.30.
                   </Link>{' '}
-                  In this blog post, we will be going over key insights and a detailed analysis of the various sections of the survey.
+                  This latest version is a maintenance release in light of the Pectra Ethereum network upgrade scheduled for May 7, 2025 and changes the default EVM version from cancun to prague.
                 </Text>
               </Box>
             </Flex>
