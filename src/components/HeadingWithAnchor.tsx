@@ -14,7 +14,7 @@ export const HeadingWithAnchor: React.FC<HeadingWithAnchorProps> = ({
   id,
   ...props
 }) => (
-  <Heading id={id} role="group" {...props}>
+  <Heading id={id} role="group" display="flex" alignItems="center" {...props}>
     {children}
     {id && (
       <ChakraLink
@@ -23,10 +23,9 @@ export const HeadingWithAnchor: React.FC<HeadingWithAnchorProps> = ({
         ml={2}
         opacity={0}
         _groupHover={{ opacity: 1 }}
-        transition="opacity 0.2s"
+        transition="opacity 0.1s"
         color="secondary"
         display="inline"
-        verticalAlign="middle"
       >
         <LinkIcon boxSize="0.5em" />
       </ChakraLink>
