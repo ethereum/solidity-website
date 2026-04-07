@@ -204,9 +204,11 @@ one case of a dispatch but are actually modifying code that never executes.
 ## The Pattern Match Compiler
 
 Exhaustiveness and redundancy checking, together with the translation of nested
-patterns into efficient runtime dispatch, are handled by a dedicated compilation
-pass in the Core Solidity prototype:
+patterns into efficient code, are handled by a dedicated compilation pass in the
+Core Solidity prototype:
 [`DecisionTreeCompiler.hs`](https://github.com/argotorg/solcore/blob/main/src/Solcore/Desugarer/DecisionTreeCompiler.hs).
+The implementation follows the ideas described in paper
+[Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
 This pass runs after type inference and before specialization. Its job is to
 transform `match` expressions over arbitrary nested patterns into a _decision
@@ -568,4 +570,208 @@ constructor `False`; `true` (1) is the tag for `True`. Each match arm becomes a
 `switch` case, and no payload slot is needed because both constructors are
 nullary (they carry no fields).
 
+A slightly more interesting binary sum example is `require`, a guard function
+that reverts the transaction when a condition fails:
+
+```js
+function require(cond : Bool, msg : word) {
+    match cond {
+    | True  =>
+    | False => myrevert(msg);
+    }
+}
+```
+
+The `True` branch has an empty body: the function simply returns without doing
+anything. The `False` branch calls `myrevert`. In Yul:
+
+```yul
+function usr$require(cond, msg) {
+  switch cond
+    case true  {}
+    case false { usr$myrevert(msg) }
+}
+```
+
+Empty `{}` blocks are valid Yul: the `case true` arm does nothing and falls
+through to the implicit `leave`. This is the pattern the compiler generates
+whenever a match arm's body is a no-op.
+
+The next example introduces a binary sum with a **payload**. Consider an
+`Option` type — the standard "nullable value" encoding:
+
+```js
+data Option(a) = None | Some(a);
+
+function tryWithdraw(balance : uint256, amount : uint256) -> Option(uint256) {
+    match balance >= amount {
+    | False => return None;
+    | True  => return Some(balance - amount);
+    }
+}
+```
+
+`Option(uint256)` is a binary sum where:
+
+- `None` carries no fields (nullary constructor).
+- `Some(x)` carries one `uint256` field.
+
+The maximum payload size is 1 word, so every `Option(uint256)` value occupies
+**2 stack slots**: a tag word and a payload word. `None` is `(false, <unused>)`
+and `Some(x)` is `(true, x)`.
+
+The function `tryWithdraw` returns an `Option(uint256)`, so its Yul return
+signature exposes two words:
+
+```yul
+function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
+  let cond
+  cond := iszero(lt(balance, amount))    // balance >= amount
+  switch cond
+    case false {
+      // None: tag = false, payload slot unused
+      _result_tag := false
+      leave
+    }
+    case true {
+      // Some(balance - amount): tag = true, payload = new balance
+      _result_tag    := true
+      _result_payload := sub(balance, amount)
+      leave
+    }
+}
+```
+
+Callers of `tryWithdraw` receive both return words and can branch on
+`_result_tag` to check whether the withdrawal succeeded before using
+`_result_payload`.
+
+#### N-ary Sums and the Compression Pass
+
+Types with three or more constructors go through an additional transformation.
+At the Core IR level, a multi-constructor type such as
+
+```js
+data AuctionState =
+    NotStarted(uint256)
+  | Active(uint256, address)
+  | Ended(uint256, address)
+  | Cancelled(uint256, address);
+```
+
+is initially encoded as nested binary sums: `NotStarted` becomes `inl`, and the
+remaining three constructors are wrapped in a nested `inr`. The `yule` backend's
+`Compress` pass then **flattens** this nesting into a single N-ary sum with an
+integer tag (0, 1, 2, …), producing a flat `switch` in the output.
+
+After compression, `AuctionState` becomes a 3-slot value:
+
+```
+slot 0  tag   (0 = NotStarted, 1 = Active, 2 = Ended, 3 = Cancelled)
+slot 1  field 0
+slot 2  field 1
+```
+
+A function that checks whether an auction has concluded:
+
+```js
+function isFinished(state : AuctionState) -> Bool {
+    match state {
+    | NotStarted(_)    => return False;
+    | Active(_, _)     => return False;
+    | Ended(_, _)      => return True;
+    | Cancelled(_, _)  => return True;
+    }
+}
+```
+
+compiles to a single flat `switch` on the tag word. The payload slots are
+ignored because none of the arms uses the bound fields:
+
+```yul
+function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
+  switch state_tag
+    case 0 { _result := false; leave }   // NotStarted
+    case 1 { _result := false; leave }   // Active
+    case 2 { _result := true;  leave }   // Ended
+    case 3 { _result := true;  leave }   // Cancelled
+}
+```
+
+When an arm does bind fields — as in `processBid` from the exhaustiveness
+example — the payload slots are assigned to named variables before the arm body
+executes:
+
+```yul
+// case 1 (Active):
+case 1 {
+  let currentBid  := state_f0    // uint256
+  let bidder      := state_f1    // address
+  ...
+  leave
+}
+```
+
+#### Wrapper Type Erasure
+
+Single-constructor types — wrapper newtypes — compile to a different
+representation. Because there is only one constructor, no tag is needed: the
+compiler erases the constructor wrapper entirely, and the value occupies exactly
+as many slots as its payload.
+
+```js
+data uint256 = uint256(word);   // single-constructor: no tag
+
+function double(x : uint256) -> uint256 {
+    match x {
+    | uint256(w) => return uint256(w + w);
+    }
+}
+```
+
+Because `uint256` is a newtype over one word, the match arm is translated as a
+plain variable binding with no runtime `switch`:
+
+```yul
+function usr$double(x) -> _result {
+  // x IS the payload — no tag slot, no switch
+  _result := add(x, x)
+  leave
+}
+```
+
+The `Payment` example from earlier benefits from this property too: the
+`address` and `tokenid` newtypes impose no runtime cost compared to using raw
+words.
+
 ## Conclusion
+
+Core Solidity's algebraic data types and pattern matching address a class of
+smart contract bugs that Classic Solidity has no good defense against: the
+silent handling of missing or newly-added cases.
+
+The problems are structural. When a contract's logic depends on a set of
+alternatives — payment types, auction phases, token standards, vote outcomes —
+Classic Solidity provides enums and structs, but it cannot enforce that every
+function that dispatches on that type handles all cases, or that every variant
+carries the right fields and no others. Developers fill the gap with runtime
+`require` checks and a discipline of adding cases everywhere, both of which are
+fragile.
+
+Algebraic data types fix the representation: each constructor carries exactly
+its own fields, and a value of the sum type cannot be in an incoherent state.
+Pattern matching fixes the dispatch: the compiler verifies statically that every
+case is covered and that no branch is dead code.
+
+The pattern match compiler described here — pattern matrices, the necessity
+heuristic, specialization, decision trees, and the Compress pass that produces
+flat integer-tagged switches in Yul — makes these guarantees cheap to enforce.
+The generated Yul is a straightforward `switch` on a tag word, the same code a
+careful developer would write by hand, with no extra overhead compared to manual
+dispatch.
+
+Exhaustiveness and redundancy checking together ensure that pattern matching is
+not just convenient but safe: adding a constructor to a type turns every
+incomplete match into a compile-time error, forcing the developer to decide how
+each existing function should handle the new case before the code can be
+deployed.
