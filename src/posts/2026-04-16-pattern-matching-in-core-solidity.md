@@ -10,9 +10,10 @@ category: Announcements
 As we described in our
 [Core Solidity deep dive](https://soliditylang.org/blog/2025/11/14/core-solidity-deep-dive/),
 Core Solidity introduces algebraic data types (ADTs) and pattern matching as
-first-class language features. This post digs into why these features matter for
-smart contract safety, and how the pattern matching compiler in the Core
-Solidity prototype is implemented.
+first-class language features. This post explains why these features matter for
+smart contract safety — not just as language niceties, but as a way to eliminate
+an entire class of bugs at compile time that today costs real money to find and
+fix.
 
 ## Why Classic Solidity Needs Better Data Modeling
 
@@ -43,7 +44,8 @@ contract PaymentHandler {
             require(payment.token == address(0), "Native: no token");
             require(payment.amount > 0, "Native: amount required");
             require(payment.tokenId == 0, "Native: no tokenId");
-            payable(payment.to).call{value: payment.amount}("");
+            (bool success, ) = payable(payment.to).call{value: payment.amount}("");
+            require(success, "Native: transfer failed");
         } else if (payment.paymentType == PaymentType.ERC20) {
             require(payment.token != address(0), "ERC20: token required");
             require(payment.amount > 0, "ERC20: amount required");
@@ -94,7 +96,8 @@ developer might add a new function and forget to validate one of the fields.
 ## Algebraic Data Types Make Invalid States Unrepresentable
 
 Core Solidity lets us define a `Payment` type that expresses these three
-variants precisely:
+variants precisely. (`word` is Core Solidity's primitive type for a raw 256-bit
+EVM word — the equivalent of `uint256` without semantic constraints.)
 
 ```js
 data address = address(word);
@@ -153,7 +156,7 @@ by a buggy contract may be permanently inaccessible. In the Classic Solidity
 `calculateFee` function above, the final `return 0` is dead code that exists
 only because the compiler cannot verify that the if-else chain covers all
 variants. If a future developer adds a fourth `PaymentType` and forgets to
-update `calculateFee`, the function silently returns zero, a potentially
+update `calculateFee`, the function silently returns zero — a potentially
 expensive mistake that will not be caught until it is too late.
 
 Exhaustiveness checking transforms this category of bug into a compile-time
@@ -197,9 +200,36 @@ decision is deliberate and visible in the source code.
 Redundancy checking is the complementary property: the compiler also warns when
 a pattern branch can never be reached because an earlier branch already covers
 its inputs. Redundant branches are often symptoms of copy-paste errors or of
-code that was not updated after a refactor. Having the compiler detect them
-avoids the subtle class of bugs where a developer believes they are modifying
-one case of a dispatch but are actually modifying code that never executes.
+code that was not updated after a refactor.
+
+### What This Means for Audits
+
+Smart contract security audits are expensive. A significant portion of audit
+time on enum-heavy contracts goes toward verifying that every function that
+dispatches on a type covers all cases — manually tracing if-else chains and
+checking that no variant falls through to a silent default. This is tedious,
+error-prone work that scales with the number of functions and variants in a
+codebase.
+
+Pattern matching with exhaustiveness checking makes that entire category of
+audit finding disappear. When the compiler rejects incomplete matches, an
+auditor does not need to check whether `calculateFee` handles `ERC1155` — if it
+compiled, it does. The time auditors previously spent tracing dispatch logic can
+be spent on higher-value findings. For projects paying $50,000–$500,000 for an
+audit, that is a concrete, measurable saving.
+
+### What About Existing Validation Patterns?
+
+A reasonable question from developers who already write defensive code: "I
+already use `require` checks and careful enum handling. What does this buy me?"
+
+The answer is not that your current practices are wrong — it is that they do not
+scale. Today, the discipline of "update every dispatch function when you add a
+variant" lives in your head, in code review checklists, and in audit reports. It
+is not enforced by the compiler, so it can fail. When a team member adds
+`ERC1155` support under deadline pressure and misses one function, the compiler
+says nothing. Pattern matching moves that discipline into the toolchain, where
+it cannot be forgotten.
 
 ## The Pattern Match Compiler
 
@@ -207,47 +237,27 @@ Exhaustiveness and redundancy checking, together with the translation of nested
 patterns into efficient code, are handled by a dedicated compilation pass in the
 Core Solidity prototype:
 [`DecisionTreeCompiler.hs`](https://github.com/argotorg/solcore/blob/main/src/Solcore/Desugarer/DecisionTreeCompiler.hs).
-The implementation follows the ideas described in paper
+The implementation follows the ideas described in
 [Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
-This pass runs after type inference and before specialization. Its job is to
+This pass runs after type inference and before code generation. Its job is to
 transform `match` expressions over arbitrary nested patterns into a _decision
-tree_, a form where each node tests exactly one scrutinee against flat
+tree_ — a form where each node tests exactly one scrutinee against flat
 constructor patterns, with no nesting. The resulting tree is then converted back
-into a simplified `match` statement that later passes (specialization and Yul
-emission) can handle directly.
+into simplified `match` statements that the Yul backend can handle directly.
 
-### The Pattern Matrix
+The algorithm works by treating the match arms as a _pattern matrix_ (one row
+per arm, one column per scrutinee), selecting the most informative column to
+test first using a necessity heuristic, and recursively building sub-matrices
+for each constructor case. Exhaustiveness and redundancy are both detected as
+natural byproducts of this construction: a missing case surfaces when the matrix
+has no row to cover a particular input, and a redundant arm surfaces when its
+row is already subsumed by earlier rows.
 
-The compiler's input is a _pattern matrix_: one row per match arm, one column
-per scrutinee expression, with the arm's body as its action. Consider this
-function from the payment example:
-
-```js
-function processPayment(payment : Payment) {
-    match payment {
-    | Native(to, amount)           => transfer(to, amount);
-    | ERC20(token, from, to, amt)  => transferFromERC20(token, from, to, amt);
-    | ERC721(token, from, to, tid) => transferFromERC721(token, from, to, tid);
-    }
-}
-```
-
-The matrix here has three rows and one column:
-
-```
-Column 0 (payment)                  Action
----------------------------------------
-Native(to, amount)           →  transfer(to, amount)
-ERC20(token, from, to, amt)  →  transferFromERC20(...)
-ERC721(token, from, to, tid) →  transferFromERC721(...)
-```
-
-Multi-scrutinee matches naturally produce multi-column matrices. This match
-function, which computes whether a state transition is permitted in an auction:
+The practical output of this pass is straightforward. The `discount` function:
 
 ```js
-data Phase = Early | Late
+data Phase = Early | Late;
 
 function discount(state : AuctionState, phase : Phase) -> uint256 {
     match state, phase {
@@ -258,210 +268,9 @@ function discount(state : AuctionState, phase : Phase) -> uint256 {
 }
 ```
 
-produces a 3×2 matrix:
-
-```
-Column 0 (state)      Column 1 (phase)    Action
--------------------------------------------------
-Active(bid, _)        Early          →  return bid / 10
-Active(bid, _)        Late           →  return bid / 20
-$v0                   $v1            →  return 0
-```
-
-(Wildcards have been replaced with fresh variables `$v0`, `$v1` by an earlier
-desugaring pass.)
-
-### Column Selection
-
-When the matrix has more than one column, the algorithm must decide which column
-to test first. The compiler uses the _necessity heuristic_: it counts the number
-of non-variable patterns in each column and selects the column with the highest
-score. Columns with more constructor or literal patterns carry more information
-and prune the matrix faster.
-
-For the `discount` matrix above:
-
-```
-Column 0 (state) necessity: 2  (Active, Active — two non-variable patterns)
-Column 1 (phase) necessity: 2  (Early, Late — two non-variable patterns)
-```
-
-Both columns score equally. When scores tie the compiler prefers the shallowest
-scrutinee, the one that requires the fewest field accesses to reach from the
-top-level value, so column 0 is selected first.
-
-For a matrix that is more clearly asymmetric, consider:
+is compiled into a nested sequence of single-level matches:
 
 ```js
-function canFinalize(state : AuctionState, approved : Bool) -> Bool {
-    match state, approved {
-    | Ended(_, _),    True  => return True;
-    | Cancelled(_, _), True => return True;
-    | _,              _     => return False;
-    }
-}
-```
-
-```
-Column 0 (state)    Column 1 (approved)   Action
--------------------------------------------------
-Ended(_, _)         True           →  return True
-Cancelled(_, _)     True           →  return True
-$v0                 $v1            →  return False
-```
-
-Here column 0 has necessity score 2, column 1 has score 1, so column 0 is
-selected and the compiler emits a single `switch` on the auction state tag
-before ever looking at `approved`.
-
-### Specialization and the Default Matrix
-
-Once a column is selected, the compiler processes each constructor head found in
-that column. For each constructor `K` it builds a _specialized sub-matrix_ by:
-
-- Keeping rows that begin with `K(...)` and prepending their field patterns to
-  the remaining columns.
-- Replacing rows that begin with a variable `$v` with fresh variable patterns
-  for `K`'s fields (and recording that `$v` is bound to the whole scrutinee at
-  this node).
-- Discarding rows whose first pattern is a different constructor.
-
-Going back to the `discount` example and specializing for `Active`:
-
-```
-// Specialized matrix for Active(bid, _) in column 0:
-// The two Active rows survive; the wildcard row goes to the default matrix.
-
-Field: bid    Field: _    Column 1 (phase)    Action
------------------------------------------------------
-$bid          $pad        Early          →  return bid / 10
-$bid          $pad        Late           →  return bid / 20
-```
-
-The wildcard row from the original matrix becomes the _default matrix_ — the
-sub-matrix to compile when the scrutinee does not match any of the listed
-constructors:
-
-```
-// Default matrix (wildcard row from column 0):
-Column 1 (phase)   Action
---------------------------
-$v1          →  return 0
-```
-
-### Recursion and the Decision Tree
-
-After specialization, the compiler recurses into each sub-matrix. For the
-`Active` specialization above, it now needs to compile:
-
-```
-Field: bid    Field: _    Column 1 (phase)    Action
------------------------------------------------------
-$bid          $pad        Early          →  return bid / 10
-$bid          $pad        Late           →  return bid / 20
-```
-
-The necessity scores are now: bid=0, _=0, phase=2. Column `phase` is selected.
-Specializing for `Early`:
-
-```
-// Early specialization: one row, all variables → Leaf
-$bid $pad → return bid / 10
-```
-
-And for `Late`:
-
-```
-// Late specialization: one row, all variables → Leaf
-$bid $pad → return bid / 20
-```
-
-`Phase` has exactly two constructors and both are covered: the match on phase is
-complete, so no default is needed at this level.
-
-Back at the top level, the compiler checks whether `Active` alone covers all of
-`AuctionState`. It does not: `NotStarted`, `Ended`, and `Cancelled` are missing.
-The default matrix (the wildcard row) provides coverage, so it is compiled to a
-`Leaf` for `return 0`.
-
-The full decision tree is:
-
-```
-Switch on state:
-  case Active(bid, _):
-    Switch on phase:
-      case Early: Leaf → return bid / 10
-      case Late:  Leaf → return bid / 20
-  default:        Leaf → return 0
-```
-
-### Exhaustiveness and Redundancy Errors
-
-Two properties are checked during this process.
-
-**Exhaustiveness.** When the set of constructors found in a column is incomplete
-and the default matrix is also empty, there is no branch to fall through to. The
-compiler emits a `NonExhaustive` error and names a _witness_, a concrete set of
-patterns that would reach the missing case. For example, if the wildcard row
-were removed from `discount`:
-
-```js
-function discount(state : AuctionState, phase : Phase) -> uint256 {
-    match state, phase {
-    | Active(bid, _), Early => return bid / 10;
-    | Active(bid, _), Late  => return bid / 20;
-    // missing: all non-Active states
-    }
-}
-```
-
-the compiler reports the following error message:
-
-```
-Non-exhaustive pattern match. Missing case: NotStarted($v0), $v1
-  in function discount
-  in match (state, phase)
-```
-
-The witness `NotStarted($v0), $v1` identifies the first uncovered case: any
-`NotStarted` state paired with any phase value. The compiler produces this
-witness by looking up the siblings of `Active` in the type environment (finding
-`NotStarted`, `Ended`, `Cancelled`) and taking the first one that is absent from
-the column.
-
-**Redundancy.** Before building the decision tree, the compiler runs a separate
-pre-pass that checks each row for _usefulness_ (Maranget's algorithm): a row is
-useful if it covers at least one input that no earlier row already handles. A
-row that is not useful is dead code and triggers a `RedundantClause` warning.
-For example:
-
-```js
-function f(x : Bool) -> Bool {
-    match x {
-    | z    => return z;    // catches everything
-    | True => return True; // unreachable: z above already covers True
-    }
-}
-```
-
-```
-Warning: Clause (True → return True) is redundant.
-  in function f
-  in match (x)
-```
-
-Unlike non-exhaustive matches, redundant-clause warnings do not prevent
-compilation: they are surfaced as warnings to assist developers during
-refactoring.
-
-### Converting the Decision Tree Back to Core Solidity
-
-Once the decision tree is built it is converted back into a simplified `match`:
-one where each node tests a single expression against flat constructor patterns,
-with no nesting. For the `discount` function the result looks like this:
-
-```js
-// After decision tree compilation: one level of match per scrutinee
 function discount(state : AuctionState, phase : Phase) -> uint256 {
     match state {
     | Active($bid, $pad) =>
@@ -474,79 +283,113 @@ function discount(state : AuctionState, phase : Phase) -> uint256 {
 }
 ```
 
-All nested constructor patterns have been flattened. Each variable introduced by
-the flattening (`$bid`, `$pad`) has been substituted into the arm body. The
-compiler carries an _occurrence map_ that tracks which sub-expression each
-variable is bound to, and applies a single substitution pass over every arm body
-to install those bindings before emitting code.
+All nested constructor patterns have been flattened, and each variable
+introduced by the flattening has been substituted into the arm body.
 
-### Lowering to Yul
+### Exhaustiveness and Redundancy Errors
+
+The compiler produces concrete, actionable error messages. An incomplete match:
+
+```js
+function discount(state : AuctionState, phase : Phase) -> uint256 {
+    match state, phase {
+    | Active(bid, _), Early => return bid / 10;
+    | Active(bid, _), Late  => return bid / 20;
+    // missing: all non-Active states
+    }
+}
+```
+
+produces:
+
+```
+Non-exhaustive pattern match. Missing case: NotStarted($v0), $v1
+  in function discount
+  in match (state, phase)
+```
+
+The witness `NotStarted($v0), $v1` identifies the first uncovered case: any
+`NotStarted` state paired with any phase value, giving the developer a concrete
+starting point for completing the match.
+
+A redundant arm:
+
+```js
+function f(x : Bool) -> Bool {
+    match x {
+    | z    => return z;    // catches everything
+    | True => return True; // unreachable: z above already covers True
+    }
+}
+```
+
+produces:
+
+```
+Warning: Clause (True → return True) is redundant.
+  in function f
+  in match (x)
+```
+
+Unlike non-exhaustive matches, redundant-clause warnings do not prevent
+compilation: they are surfaced as warnings to assist developers during
+refactoring.
+
+## Lowering to Yul — and Why There Is No Overhead
+
+A common concern when adding type-level machinery is that it comes with a
+runtime cost. Pattern matching over algebraic data types does not. The generated
+Yul is the same `switch` statement a careful developer would write by hand.
 
 After pattern compilation, the program goes through specialization
 (monomorphization of generic functions and type class instances) and is emitted
 as Hull: a first-order functional intermediate representation with sum and
-product types. The separate `yule` binary, implemented in
+product types. The separate `yule` backend, implemented in
 [`Translate.hs`](https://github.com/argotorg/solcore/blob/main/yule/Translate.hs),
-then translates Hull into Yul.
+then translates Hull into Yul. The intermediate languages used throughout the
+Core Solidity compilation pipeline will be the subject of future posts.
 
-#### Runtime Representation of Sum Types
+### Runtime Representation of Sum Types
 
-The central challenge for the Yul backend is that Yul has no algebraic types,
-only 256-bit words and flat sequences of those words. Every sum type must
-therefore be _flattened_ onto the EVM stack.
-
-The compiler represents a sum type as a sequence of EVM stack slots whose length
-is:
+Yul has no algebraic types, only 256-bit words. Every sum type is therefore
+flattened onto the EVM stack as:
 
 ```
-1 (tag) + max(size of each constructor's payload)
+1 (tag word) + max(payload size across all constructors)
 ```
 
-The tag is a single word that identifies which constructor is active (starting
-at 0). The payload slots hold the fields of the active constructor, padded with
-unused words to fill the maximum payload size across all constructors.
+The tag identifies which constructor is active. The payload slots hold the
+fields of the active constructor, padded with unused words to reach the maximum
+payload size.
 
-**Binary sums (`A | B`).** A type with two constructors is represented as a
-single word: 0 (`false` in Yul) for the first constructor, 1 (`true` in Yul) for
-the second. Because both `unit` payload fields are zero-sized, no payload slot
-is needed beyond the tag. So `Bool = False
-| True` occupies exactly one stack
-slot.
+**Binary sums (`A | B`)** use `false` (0) for the first constructor and `true`
+(1) for the second. `Bool = False | True` occupies exactly one stack slot
+because both constructors are nullary.
 
-**N-ary sums.** A type with more than two constructors gets an integer tag (0,
-1, 2, …) and as many payload slots as the widest constructor requires.
-
-For `AuctionState`:
+**N-ary sums** get an integer tag (0, 1, 2, …). For `AuctionState`:
 
 ```js
 data AuctionState =
-    NotStarted(uint256)       // payload: 1 word (reserve)
-  | Active(uint256, address)  // payload: 2 words (bid, bidder)
+    NotStarted(uint256)       // payload: 1 word
+  | Active(uint256, address)  // payload: 2 words
   | Ended(uint256, address)   // payload: 2 words
   | Cancelled(uint256, address); // payload: 2 words
 ```
 
 The widest payload is 2 words, so every `AuctionState` value occupies **3 stack
-slots**:
+slots**: a tag and two payload words. `NotStarted(1000)` is
+`(0, 1000, <unused>)` on the stack; `Active(500, 0xABCD)` is `(1, 500, 0xABCD)`.
 
-```
-slot 0  tag   (0=NotStarted, 1=Active, 2=Ended, 3=Cancelled)
-slot 1  field 0  (reserve for NotStarted; currentBid for Active/Ended/Cancelled)
-slot 2  field 1  (unused for NotStarted; bidder for Active/Ended/Cancelled)
-```
+**Single-constructor types** (wrapper newtypes) have no tag at all — the
+constructor is erased entirely. `data uint256 = uint256(word)` is just one stack
+slot, with zero overhead compared to using a raw `word`.
 
-A `NotStarted(1000)` value is represented as `(0, 1000, <unused>)` on the stack.
-An `Active(500, 0xABCD)` value is `(1, 500, 0xABCD)`.
+### `match` Compiles to `switch`
 
-#### Translating `match` to `switch`
+The Yul backend emits a `switch` on the tag word, with one `case` per
+constructor. The output is minimal and readable.
 
-The `yule` translator handles a match statement by extracting the tag from the
-scrutinee's location and emitting a Yul `switch` on that tag. Each arm binds the
-payload to a local variable and then generates its body.
-
-For **binary sums**, the tag is the entire value (a single word) and the two
-branches use `case false` and `case true`. Consider `not`, which inverts a
-boolean condition:
+For `not`, a nullary binary sum:
 
 ```js
 function not(b : Bool) -> Bool {
@@ -565,13 +408,7 @@ function usr$not(_v0) -> _result {
 }
 ```
 
-The `Bool` value is a single word. `false` (0) is the tag for the first
-constructor `False`; `true` (1) is the tag for `True`. Each match arm becomes a
-`switch` case, and no payload slot is needed because both constructors are
-nullary (they carry no fields).
-
-A slightly more interesting binary sum example is `require`, a guard function
-that reverts the transaction when a condition fails:
+For `require`, a match arm with an empty body:
 
 ```js
 function require(cond : Bool, msg : word) {
@@ -582,9 +419,6 @@ function require(cond : Bool, msg : word) {
 }
 ```
 
-The `True` branch has an empty body: the function simply returns without doing
-anything. The `False` branch calls `myrevert`. In Yul:
-
 ```yul
 function usr$require(cond, msg) {
   switch cond
@@ -593,12 +427,10 @@ function usr$require(cond, msg) {
 }
 ```
 
-Empty `{}` blocks are valid Yul: the `case true` arm does nothing and falls
-through to the implicit `leave`. This is the pattern the compiler generates
-whenever a match arm's body is a no-op.
+Empty `{}` blocks are valid Yul. The `case true` arm does nothing and falls
+through to the implicit `leave`.
 
-The next example introduces a binary sum with a **payload**. Consider an
-`Option` type — the standard "nullable value" encoding:
+For `tryWithdraw`, a binary sum with a payload (`Option(uint256)`):
 
 ```js
 data Option(a) = None | Some(a);
@@ -611,17 +443,8 @@ function tryWithdraw(balance : uint256, amount : uint256) -> Option(uint256) {
 }
 ```
 
-`Option(uint256)` is a binary sum where:
-
-- `None` carries no fields (nullary constructor).
-- `Some(x)` carries one `uint256` field.
-
-The maximum payload size is 1 word, so every `Option(uint256)` value occupies
-**2 stack slots**: a tag word and a payload word. `None` is `(false, <unused>)`
-and `Some(x)` is `(true, x)`.
-
-The function `tryWithdraw` returns an `Option(uint256)`, so its Yul return
-signature exposes two words:
+`None` is `(false, <unused>)` and `Some(x)` is `(true, x)` — two stack slots.
+The function returns both:
 
 ```yul
 function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
@@ -629,50 +452,18 @@ function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
   cond := iszero(lt(balance, amount))    // balance >= amount
   switch cond
     case false {
-      // None: tag = false, payload slot unused
       _result_tag := false
       leave
     }
     case true {
-      // Some(balance - amount): tag = true, payload = new balance
-      _result_tag    := true
+      _result_tag     := true
       _result_payload := sub(balance, amount)
       leave
     }
 }
 ```
 
-Callers of `tryWithdraw` receive both return words and can branch on
-`_result_tag` to check whether the withdrawal succeeded before using
-`_result_payload`.
-
-#### N-ary Sums and the Compression Pass
-
-Types with three or more constructors go through an additional transformation.
-At the Core IR level, a multi-constructor type such as
-
-```js
-data AuctionState =
-    NotStarted(uint256)
-  | Active(uint256, address)
-  | Ended(uint256, address)
-  | Cancelled(uint256, address);
-```
-
-is initially encoded as nested binary sums: `NotStarted` becomes `inl`, and the
-remaining three constructors are wrapped in a nested `inr`. The `yule` backend's
-`Compress` pass then **flattens** this nesting into a single N-ary sum with an
-integer tag (0, 1, 2, …), producing a flat `switch` in the output.
-
-After compression, `AuctionState` becomes a 3-slot value:
-
-```
-slot 0  tag   (0 = NotStarted, 1 = Active, 2 = Ended, 3 = Cancelled)
-slot 1  field 0
-slot 2  field 1
-```
-
-A function that checks whether an auction has concluded:
+For `isFinished`, an N-ary sum with four constructors:
 
 ```js
 function isFinished(state : AuctionState) -> Bool {
@@ -685,9 +476,6 @@ function isFinished(state : AuctionState) -> Bool {
 }
 ```
 
-compiles to a single flat `switch` on the tag word. The payload slots are
-ignored because none of the arms uses the bound fields:
-
 ```yul
 function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
   switch state_tag
@@ -698,51 +486,10 @@ function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
 }
 ```
 
-When an arm does bind fields — as in `processBid` from the exhaustiveness
-example — the payload slots are assigned to named variables before the arm body
-executes:
-
-```yul
-// case 1 (Active):
-case 1 {
-  let currentBid  := state_f0    // uint256
-  let bidder      := state_f1    // address
-  ...
-  leave
-}
-```
-
-#### Wrapper Type Erasure
-
-Single-constructor types — wrapper newtypes — compile to a different
-representation. Because there is only one constructor, no tag is needed: the
-compiler erases the constructor wrapper entirely, and the value occupies exactly
-as many slots as its payload.
-
-```js
-data uint256 = uint256(word);   // single-constructor: no tag
-
-function double(x : uint256) -> uint256 {
-    match x {
-    | uint256(w) => return uint256(w + w);
-    }
-}
-```
-
-Because `uint256` is a newtype over one word, the match arm is translated as a
-plain variable binding with no runtime `switch`:
-
-```yul
-function usr$double(x) -> _result {
-  // x IS the payload — no tag slot, no switch
-  _result := add(x, x)
-  leave
-}
-```
-
-The `Payment` example from earlier benefits from this property too: the
-`address` and `tokenid` newtypes impose no runtime cost compared to using raw
-words.
+This is the same code you would write by hand if you were implementing a tagged
+union in Yul directly. The type-level machinery — the ADT definition, the
+exhaustiveness check, the pattern matrix compilation — contributes zero
+instructions to the final bytecode.
 
 ## Conclusion
 
@@ -755,23 +502,17 @@ alternatives — payment types, auction phases, token standards, vote outcomes �
 Classic Solidity provides enums and structs, but it cannot enforce that every
 function that dispatches on that type handles all cases, or that every variant
 carries the right fields and no others. Developers fill the gap with runtime
-`require` checks and a discipline of adding cases everywhere, both of which are
-fragile.
+`require` checks and a discipline of adding cases everywhere. That discipline is
+not enforced by the compiler, so it can and does fail — usually at the worst
+possible moment.
 
 Algebraic data types fix the representation: each constructor carries exactly
 its own fields, and a value of the sum type cannot be in an incoherent state.
 Pattern matching fixes the dispatch: the compiler verifies statically that every
 case is covered and that no branch is dead code.
 
-The pattern match compiler described here — pattern matrices, the necessity
-heuristic, specialization, decision trees, and the Compress pass that produces
-flat integer-tagged switches in Yul — makes these guarantees cheap to enforce.
-The generated Yul is a straightforward `switch` on a tag word, the same code a
-careful developer would write by hand, with no extra overhead compared to manual
-dispatch.
-
-Exhaustiveness and redundancy checking together ensure that pattern matching is
-not just convenient but safe: adding a constructor to a type turns every
-incomplete match into a compile-time error, forcing the developer to decide how
-each existing function should handle the new case before the code can be
-deployed.
+The result is better safety at no runtime cost. The generated Yul is the same
+`switch` on a tag word that a careful developer would write by hand. The
+exhaustiveness and redundancy checks happen entirely at compile time and
+disappear from the bytecode. And the entire category of "did you handle the new
+enum case everywhere?" becomes a compiler error rather than an audit finding.
