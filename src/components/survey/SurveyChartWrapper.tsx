@@ -21,6 +21,8 @@ interface SurveyChartWrapperProps {
   description?: string
   height?: number
   multipleChoice?: boolean
+  yoyNote?: string
+  quotes?: string[]
   children: React.ReactNode
 }
 
@@ -30,11 +32,16 @@ export const SurveyChartWrapper: React.FC<SurveyChartWrapperProps> = ({
   description,
   height = 400,
   multipleChoice,
+  yoyNote,
+  quotes,
   children,
 }) => {
   const cardBg = useColorModeValue('white', '#1a1560')
   const borderColor = useColorModeValue('#E6E3EC', '#3D35A0')
   const nColor = useColorModeValue('#672AC8', '#9F94E8')
+  const calloutBg = useColorModeValue('#EDE9F8', 'rgba(61, 53, 160, 0.3)')
+  const calloutBorder = useColorModeValue('#9F94E8', '#3D35A0')
+  const quoteBg = useColorModeValue('#FAF8FF', 'rgba(26, 21, 96, 0.5)')
 
   return (
     <Box
@@ -57,6 +64,45 @@ export const SurveyChartWrapper: React.FC<SurveyChartWrapperProps> = ({
         <Text fontSize="sm" mt={2} lineHeight="1.6">
           {description}
         </Text>
+      )}
+      {yoyNote && (
+        <Box
+          bg={calloutBg}
+          borderLeft="3px solid"
+          borderColor={calloutBorder}
+          borderRadius="0 4px 4px 0"
+          px={4}
+          py={3}
+          mt={4}
+          fontSize="sm"
+          lineHeight="1.6"
+        >
+          <Text as="span" fontWeight="bold">
+            vs. 2024:{' '}
+          </Text>
+          {yoyNote}
+        </Box>
+      )}
+      {quotes && quotes.length > 0 && (
+        <Box mt={4}>
+          {quotes.map((quote, i) => (
+            <Box
+              key={i}
+              bg={quoteBg}
+              borderLeft="3px solid"
+              borderColor={calloutBorder}
+              borderRadius="0 4px 4px 0"
+              px={4}
+              py={3}
+              mb={2}
+              fontSize="sm"
+              fontStyle="italic"
+              lineHeight="1.6"
+            >
+              &ldquo;{quote}&rdquo;
+            </Box>
+          ))}
+        </Box>
       )}
     </Box>
   )

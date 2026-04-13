@@ -191,41 +191,18 @@ const CHART_QUOTES: Record<string, string[]> = {
   final_feedback: [
     'Solidity is a surprisingly good language for expressing the kinds of problems you have for EVM smart contracts. Thanks for it.',
     'Smart contracts are hard since you have to balance the quality of the code vs the cost for the user. Ideally correctly written code should also be the proper way to optimize for gas, and not the other way around.',
+    'Please fix the bytecode size limit, it\'s not always practical to refactor contract into multiple smaller ones, doing so is always a huge lift in dev and ops work.',
+    'Solidity and the surrounding ecosystem are moving in the right direction, especially in tooling, testing frameworks, and developer workflows. However, developer experience is still heavily constrained by debugging limitations, EVM-level abstractions, and low-level complexity that slows productivity and increases risk.',
     'Keep pushing for better native cryptographic primitives and smoother Yul integration. It makes building privacy-focused tools and DeFi mechanisms safer and gas-efficient.',
     'It feels like the primarily direction of Solidity should be security, compiler performance, more aggressive bytecode optimization + developer ergonomics.',
     'Keep pushing, everyone. It\'s a pleasure to write smart contracts today compared to where we were 3 to 5 years ago.',
   ],
 }
 
-const QuoteBlock: React.FC<{ quotes: string[] }> = ({ quotes }) => {
-  const borderColor = useColorModeValue('#9F94E8', '#3D35A0')
-  const quoteBg = useColorModeValue('#FAF8FF', '#110C4E')
-  return (
-    <Box mb={8} mt={-4}>
-      {quotes.map((quote, i) => (
-        <Box
-          key={i}
-          bg={quoteBg}
-          borderLeft="3px solid"
-          borderColor={borderColor}
-          borderRadius="0 4px 4px 0"
-          px={4}
-          py={3}
-          mb={2}
-          fontSize="sm"
-          fontStyle="italic"
-          lineHeight="1.6"
-        >
-          &ldquo;{quote}&rdquo;
-        </Box>
-      ))}
-    </Box>
-  )
-}
 
 const YOY_NOTES: Record<string, string> = {
   primary_framework:
-    'Foundry increased from 51% to 57%. Hardhat is at 33% combined in both years, but the 2025 survey distinguished between v2 (15%) and v3 (18%). Truffle, at 2.4% in 2024, no longer appears.',
+    'Foundry increased from 51% to 57%. Hardhat is at 33% combined in both years, but the 2025 survey distinguished between v2 (15%) and v3 (18%). Truffle dropped from 2.4% in 2024 to a single remaining user.',
   os: 'In 2024, MacOS led at 43%, followed by Windows (29%) and Linux (28%). In 2025, Windows leads at 38%, followed by MacOS (31%) and Linux (30%).',
   dx_change:
     'DX sentiment is slightly more positive: 73% report improvement (vs 67% in 2024). The percentage reporting things got worse is unchanged at 2%.',
@@ -237,29 +214,6 @@ const YOY_NOTES: Record<string, string> = {
     'IR pipeline awareness also improved: 35% don\'t know what it is in 2025 (vs 46% in 2024).',
 }
 
-const YoyCallout: React.FC<{ text: string }> = ({ text }) => {
-  const bg = useColorModeValue('#EDE9F8', '#1a1560')
-  const borderColor = useColorModeValue('#9F94E8', '#3D35A0')
-  return (
-    <Box
-      bg={bg}
-      borderLeft="3px solid"
-      borderColor={borderColor}
-      borderRadius="0 4px 4px 0"
-      px={4}
-      py={3}
-      mb={8}
-      mt={-4}
-      fontSize="sm"
-      lineHeight="1.6"
-    >
-      <Text as="span" fontWeight="bold">
-        vs. 2024:{' '}
-      </Text>
-      {text}
-    </Box>
-  )
-}
 
 const MULTI_CHOICE_CHARTS = new Set([
   'ai_editors',
@@ -370,6 +324,8 @@ export default function Survey2025({
     id: s.id,
     title: s.title,
   }))
+  const quoteBg = useColorModeValue('#FAF8FF', 'rgba(26, 21, 96, 0.5)')
+  const calloutBorder = useColorModeValue('#9F94E8', '#3D35A0')
 
   return (
     <>
@@ -424,11 +380,24 @@ export default function Survey2025({
                 )}
 
                 {section.charts.length === 0 &&
-                  CHART_QUOTES[section.id] && (
-                    <QuoteBlock
-                      quotes={CHART_QUOTES[section.id]}
-                    />
-                  )}
+                  CHART_QUOTES[section.id] &&
+                  CHART_QUOTES[section.id].map((quote, i) => (
+                    <Box
+                      key={i}
+                      bg={quoteBg}
+                      borderLeft="3px solid"
+                      borderColor={calloutBorder}
+                      borderRadius="0 4px 4px 0"
+                      px={4}
+                      py={3}
+                      mb={2}
+                      fontSize="sm"
+                      fontStyle="italic"
+                      lineHeight="1.6"
+                    >
+                      &ldquo;{quote}&rdquo;
+                    </Box>
+                  ))}
 
                 {section.charts.map((chartRef) => {
                   const chartData = charts[chartRef.id]
@@ -444,19 +413,11 @@ export default function Survey2025({
                         multipleChoice={MULTI_CHOICE_CHARTS.has(
                           chartRef.id
                         )}
+                        yoyNote={YOY_NOTES[chartRef.id]}
+                        quotes={CHART_QUOTES[chartRef.id]}
                       >
                         {renderChart(chartRef.id, chartData)}
                       </SurveyChartWrapper>
-
-                      {YOY_NOTES[chartRef.id] && (
-                        <YoyCallout text={YOY_NOTES[chartRef.id]} />
-                      )}
-
-                      {CHART_QUOTES[chartRef.id] && (
-                        <QuoteBlock
-                          quotes={CHART_QUOTES[chartRef.id]}
-                        />
-                      )}
 
                       {chartRef.full_table &&
                         tables[chartRef.full_table] && (
