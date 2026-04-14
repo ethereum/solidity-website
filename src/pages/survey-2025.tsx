@@ -3,7 +3,12 @@ import path from 'path'
 import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
 import type { GetStaticProps } from 'next'
-import { PageMetadata, Section } from '@/components'
+import {
+  HeadingWithAnchor,
+  Link,
+  PageMetadata,
+  Section,
+} from '@/components'
 import { MAIN_CONTENT_ID } from '@/constants'
 import { SurveyChartWrapper } from '@/components/survey/SurveyChartWrapper'
 import { SurveyTableOfContents } from '@/components/survey/SurveyTableOfContents'
@@ -70,10 +75,17 @@ interface TableRow {
   pct: number
 }
 
+interface SectionRespondents {
+  label: string
+  value: number
+  [key: string]: string | number
+}
+
 interface SurveyPageProps {
   charts: Record<string, ChartData>
   sections: SurveySection[]
   tables: Record<string, TableRow[]>
+  sectionRespondents: SectionRespondents[]
 }
 
 const CHART_TITLES: Record<string, string> = {
@@ -112,8 +124,8 @@ const CHART_TITLES: Record<string, string> = {
   // Chains
   chains: 'Which chains do you deploy to?',
   alt_languages: 'Do you use other smart contract languages?',
-  // DX
-  dx_change: 'How has the Solidity DX changed in the past year?',
+  // DevEx
+  dx_change: 'How has the Solidity DevEx changed in the past year?',
   recurring_issues: 'Which recurring issues do you encounter?',
   language_features: 'Which language features are most important?',
   near_term_features: 'Most wanted near-term features',
@@ -142,7 +154,7 @@ const CHART_TITLES: Record<string, string> = {
   verification_pain_points: 'Contract verification pain points',
   why_append_cbor_none:
     'Why do you use `appendCBOR: false` or `bytecodeHash: none`?',
-  dx_improved: 'What has improved in the DX?',
+  dx_improved: 'What has improved in the DevEx?',
   // Cross-analysis
   expertise_vs_years_solidity:
     'Self-rated expertise by years using Solidity',
@@ -185,8 +197,10 @@ const CHART_QUOTES: Record<string, string[]> = {
   ],
   core_solidity_feedback: [
     'Excited to see this project unfold. If we can have a new language that takes all the pain points of the last 10 years of Solidity and fixes them it would be great.',
-    'Be careful not to create two languages.',
-    'Keeping solidity as a low level language is the best choice imho. The more abstraction you add the less control over deployed bytecode you have.',
+    'I am very concerned that Core Solidity is trying to turn solidity into some kind of academic Haskell language that requires a PhD in types to use.',
+    'Still unclear how core solidity is not a new language and how the syntax and semantics will be made backwards compatible.',
+    'I care most that the bytecode is good. Syntactic sugar is less important to me.',
+    'Please do not remove inheritance and contracts as classes, everything should be backwards compatible as we will lose all the years of work, libraries and standards created.',
   ],
   final_feedback: [
     'Solidity is a surprisingly good language for expressing the kinds of problems you have for EVM smart contracts. Thanks for it.',
@@ -205,15 +219,25 @@ const YOY_NOTES: Record<string, string> = {
     'Foundry increased from 51% to 57%. Hardhat is at 33% combined in both years, but the 2025 survey distinguished between v2 (15%) and v3 (18%). Truffle dropped from 2.4% in 2024 to a single remaining user.',
   os: 'In 2024, MacOS led at 43%, followed by Windows (29%) and Linux (28%). In 2025, Windows leads at 38%, followed by MacOS (31%) and Linux (30%).',
   dx_change:
-    'DX sentiment is slightly more positive: 73% report improvement (vs 67% in 2024). The percentage reporting things got worse is unchanged at 2%.',
+    'DevEx sentiment is slightly more positive: 73% report improvement (vs 67% in 2024). The percentage reporting things got worse is unchanged at 2%.',
   recurring_issues:
-    'In 2024, stack too deep was reported by 68%, debugging by 55%, bytecode size by 51%, and optimizer issues by 22%. In 2025, these are 47%, 33%, 33%, and 13% respectively. However, the question format changed between years (single multi-select in 2024 vs separate checkboxes in 2025), which may account for some of the decrease.',
+    'The question format changed between years (single multi-select in 2024 vs separate checkboxes in 2025), which may account for some of the decrease. With that caveat: in 2024, stack too deep was reported by 68%, debugging by 55%, bytecode size by 51%, and optimizer issues by 22%. In 2025, these are 47%, 33%, 33%, and 13% respectively.',
   sourcify:
     'Sourcify awareness improved: 48% don\'t know about it in 2025 (vs 56% in 2024), and usage increased from 17% to 24%.',
   ir_pipeline:
     'IR pipeline awareness also improved: 35% don\'t know what it is in 2025 (vs 46% in 2024).',
 }
 
+
+const CONDITIONAL_NOTES: Record<string, string> = {
+  ir_too_slow: 'shown to IR pipeline users only',
+  oldest_evm_target: 'shown to those relying on older EVM support',
+  core_solidity_features: 'shown to those familiar with Core Solidity',
+  inheritance_impact: 'shown to those familiar with Core Solidity',
+  traits_rewrite_difficulty: 'shown to those familiar with Core Solidity',
+  benefit_comptime: 'shown to those familiar with Core Solidity',
+  core_solidity_feedback: 'shown to those familiar with Core Solidity',
+}
 
 const MULTI_CHOICE_CHARTS = new Set([
   'ai_editors',
@@ -271,6 +295,11 @@ function getBarLayout(
     'solidity_versions',
     'os',
     'dx_change',
+    'traits_rewrite_difficulty',
+    'benefit_comptime',
+    'ir_pipeline',
+    'ai_favorability',
+    'ai_trust',
   ]
   if (verticalCharts.includes(chartId)) return 'vertical'
   // Short yes/no charts
@@ -281,6 +310,84 @@ function getBarLayout(
     if (maxLen <= 10) return 'vertical'
   }
   return 'horizontal'
+}
+
+function renderSectionIntro(section: SurveySection): React.ReactNode {
+  const intro = section.intro
+
+  // Overview gets the previous survey links appended
+  if (section.id === 'overview') {
+    return (
+      <>
+        <Text>{intro}</Text>
+        <Text mt={2}>
+          <Link
+            color="secondary"
+            textDecoration="underline"
+            href="/data/solidity-survey-2025-results.csv"
+          >
+            Download the raw data (CSV)
+          </Link>
+          {' | Previous surveys: '}
+          <Link
+            color="secondary"
+            textDecoration="underline"
+            href="/blog/2024/04/03/solidity-developer-survey-2023-results/"
+          >
+            2023
+          </Link>
+          {', '}
+          <Link
+            color="secondary"
+            textDecoration="underline"
+            href="/blog/2025/04/25/solidity-developer-survey-2024-results/"
+          >
+            2024
+          </Link>
+        </Text>
+      </>
+    )
+  }
+
+  // Render markdown-like content: paragraphs, **bold**, and - bullet lists
+  const blocks = intro.split('\n\n')
+  return (
+    <>
+      {blocks.map((block: string, i: number) => {
+        const lines = block.split('\n').filter((l: string) => l)
+
+        // Bullet list block
+        if (lines.every((l: string) => l.startsWith('- '))) {
+          return (
+            <Box as="ul" key={i} pl={6} mb={4}>
+              {lines.map((line: string, j: number) => (
+                <Box as="li" key={j} mb={2}>
+                  {line.slice(2)}
+                </Box>
+              ))}
+            </Box>
+          )
+        }
+
+        // Text with optional **bold** spans
+        const text = lines.join(' ')
+        const parts = text.split(/(\*\*.*?\*\*)/)
+        return (
+          <Text key={i} mb={i < blocks.length - 1 ? 4 : 0}>
+            {parts.map((part: string, j: number) =>
+              part.startsWith('**') && part.endsWith('**') ? (
+                <Text as="strong" key={j} fontWeight="bold">
+                  {part.slice(2, -2)}
+                </Text>
+              ) : (
+                part
+              )
+            )}
+          </Text>
+        )
+      })}
+    </>
+  )
 }
 
 function renderChart(
@@ -319,6 +426,7 @@ export default function Survey2025({
   charts,
   sections,
   tables,
+  sectionRespondents,
 }: SurveyPageProps) {
   const tocSections = sections.map((s) => ({
     id: s.id,
@@ -326,6 +434,8 @@ export default function Survey2025({
   }))
   const quoteBg = useColorModeValue('#FAF8FF', 'rgba(26, 21, 96, 0.5)')
   const calloutBorder = useColorModeValue('#9F94E8', '#3D35A0')
+  const tldrBg = useColorModeValue('#FAF8FF', '#110C4E')
+  const tldrBorder = useColorModeValue('#E6E3EC', '#3D35A0')
 
   return (
     <>
@@ -343,9 +453,6 @@ export default function Survey2025({
           <Heading as="h1" textStyle="h2" mb={4}>
             Solidity Developer Survey 2025
           </Heading>
-          <Text fontSize="lg" color="secondary" maxW="600px">
-            1,095 respondents from 87 countries
-          </Text>
         </Section>
 
         <Flex
@@ -359,24 +466,78 @@ export default function Survey2025({
           <SurveyTableOfContents sections={tocSections} />
 
           <Box flex={1} minW={0} maxW="container.lg">
+            <Box
+              bg={tldrBg}
+              border="1px solid"
+              borderColor={tldrBorder}
+              borderRadius="lg"
+              p={{ base: 4, md: 6 }}
+              mb={12}
+            >
+              <Heading as="h2" size="md" mb={3} fontFamily="heading">
+                Key findings
+              </Heading>
+              <Box as="ul" fontSize="md" lineHeight="1.7" pl={5}>
+                <li>
+                  70% of respondents are smart contract developers,
+                  with India, Nigeria, and the US as the top
+                  countries
+                </li>
+                <li>
+                  Foundry is the dominant framework at 57%, up from
+                  51% in 2024. Truffle is down to a single user.
+                </li>
+                <li>
+                  Stack too deep remains the #1 pain point (47%),
+                  with experts reporting it more than beginners
+                  (65% vs 25%)
+                </li>
+                <li>
+                  88% use AI tools at least monthly, but adoption
+                  outpaces trust: 45% express distrust in AI output
+                </li>
+                <li>
+                  Only 30% of respondents are familiar with Core
+                  Solidity. Among those who are, better error
+                  handling and delegatecall replacement are the most
+                  wanted features.
+                </li>
+                <li>
+                  DevEx is improving: 73% report improvement (up
+                  from 67% in 2024)
+                </li>
+              </Box>
+            </Box>
             {sections.map((section) => (
-              <Box key={section.id} id={section.id} mb={16}>
-                <Heading as="h2" textStyle="h3" mb={4}>
+              <Box key={section.id} mb={16}>
+                <HeadingWithAnchor
+                  as="h2"
+                  id={section.id}
+                  textStyle="h3"
+                  mb={4}
+                >
                   {section.title}
-                </Heading>
+                </HeadingWithAnchor>
 
                 {section.intro && (
-                  <Box
-                    mb={8}
-                    fontSize="md"
-                    lineHeight="1.7"
-                    dangerouslySetInnerHTML={{ __html: section.intro }}
-                    sx={{
-                      '& ul': { pl: 6, mb: 4 },
-                      '& li': { mb: 2 },
-                      '& strong': { fontWeight: 'bold' },
-                    }}
-                  />
+                  <Box mb={8} fontSize="md" lineHeight="1.7">
+                    {renderSectionIntro(section)}
+                  </Box>
+                )}
+
+                {section.id === 'overview' && (
+                  <SurveyChartWrapper
+                    title="Respondents per section"
+                    nValue="n = 1,095 usable responses"
+                    description="Respondent counts decrease through the survey as some participants drop off before completing all pages."
+                    height={300}
+                  >
+                    <SurveyBarChart
+                      data={sectionRespondents}
+                      layout="vertical"
+                      total={1095}
+                    />
+                  </SurveyChartWrapper>
                 )}
 
                 {section.charts.length === 0 &&
@@ -415,13 +576,12 @@ export default function Survey2025({
                         )}
                         yoyNote={YOY_NOTES[chartRef.id]}
                         quotes={CHART_QUOTES[chartRef.id]}
-                      >
-                        {renderChart(chartRef.id, chartData)}
-                      </SurveyChartWrapper>
-
-                      {chartRef.full_table &&
-                        tables[chartRef.full_table] && (
-                          <Box mb={8}>
+                        conditionalNote={
+                          CONDITIONAL_NOTES[chartRef.id]
+                        }
+                        footer={
+                          chartRef.full_table &&
+                          tables[chartRef.full_table] ? (
                             <SurveyDataTable
                               data={tables[chartRef.full_table]}
                               label={
@@ -430,8 +590,11 @@ export default function Survey2025({
                                   : 'Native Language'
                               }
                             />
-                          </Box>
-                        )}
+                          ) : undefined
+                        }
+                      >
+                        {renderChart(chartRef.id, chartData)}
+                      </SurveyChartWrapper>
                     </Box>
                   )
                 })}
@@ -482,28 +645,28 @@ function reorganizeSections(
     id: 'final_feedback',
     title: 'Final Feedback Highlights',
     intro: [
-      '<p>The 151 final feedback responses included the following recurring themes:</p>',
-      '<strong>Feature requests:</strong>',
-      '<ul>',
-      '<li>Bytecode size limit increase (mentioned multiple times)</li>',
-      '<li>Generics support for library developers</li>',
-      '<li>Better type conversions</li>',
-      '<li>Native cryptographic primitives and smoother Yul integration</li>',
-      '<li>Pre-dispatch hook: ability to run code before/after method dispatch</li>',
-      '<li>Development tools for Zed editor</li>',
-      '</ul>',
-      '<strong>AI-related:</strong>',
-      '<ul>',
-      '<li>Multiple respondents report AI-generated Solidity is unreliable</li>',
-      '<li>Request for the Solidity team to help AI write more secure code</li>',
-      '</ul>',
-      '<strong>Community and communication:</strong>',
-      '<ul>',
-      '<li>More visibility and outreach for Solidity</li>',
-      '<li>More detail in Core Solidity article on try-catch replacement and typeclasses</li>',
-      '<li>More outreach for the survey through ecosystem projects</li>',
-      '</ul>',
-    ].join(''),
+      'The 151 final feedback responses included the following recurring themes:',
+      '',
+      '**Feature requests:**',
+      '',
+      '- Bytecode size limit increase (mentioned multiple times)',
+      '- Generics support for library developers',
+      '- Better type conversions',
+      '- Native cryptographic primitives and smoother Yul integration',
+      '- Pre-dispatch hook: ability to run code before/after method dispatch',
+      '- Development tools for Zed editor',
+      '',
+      '**AI-related:**',
+      '',
+      '- Multiple respondents report AI-generated Solidity is unreliable',
+      '- Request for the Solidity team to help AI write more secure code',
+      '',
+      '**Community and communication:**',
+      '',
+      '- More visibility and outreach for Solidity',
+      '- More detail in Core Solidity article on try-catch replacement and typeclasses',
+      '- More outreach for the survey through ecosystem projects',
+    ].join('\n'),
     charts: [],
   }
 
@@ -537,6 +700,40 @@ function reorganizeSections(
     })
 }
 
+// Compute max respondent count per section for the drop-off chart
+function computeSectionRespondents(
+  sections: SurveySection[],
+  charts: Record<string, ChartData>
+): SectionRespondents[] {
+  const SECTION_LABELS: Record<string, string> = {
+    demographics: 'Demographics',
+    solidity_usage: 'Solidity Usage',
+    tooling: 'Tooling',
+    compilation: 'Compilation',
+    chains: 'Chains',
+    dx: 'DevEx',
+    core_solidity: 'Core Solidity',
+    ai: 'AI',
+  }
+
+  return sections
+    .filter((s) => SECTION_LABELS[s.id])
+    .map((s) => {
+      const ns = s.charts
+        .map((c) => {
+          const chart = charts[c.id]
+          if (!chart) return 0
+          const n = chart.meta?.n
+          return typeof n === 'number' ? n : 0
+        })
+        .filter((n) => n > 0)
+      return {
+        label: SECTION_LABELS[s.id],
+        value: ns.length > 0 ? Math.max(...ns) : 0,
+      }
+    })
+}
+
 export const getStaticProps: GetStaticProps<SurveyPageProps> = async () => {
   const dataPath = path.join(
     process.cwd(),
@@ -547,11 +744,17 @@ export const getStaticProps: GetStaticProps<SurveyPageProps> = async () => {
   const raw = fs.readFileSync(dataPath, 'utf-8')
   const data = JSON.parse(raw)
 
+  const sections = reorganizeSections(data.sections)
+
   return {
     props: {
       charts: data.charts,
-      sections: reorganizeSections(data.sections),
+      sections,
       tables: data.tables,
+      sectionRespondents: computeSectionRespondents(
+        data.sections,
+        data.charts
+      ),
     },
   }
 }

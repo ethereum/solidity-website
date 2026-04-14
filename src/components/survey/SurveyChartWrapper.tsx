@@ -23,6 +23,8 @@ interface SurveyChartWrapperProps {
   multipleChoice?: boolean
   yoyNote?: string
   quotes?: string[]
+  conditionalNote?: string
+  footer?: React.ReactNode
   children: React.ReactNode
 }
 
@@ -34,6 +36,8 @@ export const SurveyChartWrapper: React.FC<SurveyChartWrapperProps> = ({
   multipleChoice,
   yoyNote,
   quotes,
+  conditionalNote,
+  footer,
   children,
 }) => {
   const cardBg = useColorModeValue('white', '#1a1560')
@@ -50,7 +54,7 @@ export const SurveyChartWrapper: React.FC<SurveyChartWrapperProps> = ({
       borderColor={borderColor}
       borderRadius="lg"
       p={{ base: 4, md: 6 }}
-      mb={8}
+      mb={12}
     >
       <Heading as="h3" size="md" mb={4} fontFamily="heading">
         {renderWithCode(title)}
@@ -59,6 +63,7 @@ export const SurveyChartWrapper: React.FC<SurveyChartWrapperProps> = ({
       <Text fontSize="sm" color={nColor} mt={3}>
         {nValue}
         {multipleChoice && ' | multiple choice'}
+        {conditionalNote && ` | ${conditionalNote}`}
       </Text>
       {description && (
         <Text fontSize="sm" mt={2} lineHeight="1.6">
@@ -104,6 +109,7 @@ export const SurveyChartWrapper: React.FC<SurveyChartWrapperProps> = ({
           ))}
         </Box>
       )}
+      {footer && <Box mt={4}>{footer}</Box>}
     </Box>
   )
 }
