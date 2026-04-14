@@ -221,7 +221,7 @@ const YOY_NOTES: Record<string, string> = {
   dx_change:
     'DevEx sentiment is slightly more positive: 73% report improvement (vs 67% in 2024). The percentage reporting things got worse is unchanged at 2%.',
   recurring_issues:
-    'The question format changed between years (single multi-select in 2024 vs separate checkboxes in 2025), which may account for some of the decrease. With that caveat: in 2024, stack too deep was reported by 68%, debugging by 55%, bytecode size by 51%, and optimizer issues by 22%. In 2025, these are 47%, 33%, 33%, and 13% respectively.',
+    'The question format changed between years (single multi-select in 2024 vs separate checkboxes in 2025), which may account for some of the decrease. With that caveat: in 2024, stack-too-deep was reported by 68%, debugging by 55%, bytecode size by 51%, and optimizer issues by 22%. In 2025, these are 47%, 33%, 33%, and 13% respectively.',
   sourcify:
     'Sourcify awareness improved: 48% don\'t know about it in 2025 (vs 56% in 2024), and usage increased from 17% to 24%.',
   ir_pipeline:
@@ -488,7 +488,7 @@ export default function Survey2025({
                   51% in 2024. Truffle is down to a single user.
                 </li>
                 <li>
-                  Stack too deep remains the #1 pain point (47%),
+                  Stack-too-deep remains the #1 pain point (47%),
                   with experts reporting it more than beginners
                   (65% vs 25%)
                 </li>
@@ -500,7 +500,15 @@ export default function Survey2025({
                   Only 30% of respondents are familiar with Core
                   Solidity. Among those who are, better error
                   handling and delegatecall replacement are the most
-                  wanted features.
+                  wanted features.{' '}
+                  <Link
+                    color="secondary"
+                    textDecoration="underline"
+                    href="/blog/2025/11/14/core-solidity-deep-dive/"
+                  >
+                    Learn more about Core Solidity
+                  </Link>
+                  .
                 </li>
                 <li>
                   DevEx is improving: 73% report improvement (up

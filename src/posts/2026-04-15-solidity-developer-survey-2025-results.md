@@ -28,9 +28,9 @@ ethers.js is the most used Ethereum SDK (70%), followed by viem (39%) and wagmi 
 ## Pain points
 
 <!-- TODO: Link to SSA-CFG work / PR that explains how it addresses stack-too-deep -->
-Stack too deep errors are the most reported recurring issue (47%), followed by bytecode size limits (33%) and debugging (33%). 23% of respondents report no recurring issues.
+Stack-too-deep errors are the most reported recurring issue (47%), followed by bytecode size limits (33%) and debugging (33%). 23% of respondents report no recurring issues.
 
-These issues correlate with experience level. Stack too deep is reported by 25% of beginners (self-rated 1-4) compared to 65% of experts (self-rated 8-10). Bytecode size limits follow a similar pattern at 17% vs 47%. Debugging is consistent across all levels at 29-35%.
+These issues correlate with experience level. Stack-too-deep is reported by 25% of beginners (self-rated 1-4) compared to 65% of experts (self-rated 8-10). Bytecode size limits follow a similar pattern at 17% vs 47%. Debugging is consistent across all levels at 29-35%.
 
 ![Recurring issues by expertise level](/img/2026/survey/expertise_vs_pain_points.png)
 
@@ -69,11 +69,11 @@ Compared to the 2024 survey (684 responses):
 - IR pipeline awareness improved: 35% don't know what it is, down from 46%
 - DevEx sentiment improved: 73% report improvement, up from 67% in 2024
 
-Recurring issue percentages decreased across the board (stack too deep from 68% to 47%, debugging from 55% to 33%), though the question format changed between years (single multi-select field in 2024 vs separate checkboxes in 2025), which may account for some of the difference.
+Recurring issue percentages decreased across the board (stack-too-deep from 68% to 47%, debugging from 55% to 33%), though the question format changed between years (single multi-select field in 2024 vs separate checkboxes in 2025), which may account for some of the difference.
 
 ## Key takeaways
 
-**Stack too deep and bytecode size limits hit experienced developers hardest.** 65% of experts report stack too deep vs 25% of beginners. Bytecode size follows the same pattern at 47% vs 17%. These aren't beginner complaints - they're the ceiling that experienced developers hit when their codebases grow.
+**Stack-too-deep and bytecode size limits hit experienced developers hardest.** 65% of experts report stack-too-deep vs 25% of beginners. Bytecode size follows the same pattern at 47% vs 17%. These aren't beginner complaints - they're the ceiling that experienced developers hit when their codebases grow.
 
 **The optimizer forces developers to write worse code.** Free-text responses consistently describe how gas optimization incentivizes bad patterns: inlining instead of abstracting, reusing variables instead of naming them clearly, recalculating values instead of storing them. The language pushes developers away from clean code.
 
@@ -87,7 +87,7 @@ Recurring issue percentages decreased across the board (stack too deep from 68% 
 
 
 <!-- TODO: Verify with team: SSA-CFG in experimental preview, upcoming release claim, and link to relevant work / PR -->
-**Stack too deep**: This remains the top pain point. The new SSA-based code generation pipeline addresses this. It is already available as an experimental feature in the most recent preview release, with a stable release to follow.
+**Stack-too-deep**: This remains the top pain point. The new SSA-based code generation pipeline addresses this. It is already available as an experimental feature in the most recent preview release, with a stable release to follow.
 
 **Core Solidity awareness**: Only 30% of respondents who answered this question are familiar with Core Solidity. We're ramping up communication: a blog post on pattern matching is coming next week, and a Core Solidity Playground will be available before the end of summer. We've also hired a DevRel to attend more conferences, talk with key players in the ecosystem, and collaborate across the ecosystem to shape the Standard Library for Core Solidity.
 
@@ -102,4 +102,6 @@ The interactive report covers all 60 survey questions with charts, descriptions,
 - [2024 survey results](/blog/2025/04/25/solidity-developer-survey-2024-results/)
 - [2023 survey results](/blog/2024/04/03/solidity-developer-survey-2023-results/)
 
-Thank you to everyone who participated. As a reminder, we put up a Devcon 8 ticket for a random draw among survey participants. The winner can expect an email from us soon. Please verify the sender address matches an @argot.org email.
+Thank you to everyone who participated, and to the projects and community members who helped spread the word and increase the survey's reach. As a reminder, we put up a Devcon 8 ticket for a random draw among survey participants. The winner can expect an email from us soon. Please verify the sender address matches an @argot.org email.
+
+If you have additional feedback, the best place to share it is the [Solidity Forum](https://forum.soliditylang.org/).
