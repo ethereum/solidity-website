@@ -27,7 +27,6 @@ ethers.js is the most used Ethereum SDK (70%), followed by viem (39%) and wagmi 
 
 ## Pain points
 
-<!-- TODO: Link to SSA-CFG work / PR that explains how it addresses stack-too-deep -->
 Stack-too-deep errors are the most reported recurring issue (47%), followed by bytecode size limits (33%) and debugging (33%). 23% of respondents report no recurring issues.
 
 These issues correlate with experience level. Stack-too-deep is reported by 25% of beginners (self-rated 1-4) compared to 65% of experts (self-rated 8-10). Bytecode size limits follow a similar pattern at 17% vs 47%. Debugging is consistent across all levels at 29-35%.
@@ -86,10 +85,9 @@ Recurring issue percentages decreased across the board (stack-too-deep from 68% 
 ## What we're doing about it
 
 
-<!-- TODO: Verify with team: SSA-CFG in experimental preview, upcoming release claim, and link to relevant work / PR -->
-**Stack-too-deep**: This remains the top pain point. The new SSA-based code generation pipeline addresses this. It is already available as an experimental feature in the most recent preview release, with a stable release to follow.
+**Stack-too-deep**: This remains the top pain point. The [v0.8.35-pre.1 pre-release](https://github.com/argotorg/solidity/releases/tag/v0.8.35-pre.1) introduces the SSA CFG codegen behind the new `--experimental` flag, which eliminates stack-too-deep errors. A stable release will follow.
 
-**Core Solidity awareness**: Only 30% of respondents who answered this question are familiar with Core Solidity. We're ramping up communication: a blog post on pattern matching is coming next week, and a Core Solidity Playground will be available before the end of summer. We've also hired a DevRel to attend more conferences, talk with key players in the ecosystem, and collaborate across the ecosystem to shape the Standard Library for Core Solidity.
+**Core Solidity awareness**: Only 30% of respondents who answered this question are familiar with Core Solidity. We're ramping up communication: a blog post on pattern matching is coming next week, and a Core Solidity Playground will be available before the end of summer. We're also ramping up our presence at conferences, engagement with ecosystem players, and collaboration with the community to define the Standard Library for Core Solidity.
 
 **Documentation**: The survey responses helped prioritize what to focus on next in the docs. We plan to add more practical examples, particularly around proxies, storage layout, and gas optimization. Translating the documentation to more languages will also be a priority.
 
