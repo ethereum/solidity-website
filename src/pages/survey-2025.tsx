@@ -315,11 +315,24 @@ function getBarLayout(
 function renderSectionIntro(section: SurveySection): React.ReactNode {
   const intro = section.intro
 
-  // Overview gets the previous survey links appended
+  // Overview gets the blog post link and previous survey links appended
   if (section.id === 'overview') {
+    const blogPostLink = 'see the accompanying blog post.'
+    const introBase = intro.replace(blogPostLink, '')
     return (
       <>
-        <Text>{intro}</Text>
+        <Text>
+          {introBase}
+          see the accompanying{' '}
+          <Link
+            color="secondary"
+            textDecoration="underline"
+            href="/blog/2026/04/15/solidity-developer-survey-2025-results/"
+          >
+            blog post
+          </Link>
+          .
+        </Text>
         <Text mt={2}>
           <Link
             color="secondary"
@@ -332,17 +345,17 @@ function renderSectionIntro(section: SurveySection): React.ReactNode {
           <Link
             color="secondary"
             textDecoration="underline"
-            href="/blog/2024/04/03/solidity-developer-survey-2023-results/"
+            href="/blog/2025/04/25/solidity-developer-survey-2024-results/"
           >
-            2023
+            2024
           </Link>
           {', '}
           <Link
             color="secondary"
             textDecoration="underline"
-            href="/blog/2025/04/25/solidity-developer-survey-2024-results/"
+            href="/blog/2024/04/03/solidity-developer-survey-2023-results/"
           >
-            2024
+            2023
           </Link>
         </Text>
       </>
