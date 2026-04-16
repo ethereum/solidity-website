@@ -26,9 +26,8 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
 
   return (
     <>
-      {/* Banner - hidden until there is new content to display */}
+      {/* Banner */}
       <Box
-        display="none"
         bg={isDark ? '#AEC0F1' : '#2B247C'}
         color={isDark ? '#2B247C' : '#AEC0F1'}
         py={3}
@@ -39,7 +38,14 @@ export const PageLayout: React.FC<PageLayoutProps> = ({
         zIndex={9999}
         position="relative"
       >
-        Add call to action content here when relevant and unhide the box.
+        The Solidity Developer Survey 2025 results are out!{' '}
+        <Link
+          href="/survey-2025/"
+          textDecoration="underline"
+          _hover={{ opacity: 0.8 }}
+        >
+          See the interactive report
+        </Link>
       </Box>
 
       <Box textStyle="body" maxW="container.xl" mx="auto">
