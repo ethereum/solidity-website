@@ -318,21 +318,33 @@ function renderSectionIntro(section: SurveySection): React.ReactNode {
   // Overview gets the blog post link and previous survey links appended
   if (section.id === 'overview') {
     const blogPostLink = 'see the accompanying blog post.'
-    const introBase = intro.replace(blogPostLink, '')
+    const paragraphs = intro.split('\n\n')
     return (
       <>
-        <Text>
-          {introBase}
-          see the accompanying{' '}
-          <Link
-            color="secondary"
-            textDecoration="underline"
-            href="/blog/2026/04/15/solidity-developer-survey-2025-results/"
-          >
-            blog post
-          </Link>
-          .
-        </Text>
+        {paragraphs.map((para: string, i: number) => {
+          if (para.includes(blogPostLink)) {
+            const before = para.replace(blogPostLink, '')
+            return (
+              <Text key={i} mb={4}>
+                {before}
+                see the accompanying{' '}
+                <Link
+                  color="secondary"
+                  textDecoration="underline"
+                  href="/blog/2026/04/15/solidity-developer-survey-2025-results/"
+                >
+                  blog post
+                </Link>
+                .
+              </Text>
+            )
+          }
+          return (
+            <Text key={i} mb={4}>
+              {para}
+            </Text>
+          )
+        })}
         <Text mt={2}>
           <Link
             color="secondary"
