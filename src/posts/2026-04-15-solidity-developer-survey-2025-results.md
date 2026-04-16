@@ -89,6 +89,10 @@ Recurring issue percentages decreased across the board (stack-too-deep from 68% 
 
 **Core Solidity awareness**: Only 30% of respondents who answered this question are familiar with Core Solidity. We're ramping up communication: a blog post on pattern matching is coming next week, and a Core Solidity Playground will be available before the end of summer. We're also ramping up our presence at conferences, engagement with ecosystem players, and collaboration with the community to define the Standard Library for Core Solidity.
 
+**Debugging**: Debugging was reported as painful across all experience levels. Work on [ethdebug](https://github.com/ethdebug/), a standard debugging data format for smart contracts on EVM-compatible networks, is actively in progress.
+
+**Bytecode size limit**: The second most common pain point among experienced developers. There is an EIP in progress to increase the contract size limit.
+
 **Documentation**: The survey responses helped prioritize what to focus on next in the docs. We plan to add more practical examples, particularly around proxies, storage layout, and gas optimization. Translating the documentation to more languages will also be a priority.
 
 ## Full results
