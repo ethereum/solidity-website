@@ -97,7 +97,7 @@ developer might add a new function and forget to validate one of the fields.
 
 Core Solidity lets us define a `Payment` type that expresses these three
 variants precisely. (`word` is Core Solidity's primitive type for a raw 256-bit
-EVM word — the equivalent of `uint256` without semantic constraints.)
+EVM word, the same type for a Yul variable.)
 
 ```js
 data address = address(word);
@@ -146,8 +146,9 @@ not handle the new case. No function can silently miss the new variant.
 The example above hints at the most important safety property that pattern
 matching brings to smart contracts: **exhaustiveness checking**, also called
 totality. A pattern match is exhaustive if every possible value of the scrutinee
-type is handled by at least one branch. The Core Solidity compiler enforces this
-statically and rejects any program that contains an incomplete match.
+(the value being matched on) type is handled by at least one branch. The Core
+Solidity compiler enforces this statically and rejects any program that contains
+an incomplete match.
 
 Why does this matter so much for smart contracts in particular? Smart contract
 bugs are extremely costly to fix. Once a contract is deployed, its logic is
@@ -235,9 +236,7 @@ it cannot be forgotten.
 
 Exhaustiveness and redundancy checking, together with the translation of nested
 patterns into efficient code, are handled by a dedicated compilation pass in the
-Core Solidity prototype:
-[`DecisionTreeCompiler.hs`](https://github.com/argotorg/solcore/blob/main/src/Solcore/Desugarer/DecisionTreeCompiler.hs).
-The implementation follows the ideas described in
+Core Solidity prototype and it follows the ideas described in
 [Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
 This pass runs after type inference and before code generation. Its job is to
@@ -380,9 +379,9 @@ The widest payload is 2 words, so every `AuctionState` value occupies **3 stack
 slots**: a tag and two payload words. `NotStarted(1000)` is
 `(0, 1000, <unused>)` on the stack; `Active(500, 0xABCD)` is `(1, 500, 0xABCD)`.
 
-**Single-constructor types** (wrapper newtypes) have no tag at all — the
-constructor is erased entirely. `data uint256 = uint256(word)` is just one stack
-slot, with zero overhead compared to using a raw `word`.
+**Single-constructor types** (wrapper newtypes) have no tag at all: the
+constructor is erased entirely. As an example, `data uint256 = uint256(word)` is
+just one stack slot, with zero overhead compared to using a raw `word`.
 
 ### `match` Compiles to `switch`
 
@@ -487,9 +486,9 @@ function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
 ```
 
 This is the same code you would write by hand if you were implementing a tagged
-union in Yul directly. The type-level machinery — the ADT definition, the
-exhaustiveness check, the pattern matrix compilation — contributes zero
-instructions to the final bytecode.
+union in Yul directly. The new language / compiler machinery: the ADT
+definition, the exhaustiveness check, the pattern matrix compilation contributes
+adds zero instructions to the final bytecode.
 
 ## Conclusion
 
@@ -498,12 +497,12 @@ smart contract bugs that Classic Solidity has no good defense against: the
 silent handling of missing or newly-added cases.
 
 The problems are structural. When a contract's logic depends on a set of
-alternatives — payment types, auction phases, token standards, vote outcomes —
+alternatives - payment types, auction phases, token standards, vote outcomes -
 Classic Solidity provides enums and structs, but it cannot enforce that every
 function that dispatches on that type handles all cases, or that every variant
 carries the right fields and no others. Developers fill the gap with runtime
 `require` checks and a discipline of adding cases everywhere. That discipline is
-not enforced by the compiler, so it can and does fail — usually at the worst
+not enforced by the compiler, so it can and does fail - usually at the worst
 possible moment.
 
 Algebraic data types fix the representation: each constructor carries exactly
