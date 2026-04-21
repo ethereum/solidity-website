@@ -7,13 +7,18 @@ author: Solidity Team
 category: Announcements
 ---
 
-As we described in our
-[Core Solidity deep dive](https://soliditylang.org/blog/2025/11/14/core-solidity-deep-dive/),
-Core Solidity introduces algebraic data types (ADTs) and pattern matching as
-first-class language features. This post explains why these features matter for
-smart contract safety — not just as language niceties, but as a way to eliminate
-an entire class of bugs at compile time that today costs real money to find and
-fix.
+Smart contracts often need to handle values that come in several variants: a
+payment might be native ETH, an ERC20 transfer, or an NFT transfer; an auction
+can be not-started, active, ended, or cancelled. Each variant needs different
+handling, and the logic for that handling tends to be scattered across many
+functions. When a developer adds a new variant and forgets to update one of
+those functions, the compiler says nothing. Once deployed, that oversight can
+cost real money to find and fix.
+
+Core Solidity's algebraic data types (ADTs) and pattern matching, introduced in
+[our deep dive post](https://soliditylang.org/blog/2025/11/14/core-solidity-deep-dive/),
+eliminate this class of bug at compile time. This post explains why that matters
+for contract safety and how the feature holds up in practice.
 
 ## Why Classic Solidity Needs Better Data Modeling
 
@@ -96,8 +101,8 @@ developer might add a new function and forget to validate one of the fields.
 ## Algebraic Data Types Make Invalid States Unrepresentable
 
 Core Solidity lets us define a `Payment` type that expresses these three
-variants precisely. (`word` is Core Solidity's primitive type for a raw 256-bit
-EVM word, the same type for a Yul variable.)
+variants precisely. `word` is Core Solidity's primitive 256-bit type, equivalent
+to an untyped Yul variable.
 
 ```js
 data address = address(word);
@@ -138,7 +143,7 @@ already done that job. The `amount` field on a `Native` payment and the
 separate constructors.
 
 Adding a new variant, say `ERC1155(address, address, address, tokenid, word)`,
-will cause the compiler to immediately report every match expression that does
+will cause the compiler to immediately report every match statement that does
 not handle the new case. No function can silently miss the new variant.
 
 ## Totality: Exhaustiveness as a Safety Property
@@ -240,7 +245,7 @@ Core Solidity prototype and it follows the ideas described in
 [Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
 This pass runs after type inference and before code generation. Its job is to
-transform `match` expressions over arbitrary nested patterns into a _decision
+transform `match` statements over arbitrary nested patterns into a _decision
 tree_ — a form where each node tests exactly one scrutinee against flat
 constructor patterns, with no nesting. The resulting tree is then converted back
 into simplified `match` statements that the Yul backend can handle directly.
