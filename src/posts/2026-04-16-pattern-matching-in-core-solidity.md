@@ -216,7 +216,7 @@ Pattern matching with exhaustiveness checking makes that entire category of
 audit finding disappear. When the compiler rejects incomplete matches, an
 auditor does not need to check whether `calculateFee` handles `ERC1155` — if it
 compiled, it does. The time auditors previously spent tracing dispatch logic can
-be spent on higher-value findings. For projects paying $50,000–$500,000 for an
+be spent on higher-value findings. For projects paying five or six figures for an
 audit, that is a concrete, measurable saving.
 
 ### What About Existing Validation Patterns?
