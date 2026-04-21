@@ -146,7 +146,7 @@ not handle the new case. No function can silently miss the new variant.
 The example above hints at the most important safety property that pattern
 matching brings to smart contracts: **exhaustiveness checking**, also called
 totality. A pattern match is exhaustive if every possible value of the scrutinee
-(the value being matched on) type is handled by at least one branch. The Core
+type (the value being matched on) is handled by at least one branch. The Core
 Solidity compiler enforces this statically and rejects any program that contains
 an incomplete match.
 
