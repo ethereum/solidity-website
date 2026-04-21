@@ -241,8 +241,8 @@ Core Solidity prototype, which follows the ideas described in
 
 This pass runs after type inference and before code generation. Its job is to
 transform `match` expressions over arbitrary nested patterns into a _decision
-tree_ — a form where each node tests exactly one scrutinee against flat
-constructor patterns, with no nesting. The resulting tree is then converted back
+tree_, a form where each node tests exactly one scrutinee against flat
+constructor patterns. The resulting tree is then converted back
 into simplified `match` statements that the Yul backend can handle directly.
 
 The algorithm works by treating the match arms as a _pattern matrix_ (one row
