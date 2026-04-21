@@ -226,7 +226,7 @@ already use `require` checks and careful enum handling. What does this buy me?"
 
 Your existing practices aren't wrong, they just don't scale.
 Today, the discipline of "update every dispatch function when you add a
-variant" lives in your head, in code review checklists, and in audit reports. It
+variant" relies on memory, code review checklists, and audit reports. It
 is not enforced by the compiler, so it can fail. When a team member adds
 `ERC1155` support under deadline pressure and misses one function, the compiler
 says nothing. Pattern matching moves that discipline into the toolchain, where
