@@ -224,8 +224,8 @@ audit, that is a real saving.
 A reasonable question from developers who already write defensive code: "I
 already use `require` checks and careful enum handling. What does this buy me?"
 
-The answer is not that your current practices are wrong — it is that they do not
-scale. Today, the discipline of "update every dispatch function when you add a
+Your existing practices aren't wrong, they just don't scale.
+Today, the discipline of "update every dispatch function when you add a
 variant" lives in your head, in code review checklists, and in audit reports. It
 is not enforced by the compiler, so it can fail. When a team member adds
 `ERC1155` support under deadline pressure and misses one function, the compiler
