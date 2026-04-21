@@ -217,7 +217,7 @@ audit finding disappear. When the compiler rejects incomplete matches, an
 auditor does not need to check whether `calculateFee` handles `ERC1155` — if it
 compiled, it does. The time auditors previously spent tracing dispatch logic can
 be spent on higher-value findings. For projects paying five or six figures for an
-audit, that is a concrete, measurable saving.
+audit, that is a real saving.
 
 ### What About Existing Validation Patterns?
 
