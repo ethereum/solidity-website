@@ -151,7 +151,7 @@ not handle the new case. No function can silently miss the new variant.
 The example above hints at the most important safety property that pattern
 matching brings to smart contracts: **exhaustiveness checking**, also called
 totality. A pattern match is exhaustive if every possible value of the scrutinee
-(the value being matched on) type is handled by at least one branch. The Core
+type (the value being matched on) is handled by at least one branch. The Core
 Solidity compiler enforces this statically and rejects any program that contains
 an incomplete match.
 
@@ -221,27 +221,26 @@ Pattern matching with exhaustiveness checking makes that entire category of
 audit finding disappear. When the compiler rejects incomplete matches, an
 auditor does not need to check whether `calculateFee` handles `ERC1155` — if it
 compiled, it does. The time auditors previously spent tracing dispatch logic can
-be spent on higher-value findings. For projects paying $50,000–$500,000 for an
-audit, that is a concrete, measurable saving.
+be spent on higher-value findings. For projects paying five or six figures for
+an audit, that is a real saving.
 
 ### What About Existing Validation Patterns?
 
 A reasonable question from developers who already write defensive code: "I
 already use `require` checks and careful enum handling. What does this buy me?"
 
-The answer is not that your current practices are wrong — it is that they do not
-scale. Today, the discipline of "update every dispatch function when you add a
-variant" lives in your head, in code review checklists, and in audit reports. It
-is not enforced by the compiler, so it can fail. When a team member adds
-`ERC1155` support under deadline pressure and misses one function, the compiler
-says nothing. Pattern matching moves that discipline into the toolchain, where
-it cannot be forgotten.
+Your existing practices aren't wrong, they just don't scale. Today, the
+discipline of "update every dispatch function when you add a variant" relies on
+memory, code review checklists, and audit reports. It is not enforced by the
+compiler, so it can fail. When a team member adds `ERC1155` support under
+deadline pressure and misses one function, the compiler says nothing. Pattern
+matching moves that discipline into the toolchain, where it cannot be forgotten.
 
 ## The Pattern Match Compiler
 
 Exhaustiveness and redundancy checking, together with the translation of nested
 patterns into efficient code, are handled by a dedicated compilation pass in the
-Core Solidity prototype and it follows the ideas described in
+Core Solidity prototype, which follows the ideas described in
 [Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
 This pass runs after type inference and before code generation. Its job is to
