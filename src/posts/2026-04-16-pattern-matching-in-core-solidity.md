@@ -236,7 +236,7 @@ it cannot be forgotten.
 
 Exhaustiveness and redundancy checking, together with the translation of nested
 patterns into efficient code, are handled by a dedicated compilation pass in the
-Core Solidity prototype and it follows the ideas described in
+Core Solidity prototype, which follows the ideas described in
 [Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
 This pass runs after type inference and before code generation. Its job is to
