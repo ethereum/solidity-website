@@ -257,7 +257,8 @@ natural byproducts of this construction: a missing case surfaces when the matrix
 has no row to cover a particular input, and a redundant arm surfaces when its
 row is already subsumed by earlier rows.
 
-The practical output of this pass is straightforward. The `discount` function:
+The practical output of this pass is straightforward.
+For example, let's take a look at the following function:
 
 ```js
 data Phase = Early | Late;
