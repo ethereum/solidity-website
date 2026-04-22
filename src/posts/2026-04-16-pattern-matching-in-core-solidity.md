@@ -97,6 +97,14 @@ dispatches on `PaymentType` is a potential silent failure waiting to happen.
 constraint that, e.g., a `NATIVE` payment has no `token`, each function must
 repeat those structural checks. This is both verbose and error-prone: a
 developer might add a new function and forget to validate one of the fields.
+These checks also have a runtime cost: every `require` executes on-chain and
+consumes gas, whereas invariants enforced by the type system are verified at
+compile time and vanish entirely from the deployed bytecode. There is also a
+subtler issue of data cohesion. Because the `Payment` struct separates the tag
+(`paymentType`) from its fields, nothing prevents a caller from pairing them
+incorrectly. ADTs bundle the constructor and its payload into a single,
+inseparable unit, so that kind of mismatch cannot be expressed in the type and
+no `require` check can fully substitute for that guarantee.
 
 ## Algebraic Data Types Make Invalid States Unrepresentable
 
@@ -162,10 +170,10 @@ by a buggy contract may be permanently inaccessible. In the Classic Solidity
 `calculateFee` function above, the final `return 0` is dead code that exists
 only because the compiler cannot verify that the if-else chain covers all
 variants. If a future developer adds a fourth `PaymentType` and forgets to
-update `calculateFee`, the function silently returns zero — a potentially
+update `calculateFee`, the function silently returns zero, a potentially
 expensive mistake that will not be caught until it is too late.
 
-Exhaustiveness checking transforms this category of bug into a compile-time
+Exhaustiveness checking transforms this category of bugs into a compile-time
 error. Consider the following incomplete match:
 
 ```js
@@ -212,14 +220,14 @@ code that was not updated after a refactor.
 
 Smart contract security audits are expensive. A significant portion of audit
 time on enum-heavy contracts goes toward verifying that every function that
-dispatches on a type covers all cases — manually tracing if-else chains and
+dispatches on a type covers all cases, which means manually tracing if-else chains and
 checking that no variant falls through to a silent default. This is tedious,
 error-prone work that scales with the number of functions and variants in a
 codebase.
 
 Pattern matching with exhaustiveness checking makes that entire category of
 audit finding disappear. When the compiler rejects incomplete matches, an
-auditor does not need to check whether `calculateFee` handles `ERC1155` — if it
+auditor does not need to check whether `calculateFee` handles `ERC1155`: if it
 compiled, it does. The time auditors previously spent tracing dispatch logic can
 be spent on higher-value findings. For projects paying five or six figures for
 an audit, that is a real saving.
@@ -245,7 +253,7 @@ Core Solidity prototype, which follows the ideas described in
 
 This pass runs after type inference and before code generation. Its job is to
 transform `match` statements over arbitrary nested patterns into a _decision
-tree_ — a form where each node tests exactly one scrutinee against flat
+tree_, a form where each node tests exactly one scrutinee against flat
 constructor patterns, with no nesting. The resulting tree is then converted back
 into simplified `match` statements that the Yul backend can handle directly.
 
@@ -338,7 +346,7 @@ Unlike non-exhaustive matches, redundant-clause warnings do not prevent
 compilation: they are surfaced as warnings to assist developers during
 refactoring.
 
-## Lowering to Yul — and Why There Is No Overhead
+## Lowering to Yul: Why There Is No Overhead
 
 A common concern when adding type-level machinery is that it comes with a
 runtime cost. Pattern matching over algebraic data types does not. The generated
@@ -446,7 +454,7 @@ function tryWithdraw(balance : uint256, amount : uint256) -> Option(uint256) {
 }
 ```
 
-`None` is `(false, <unused>)` and `Some(x)` is `(true, x)` — two stack slots.
+`None` is `(false, <unused>)` and `Some(x)` is `(true, x)`, occupying two stack slots.
 The function returns both:
 
 ```yul
@@ -501,12 +509,12 @@ smart contract bugs that Classic Solidity has no good defense against: the
 silent handling of missing or newly-added cases.
 
 The problems are structural. When a contract's logic depends on a set of
-alternatives - payment types, auction phases, token standards, vote outcomes -
+alternatives such as payment types, auction phases, token standards, and vote outcomes,
 Classic Solidity provides enums and structs, but it cannot enforce that every
 function that dispatches on that type handles all cases, or that every variant
 carries the right fields and no others. Developers fill the gap with runtime
 `require` checks and a discipline of adding cases everywhere. That discipline is
-not enforced by the compiler, so it can and does fail - usually at the worst
+not enforced by the compiler, so it can and does fail, usually at the worst
 possible moment.
 
 Algebraic data types fix the representation: each constructor carries exactly
