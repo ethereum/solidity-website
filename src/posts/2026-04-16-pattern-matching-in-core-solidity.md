@@ -265,7 +265,8 @@ natural byproducts of this construction: a missing case surfaces when the matrix
 has no row to cover a particular input, and a redundant arm surfaces when its
 row is already subsumed by earlier rows.
 
-The practical output of this pass is straightforward. The `discount` function:
+The practical output of this pass is straightforward.
+For example, let's take a look at the following function:
 
 ```js
 data Phase = Early | Late;
@@ -343,7 +344,7 @@ Warning: Clause (True → return True) is redundant.
 ```
 
 Unlike non-exhaustive matches, redundant-clause warnings do not prevent
-compilation: they are surfaced as warnings to assist developers during
+compilation: they are reported as warnings to assist developers during
 refactoring.
 
 ## Lowering to Yul: Why There Is No Overhead
