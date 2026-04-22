@@ -336,7 +336,7 @@ Warning: Clause (True → return True) is redundant.
 ```
 
 Unlike non-exhaustive matches, redundant-clause warnings do not prevent
-compilation: they are surfaced as warnings to assist developers during
+compilation: they are reported as warnings to assist developers during
 refactoring.
 
 ## Lowering to Yul — and Why There Is No Overhead
