@@ -220,10 +220,10 @@ code that was not updated after a refactor.
 
 Smart contract security audits are expensive. A significant portion of audit
 time on enum-heavy contracts goes toward verifying that every function that
-dispatches on a type covers all cases, which means manually tracing if-else chains and
-checking that no variant falls through to a silent default. This is tedious,
-error-prone work that scales with the number of functions and variants in a
-codebase.
+dispatches on a type covers all cases, which means manually tracing if-else
+chains and checking that no variant falls through to a silent default. This is
+tedious, error-prone work that scales with the number of functions and variants
+in a codebase.
 
 Pattern matching with exhaustiveness checking makes that entire category of
 audit finding disappear. When the compiler rejects incomplete matches, an
@@ -251,6 +251,14 @@ patterns into efficient code, are handled by a dedicated compilation pass in the
 Core Solidity prototype, which follows the ideas described in
 [Compiling Pattern Matching to Good Decision Trees](http://moscova.inria.fr/~maranget/papers/ml05e-maranget.pdf).
 
+A key motivation for this design is to make exhaustiveness checking tractable.
+Pattern matching algorithms based on backtracking automata are effective at
+generating efficient code, but they are notoriously difficult to extend with
+exhaustiveness analysis: the automaton construction does not naturally expose
+which inputs remain uncovered. Decision tree based approaches, by contrast,
+produce exhaustiveness and redundancy information as natural byproducts of the
+compilation process itself, without requiring a separate analysis pass.
+
 This pass runs after type inference and before code generation. Its job is to
 transform `match` statements over arbitrary nested patterns into a _decision
 tree_, a form where each node tests exactly one scrutinee against flat
@@ -265,8 +273,8 @@ natural byproducts of this construction: a missing case surfaces when the matrix
 has no row to cover a particular input, and a redundant arm surfaces when its
 row is already subsumed by earlier rows.
 
-The practical output of this pass is straightforward.
-For example, let's take a look at the following function:
+The practical output of this pass is straightforward. For example, let's take a
+look at the following function:
 
 ```js
 data Phase = Early | Late;
@@ -455,8 +463,8 @@ function tryWithdraw(balance : uint256, amount : uint256) -> Option(uint256) {
 }
 ```
 
-`None` is `(false, <unused>)` and `Some(x)` is `(true, x)`, occupying two stack slots.
-The function returns both:
+`None` is `(false, <unused>)` and `Some(x)` is `(true, x)`, occupying two stack
+slots. The function returns both:
 
 ```yul
 function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
@@ -510,13 +518,13 @@ smart contract bugs that Classic Solidity has no good defense against: the
 silent handling of missing or newly-added cases.
 
 The problems are structural. When a contract's logic depends on a set of
-alternatives such as payment types, auction phases, token standards, and vote outcomes,
-Classic Solidity provides enums and structs, but it cannot enforce that every
-function that dispatches on that type handles all cases, or that every variant
-carries the right fields and no others. Developers fill the gap with runtime
-`require` checks and a discipline of adding cases everywhere. That discipline is
-not enforced by the compiler, so it can and does fail, usually at the worst
-possible moment.
+alternatives such as payment types, auction phases, token standards, and vote
+outcomes, Classic Solidity provides enums and structs, but it cannot enforce
+that every function that dispatches on that type handles all cases, or that
+every variant carries the right fields and no others. Developers fill the gap
+with runtime `require` checks and a discipline of adding cases everywhere. That
+discipline is not enforced by the compiler, so it can and does fail, usually at
+the worst possible moment.
 
 Algebraic data types fix the representation: each constructor carries exactly
 its own fields, and a value of the sum type cannot be in an incoherent state.
