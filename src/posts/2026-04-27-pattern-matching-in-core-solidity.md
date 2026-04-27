@@ -2,7 +2,7 @@
 layout: post
 published: true
 title: "Pattern Matching in Core Solidity"
-date: "2026-xx-xx"
+date: "2026-04-27"
 author: Solidity Team
 category: Announcements
 ---
@@ -77,21 +77,21 @@ contract PaymentHandler {
 }
 ```
 
-This code has several safety problems that the language cannot help us with.
+This code has several safety problems the compiler cannot catch.
 
 **Invalid states are representable.** The `Payment` struct can be constructed
 with contradictory fields: a `NATIVE` payment with a non-zero `token` address,
 or an `ERC721` payment with no `tokenId`. The struct has enough fields to
 represent any of the three payment variants, but nothing in the type prevents us
 from filling those fields with incoherent values. The `require` calls in
-`processPayment` are our only defense, and they have to be repeated in every
-function that receives a `Payment`.
+`processPayment` are the only check we have, and they have to be repeated in
+every function that receives a `Payment`.
 
 **No compile-time totality guarantee.** If we add a new variant, say `ERC1155`,
 to the `PaymentType` enum, the compiler will not tell us where the dispatch
 logic needs to be updated. `processPayment` will silently do nothing for
 `ERC1155` payments. `calculateFee` will silently return 0. Every function that
-dispatches on `PaymentType` is a potential silent failure waiting to happen.
+dispatches on `PaymentType` can silently fail.
 
 **Redundant runtime validation.** Because the type system cannot express the
 constraint that, e.g., a `NATIVE` payment has no `token`, each function must
@@ -156,25 +156,22 @@ not handle the new case. No function can silently miss the new variant.
 
 ## Totality: Exhaustiveness as a Safety Property
 
-The example above hints at the most important safety property that pattern
-matching brings to smart contracts: **exhaustiveness checking**, also called
-totality. A pattern match is exhaustive if every possible value of the scrutinee
-type (the value being matched on) is handled by at least one branch. The Core
+The example above shows the safety property that matters most:
+**exhaustiveness checking** (also called totality). A pattern match is exhaustive if every possible value of the scrutinee
+(the value being matched on) is handled by at least one branch. The Core
 Solidity compiler enforces this statically and rejects any program that contains
 an incomplete match.
 
-Why does this matter so much for smart contracts in particular? Smart contract
-bugs are extremely costly to fix. Once a contract is deployed, its logic is
+Smart contract bugs are extremely costly to fix. Once a contract is deployed, its logic is
 immutable (absent an upgradeable proxy pattern), and any ether or tokens locked
 by a buggy contract may be permanently inaccessible. In the Classic Solidity
 `calculateFee` function above, the final `return 0` is dead code that exists
 only because the compiler cannot verify that the if-else chain covers all
 variants. If a future developer adds a fourth `PaymentType` and forgets to
-update `calculateFee`, the function silently returns zero, a potentially
+update `calculateFee`, the function silently returns zero. That is a potentially
 expensive mistake that will not be caught until it is too late.
 
-Exhaustiveness checking transforms this category of bugs into a compile-time
-error. Consider the following incomplete match:
+Exhaustiveness checking turns these bugs into compile-time errors. Consider the following incomplete match:
 
 ```js
 data AuctionState =
@@ -205,8 +202,8 @@ Non-exhaustive pattern match. Missing case: Ended($v0, $v1)
   in match (state)
 ```
 
-The compiler names a concrete missing pattern, a _witness_, so the programmer
-knows exactly what case has been overlooked. This error must be resolved before
+The compiler names a missing pattern, a _witness_, so the developer
+knows exactly what to fix. This error must be resolved before
 the program can compile. The developer might add explicit branches for `Ended`
 and `Cancelled`, or add a wildcard default (`| _ =>`), but in either case the
 decision is deliberate and visible in the source code.
@@ -218,10 +215,10 @@ code that was not updated after a refactor.
 
 ### What This Means for Audits
 
-Smart contract security audits are expensive. A significant portion of audit
-time on enum-heavy contracts goes toward verifying that every function that
-dispatches on a type covers all cases, which means manually tracing if-else
-chains and checking that no variant falls through to a silent default. This is
+Smart contract security audits are expensive. On enum-heavy contracts, auditors
+spend real time verifying that every function that dispatches on a type covers
+all cases, manually tracing if-else chains and checking that no variant falls
+through to a silent default. This is
 tedious, error-prone work that scales with the number of functions and variants
 in a codebase.
 
@@ -255,14 +252,14 @@ A key motivation for this design is to make exhaustiveness checking tractable.
 Pattern matching algorithms based on backtracking automata are effective at
 generating efficient code, but they are notoriously difficult to extend with
 exhaustiveness analysis: the automaton construction does not naturally expose
-which inputs remain uncovered. Decision tree based approaches, by contrast,
+which inputs remain uncovered. Decision-tree-based approaches, by contrast,
 produce exhaustiveness and redundancy information as natural byproducts of the
 compilation process itself, without requiring a separate analysis pass.
 
 This pass runs after type inference and before code generation. Its job is to
 transform `match` statements over arbitrary nested patterns into a _decision
 tree_, a form where each node tests exactly one scrutinee against flat
-constructor patterns, with no nesting. The resulting tree is then converted back
+constructor patterns. The resulting tree is then converted back
 into simplified `match` statements that the Yul backend can handle directly.
 
 The algorithm works by treating the match arms as a _pattern matrix_ (one row
@@ -273,8 +270,8 @@ natural byproducts of this construction: a missing case surfaces when the matrix
 has no row to cover a particular input, and a redundant arm surfaces when its
 row is already subsumed by earlier rows.
 
-The practical output of this pass is straightforward. For example, let's take a
-look at the following function:
+The practical output of this pass is straightforward. For example, the
+following function:
 
 ```js
 data Phase = Early | Late;
@@ -507,9 +504,8 @@ function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
 ```
 
 This is the same code you would write by hand if you were implementing a tagged
-union in Yul directly. The new language / compiler machinery: the ADT
-definition, the exhaustiveness check, the pattern matrix compilation contributes
-adds zero instructions to the final bytecode.
+union in Yul directly. This machinery (the ADT definition, the exhaustiveness check, the pattern
+matrix compilation) adds zero instructions to the final bytecode.
 
 ## Conclusion
 
