@@ -401,7 +401,7 @@ slots**: a tag and two payload words. `NotStarted(1000)` is
 constructor is erased entirely. As an example, `data uint256 = uint256(word)` is
 just one stack slot, with zero overhead compared to using a raw `word`.
 
-### `match` Compiles to `switch`
+### Match Compiles to Switch
 
 The Yul backend emits a `switch` on the tag word, with one `case` per
 constructor. The output is minimal and readable.
