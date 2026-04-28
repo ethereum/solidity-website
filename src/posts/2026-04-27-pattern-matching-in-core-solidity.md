@@ -39,7 +39,7 @@ contract PaymentHandler {
         PaymentType paymentType;
         address token;
         address from;
-        address to;
+        address payable;
         uint256 amount;
         uint256 tokenId;
     }
@@ -49,7 +49,7 @@ contract PaymentHandler {
             require(payment.token == address(0), "Native: no token");
             require(payment.amount > 0, "Native: amount required");
             require(payment.tokenId == 0, "Native: no tokenId");
-            (bool success, ) = payable(payment.to).call{value: payment.amount}("");
+            (bool success, ) = payment.to.call{value: payment.amount}("");
             require(success, "Native: transfer failed");
         } else if (payment.paymentType == PaymentType.ERC20) {
             require(payment.token != address(0), "ERC20: token required");
