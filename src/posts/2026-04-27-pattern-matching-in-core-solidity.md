@@ -419,9 +419,9 @@ function not(b : Bool) -> Bool {
 
 ```yul
 function usr$not(_v0) -> _result {
-  switch _v0
-    case false { _result := true;  leave }
-    case true  { _result := false; leave }
+    switch _v0
+        case false { _result := true;  leave }
+        case true  { _result := false; leave }
 }
 ```
 
@@ -438,9 +438,9 @@ function require(cond : Bool, msg : word) {
 
 ```yul
 function usr$require(cond, msg) {
-  switch cond
-    case true  {}
-    case false { usr$myrevert(msg) }
+    switch cond
+        case true  {}
+        case false { usr$myrevert(msg) }
 }
 ```
 
@@ -465,18 +465,18 @@ slots. The function returns both:
 
 ```yul
 function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
-  let cond
-  cond := iszero(lt(balance, amount))    // balance >= amount
-  switch cond
-    case false {
-      _result_tag := false
-      leave
-    }
-    case true {
-      _result_tag     := true
-      _result_payload := sub(balance, amount)
-      leave
-    }
+    let cond
+    cond := iszero(lt(balance, amount))    // balance >= amount
+    switch cond
+        case false {
+            _result_tag := false
+            leave
+        }
+        case true {
+            _result_tag     := true
+            _result_payload := sub(balance, amount)
+            leave
+        }
 }
 ```
 
@@ -495,11 +495,11 @@ function isFinished(state : AuctionState) -> Bool {
 
 ```yul
 function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
-  switch state_tag
-    case 0 { _result := false; leave }   // NotStarted
-    case 1 { _result := false; leave }   // Active
-    case 2 { _result := true;  leave }   // Ended
-    case 3 { _result := true;  leave }   // Cancelled
+    switch state_tag
+        case 0 { _result := false; leave }   // NotStarted
+        case 1 { _result := false; leave }   // Active
+        case 2 { _result := true;  leave }   // Ended
+        case 3 { _result := true;  leave }   // Cancelled
 }
 ```
 
