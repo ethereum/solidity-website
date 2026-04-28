@@ -39,7 +39,7 @@ contract PaymentHandler {
         PaymentType paymentType;
         address token;
         address from;
-        address payable;
+        address payable to;
         uint256 amount;
         uint256 tokenId;
     }
