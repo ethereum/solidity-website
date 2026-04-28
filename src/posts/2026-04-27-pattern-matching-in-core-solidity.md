@@ -156,22 +156,23 @@ not handle the new case. No function can silently miss the new variant.
 
 ## Totality: Exhaustiveness as a Safety Property
 
-The example above shows the safety property that matters most:
-**exhaustiveness checking** (also called totality). A pattern match is exhaustive if every possible value of the scrutinee
-(the value being matched on) is handled by at least one branch. The Core
-Solidity compiler enforces this statically and rejects any program that contains
-an incomplete match.
+The example above shows the safety property that matters most: **exhaustiveness
+checking** (also called totality). A pattern match is exhaustive if every
+possible value of the scrutinee (the value being matched on) is handled by at
+least one branch. The Core Solidity compiler enforces this statically and
+rejects any program that contains an incomplete match.
 
-Smart contract bugs are extremely costly to fix. Once a contract is deployed, its logic is
-immutable (absent an upgradeable proxy pattern), and any ether or tokens locked
-by a buggy contract may be permanently inaccessible. In the Classic Solidity
-`calculateFee` function above, the final `return 0` is dead code that exists
-only because the compiler cannot verify that the if-else chain covers all
-variants. If a future developer adds a fourth `PaymentType` and forgets to
-update `calculateFee`, the function silently returns zero. That is a potentially
-expensive mistake that will not be caught until it is too late.
+Smart contract bugs are extremely costly to fix. Once a contract is deployed,
+its logic is immutable (absent an upgradeable proxy pattern), and any ether or
+tokens locked by a buggy contract may be permanently inaccessible. In the
+Classic Solidity `calculateFee` function above, the final `return 0` is dead
+code that exists only because the compiler cannot verify that the if-else chain
+covers all variants. If a future developer adds a fourth `PaymentType` and
+forgets to update `calculateFee`, the function silently returns zero. That is a
+potentially expensive mistake that will not be caught until it is too late.
 
-Exhaustiveness checking turns these bugs into compile-time errors. Consider the following incomplete match:
+Exhaustiveness checking turns these bugs into compile-time errors. Consider the
+following incomplete match:
 
 ```js
 data AuctionState =
@@ -202,11 +203,11 @@ Non-exhaustive pattern match. Missing case: Ended($v0, $v1)
   in match (state)
 ```
 
-The compiler names a missing pattern, a _witness_, so the developer
-knows exactly what to fix. This error must be resolved before
-the program can compile. The developer might add explicit branches for `Ended`
-and `Cancelled`, or add a wildcard default (`| _ =>`), but in either case the
-decision is deliberate and visible in the source code.
+The compiler names a missing pattern, a _witness_, so the developer knows
+exactly what to fix. This error must be resolved before the program can compile.
+The developer might add explicit branches for `Ended` and `Cancelled`, or add a
+wildcard default (`| _ =>`), but in either case the decision is deliberate and
+visible in the source code.
 
 Redundancy checking is the complementary property: the compiler also warns when
 a pattern branch can never be reached because an earlier branch already covers
@@ -218,9 +219,8 @@ code that was not updated after a refactor.
 Smart contract security audits are expensive. On enum-heavy contracts, auditors
 spend real time verifying that every function that dispatches on a type covers
 all cases, manually tracing if-else chains and checking that no variant falls
-through to a silent default. This is
-tedious, error-prone work that scales with the number of functions and variants
-in a codebase.
+through to a silent default. This is tedious, error-prone work that scales with
+the number of functions and variants in a codebase.
 
 Pattern matching with exhaustiveness checking makes that entire category of
 audit finding disappear. When the compiler rejects incomplete matches, an
@@ -259,8 +259,8 @@ compilation process itself, without requiring a separate analysis pass.
 This pass runs after type inference and before code generation. Its job is to
 transform `match` statements over arbitrary nested patterns into a _decision
 tree_, a form where each node tests exactly one scrutinee against flat
-constructor patterns. The resulting tree is then converted back
-into simplified `match` statements that the Yul backend can handle directly.
+constructor patterns. The resulting tree is then converted back into simplified
+`match` statements that the Yul backend can handle directly.
 
 The algorithm works by treating the match arms as a _pattern matrix_ (one row
 per arm, one column per scrutinee), selecting the most informative column to
@@ -270,8 +270,8 @@ natural byproducts of this construction: a missing case surfaces when the matrix
 has no row to cover a particular input, and a redundant arm surfaces when its
 row is already subsumed by earlier rows.
 
-The practical output of this pass is straightforward. For example, the
-following function:
+The practical output of this pass is straightforward. For example, the following
+function:
 
 ```js
 data Phase = Early | Late;
@@ -420,8 +420,8 @@ function not(b : Bool) -> Bool {
 ```js
 function usr$not(_v0) -> _result {
     switch _v0
-        case false { _result := true;  leave }
-        case true  { _result := false; leave }
+        case false { _result := true }
+        case true  { _result := false }
 }
 ```
 
@@ -444,8 +444,7 @@ function usr$require(cond, msg) {
 }
 ```
 
-Empty `{}` blocks are valid Yul. The `case true` arm does nothing and falls
-through to the implicit `leave`.
+Empty `{}` blocks are valid Yul. The `case true` arm does nothing.
 
 For `tryWithdraw`, a binary sum with a payload (`Option(uint256)`):
 
@@ -470,12 +469,10 @@ function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
     switch cond
         case false {
             _result_tag := false
-            leave
         }
         case true {
             _result_tag     := true
             _result_payload := sub(balance, amount)
-            leave
         }
 }
 ```
@@ -496,16 +493,17 @@ function isFinished(state : AuctionState) -> Bool {
 ```js
 function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
     switch state_tag
-        case 0 { _result := false; leave }   // NotStarted
-        case 1 { _result := false; leave }   // Active
-        case 2 { _result := true;  leave }   // Ended
-        case 3 { _result := true;  leave }   // Cancelled
+        case 0 { _result := false }   // NotStarted
+        case 1 { _result := false }   // Active
+        case 2 { _result := true  }   // Ended
+        case 3 { _result := true  }   // Cancelled
 }
 ```
 
 This is the same code you would write by hand if you were implementing a tagged
-union in Yul directly. This machinery (the ADT definition, the exhaustiveness check, the pattern
-matrix compilation) adds zero instructions to the final bytecode.
+union in Yul directly. This machinery (the ADT definition, the exhaustiveness
+check, the pattern matrix compilation) adds zero instructions to the final
+bytecode.
 
 ## Conclusion
 
