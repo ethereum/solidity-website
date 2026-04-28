@@ -196,7 +196,7 @@ function processBid(state : AuctionState) -> AuctionState {
 The `Ended` and `Cancelled` variants are not handled. The Core Solidity compiler
 will report a compile-time error similar to the following:
 
-```
+```text
 Non-exhaustive pattern match. Missing case: Ended($v0, $v1)
   in function processBid
   in match (state)
@@ -319,7 +319,7 @@ function discount(state : AuctionState, phase : Phase) -> uint256 {
 
 produces:
 
-```
+```text
 Non-exhaustive pattern match. Missing case: NotStarted($v0), $v1
   in function discount
   in match (state, phase)
@@ -342,7 +342,7 @@ function f(x : Bool) -> Bool {
 
 produces:
 
-```
+```text
 Warning: Clause (True → return True) is redundant.
   in function f
   in match (x)
@@ -371,7 +371,7 @@ Core Solidity compilation pipeline will be the subject of future posts.
 Yul has no algebraic types, only 256-bit words. Every sum type is therefore
 flattened onto the EVM stack as:
 
-```
+```text
 1 (tag word) + max(payload size across all constructors)
 ```
 
@@ -417,7 +417,7 @@ function not(b : Bool) -> Bool {
 }
 ```
 
-```yul
+```js
 function usr$not(_v0) -> _result {
     switch _v0
         case false { _result := true;  leave }
@@ -436,7 +436,7 @@ function require(cond : Bool, msg : word) {
 }
 ```
 
-```yul
+```js
 function usr$require(cond, msg) {
     switch cond
         case true  {}
@@ -463,7 +463,7 @@ function tryWithdraw(balance : uint256, amount : uint256) -> Option(uint256) {
 `None` is `(false, <unused>)` and `Some(x)` is `(true, x)`, occupying two stack
 slots. The function returns both:
 
-```yul
+```js
 function usr$tryWithdraw(balance, amount) -> _result_tag, _result_payload {
     let cond
     cond := iszero(lt(balance, amount))    // balance >= amount
@@ -493,7 +493,7 @@ function isFinished(state : AuctionState) -> Bool {
 }
 ```
 
-```yul
+```js
 function usr$isFinished(state_tag, state_f0, state_f1) -> _result {
     switch state_tag
         case 0 { _result := false; leave }   // NotStarted
