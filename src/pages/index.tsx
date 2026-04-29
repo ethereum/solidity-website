@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2026/02/18/solidity-0.8.34-release-announcement/"
+                    href="/blog/2026/04/29/solidity-0.8.35-release-announcement/"
                     fontWeight="bold"
                   >
-                   We just released the Solidity Compiler v0.8.34.
+                   We just released the Solidity Compiler v0.8.35.
                   </Link>{' '}
-                  This release fixes a high severity bug in the IR pipeline where deleting both persistent and transient state variables of the same underlying type could emit the wrong storage opcode. Projects that compile with --via-ir and use transient storage are encouraged to update.
+                  This release adds a builtin for computing ERC-7201 storage namespaces, introduces the new --experimental flag for in-development features, and ships an experimental SSA CFG code generator.
                 </Text>
               </Box>
             </Flex>
