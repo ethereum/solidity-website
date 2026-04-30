@@ -16,8 +16,8 @@ import {
 import { Code, HeadingWithAnchor, Link } from '@/components'
 
 const MDTable = ({ children }: any) => {
-  const borderColor = useColorModeValue('#9F94E8', '#3D35A0')
-  const headerBg = useColorModeValue('#FAF8FF', '#1a1560')
+  const borderColor = useColorModeValue('purple.300', '#3D35A0')
+  const headerBg = useColorModeValue('gray.50', '#1a1560')
   const tableBg = useColorModeValue('white', 'transparent')
   return (
     <Box
