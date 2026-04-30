@@ -1,6 +1,47 @@
-import { Box, Divider, Flex, Image, Stack, Table, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Divider,
+  Flex,
+  Image,
+  Stack,
+  Table,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import { Code, HeadingWithAnchor, Link } from '@/components'
-// TODO: Debug tables
+
+const MDTable = ({ children }: any) => {
+  const borderColor = useColorModeValue('purple.300', '#3D35A0')
+  const headerBg = useColorModeValue('gray.50', '#1a1560')
+  const tableBg = useColorModeValue('white', 'transparent')
+  return (
+    <Box
+      overflowX="auto"
+      mb={{ base: 4, md: 6 }}
+      borderWidth="1px"
+      borderColor={borderColor}
+      borderRadius="md"
+      bg={tableBg}
+      sx={{
+        '& table': { borderCollapse: 'collapse', width: '100%' },
+        '& th, & td': {
+          border: '1px solid',
+          borderColor,
+        },
+        '& th': { bg: headerBg },
+      }}
+    >
+      <Table variant="simple" size="sm">
+        {children}
+      </Table>
+    </Box>
+  )
+}
 
 export const MDStyles = {
   p: ({ children }: any) => (
@@ -94,4 +135,10 @@ export const MDStyles = {
   hr: ({ children }: any) => {
     return <Divider my={6}>{children}</Divider>
   },
+  table: ({ children }: any) => <MDTable>{children}</MDTable>,
+  thead: ({ children }: any) => <Thead>{children}</Thead>,
+  tbody: ({ children }: any) => <Tbody>{children}</Tbody>,
+  tr: ({ children }: any) => <Tr>{children}</Tr>,
+  th: ({ children }: any) => <Th>{children}</Th>,
+  td: ({ children }: any) => <Td>{children}</Td>,
 }
