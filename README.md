@@ -6,7 +6,7 @@ Welcome to the codebase for the Solidity Lang website!
 
 Homepage: [https://soliditylang.org](https://soliditylang.org)
 
-Note: This is the codebase for the Solidity **website** only. For the Solidity Lang codebase please see [ethereum/solidity](https://github.com/ethereum/solidity).
+Note: This is the codebase for the Solidity **website** only. For the Solidity Lang codebase please see [argotorg/solidity](https://github.com/argotorg/solidity).
 
 ## Soliditylang.org website stack
 
