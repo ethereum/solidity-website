@@ -1,8 +1,8 @@
 ---
 layout: post
 published: true
-title: "Pattern Matching in Core Solidity"
-date: "2026-04-27"
+title: 'Pattern Matching in Core Solidity'
+date: '2026-05-05'
 author: Solidity Team
 category: Announcements
 ---
@@ -387,9 +387,9 @@ because both constructors are nullary.
 
 ```js
 data AuctionState =
-    NotStarted(uint256)       // payload: 1 word
-  | Active(uint256, address)  // payload: 2 words
-  | Ended(uint256, address)   // payload: 2 words
+    NotStarted(uint256)          // payload: 1 word
+  | Active(uint256, address)     // payload: 2 words
+  | Ended(uint256, address)      // payload: 2 words
   | Cancelled(uint256, address); // payload: 2 words
 ```
 
