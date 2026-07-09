@@ -115,12 +115,12 @@ export default function Home({
               <Box>
                 <Text lineHeight="180%" fontSize="md" mb={4}>
                   <Link
-                    href="/blog/2026/04/29/solidity-0.8.35-release-announcement/"
+                    href="/blog/2026/07/09/solidity-0.8.36-release-announcement/"
                     fontWeight="bold"
                   >
-                   We just released the Solidity Compiler v0.8.35.
+                   We just released the Solidity Compiler v0.8.36.
                   </Link>{' '}
-                  This release adds a builtin for computing ERC-7201 storage namespaces, introduces the new --experimental flag for in-development features, and ships an experimental SSA CFG code generator.
+                  This release fixes some important bugs, introduces support for the upcoming EVM version Amsterdam, as well as memory spilling for our new and experimental SSA CFG pipeline.
                 </Text>
               </Box>
             </Flex>
