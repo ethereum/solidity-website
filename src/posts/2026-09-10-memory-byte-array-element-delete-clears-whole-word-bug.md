@@ -101,8 +101,7 @@ The IR pipeline uses the same store for `delete b[i]` as for the assignment and 
 
 The diagram below shows an array of length 40 together with two separate writes: deleting the element at index 10, where the write stays within the array's allocation, and deleting the element at index 39, where it runs 7 bytes into the next allocation.
 
-![Memory layout of a bytes array of length 40 and the 32-byte zero write issued by delete b[i] for two different indices](https://github.com/user-attachments/assets/60336638-370c-4087-8f36-65ca01e7a989)
-<!-- TODO(release): The image is a GitHub user attachment from the private reports repo. Rehost it, e.g. in the solidity-website repo, and update the URL before publishing. -->
+![Memory layout of a bytes array of length 40 and the 32-byte zero write issued by delete b[i] for two different indices](/img/2026/09/memory-byte-array-element-delete-diagram.png)
 
 ### Corruption inside the array
 
