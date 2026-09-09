@@ -12,7 +12,7 @@ The mover works around the EVM's stack depth limit by relocating ("spilling") so
 Because of the bug, variables of two different functions can be assigned the same spill slot when the call graph contains mutual recursion, even though both variables can be live at the same time.
 One variable is then silently overwritten by the other, and the contract computes and stores a value the source code never assigns.
 
-The bug is closely related to, but distinct from, the [Unsound Spill In Mutual Recursion Bug](https://blog.soliditylang.org/2026/07/09/unsound-spill-in-mutual-recursion-bug/), which was fixed in Solidity 0.8.36.
+The bug is closely related to, but distinct from, the [Unsound Spill In Mutual Recursion Bug](/blog/2026/07/09/unsound-spill-in-mutual-recursion-bug/), which was fixed in Solidity 0.8.36.
 It is present even in compiler versions that carry that fix (see [Relation to the earlier spill bug](#relation-to-the-earlier-spill-bug) below).
 
 We assign this bug a severity of _low/medium_ on our internal scale.
@@ -76,7 +76,7 @@ The IR pipeline works around it with the stack-to-memory mover, which picks some
 The size of that region is announced to the Yul optimizer via the [`memoryguard`](https://docs.soliditylang.org/en/v0.8.37/yul.html#memoryguard) builtin.
 
 Because a spill slot is shared by every activation of a function, the relocation is only sound for functions that are **not** recursive, and the mover excludes recursive functions.
-The [Unsound Spill In Mutual Recursion Bug](https://blog.soliditylang.org/2026/07/09/unsound-spill-in-mutual-recursion-bug/) post describes this mechanism and its recursion constraint in more detail.
+The [Unsound Spill In Mutual Recursion Bug](/blog/2026/07/09/unsound-spill-in-mutual-recursion-bug/) post describes this mechanism and its recursion constraint in more detail.
 
 ### Sizing the reserved region
 
@@ -129,7 +129,7 @@ Note that a function that only calls itself cannot trigger the undercount: the o
 
 ### Relation to the earlier spill bug
 
-The [Unsound Spill In Mutual Recursion Bug](https://blog.soliditylang.org/2026/07/09/unsound-spill-in-mutual-recursion-bug/) fixed in Solidity 0.8.36 was a misclassification bug:
+The [Unsound Spill In Mutual Recursion Bug](/blog/2026/07/09/unsound-spill-in-mutual-recursion-bug/) fixed in Solidity 0.8.36 was a misclassification bug:
 faulty cycle detection caused some mutually recursive functions to be treated as non-recursive, so the mover spilled variables of a recursive function, violating the rule that recursive functions must never have spilled variables.
 
 For the bug described here, the classification is correct: neither of the two colliding functions is recursive, and the cycle members are detected as such and have no variables spilled.
