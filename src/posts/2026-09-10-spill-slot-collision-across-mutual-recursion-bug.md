@@ -91,7 +91,9 @@ To keep the walk from descending forever into recursive call chains, the allocat
 
 ### The slot-allocation bug
 
-<!-- TODO(release): add the link to the explainer video here. -->
+The mechanism described in this section is also explained in the following short video.
+
+![Explainer video for the spill slot collision bug](/videos/2026/spill-slot-collision-explainer.mp4)
 
 The provisional `0` terminates the walk on cycles: a cycle eventually leads back to a function that is still being processed, and the early cache entry stops the recursion there.
 The problem is that the walk itself can read the provisional value as if it were final.
