@@ -33,7 +33,7 @@ A contract is only affected if **all** of the following conditions are met:
 3. the 31 bytes that follow the deleted element are not irrelevant to the contract's behavior.
 
 Conditions 1 and 2 can be checked in the compiler settings and the sources.
-Condition 3 requires reasoning about the memory layout the compiler produces, so if the first two hold, treat the contract as affected rather than trying to rule out the third.
+Condition 3 requires reasoning about the memory layout the compiler produces, so if the first two hold, it may be safer to treat the contract as affected rather than try to rule out the third.
 
 **If your contract never applies `delete` to an element of a `bytes` or `string` value in memory, it is not affected.**
 
@@ -63,11 +63,13 @@ Solidity allocates memory by advancing the free memory pointer: every allocation
 Consecutive allocations therefore sit flush against each other (apart from padding), and a write that runs past the end of one lands directly in the next.
 
 In most cases, e.g., for arrays created with `new bytes(n)` or from literals, the data is followed by up to 31 zero bytes of padding, so that the next allocation begins on a word boundary.
-We call these _padded_ arrays.
+We will refer to these as _padded_ arrays.
 The evmasm pipeline does not pad the results of `bytes.concat`, `string.concat`, and the `abi.encode*` functions (`abi.encode`, `abi.encodePacked`, `abi.encodeWithSelector`, `abi.encodeWithSignature`, and `abi.encodeCall`): their data ends exactly where the next allocation begins.
-We call these _unpadded_ arrays.
-Whether an allocation is padded is an implementation detail of the current evmasm pipeline: the IR pipeline behaves differently, the behavior may change in any future version, and code must never rely on it.
-Inline assembly that touches the padding violates the [memory safety](https://docs.soliditylang.org/en/v0.8.36/assembly.html#memory-safety) rules.
+We will call these arrays _unpadded_.
+Whether an allocation is padded is an implementation detail.
+The current evmasm pipeline and the IR pipeline do not always behave identically in this regard.
+Their behavior may also change in any future version, and code must never rely on it.
+Inline assembly that touches the padding violates the [memory safety](https://docs.soliditylang.org/en/v0.8.37/assembly.html#memory-safety) rules.
 
 When a value in memory is narrower than its word, its position within the word depends on its type.
 Left-aligned values, such as `bytesN` types, start at the first byte of the word.
