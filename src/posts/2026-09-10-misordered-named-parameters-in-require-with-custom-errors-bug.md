@@ -7,8 +7,8 @@ author: Solidity Team
 category: Security Alerts
 ---
 
-On February 4, 2026, a bug in the IR-based code generator was reported by Carl from
-[Spearbit](https://spearbit.com/) through the Ethereum Foundation bug bounty program. The
+On February 4, 2026, a bug in the IR-based code generator was reported by [Carl](https://x.com/popular_12345) from
+[Cantina Security](https://cantina.security) through the Ethereum Foundation bug bounty program. The
 bug causes the arguments of a custom error passed to `require` using named-parameter syntax
 to be placed on the stack in call-site order rather than declaration order before they are
 ABI-encoded.
