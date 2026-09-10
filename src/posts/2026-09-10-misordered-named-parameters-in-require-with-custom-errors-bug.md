@@ -33,7 +33,8 @@ A contract is affected when **all** of the following conditions hold:
    `viaIR: true` in Standard JSON). The evmasm pipeline is unaffected.
 2. The contract uses `require(condition, ErrorName({...}))` where `ErrorName` is a user-defined
    error.
-3. At least two arguments that are not string or bytes literals appear in an order differing from the declaration.
+3. At least two arguments appear in an order differing from the declaration.
+4. At least one of the reordered arguments is not a string literal.
 
 Other language constructs that take similar code paths are **not** affected. As part of the due
 diligence for the fix, all of them were checked and covered with tests.
@@ -62,37 +63,48 @@ nothing can catch the mistake, since there is no type mismatch for the compiler 
 to detect. Perhaps more surprisingly, the compiler would also silently encode reorderings of
 arguments of *different* types, without any error during compilation.
 
-In the IR-based code generator, the lowering of `require` with a custom error placed the
-arguments on the stack in the order they appeared at the call site, instead of first
-reordering them to match the parameter order of the error. The encoding helper then read the
-stack assuming declaration order, so the misordering happened in the internal stack
-representation, one step before ABI encoding, rather than in the encoded output itself.
-With the snippet above, the contract reverted with a payload whose first word held the value
-of `b` (`7`) and whose second word held the value of `a` (`2`), so off-chain decoders would
-read `a = 7, b = 2` instead of the intended `a = 2, b = 7`.
+To see where the bug lives, it helps to follow the arguments from the call to the revert data.
+The compiler emits code that evaluates the arguments and pushes them onto the stack in
+declaration order. The ABI encoder then walks the error's parameter list and, for each
+parameter, takes the next slots from the stack and appends their encoding to the revert data.
+Most types occupy a single slot, holding either the value itself or a reference to it in
+memory, storage or calldata. A few need more: external function pointers use two slots, and
+dynamic `calldata` arrays carry an extra slot for their length. String literals use none,
+since the value is part of the type and gets hard-coded into the encoder. The stack itself is
+just a sequence of untyped slots, and nothing marks where one argument ends and the next begins.
+
+In the IR-based code generator, the lowering of `require` with a custom error skipped the
+reordering step: it pushed the arguments in the order they appeared at the call site, while
+the encoder still consumed them in declaration order. With the snippet above, the contract
+reverted with a payload whose first word held the value of `b` (`7`) and whose second word
+held the value of `a` (`2`), so off-chain decoders would read `a = 7, b = 2` instead of the
+intended `a = 2, b = 7`.
 
 Standalone `revert ErrorName({...})` statements go through a different code path that
 reorders arguments before encoding, and so were not affected. The bug was specific to the
 `require`-with-custom-error path introduced in 0.8.26.
+
+### Misinterpreted Values
 
 Reordering parameters of *different* types that occupy the same number of stack slots
 (say, a `uint256` and an `address`) also produced no misalignment: each value simply landed
 in the other parameter's position and was encoded as if it had the other type. The payload
 stayed structurally valid and simply contained the wrong values.
 
+The same happened with reference types. Swapping a `uint256` with a memory array made the
+encoder treat the integer as a memory offset and encode whatever it found there as the array's
+contents, while the array's offset was encoded as the integer. Likewise for two references of
+different kinds, such as a memory array and a storage array, or two structs with different
+fields.
+
 ### Misalignment With Multi-Slot Arguments
 
-The consequences extended beyond a swap of word-sized values when the arguments occupied
-different numbers of stack slots. References to arrays and array slices
-in `calldata` are represented by *two* stack slots (offset and length), whereas most value types
-and references in other data locations use a single slot. When a `calldata` reference was
-reordered with respect to a value-type argument, each argument's slots still arrived at the
-encoding helper grouped together, but the groups came in call-site order while the helper
-partitioned the slots it received according to the declaration order. The boundaries between
-arguments no longer lined up, and a parameter could be handed slots that belonged to a different
-argument.
-String and bytes literals, on the other hand, occupy no stack slots at all and are encoded
-directly, which is why reordering them cannot trigger the bug.
+The consequences went further when the reordered arguments occupied different numbers of stack
+slots. Each argument's slots still arrived at the encoder grouped together, but since the
+encoder split the stack according to the declaration, the boundaries between arguments no
+longer lined up, and a parameter could be handed slots that belonged to a different argument.
+String literals, occupying no slots at all, could not shift anything, which is why reordering
+only them does not trigger the bug.
 
 Consider:
 
@@ -118,8 +130,8 @@ string.
 Depending on the actual values, the encoding could abort with an EVM-level error, which still
 caused the transaction to revert - but with no decodable error data - rather than producing
 the intended custom-error revert. Alternatively, the contract reverted with a payload that
-did not match the error's ABI signature but could still decode successfully: the misplaced
-words are just numbers, and a small integer can easily pass for a valid offset. This case is
+still matched the error's ABI signature and decoded successfully: the misplaced words are
+just numbers, and a small integer can easily pass for a valid offset. This case is
 arguably worse - a consumer that matches on the error selector and decodes the fields
 observes plausible-looking values that have no relation to the source-level arguments.
 
@@ -140,10 +152,10 @@ For exmaple, [ERC-3668 (CCIP Read)](https://eips.ethereum.org/EIPS/eip-3668) rel
 the `OffchainLookup` custom error to drive off-chain data retrieval. While ERC-3668 includes
 mechanisms that protect against forged revert errors, they do not help when an honest
 contract emits mis-encoded revert data due to a compiler bug. Since `OffchainLookup` mixes
-dynamic and value types, a misordering in an affected `require` would most likely produce a
-garbled payload that breaks the lookup flow, though not necessarily in an obviously detectable
-way. Standards like this, which make revert data part of a contract's interface, factored
-into our severity assessment.
+dynamic and value types, a misordering in an affected `require` would produce a payload that
+decodes cleanly but carries the wrong values, breaking the lookup flow in a way that is not
+necessarily easy to detect. Standards like this, which make revert data part of a contract's
+interface, factored into our severity assessment.
 
 There is no meaningful avenue for third-party exploitation. An attacker cannot introduce the
 mis-encoding into a correctly written contract - the misordered named arguments must already
