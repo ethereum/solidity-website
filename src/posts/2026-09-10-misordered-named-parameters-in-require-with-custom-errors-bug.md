@@ -148,7 +148,7 @@ the stack-misalignment cases the failure is more visible: an encoding-level reve
 replace the intended custom-error revert, so code that distinguishes specific custom errors
 from generic reverts may take a different branch than expected.
 
-For exmaple, [ERC-3668 (CCIP Read)](https://eips.ethereum.org/EIPS/eip-3668) relies on clients decoding
+For example, [ERC-3668 (CCIP Read)](https://eips.ethereum.org/EIPS/eip-3668) relies on clients decoding
 the `OffchainLookup` custom error to drive off-chain data retrieval. While ERC-3668 includes
 mechanisms that protect against forged revert errors, they do not help when an honest
 contract emits mis-encoded revert data due to a compiler bug. Since `OffchainLookup` mixes
