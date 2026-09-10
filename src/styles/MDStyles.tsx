@@ -130,6 +130,20 @@ export const MDStyles = {
     </Code>
   ),
   img: (img: any) => {
+    if (/\.(mp4|webm)$/.test(img.src ?? '')) {
+      return (
+        <Box
+          as="video"
+          display="block"
+          mx="auto"
+          maxW="100%"
+          src={img.src}
+          aria-label={img.alt}
+          controls
+          preload="metadata"
+        />
+      )
+    }
     return <Image display="block" mx="auto" src={img.src} alt={img.alt} />
   },
   hr: ({ children }: any) => {
